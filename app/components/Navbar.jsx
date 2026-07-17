@@ -6,18 +6,23 @@ import styles from "@/app/styles/navbar.module.css";
 import DropdownPanel from "./DropdownPanel";
 import MobileMenu from "./MobileMenu";
 import { navigation } from "./navigationData";
+import { useNavbar } from "@/app/context/NavbarContext";
 
 export default function Navbar() {
 
   const [activeMenu, setActiveMenu] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { cinematic } = useNavbar();
+
 
 
   return (
-    <nav
-      className={styles.navbar}
-      onMouseLeave={() => setActiveMenu(null)}
-    >
+<nav
+  className={`${styles.navbar} ${
+    cinematic ? styles.cinematic : ""
+  }`}
+  onMouseLeave={() => setActiveMenu(null)}
+>
 
 
       {/* LOGO */}

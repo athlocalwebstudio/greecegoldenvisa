@@ -1,5 +1,6 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import { NavbarProvider } from "./context/NavbarContext";
 
 export const metadata = {
   title: "Golden Visa Greece | Premium Consulting",
@@ -10,10 +11,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+
       <body>
-        <Navbar />
-        {children}
+
+        <NavbarProvider>
+
+          <Navbar />
+
+          {children}
+
+        </NavbarProvider>
+
       </body>
+
     </html>
   );
 }

@@ -21,9 +21,55 @@
 
   border-bottom: 1px solid rgba(15, 44, 89, 0.08);
 
-  z-index: 1000;
+  z-index: 9999;
 
   transition: all 0.3s ease;
+    transition:
+  transform .5s ease,
+  opacity .5s ease;
+}
+/* =========================================
+   CINEMATIC MODE
+========================================= */
+
+.cinematic {
+
+  transform:translateY(-100%);
+
+  opacity:0;
+
+  pointer-events:none;
+
+}
+
+
+.cinematic .logoContainer {
+
+  color:white;
+
+}
+
+
+.cinematic .navItem {
+
+  color:white;
+
+}
+
+
+.cinematic .navItem:hover {
+
+  color:#3BA9EF;
+
+}
+
+
+.cinematic .cta {
+
+  background:white;
+
+  color:#0F2C59;
+
 }
 
 

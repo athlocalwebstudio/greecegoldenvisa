@@ -1,0 +1,225 @@
+
+.greeceExperience {
+
+  background:white;
+
+     border-radius:40px 40px 0 0;
+
+  box-shadow:
+    0 -40px 90px rgba(15,44,89,.14);
+
+}
+
+/* INTRO SECTION */
+
+.intro {
+
+  width: min(900px, 90%);
+
+  margin: 0 auto;
+
+  padding: 7rem 0 5rem;
+
+  text-align: center;
+
+}
+
+
+.label {
+
+  display:inline-block;
+
+  padding:.45rem 1.2rem;
+
+  border-radius:999px;
+
+  background:#e8f4fd;
+
+  color:#0F2C59;
+
+  font-size:.85rem;
+
+  font-weight:700;
+
+  text-transform:uppercase;
+
+  letter-spacing:.08em;
+
+  margin-bottom:1.5rem;
+
+}
+
+
+.intro h2 {
+
+  font-size:clamp(2.5rem,5vw,4rem);
+
+  line-height:1.05;
+
+  letter-spacing:-.04em;
+
+  margin-bottom:1.5rem;
+
+}
+
+
+.intro p {
+
+  max-width:650px;
+
+  margin:auto;
+
+  color:#64748b;
+
+  font-size:1.15rem;
+
+  line-height:1.7;
+
+}
+
+
+
+/* SCROLL AREA */
+
+.storyWrapper {
+
+  height:500vh;
+
+  position:relative;
+
+}
+
+
+/* STICKY SCREEN */
+
+.stickyStage {
+
+  position:sticky;
+  top:0;
+
+  height:100vh;
+  width:100%;
+
+  overflow:hidden;
+
+  isolation:isolate;
+
+}
+
+
+/* IMAGE CONTAINER */
+
+.imageWrapper {
+
+  position:absolute;
+
+  inset:0;
+
+}
+
+
+/* IMAGE */
+
+.image {
+
+  object-fit:cover;
+
+}
+
+
+/* OVERLAY */
+.overlay {
+
+position:absolute;
+inset:0;
+z-index:1;
+
+background:
+linear-gradient(
+180deg,
+rgba(0,0,0,.15),
+rgba(0,0,0,.55)
+);
+
+}
+
+
+/* TEXT ON IMAGE */
+
+.sceneContent {
+
+  position:absolute;
+
+  z-index:2;
+
+  left:50%;
+  top:60%;
+
+  transform:translate(-50%,-50%);
+
+  width:min(750px,90%);
+
+  text-align:center;
+
+  color:white;
+
+}
+
+
+
+
+.sceneContent h3 {
+
+  color:white;
+
+  font-size:clamp(2.5rem,5vw,4rem);
+
+  line-height:1.05;
+
+  margin-bottom:1.5rem;
+
+}
+
+
+.sceneContent p {
+
+  font-size:1.2rem;
+
+  line-height:1.7;
+
+  color:rgba(255,255,255,0.9);
+
+}
+
+
+
+@media(max-width:768px){
+
+  .storyWrapper {
+
+    height:400vh;
+
+  }
+
+
+  .sceneContent h3 {
+
+    font-size:2.2rem;
+
+  }
+
+
+  .sceneContent p {
+
+    font-size:1rem;
+
+  }
+
+}
+.scene {
+
+  position:absolute;
+
+  inset:0;
+
+}
