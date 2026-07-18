@@ -22,6 +22,9 @@
 
   text-align: center;
 
+  font-family:var(--font-sans);
+
+
 }
 
 
@@ -104,6 +107,8 @@
 
   isolation:isolate;
 
+  background: black;
+
 }
 
 
@@ -111,9 +116,11 @@
 
 .imageWrapper {
 
-  position:absolute;
+position:absolute;
 
-  inset:0;
+inset:-20px;
+
+filter:blur(0px);
 
 }
 
@@ -124,21 +131,49 @@
 
   object-fit:cover;
 
+  will-change:transform;
+
+  transform-origin:center center;
+
+  filter:
+  brightness(1.05)
+  contrast(1.05)
+  saturate(1.1);
+
+
 }
 
 
 /* OVERLAY */
+
 .overlay {
 
 position:absolute;
 inset:0;
 z-index:1;
 
+}
+
+
+.lightOverlay {
+
 background:
 linear-gradient(
 180deg,
-rgba(0,0,0,.15),
+rgba(15,44,89,.35),
 rgba(0,0,0,.55)
+);
+
+}
+
+
+.darkOverlay {
+
+background:
+linear-gradient(
+180deg,
+rgba(15,44,89,.15),
+rgba(0,0,0,.35)
 );
 
 }
@@ -155,13 +190,16 @@ rgba(0,0,0,.55)
   left:50%;
   top:60%;
 
-  transform:translate(-50%,-50%);
+  transform:
+  translate(-50%,-50%);
 
   width:min(750px,90%);
 
   text-align:center;
 
   color:white;
+
+  animation:textReveal 1s cubic-bezier(.22,1,.36,1);
 
 }
 
@@ -170,11 +208,21 @@ rgba(0,0,0,.55)
 
 .sceneContent h3 {
 
-  color:white;
+   color:white;
 
-  font-size:clamp(2.5rem,5vw,4rem);
+   font-family:inherit;
 
-  line-height:1.05;
+   font-size:clamp(3rem,5vw,4.8rem);
+
+   font-weight:500;
+
+   line-height:1;
+
+   letter-spacing:-0.04em;
+
+   text-shadow:
+  0 10px 40px rgba(0,0,0,.25);
+
 
   margin-bottom:1.5rem;
 
@@ -183,9 +231,15 @@ rgba(0,0,0,.55)
 
 .sceneContent p {
 
-  font-size:1.2rem;
+  font-family:var(--font-sans);
 
-  line-height:1.7;
+  font-size:1.25rem;
+
+  line-height:1.8;
+
+  max-width:600px;
+
+  margin:auto;
 
   color:rgba(255,255,255,0.9);
 
@@ -221,5 +275,131 @@ rgba(0,0,0,.55)
   position:absolute;
 
   inset:0;
+
+}
+.previousImage {
+
+z-index:1;
+
+animation:
+sceneExit .8s ease forwards;
+
+}
+
+
+.currentImage {
+
+z-index:2;
+
+animation:
+sceneEnter .8s cubic-bezier(.22,1,.36,1) forwards,
+
+}
+
+
+
+@keyframes fadeInScene {
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+
+
+@keyframes fadeOutScene {
+
+from{
+
+opacity:1;
+
+}
+
+to{
+
+opacity:0;
+
+}
+
+}
+@keyframes textReveal {
+
+from {
+
+opacity:0;
+
+filter:blur(10px);
+
+transform:
+translate(-50%,-35%);
+
+}
+
+
+to {
+
+opacity:1;
+
+filter:blur(0);
+
+transform:
+translate(-50%,-50%);
+
+}
+
+}
+
+@keyframes sceneEnter {
+
+
+from {
+
+opacity:0;
+
+filter:blur(12px);
+
+}
+
+
+to {
+
+opacity:1;
+
+filter:blur(0);
+
+}
+
+}
+
+
+@keyframes sceneExit {
+
+
+from {
+
+opacity:1;
+
+filter:blur(0);
+
+}
+
+
+to {
+
+opacity:0;
+
+filter:blur(8px);
+
+}
+
 
 }

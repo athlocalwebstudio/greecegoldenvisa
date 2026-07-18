@@ -5,36 +5,94 @@ import { useNavbar } from "@/app/context/NavbarContext";
 import Image from "next/image";
 import { greeceScenes } from "./GreeceExperienceData";
 import styles from "./GreeceExperience.module.css";
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets:["latin"],
+  weight:["400","500","600","700"],
+});
 
 export default function GreeceExperience() {
 
   const sectionRef = useRef(null);
   const [progress, setProgress] = useState(0);
-  const activeScene = Math.min(
+  const [previousScene, setPreviousScene] = useState(null);
+  const [activeSceneIndex, setActiveSceneIndex] = useState(0);
+  const calculatedScene = Math.min(
   Math.floor(progress * greeceScenes.length),
   greeceScenes.length - 1
 );
 
-const currentScene = greeceScenes[activeScene];
+
+useEffect(() => {
+
+  if(calculatedScene !== activeSceneIndex){
+
+    setPreviousScene(
+      greeceScenes[activeSceneIndex]
+    );
+
+
+    setActiveSceneIndex(calculatedScene);
+
+
+    const timer = setTimeout(() => {
+
+      setPreviousScene(null);
+
+    },800);
+
+
+    return () => clearTimeout(timer);
+
+  }
+
+
+},[
+ calculatedScene,
+ activeSceneIndex
+]);
+
+
+const currentScene = greeceScenes[activeSceneIndex];
+const sceneProgress =
+(progress * greeceScenes.length) % 1;
+
+const textEnter = Math.min(
+  Math.max((sceneProgress - 0.02) / 0.10, 0),
+  1
+);
+
+
+const textExit = Math.min(
+  Math.max((sceneProgress - 0.85) / 0.15, 0),
+  1
+);
+
+
+const textOpacity = textEnter * (1 - textExit);
+
+
+const textTranslate =
+15 - textEnter * 15 - textExit * 25;
+
+
+
 
   const { setCinematic } = useNavbar();
 
 
   useEffect(() => {
 
-    const observer = new IntersectionObserver(
-
-      ([entry]) => {
-
-        setCinematic(entry.isIntersecting);
-
-      },
-
-      {
-        threshold:0.2
-      }
-
-    );
+   const observer = new IntersectionObserver(
+  ([entry]) => {
+    setCinematic(entry.isIntersecting);
+  },
+  {
+  threshold:0.1,
+  rootMargin:"-84px 0px 0px 0px"
+  }
+);
 
 
     if(sectionRef.current){
@@ -92,11 +150,13 @@ const currentScene = greeceScenes[activeScene];
 
 }, []);
 
+const easedProgress =
+sceneProgress * sceneProgress * (3 - 2 * sceneProgress);
+
 
   return (
-   <section
-  ref={sectionRef}
-  className={styles.greeceExperience}
+<section
+  className={`${styles.greeceExperience} ${playfair.className}`}
 >
 
 
@@ -126,23 +186,93 @@ const currentScene = greeceScenes[activeScene];
 
       {/* SCROLL STORY AREA */}
 
-    <div className={styles.storyWrapper}>
+    <div 
+  ref={sectionRef}
+  className={styles.storyWrapper}
+>
 
   <div className={styles.stickyStage}>
+<div className={styles.imageWrapper}>
 
-    <Image
- src={currentScene.image}
- alt={currentScene.title}
- fill
- className={styles.image}
- priority
+
+{previousScene && (
+
+<Image
+
+src={previousScene.image}
+
+alt=""
+
+fill
+
+quality={100}
+
+className={`${styles.image} ${styles.previousImage}`}
+
+style={{
+objectPosition:previousScene.position
+}}
+
+/>
+
+)}
+
+
+
+<Image
+
+key={currentScene.id}
+
+src={currentScene.image}
+
+alt={currentScene.title}
+
+fill
+
+quality={100}
+
+className={`${styles.image} ${styles.currentImage}`}
+
+style={{
+  objectPosition: currentScene.position,
+
+  transform:`
+scale(${1 + easedProgress * 0.08})
+translateY(${easedProgress * -35}px)
+`
+}}
+
 />
 
 
-    <div className={styles.overlay} />
+</div>
 
 
-    <div className={styles.sceneContent}>
+    <div 
+className={`${styles.overlay} ${
+ currentScene.overlay === "light"
+ ? styles.lightOverlay
+ : styles.darkOverlay
+}`}
+/>
+
+
+<div 
+key={currentScene.id}
+className={styles.sceneContent}
+style={{
+
+opacity:textOpacity,
+
+transform:`
+translate(-50%, calc(-50% + ${textTranslate}px))
+`,
+
+filter:
+`blur(${10 - textOpacity * 10}px)`
+
+}}
+>
 
      <h3>
   {currentScene.title}

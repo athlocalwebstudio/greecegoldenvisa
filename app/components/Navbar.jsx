@@ -13,16 +13,14 @@ export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { cinematic } = useNavbar();
+ const navClass = `${styles.navbar} ${cinematic ? styles.cinematic : ""}`;
 
 
-
-  return (
-<nav
-  className={`${styles.navbar} ${
-    cinematic ? styles.cinematic : ""
-  }`}
-  onMouseLeave={() => setActiveMenu(null)}
->
+return (
+  <nav
+    className={navClass}
+    onMouseLeave={() => setActiveMenu(null)}
+  >
 
 
       {/* LOGO */}

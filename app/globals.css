@@ -1,6 +1,8 @@
+
 /* =========================================
    1. DESIGN TOKENS
    ========================================= */
+
 
 :root {
 
@@ -101,7 +103,9 @@ h4 {
 
   color:var(--color-text);
 
-  letter-spacing:-0.04em;
+  letter-spacing:-0.02em;
+
+  font-weight:700;
 
 }
 
@@ -109,6 +113,8 @@ h4 {
 p {
 
   color:var(--color-text-muted);
+
+  line-height:1.8;
 
 }
 
@@ -145,7 +151,7 @@ p {
 
   cursor:pointer;
 
-  font-weight:600;
+  font-weight:700;
 
   transition:.3s ease;
 
