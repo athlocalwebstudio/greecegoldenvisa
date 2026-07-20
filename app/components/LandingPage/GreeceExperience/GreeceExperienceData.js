@@ -20,12 +20,13 @@ export const greeceScenes = [
   camera:{
 
     scale:0.08,
-    moveY:-35,
+    moveY:-18,
 
     enterBlur:12,
 
     zoomSpeed:1,
-    easing:"smooth"
+    easing:"smooth",
+    moveX:-18
 
   },
 
@@ -93,12 +94,13 @@ export const greeceScenes = [
   camera:{
 
     scale:0.08,
-    moveY:-35,
+    moveY:-18,
 
     enterBlur:12,
 
     zoomSpeed:1,
-    easing:"smooth"
+    easing:"smooth",
+    moveX:22
 
   },
 
@@ -166,12 +168,13 @@ export const greeceScenes = [
   camera:{
 
     scale:0.08,
-    moveY:-35,
+    moveY:-18,
 
     enterBlur:12,
 
     zoomSpeed:1,
-    easing:"smooth"
+    easing:"smooth",
+    moveX:10
 
   },
 
@@ -239,12 +242,13 @@ export const greeceScenes = [
   camera:{
 
     scale:0.08,
-    moveY:-35,
+    moveY:-18,
 
     enterBlur:12,
 
     zoomSpeed:1,
-    easing:"smooth"
+    easing:"smooth",
+    moveX:-25
 
   },
 

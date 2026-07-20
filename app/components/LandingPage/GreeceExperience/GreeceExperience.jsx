@@ -57,15 +57,43 @@ SCENE CALCULATION
 */
 
 
-const calculatedScene = Math.min(
+let accumulated = 0;
 
-Math.floor(
-progress * greeceScenes.length
-),
+let calculatedScene = 0;
 
-greeceScenes.length - 1
+let activeSceneProgress = 0;
 
-);
+
+greeceScenes.forEach((scene,index)=>{
+
+const start = accumulated;
+
+
+const end =
+accumulated + scene.duration / 100;
+
+
+
+if(
+progress >= start &&
+progress <= end
+){
+
+calculatedScene = index;
+
+
+activeSceneProgress =
+(progress - start)
+/
+(end - start);
+
+}
+
+
+accumulated = end;
+
+
+});
 
 
 
@@ -133,13 +161,7 @@ LOCAL SCENE PROGRESS
 */
 
 
-const sceneProgress =
-(
-progress *
-greeceScenes.length
-)
-%
-1;
+const sceneProgress = activeSceneProgress;
 
 
 
@@ -473,14 +495,23 @@ className={
 }
 
 
-
 style={{
 
 
 objectPosition:
 previousScene.position,
+
+
 opacity:
-isTransitioning ? 0.8 : 0,
+isTransitioning ? 1 : 0,
+
+
+transform:
+"scale(1.03)",
+
+
+filter:
+"blur(0px)"
 
 
 }}
@@ -523,41 +554,33 @@ className={
 `${styles.image} ${styles.currentImage}`
 }
 
-
-
 style={{
 
+  objectPosition:
+  currentScene.position,
 
-objectPosition:
-currentScene.position,
-opacity:
-isTransitioning ? 1 : 1,
+  opacity:
+  isTransitioning ? 0 : 1,
 
+  transform:`
+    scale(${
+      1 +
+      (
+        easedProgress *
+        currentScene.camera.scale
+      )
+    })
 
+    translateX(${
+      easedProgress *
+      currentScene.camera.moveX
+    }px)
 
-transform:
-
-`
-scale(
-${
-1 +
-(
-easedProgress *
-currentScene.camera.scale
-)
-}
-)
-
-translateY(
-
-${
-easedProgress *
-currentScene.camera.moveY
-}px
-
-)
-
-`
+    translateY(${
+      easedProgress *
+      currentScene.camera.moveY
+    }px)
+  `
 
 }}
 
@@ -680,8 +703,7 @@ calc(
 
 >
 
-
-<h3>
+<h3 className={styles.sceneTitle}>
 
 {currentScene.title}
 
@@ -690,7 +712,7 @@ calc(
 
 
 
-<p>
+<p className={styles.sceneDescription}>
 
 {currentScene.description}
 
@@ -704,15 +726,113 @@ calc(
 
 
 
+<div className={styles.sceneIndicator}>
+
+{
+greeceScenes.map((scene,index)=>(
+
+<div
+key={scene.id}
+className={styles.indicatorItem}
+>
+
+
+<div
+
+className={`
+${styles.sceneDot}
+
+${
+index === activeSceneIndex
+?
+styles.activeDot
+:
+""
+}
+
+`}
+
+/>
+
+
+{
+index !== greeceScenes.length - 1 && (
+
+<div
+
+className={styles.indicatorLine}
+
+/>
+
+)
+
+}
+
+
+</div>
+
+))
+
+}
+
+</div>
+</div>
 
 </div>
 
 
+{/* MOBILE EXPERIENCE */}
+
+<div className={styles.mobileExperience}>
+
+  {greeceScenes.map((scene) => (
+
+    <div
+      key={scene.id}
+      className={styles.mobileScene}
+    >
+
+      <div className={styles.mobileImageWrapper}>
+
+        <Image
+          src={scene.image}
+          alt={scene.title}
+          fill
+          quality={100}
+          className={styles.mobileImage}
+          style={{
+            objectPosition: scene.position
+          }}
+        />
+
+        <div
+          className={styles.mobileOverlay}
+          style={{
+            background: `
+              linear-gradient(
+                180deg,
+                rgba(15,44,89,${scene.overlay.top}),
+                rgba(0,0,0,${scene.overlay.bottom})
+              )
+            `
+          }}
+        />
+
+      </div>
+
+      <div className={styles.mobileContent}>
+
+        <h3>{scene.title}</h3>
+
+        <p>{scene.description}</p>
+
+      </div>
+
+    </div>
+
+  ))}
+
 </div>
-
-
-
-
 
 
 </section>

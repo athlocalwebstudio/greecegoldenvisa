@@ -119,7 +119,7 @@ SCROLL STORY
 
   isolation:isolate;
 
-  background:#000;
+  background:#050505;;
 
 }
 
@@ -403,5 +403,446 @@ to {
 
 }
 
+
+}
+/* ==============================
+   CINEMATIC SCENE INDICATOR
+================================ */
+
+
+.sceneIndicator {
+
+position:absolute;
+
+right:50px;
+
+top:50%;
+
+transform:
+translateY(-50%);
+
+z-index:5;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+
+.indicatorItem {
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+
+.sceneDot {
+
+
+width:10px;
+
+height:10px;
+
+border-radius:50%;
+
+background:
+rgba(255,255,255,.45);
+
+
+transition:
+all .5s cubic-bezier(.22,1,.36,1);
+
+
+box-shadow:
+0 0 0 rgba(255,255,255,0);
+
+
+}
+
+
+
+
+.activeDot {
+
+
+width:16px;
+
+height:16px;
+
+
+background:white;
+
+
+box-shadow:
+
+0 0 20px rgba(255,255,255,.8);
+
+
+transform:
+scale(1.15);
+
+}
+
+
+
+
+.indicatorLine {
+
+
+width:1px;
+
+height:45px;
+
+
+background:
+
+linear-gradient(
+
+180deg,
+
+rgba(255,255,255,.5),
+
+rgba(255,255,255,.15)
+
+);
+
+
+margin:14px 0;
+
+
+}
+/* =================================
+   CINEMATIC TEXT REFINEMENT
+================================= */
+
+
+.sceneContent {
+
+  overflow:hidden;
+
+}
+
+
+/* TITLE */
+
+.sceneTitle {
+
+
+  opacity:0;
+
+
+  transform:
+  translateY(40px);
+
+
+  letter-spacing:-0.06em;
+
+
+  animation:
+  titleReveal .9s cubic-bezier(.22,1,.36,1)
+  forwards;
+
+
+
+}
+
+
+
+
+/* DESCRIPTION */
+
+.sceneDescription {
+
+
+  opacity:0;
+
+
+  transform:
+  translateY(25px);
+
+
+  letter-spacing:.02em;
+
+
+  animation:
+  descriptionReveal 1s cubic-bezier(.22,1,.36,1)
+  .25s forwards;
+
+
+
+}
+
+
+
+
+@keyframes titleReveal {
+
+
+from {
+
+
+opacity:0;
+
+
+transform:
+translateY(40px);
+
+
+letter-spacing:-0.12em;
+
+
+filter:
+blur(8px);
+
+
+}
+
+
+
+to {
+
+
+opacity:1;
+
+
+transform:
+translateY(0);
+
+
+letter-spacing:-0.04em;
+
+
+filter:
+blur(0);
+
+
+}
+
+
+
+}
+
+
+
+
+@keyframes descriptionReveal {
+
+
+from {
+
+
+opacity:0;
+
+
+transform:
+translateY(25px);
+
+
+filter:
+blur(6px);
+
+
+}
+
+
+
+to {
+
+
+opacity:1;
+
+
+transform:
+translateY(0);
+
+
+filter:
+blur(0);
+
+
+}
+
+
+
+}
+/* =================================
+   CINEMATIC IMAGE TRANSITIONS
+================================= */
+
+
+.image {
+
+
+transition:
+
+opacity .9s cubic-bezier(.22,1,.36,1),
+transform 1.2s cubic-bezier(.22,1,.36,1),
+filter .9s ease;
+
+
+will-change:
+opacity,
+transform,
+filter;
+
+
+}
+
+
+/* ==========================================
+   MOBILE STORY
+========================================== */
+
+.mobileExperience{
+
+display:none;
+
+flex-direction:column;
+
+background:white;
+
+}
+
+
+.mobileScene{
+
+position:relative;
+
+min-height:100svh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+overflow:hidden;
+
+}
+
+
+.mobileImageWrapper{
+
+position:absolute;
+
+inset:0;
+
+}
+
+
+.mobileImage{
+
+object-fit:cover;
+
+transform:scale(1.04);
+
+}
+
+
+.mobileOverlay{
+
+position:absolute;
+
+inset:0;
+
+}
+
+
+.mobileContent{
+
+position:relative;
+
+z-index:2;
+
+margin-top:auto;
+
+padding:2rem;
+
+text-align:center;
+
+color:white;
+
+backdrop-filter:blur(2px);
+
+}
+
+
+.mobileContent h3{
+
+font-size:2.3rem;
+
+font-weight:500;
+
+line-height:1.1;
+
+letter-spacing:-0.04em;
+
+margin-bottom:1rem;
+
+text-shadow:
+0 10px 30px rgba(0,0,0,.35);
+
+}
+
+
+.mobileContent p{
+
+font-family:var(--font-sans);
+
+font-size:1rem;
+
+line-height:1.7;
+
+max-width:340px;
+
+margin:0 auto;
+
+color:rgba(255,255,255,.92);
+
+}
+
+
+/* ==============================
+   MOBILE LAYOUT
+============================== */
+
+@media (max-width:768px){
+
+.storyWrapper{
+
+display:none;
+
+}
+
+.mobileExperience{
+
+display:flex;
+
+}
+
+.intro{
+
+padding:5rem 1.5rem 3rem;
+
+}
+
+.intro h2{
+
+font-size:2.4rem;
+
+}
+
+.intro p{
+
+font-size:1rem;
+
+}
 
 }
