@@ -1,31 +1,34 @@
-
 .greeceExperience {
 
   background:white;
 
-     border-radius:40px 40px 0 0;
+  border-radius:40px 40px 0 0;
 
   box-shadow:
     0 -40px 90px rgba(15,44,89,.14);
 
 }
 
-/* INTRO SECTION */
+
+/* =========================
+INTRO SECTION
+========================= */
+
 
 .intro {
 
-  width: min(900px, 90%);
+  width:min(900px,90%);
 
-  margin: 0 auto;
+  margin:0 auto;
 
-  padding: 7rem 0 5rem;
+  padding:7rem 0 5rem;
 
-  text-align: center;
+  text-align:center;
 
   font-family:var(--font-sans);
 
-
 }
+
 
 
 .label {
@@ -53,6 +56,7 @@
 }
 
 
+
 .intro h2 {
 
   font-size:clamp(2.5rem,5vw,4rem);
@@ -64,6 +68,7 @@
   margin-bottom:1.5rem;
 
 }
+
 
 
 .intro p {
@@ -82,7 +87,11 @@
 
 
 
-/* SCROLL AREA */
+
+/* =========================
+SCROLL STORY
+========================= */
+
 
 .storyWrapper {
 
@@ -93,45 +102,52 @@
 }
 
 
-/* STICKY SCREEN */
+
+
 
 .stickyStage {
 
   position:sticky;
+
   top:0;
 
   height:100vh;
+
   width:100%;
 
   overflow:hidden;
 
   isolation:isolate;
 
-  background: black;
+  background:#000;
 
 }
 
 
-/* IMAGE CONTAINER */
+
+
+
+/* =========================
+IMAGE
+========================= */
+
 
 .imageWrapper {
 
-position:absolute;
+  position:absolute;
 
-inset:-20px;
-
-filter:blur(0px);
+  inset:-10px;
 
 }
 
 
-/* IMAGE */
+
 
 .image {
 
   object-fit:cover;
 
-  will-change:transform;
+  will-change:transform, opacity;
 
   transform-origin:center center;
 
@@ -140,264 +156,250 @@ filter:blur(0px);
   contrast(1.05)
   saturate(1.1);
 
+  transition:
+opacity .9s ease,
+filter .9s ease,
+transform .9s ease;
 
 }
 
 
-/* OVERLAY */
 
-.overlay {
+/* OLD IMAGE DURING CROSSFADE */
 
-position:absolute;
-inset:0;
-z-index:1;
+.previousImage {
 
-}
+  z-index:1;
 
-
-.lightOverlay {
-
-background:
-linear-gradient(
-180deg,
-rgba(15,44,89,.35),
-rgba(0,0,0,.55)
-);
+  animation:
+  fadeOutScene .8s ease forwards;
 
 }
 
 
-.darkOverlay {
 
-background:
-linear-gradient(
-180deg,
-rgba(15,44,89,.15),
-rgba(0,0,0,.35)
-);
+/* NEW IMAGE ENTERING */
 
-}
-
-
-/* TEXT ON IMAGE */
-
-.sceneContent {
-
-  position:absolute;
+.currentImage {
 
   z-index:2;
 
+  animation:
+  fadeInScene .8s ease forwards;
+
+}
+
+
+
+
+/* =========================
+OVERLAY
+========================= */
+
+
+.overlay {
+
+  position:absolute;
+
+  inset:0;
+
+  z-index:3;
+
+}
+
+
+
+
+
+/* =========================
+TEXT
+========================= */
+
+
+.sceneContent {
+
+
+  position:absolute;
+
+  z-index:4;
+
+
   left:50%;
-  top:60%;
 
-  transform:
-  translate(-50%,-50%);
 
-  width:min(750px,90%);
+  top:var(--text-top);
 
-  text-align:center;
+
+  width:min(var(--text-width),90%);
+
+
+  text-align:var(--text-align);
+
 
   color:white;
 
-  animation:textReveal 1s cubic-bezier(.22,1,.36,1);
+
+  transform:
+
+  translate(-50%,-50%);
+
+
+  transition:
+
+  opacity .5s ease,
+
+  filter .5s ease,
+
+  transform .5s ease;
+
 
 }
+
 
 
 
 
 .sceneContent h3 {
 
-   color:white;
 
-   font-family:inherit;
+  color:white;
 
-   font-size:clamp(3rem,5vw,4.8rem);
 
-   font-weight:500;
+  font-family:inherit;
 
-   line-height:1;
 
-   letter-spacing:-0.04em;
+  font-size:
 
-   text-shadow:
-  0 10px 40px rgba(0,0,0,.25);
+  clamp(2.8rem,5vw,4.8rem);
+
+
+  font-weight:500;
+
+
+  line-height:1;
+
+
+  letter-spacing:-.04em;
 
 
   margin-bottom:1.5rem;
 
+
+  text-shadow:
+
+  0 10px 40px rgba(0,0,0,.35);
+
+
 }
+
+
+
 
 
 .sceneContent p {
 
+
   font-family:var(--font-sans);
+
 
   font-size:1.25rem;
 
+
   line-height:1.8;
+
 
   max-width:600px;
 
+
   margin:auto;
 
-  color:rgba(255,255,255,0.9);
+
+  color:
+
+  rgba(255,255,255,.9);
+
+
+  text-shadow:
+
+  0 5px 25px rgba(0,0,0,.4);
+
 
 }
 
+
+
+
+/* =========================
+MOBILE
+========================= */
 
 
 @media(max-width:768px){
 
-  .storyWrapper {
 
-    height:400vh;
+.storyWrapper {
 
-  }
-
-
-  .sceneContent h3 {
-
-    font-size:2.2rem;
-
-  }
-
-
-  .sceneContent p {
-
-    font-size:1rem;
-
-  }
-
-}
-.scene {
-
-  position:absolute;
-
-  inset:0;
-
-}
-.previousImage {
-
-z-index:1;
-
-animation:
-sceneExit .8s ease forwards;
-
-}
-
-
-.currentImage {
-
-z-index:2;
-
-animation:
-sceneEnter .8s cubic-bezier(.22,1,.36,1) forwards,
+  height:400vh;
 
 }
 
 
 
+.sceneContent h3 {
+
+
+  font-size:2.2rem;
+
+
+}
+
+
+
+.sceneContent p {
+
+
+  font-size:1rem;
+
+
+}
+
+
+}
 @keyframes fadeInScene {
 
-from{
 
-opacity:0;
+from {
 
-}
-
-to{
-
-opacity:1;
+  opacity:0;
 
 }
 
+
+to {
+
+  opacity:1;
+
 }
+
+
+}
+
 
 
 
 @keyframes fadeOutScene {
 
-from{
-
-opacity:1;
-
-}
-
-to{
-
-opacity:0;
-
-}
-
-}
-@keyframes textReveal {
 
 from {
 
-opacity:0;
-
-filter:blur(10px);
-
-transform:
-translate(-50%,-35%);
+  opacity:1;
 
 }
 
 
 to {
 
-opacity:1;
-
-filter:blur(0);
-
-transform:
-translate(-50%,-50%);
-
-}
-
-}
-
-@keyframes sceneEnter {
-
-
-from {
-
-opacity:0;
-
-filter:blur(12px);
-
-}
-
-
-to {
-
-opacity:1;
-
-filter:blur(0);
-
-}
-
-}
-
-
-@keyframes sceneExit {
-
-
-from {
-
-opacity:1;
-
-filter:blur(0);
-
-}
-
-
-to {
-
-opacity:0;
-
-filter:blur(8px);
+  opacity:0;
 
 }
 
