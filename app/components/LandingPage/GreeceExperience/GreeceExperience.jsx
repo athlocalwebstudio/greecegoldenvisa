@@ -825,31 +825,29 @@ className={styles.mobileStickyStage}
 
 <div className={styles.mobileImageWrapper}>
 
+
+
+
+{/* MAIN SHARP IMAGE */}
 <Image
 key={currentScene.id}
-src={currentScene.image}
+src={currentScene.mobileImage}
 alt={currentScene.title}
 fill
 quality={100}
 sizes="100vw"
 className={styles.mobileImage}
 style={{
-
-objectPosition:
-currentScene.position,
-
-
+objectPosition:"center center",
 }}
 />
 
+
+{/* OVERLAY */}
 <div
-
 className={styles.mobileOverlay}
-
 style={{
-
 background:
-
 `
 linear-gradient(
 180deg,
@@ -857,9 +855,7 @@ rgba(15,44,89,${currentScene.overlay.top}),
 rgba(0,0,0,${currentScene.overlay.bottom})
 )
 `
-
 }}
-
 />
 
 </div>

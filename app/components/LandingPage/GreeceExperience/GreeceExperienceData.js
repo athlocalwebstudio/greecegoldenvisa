@@ -9,6 +9,7 @@ export const greeceScenes = [
   description:"Coffee by the sea. Sunshine every day.",
 
   image:"/morning_image.jpg",
+  mobileImage:"/morning_image_mobile.jpg",
   position:"center center",
 
   overlay:{
@@ -83,6 +84,8 @@ export const greeceScenes = [
   description:"From Greece, Europe becomes part of your everyday life.",
 
   image:"/second_scene.jpg",
+  mobileImage:"/second_scene_mobile.jpg",
+
   position:"center center",
 
   overlay:{
@@ -157,6 +160,7 @@ export const greeceScenes = [
   description:"A destination loved by investors worldwide.",
 
   image:"/third_scene.jpg",
+    mobileImage:"/third_scene_mobile.jpg",
   position:"center center",
 
   overlay:{
@@ -231,6 +235,7 @@ export const greeceScenes = [
   description:"Create memories in Greece for generations.",
 
   image:"/family_scene.jpg",
+  mobileImage:"/family_scene_mobile.jpg",
   position:"center center",
 
   overlay:{

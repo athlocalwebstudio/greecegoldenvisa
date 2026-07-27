@@ -757,8 +757,9 @@ overflow:hidden;
 }
 
 .mobileImage{
+
 object-fit:cover;
-transform:scale(1.03);
+
 }
 
 
@@ -839,6 +840,19 @@ color:rgba(255,255,255,.92);
 
 text-shadow:
 0 5px 20px rgba(0,0,0,.25);
+
+}
+.mobileBackground{
+
+object-fit:cover;
+
+filter:
+blur(35px)
+brightness(.35);
+
+transform:scale(1.15);
+
+z-index:0;
 
 }
 
