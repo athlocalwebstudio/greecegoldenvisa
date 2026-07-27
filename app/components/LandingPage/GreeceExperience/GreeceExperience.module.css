@@ -754,7 +754,9 @@ background:#050505;
 
 position:absolute;
 
-inset:0;
+inset:-10px;
+
+transform:scale(1.03);
 
 }
 
@@ -766,10 +768,7 @@ object-fit:cover;
 
 will-change:transform, opacity;
 
-filter:
-brightness(1.05)
-contrast(1.05)
-saturate(1.1);
+
 
 }
 

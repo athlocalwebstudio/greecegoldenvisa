@@ -831,6 +831,7 @@ src={currentScene.image}
 alt={currentScene.title}
 fill
 quality={100}
+sizes="100vw"
 className={styles.mobileImage}
 style={{
 
