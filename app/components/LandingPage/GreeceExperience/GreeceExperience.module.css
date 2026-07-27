@@ -138,6 +138,8 @@ IMAGE
 
   inset:-10px;
 
+  transform:scale(1.03);
+
 }
 
 
@@ -410,16 +412,19 @@ to {
 ================================ */
 
 
-.sceneIndicator {
+.sceneIndicator{
 
 position:absolute;
 
-right:50px;
+right:28px;
 
-top:50%;
+top:62%;
 
 transform:
-translateY(-50%);
+translateY(-50%) translateX(35px);
+
+opacity:1;
+transition:opacity .8s ease;
 
 z-index:5;
 
@@ -428,6 +433,20 @@ display:flex;
 flex-direction:column;
 
 align-items:center;
+
+transition:
+
+opacity .8s ease,
+transform .8s cubic-bezier(.22,1,.36,1);
+
+}
+
+.indicatorVisible{
+
+opacity:1;
+
+transform:
+translateY(-50%) translateX(0);
 
 }
 
@@ -695,37 +714,40 @@ filter;
 
 }
 
-
 /* ==========================================
-   MOBILE STORY
+   MOBILE CINEMATIC STORY
 ========================================== */
 
-.mobileExperience{
+
+.mobileStoryWrapper{
 
 display:none;
 
-flex-direction:column;
+position:relative;
 
-background:white;
+height:400vh;
 
 }
 
 
-.mobileScene{
 
-position:relative;
+.mobileStickyStage{
 
-min-height:100svh;
+position:sticky;
 
-display:flex;
+top:0;
 
-flex-direction:column;
+height:100svh;
 
-justify-content:center;
+width:100%;
 
 overflow:hidden;
 
+background:#050505;
+
 }
+
+
 
 
 .mobileImageWrapper{
@@ -737,13 +759,21 @@ inset:0;
 }
 
 
+
 .mobileImage{
 
 object-fit:cover;
 
-transform:scale(1.04);
+will-change:transform, opacity;
+
+filter:
+brightness(1.05)
+contrast(1.05)
+saturate(1.1);
 
 }
+
+
 
 
 .mobileOverlay{
@@ -752,44 +782,55 @@ position:absolute;
 
 inset:0;
 
+z-index:2;
+
 }
+
+
+
 
 
 .mobileContent{
 
-position:relative;
+position:absolute;
 
-z-index:2;
+z-index:3;
 
-margin-top:auto;
+left:50%;
 
-padding:2rem;
+top:65%;
+
+width:90%;
+
+transform:translate(-50%,-50%);
 
 text-align:center;
 
 color:white;
 
-backdrop-filter:blur(2px);
-
 }
+
 
 
 .mobileContent h3{
 
-font-size:2.3rem;
+color:#fff;
+
+font-size:clamp(2rem,8vw,3rem);
 
 font-weight:500;
 
-line-height:1.1;
+line-height:1.05;
 
 letter-spacing:-0.04em;
 
 margin-bottom:1rem;
 
 text-shadow:
-0 10px 30px rgba(0,0,0,.35);
+0 10px 35px rgba(0,0,0,.35);
 
 }
+
 
 
 .mobileContent p{
@@ -798,22 +839,27 @@ font-family:var(--font-sans);
 
 font-size:1rem;
 
-line-height:1.7;
+line-height:1.75;
+
+font-weight:400;
 
 max-width:340px;
 
-margin:0 auto;
+margin:auto;
 
 color:rgba(255,255,255,.92);
 
-}
+text-shadow:
+0 5px 20px rgba(0,0,0,.25);
 
+}
 
 /* ==============================
    MOBILE LAYOUT
 ============================== */
 
-@media (max-width:768px){
+@media(max-width:768px){
+
 
 .storyWrapper{
 
@@ -821,28 +867,127 @@ display:none;
 
 }
 
-.mobileExperience{
 
-display:flex;
+.mobileStoryWrapper{
+
+display:block;
 
 }
+
+
+}
+/* =====================================
+   MOVIE MODE
+===================================== */
+
+.movieMode{
+
+transition:
+
+background .9s ease,
+color .9s ease;
+
+}
+/* =====================================
+   MOVIE MODE INTRO
+===================================== */
 
 .intro{
 
-padding:5rem 1.5rem 3rem;
+transition:
+
+opacity .9s ease,
+transform .9s ease,
+filter .9s ease;
 
 }
 
-.intro h2{
+.introMovieMode{
 
-font-size:2.4rem;
+opacity:.18;
+
+transform:
+scale(.97);
+
+filter:
+blur(6px);
+
+pointer-events:none;
+
+}
+/* ================================
+   MOBILE STORY INDICATOR
+================================ */
+
+
+.mobileIndicator{
+
+position:absolute;
+
+right:22px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+z-index:10;
+
+display:flex;
+
+flex-direction:column;
+
+gap:22px;
+
+opacity:1;
+
+transition:
+opacity .8s ease;
 
 }
 
-.intro p{
 
-font-size:1rem;
+
+
+.mobileIndicatorItem{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
 
 }
+
+
+.mobileIndicator .sceneDot{
+
+width:9px;
+
+height:9px;
+
+background:
+rgba(255,255,255,.45);
+
+border-radius:50%;
+
+transition:
+
+all .5s cubic-bezier(.22,1,.36,1);
+
+}
+
+
+
+.mobileIndicator .activeDot{
+
+width:16px;
+
+height:16px;
+
+background:white;
+
+box-shadow:
+
+0 0 20px rgba(255,255,255,.8);
 
 }

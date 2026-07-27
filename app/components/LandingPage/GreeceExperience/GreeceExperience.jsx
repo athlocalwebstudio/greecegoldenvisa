@@ -44,10 +44,12 @@ export default function GreeceExperience(){
 
 
 const sectionRef = useRef(null);
+const mobileSectionRef = useRef(null);
 const [progress,setProgress] = useState(0);
 const [activeSceneIndex,setActiveSceneIndex] = useState(0);
 const [previousScene,setPreviousScene] = useState(null);
 const [isTransitioning,setIsTransitioning] = useState(false);
+const [isMovieMode,setIsMovieMode] = useState(false);
 
 
 /*
@@ -317,18 +319,20 @@ SCROLL TRACKING
 
 useEffect(()=>{
 
-
 function handleScroll(){
 
 
-if(!sectionRef.current)
-return;
-
-
-
 const section =
+window.innerWidth <= 768
+?
+mobileSectionRef.current
+:
 sectionRef.current;
 
+
+
+if(!section)
+return;
 
 
 const rect =
@@ -367,7 +371,15 @@ scrolled / scrollHeight,
 
 setProgress(value);
 
+if(value > 0.02){
 
+    setIsMovieMode(true);
+
+}else{
+
+    setIsMovieMode(false);
+
+}
 
 }
 
@@ -399,9 +411,15 @@ return (
 
 <section
 
-className={
-`${styles.greeceExperience} ${playfair.className}`
-}
+className={`
+
+${styles.greeceExperience}
+
+${playfair.className}
+
+${isMovieMode ? styles.movieMode : ""}
+
+`}
 
 >
 
@@ -409,8 +427,12 @@ className={
 
 {/* INTRO */}
 
-
-<div className={styles.intro}>
+<div
+className={`
+${styles.intro}
+${isMovieMode ? styles.introMovieMode : ""}
+`}
+>
 
 
 <span className={styles.label}>
@@ -726,7 +748,14 @@ calc(
 
 
 
-<div className={styles.sceneIndicator}>
+<div
+
+className={`
+${styles.sceneIndicator}
+${isMovieMode ? styles.indicatorVisible : ""}
+`}
+
+>
 
 {
 greeceScenes.map((scene,index)=>(
@@ -782,55 +811,116 @@ className={styles.indicatorLine}
 
 
 {/* MOBILE EXPERIENCE */}
+ 
+<div
+ref={mobileSectionRef}
+className={styles.mobileStoryWrapper}
+>
 
-<div className={styles.mobileExperience}>
 
-  {greeceScenes.map((scene) => (
+<div
+className={styles.mobileStickyStage}
+>
 
-    <div
-      key={scene.id}
-      className={styles.mobileScene}
-    >
 
-      <div className={styles.mobileImageWrapper}>
+<div className={styles.mobileImageWrapper}>
 
-        <Image
-          src={scene.image}
-          alt={scene.title}
-          fill
-          quality={100}
-          className={styles.mobileImage}
-          style={{
-            objectPosition: scene.position
-          }}
-        />
+<Image
+key={currentScene.id}
+src={currentScene.image}
+alt={currentScene.title}
+fill
+quality={100}
+className={styles.mobileImage}
+style={{
 
-        <div
-          className={styles.mobileOverlay}
-          style={{
-            background: `
-              linear-gradient(
-                180deg,
-                rgba(15,44,89,${scene.overlay.top}),
-                rgba(0,0,0,${scene.overlay.bottom})
-              )
-            `
-          }}
-        />
+objectPosition:
+currentScene.position,
 
-      </div>
 
-      <div className={styles.mobileContent}>
+}}
+/>
 
-        <h3>{scene.title}</h3>
+<div
 
-        <p>{scene.description}</p>
+className={styles.mobileOverlay}
 
-      </div>
+style={{
 
-    </div>
+background:
 
-  ))}
+`
+linear-gradient(
+180deg,
+rgba(15,44,89,${currentScene.overlay.top}),
+rgba(0,0,0,${currentScene.overlay.bottom})
+)
+`
+
+}}
+
+/>
+
+</div>
+
+
+
+<div className={styles.mobileContent}>
+
+<h3>
+
+{currentScene.title}
+
+</h3>
+
+
+<p>
+
+{currentScene.description}
+
+</p>
+
+
+</div>
+
+<div className={styles.mobileIndicator}>
+
+{
+greeceScenes.map((scene,index)=>(
+
+<div
+key={scene.id}
+className={styles.mobileIndicatorItem}
+>
+
+<div
+
+className={`
+${styles.sceneDot}
+
+${
+index === activeSceneIndex
+?
+styles.activeDot
+:
+""
+}
+
+`}
+
+/>
+
+</div>
+
+))
+
+}
+
+</div>
+
+
+</div>
+
 
 </div>
 
