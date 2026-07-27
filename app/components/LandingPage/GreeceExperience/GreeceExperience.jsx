@@ -306,8 +306,43 @@ return ()=>observer.disconnect();
 setCinematic
 ]);
 
+/*
+IMAGE PRELOADING
+*/
+
+useEffect(()=>{
 
 
+const isMobile =
+window.innerWidth <= 768;
+
+
+greeceScenes.forEach((scene)=>{
+
+
+const img = new window.Image();
+
+
+const src = isMobile
+?
+scene.mobileImage
+:
+scene.image;
+
+
+
+const optimizedSrc =
+`/_next/image?url=${encodeURIComponent(src)}&w=1080&q=100`;
+
+
+
+img.src = optimizedSrc;
+
+
+});
+
+
+},[]);
 
 
 /*
@@ -424,7 +459,6 @@ ${isMovieMode ? styles.movieMode : ""}
 >
 
 
-
 {/* INTRO */}
 
 <div
@@ -508,6 +542,7 @@ alt=""
 
 fill
 
+sizes="100vw"
 
 quality={100}
 
@@ -557,9 +592,6 @@ filter:
 <Image
 
 
-key={currentScene.id}
-
-
 src={currentScene.image}
 
 
@@ -568,6 +600,7 @@ alt={currentScene.title}
 
 fill
 
+sizes="100vw"
 
 quality={100}
 
@@ -828,18 +861,60 @@ className={styles.mobileStickyStage}
 
 
 
-{/* MAIN SHARP IMAGE */}
+{/* PREVIOUS MOBILE IMAGE */}
+
+{
+previousScene && (
+
 <Image
-key={currentScene.id}
-src={currentScene.mobileImage}
-alt={currentScene.title}
+
+src={previousScene.mobileImage}
+
+alt=""
+
 fill
+
 quality={100}
+
 sizes="100vw"
-className={styles.mobileImage}
+
+className={`${styles.mobileImage} ${styles.previousMobile}`}
+
 style={{
+
 objectPosition:"center center",
+
+opacity:isTransitioning ? 1 : 0
+
 }}
+
+/>
+
+)
+
+}
+
+
+
+{/* CURRENT MOBILE IMAGE */}
+
+
+<Image
+
+src={currentScene.mobileImage}
+
+alt={currentScene.title}
+
+fill
+
+quality={100}
+
+sizes="100vw"
+
+priority
+
+className={`${styles.mobileImage} ${styles.currentMobile}`}
+
 />
 
 

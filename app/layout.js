@@ -1,47 +1,89 @@
 import "./globals.css";
+
 import Navbar from "./components/Navbar";
 import { NavbarProvider } from "./context/NavbarContext";
-import { Playfair_Display, Inter } from "next/font/google";
 
+import {
+  Playfair_Display,
+  Inter
+} from "next/font/google";
+
+import ClientLayout from "./ClientLayout";
 
 
 const playfair = Playfair_Display({
+
   subsets:["latin"],
+
   variable:"--font-playfair",
+
   display:"swap",
+
 });
 
 
 const inter = Inter({
+
   subsets:["latin"],
+
   variable:"--font-inter",
+
   display:"swap",
+
 });
 
 
 export const metadata = {
+
   title: "Golden Visa Greece | Premium Consulting",
+
   description:
     "Discover the easiest path to obtaining the Greek Golden Visa with a modern, interactive experience.",
+
 };
 
 
+
 export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
 
-      <body>
 
-        <NavbarProvider>
+return (
 
-          <Navbar />
+<html lang="en">
 
-          {children}
 
-        </NavbarProvider>
+<body
+className={`
+${playfair.variable}
+${inter.variable}
+`}
+>
 
-      </body>
 
-    </html>
-  );
+<ClientLayout>
+
+
+<NavbarProvider>
+
+<Navbar />
+
+
+{children}
+
+
+</NavbarProvider>
+
+
+</ClientLayout>
+
+
+
+</body>
+
+
+</html>
+
+);
+
+
 }
