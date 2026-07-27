@@ -751,25 +751,14 @@ background:#050505;
 
 
 .mobileImageWrapper{
-
 position:absolute;
-
-inset:-10px;
-
-transform:scale(1.03);
-
+inset:0;
+overflow:hidden;
 }
 
-
-
 .mobileImage{
-
 object-fit:cover;
-
-will-change:transform, opacity;
-
-
-
+transform:scale(1.03);
 }
 
 
