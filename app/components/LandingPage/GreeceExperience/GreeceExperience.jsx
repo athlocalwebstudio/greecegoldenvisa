@@ -49,6 +49,120 @@ useState(false);
 const [isMobile, setIsMobile] =
 useState(false);
 
+const [cinematicLocked,setCinematicLocked] =
+useState(false);
+
+const [cinematicFinished,setCinematicFinished] =
+useState(false);
+
+// =========================================================
+// EFFECT
+// =========================================================
+
+useEffect(() => {
+
+if(isMobile){
+return;
+}
+
+
+const section =
+sectionRef.current;
+
+
+if(!section){
+return;
+}
+
+
+function handleWheel(e){
+
+const rect =
+section.getBoundingClientRect();
+
+
+const inside =
+rect.top <= 100 &&
+rect.bottom >= window.innerHeight;
+
+
+if(!inside){
+return;
+}
+
+
+if(cinematicFinished){
+return;
+}
+
+
+e.preventDefault();
+
+
+const direction =
+e.deltaY > 0
+? 1
+: -1;
+
+
+setProgress(prev => {
+
+let next =
+prev +
+(
+direction *
+0.25
+);
+
+
+if(next >= 1){
+
+setCinematicFinished(true);
+
+return 1;
+
+}
+
+
+if(next <=0){
+
+return 0;
+
+}
+
+
+return next;
+
+});
+
+
+}
+
+
+window.addEventListener(
+"wheel",
+handleWheel,
+{
+passive:false
+}
+);
+
+
+return()=>{
+
+window.removeEventListener(
+"wheel",
+handleWheel
+);
+
+};
+
+
+},[
+cinematicFinished,
+isMobile
+]);
+
 // =========================================================
 // DEVICE DETECTION
 // =========================================================
@@ -719,6 +833,10 @@ mobileEasedProgress *
 const mobileSceneNumber =
 calculatedScene + 1;
 
+const showButton =
+  isMovieMode &&
+  progress < 0.95;
+
 const isLastMobileScene =
 calculatedScene ===
 greeceScenes.length - 1;
@@ -1187,9 +1305,14 @@ return (
 
       <button
         type="button"
-        className={
-          styles.mobileNextButton
-        }
+        className={`
+  ${styles.mobileNextButton}
+  ${
+    showButton
+      ? styles.buttonVisible
+      : styles.buttonHidden
+  }
+`}
         onClick={
           handleNextScene
         }
