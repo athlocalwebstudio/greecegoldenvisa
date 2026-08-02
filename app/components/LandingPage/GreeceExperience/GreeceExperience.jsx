@@ -50,10 +50,46 @@ const [isMobile, setIsMobile] =
 useState(false);
 
 // =========================================================
+// DEVICE DETECTION
+// =========================================================
+
+useEffect(() => {
+
+
+function handleResize() {
+
+  setIsMobile(
+    window.innerWidth <= 1024
+  );
+
+}
+
+
+handleResize();
+
+
+window.addEventListener(
+  "resize",
+  handleResize
+);
+
+
+return () => {
+
+  window.removeEventListener(
+    "resize",
+    handleResize
+  );
+
+};
+
+
+}, []);
+
+// =========================================================
 // SCENE CALCULATION
 //
-// DESKTOP:
-// Scene changes are driven by scroll progress.
+// ONE SOURCE OF TRUTH FOR BOTH DESKTOP + MOBILE.
 // =========================================================
 
 const totalDuration =
@@ -119,16 +155,16 @@ greeceScenes.forEach(
 );
 
 // =========================================================
-// CURRENT DESKTOP SCENE
+// CURRENT SCENE
 // =========================================================
 
-const desktopScene =
+const currentScene =
 greeceScenes[
 calculatedScene
 ];
 
 // =========================================================
-// DESKTOP LOCAL PROGRESS
+// LOCAL SCENE PROGRESS
 // =========================================================
 
 const sceneProgress =
@@ -141,9 +177,7 @@ activeSceneProgress,
 );
 
 // =========================================================
-// DESKTOP EASING
-//
-// Slightly sharper than before.
+// CINEMATIC EASING
 // =========================================================
 
 const easedProgress =
@@ -156,8 +190,6 @@ sceneProgress *
 
 // =========================================================
 // DESKTOP CAMERA
-//
-// 1.000 → 1.050
 // =========================================================
 
 const desktopCameraScale =
@@ -224,115 +256,22 @@ setCinematic
 } = useNavbar();
 
 // =========================================================
-// DEVICE DETECTION
+// NAVBAR CINEMATIC MODE
 // =========================================================
 
 useEffect(() => {
-
-
-function handleResize() {
-
-  setIsMobile(
-    window.innerWidth <= 1024
-  );
-
-}
-
-
-handleResize();
-
-
-window.addEventListener(
-  "resize",
-  handleResize
-);
-
-
-return () => {
-
-  window.removeEventListener(
-    "resize",
-    handleResize
-  );
-
-};
-
-
-}, []);
-
-// =========================================================
-// NAVBAR — DESKTOP
-// =========================================================
-
-useEffect(() => {
-
-
-if (isMobile) {
-  return;
-}
 
 
 const element =
-  sectionRef.current;
+  isMobile
+    ? mobileSectionRef.current
+    : sectionRef.current;
 
 
 if (!element) {
+
   return;
-}
 
-
-const observer =
-  new IntersectionObserver(
-    ([entry]) => {
-
-      setCinematic(
-        entry.isIntersecting
-      );
-
-    },
-    {
-      threshold: 0.1,
-      rootMargin:
-        "-84px 0px 0px 0px"
-    }
-  );
-
-
-observer.observe(
-  element
-);
-
-
-return () => {
-
-  observer.disconnect();
-
-};
-
-
-}, [
-isMobile,
-setCinematic
-]);
-
-// =========================================================
-// NAVBAR — MOBILE / TABLET
-// =========================================================
-
-useEffect(() => {
-
-
-if (!isMobile) {
-  return;
-}
-
-
-const element =
-  mobileSectionRef.current;
-
-
-if (!element) {
-  return;
 }
 
 
@@ -372,9 +311,6 @@ setCinematic
 
 // =========================================================
 // IMAGE PRELOADING
-//
-// Keep this because the cinematic image swaps should
-// never expose a black frame.
 // =========================================================
 
 useEffect(() => {
@@ -429,7 +365,9 @@ function handleScroll() {
 
 
   if (!section) {
+
     return;
+
   }
 
 
@@ -515,6 +453,277 @@ return () => {
 }, []);
 
 // =========================================================
+// MOBILE / TABLET SCROLL TRACKING
+//
+// THIS WAS THE MISSING PIECE.
+//
+// The mobile story is physically 4 viewport heights.
+//
+// Progress:
+//
+// 0.00 → scene 1
+// 0.25 → scene 2
+// 0.50 → scene 3
+// 0.75 → scene 4
+// 1.00 → end of story
+// =========================================================
+
+useEffect(() => {
+
+
+function handleMobileScroll() {
+
+  if (
+    window.innerWidth > 1024
+  ) {
+
+    return;
+
+  }
+
+
+  const section =
+    mobileSectionRef.current;
+
+
+  if (!section) {
+
+    return;
+
+  }
+
+
+  const rect =
+    section.getBoundingClientRect();
+
+
+  const scrollHeight =
+    section.offsetHeight -
+    window.innerHeight;
+
+
+  if (
+    scrollHeight <= 0
+  ) {
+
+    return;
+
+  }
+
+
+  const scrolled =
+    -rect.top;
+
+
+  const value =
+    Math.min(
+      Math.max(
+        scrolled /
+        scrollHeight,
+        0
+      ),
+      1
+    );
+
+
+  setProgress(
+    value
+  );
+
+
+  setIsMovieMode(
+    value > 0.02
+  );
+
+}
+
+
+handleMobileScroll();
+
+
+window.addEventListener(
+  "scroll",
+  handleMobileScroll,
+  {
+    passive: true
+  }
+);
+
+
+window.addEventListener(
+  "resize",
+  handleMobileScroll
+);
+
+
+return () => {
+
+  window.removeEventListener(
+    "scroll",
+    handleMobileScroll
+  );
+
+
+  window.removeEventListener(
+    "resize",
+    handleMobileScroll
+  );
+
+};
+
+
+}, []);
+
+// =========================================================
+// BUTTON → NEXT SCENE
+//
+// This does NOT replace scrolling.
+//
+// It simply gives the user a second way
+// to advance through the cinematic story.
+// =========================================================
+
+function handleNextScene() {
+
+
+const section =
+  mobileSectionRef.current;
+
+
+if (!section) {
+
+  return;
+
+}
+
+
+const currentProgress =
+  progress;
+
+
+const totalScenes =
+  greeceScenes.length;
+
+
+const currentIndex =
+  Math.min(
+    Math.floor(
+      currentProgress *
+      totalScenes
+    ),
+    totalScenes - 1
+  );
+
+
+const nextIndex =
+  Math.min(
+    currentIndex + 1,
+    totalScenes - 1
+  );
+
+
+if (
+  nextIndex === currentIndex
+) {
+
+  const nextSection =
+    section.nextElementSibling;
+
+
+  if (nextSection) {
+
+    nextSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
+  }
+
+
+  return;
+
+}
+
+
+const sectionTop =
+  section.getBoundingClientRect().top +
+  window.scrollY;
+
+
+const target =
+  sectionTop +
+  (
+    nextIndex *
+    window.innerHeight
+  );
+
+
+window.scrollTo({
+  top: target,
+  behavior: "smooth"
+});
+
+
+}
+
+// =========================================================
+// MOBILE IMAGE SCALE
+// =========================================================
+
+const mobileSceneStart =
+calculatedScene /
+greeceScenes.length;
+
+const mobileSceneEnd =
+(
+calculatedScene + 1
+) /
+greeceScenes.length;
+
+const mobileLocalProgress =
+Math.min(
+Math.max(
+(
+progress -
+mobileSceneStart
+) /
+(
+mobileSceneEnd -
+mobileSceneStart
+),
+0
+),
+1
+);
+
+const mobileEasedProgress =
+mobileLocalProgress *
+mobileLocalProgress *
+(
+3 -
+2 *
+mobileLocalProgress
+);
+
+const mobileCameraScale =
+1 +
+(
+mobileEasedProgress *
+0.045
+);
+
+// =========================================================
+// MOBILE SCENE POSITION
+// =========================================================
+
+const mobileSceneNumber =
+calculatedScene + 1;
+
+const isLastMobileScene =
+calculatedScene ===
+greeceScenes.length - 1;
+
+// =========================================================
 // RENDER
 // =========================================================
 
@@ -587,10 +796,6 @@ return (
       }
     >
 
-      {/* =================================================
-          DESKTOP IMAGES
-      ================================================= */}
-
       <div
         className={
           styles.imageWrapper
@@ -654,10 +859,6 @@ return (
       </div>
 
 
-      {/* =================================================
-          DESKTOP OVERLAY
-      ================================================= */}
-
       <div
         className={
           styles.overlay
@@ -671,13 +872,13 @@ return (
                 15,
                 44,
                 89,
-                ${desktopScene.overlay.top}
+                ${currentScene.overlay.top}
               ),
               rgba(
                 0,
                 0,
                 0,
-                ${desktopScene.overlay.bottom}
+                ${currentScene.overlay.bottom}
               )
             )
           `
@@ -686,10 +887,6 @@ return (
       />
 
 
-      {/* =================================================
-          DESKTOP TEXT
-      ================================================= */}
-
       <div
         className={
           styles.sceneContent
@@ -697,13 +894,13 @@ return (
         style={{
 
           "--text-top":
-            desktopScene.text.top,
+            currentScene.text.top,
 
           "--text-width":
-            desktopScene.text.width,
+            currentScene.text.width,
 
           "--text-align":
-            desktopScene.text.align,
+            currentScene.text.align,
 
           opacity:
             textOpacity,
@@ -727,7 +924,7 @@ return (
           }
         >
           {
-            desktopScene.title
+            currentScene.title
           }
         </h3>
 
@@ -738,16 +935,12 @@ return (
           }
         >
           {
-            desktopScene.description
+            currentScene.description
           }
         </p>
 
       </div>
 
-
-      {/* =================================================
-          DESKTOP INDICATOR
-      ================================================= */}
 
       <div
         className={`
@@ -809,17 +1002,7 @@ return (
   {/* =====================================================
       MOBILE / TABLET STORY
 
-      IMPORTANT:
-
-      This is now a REAL scroll-driven story.
-
-      1 scene = 1 viewport.
-
-      ↓ next scene
-      ↑ previous scene
-
-      When the user reaches scene 1 and continues
-      scrolling upward, they naturally leave the section.
+      ONE VIEWPORT PER SCENE.
   ===================================================== */}
 
   <div
@@ -829,6 +1012,10 @@ return (
     className={
       styles.mobileStoryWrapper
     }
+    style={{
+      "--scene-count":
+        greeceScenes.length
+    }}
   >
 
     <div
@@ -850,52 +1037,9 @@ return (
         {greeceScenes.map(
           (scene, index) => {
 
-            const sceneStart =
-              index /
-              greeceScenes.length;
-
-
-            const sceneEnd =
-              (
-                index + 1
-              ) /
-              greeceScenes.length;
-
-
-            const localProgress =
-              Math.min(
-                Math.max(
-                  (
-                    (
-                      progress -
-                      sceneStart
-                    ) /
-                    (
-                      sceneEnd -
-                      sceneStart
-                    )
-                  ),
-                  0
-                ),
-                1
-              );
-
-
             const isActive =
-              progress >= sceneStart &&
-              (
-                progress < sceneEnd ||
-                index ===
-                  greeceScenes.length - 1
-              );
-
-
-            const scale =
-              1 +
-              (
-                localProgress *
-                0.045
-              );
+              index ===
+              calculatedScene;
 
 
             return (
@@ -933,7 +1077,7 @@ return (
 
                   transform:
                     isActive
-                      ? `scale(${scale})`
+                      ? `scale(${mobileCameraScale})`
                       : "scale(1)"
 
                 }}
@@ -944,10 +1088,6 @@ return (
           }
         )}
 
-
-        {/* =================================================
-            MOBILE OVERLAY
-        ================================================= */}
 
         <div
           className={
@@ -962,13 +1102,13 @@ return (
                   15,
                   44,
                   89,
-                  ${desktopScene.overlay.top}
+                  ${currentScene.overlay.top}
                 ),
                 rgba(
                   0,
                   0,
                   0,
-                  ${desktopScene.overlay.bottom}
+                  ${currentScene.overlay.bottom}
                 )
               )
             `
@@ -980,28 +1120,28 @@ return (
 
 
       {/* =================================================
-          MOBILE TEXT
+          MOBILE CONTENT
       ================================================= */}
 
       <div
-        className={
-          styles.mobileContent
-        }
         key={
           `mobile-content-${calculatedScene}`
+        }
+        className={
+          styles.mobileContent
         }
       >
 
         <h3>
           {
-            desktopScene.title
+            currentScene.title
           }
         </h3>
 
 
         <p>
           {
-            desktopScene.description
+            currentScene.description
           }
         </p>
 
@@ -1009,7 +1149,7 @@ return (
 
 
       {/* =================================================
-          MINIMAL MOBILE INDICATOR
+          MINIMAL SCENE INDICATOR
       ================================================= */}
 
       <div
@@ -1039,6 +1179,37 @@ return (
         )}
 
       </div>
+
+
+      {/* =================================================
+          MINIMAL NEXT BUTTON
+      ================================================= */}
+
+      <button
+        type="button"
+        className={
+          styles.mobileNextButton
+        }
+        onClick={
+          handleNextScene
+        }
+        aria-label={
+          isLastMobileScene
+            ? "Continue to the next section"
+            : `Go to scene ${mobileSceneNumber + 1}`
+        }
+      >
+
+        <span
+          className={
+            styles.mobileNextArrow
+          }
+        >
+          ↓
+        </span>
+
+      </button>
+
 
     </div>
 

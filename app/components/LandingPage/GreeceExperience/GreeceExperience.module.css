@@ -142,22 +142,9 @@ brightness(1.05)
 contrast(1.05)
 saturate(1.1);
 
-/*
-Faster image transitions.
-
-```
-Previous:
-.9s
-
-New:
-.48s
-```
-
-*/
-
 transition:
-opacity .48s cubic-bezier(.22,1,.36,1),
-filter .48s ease;
+opacity .42s cubic-bezier(.22,1,.36,1),
+filter .42s ease;
 
 }
 
@@ -199,9 +186,9 @@ transform:
 translate(-50%,-50%);
 
 transition:
-opacity .35s ease,
-filter .35s ease,
-transform .35s cubic-bezier(.22,1,.36,1);
+opacity .3s ease,
+filter .3s ease,
+transform .3s cubic-bezier(.22,1,.36,1);
 
 overflow:hidden;
 
@@ -268,8 +255,8 @@ translateX(20px);
 opacity:0;
 
 transition:
-opacity .45s ease,
-transform .45s cubic-bezier(.22,1,.36,1);
+opacity .4s ease,
+transform .4s cubic-bezier(.22,1,.36,1);
 
 z-index:5;
 
@@ -313,10 +300,10 @@ background:
 rgba(255,255,255,.4);
 
 transition:
-width .3s cubic-bezier(.22,1,.36,1),
-height .3s cubic-bezier(.22,1,.36,1),
-background .3s ease,
-box-shadow .3s ease;
+width .25s cubic-bezier(.22,1,.36,1),
+height .25s cubic-bezier(.22,1,.36,1),
+background .25s ease,
+box-shadow .25s ease;
 
 }
 
@@ -362,7 +349,7 @@ transform:
 translateY(24px);
 
 animation:
-titleReveal .52s
+titleReveal .5s
 cubic-bezier(.22,1,.36,1)
 forwards;
 
@@ -376,9 +363,9 @@ transform:
 translateY(16px);
 
 animation:
-descriptionReveal .55s
+descriptionReveal .54s
 cubic-bezier(.22,1,.36,1)
-.08s
+.06s
 forwards;
 
 }
@@ -386,19 +373,30 @@ forwards;
 @keyframes titleReveal {
 
 from {
+
+
 opacity:0;
+
 transform:
   translateY(24px);
+
 filter:
-  blur(5px);
+  blur(4px);
+
+
 }
 
 to {
+
+
 opacity:1;
+
 transform:
   translateY(0);
+
 filter:
   blur(0);
+
 
 }
 
@@ -407,14 +405,22 @@ filter:
 @keyframes descriptionReveal {
 
 from {
+
+
 opacity:0;
+
 transform:
   translateY(16px);
+
 filter:
-  blur(4px);
+  blur(3px);
+
+
 }
 
 to {
+
+
 opacity:1;
 
 transform:
@@ -422,6 +428,8 @@ transform:
 
 filter:
   blur(0);
+
+
 }
 
 }
@@ -436,20 +444,11 @@ display:none;
 
 position:relative;
 
-/*
-IMPORTANT:
-
-```
-Every scene gets one viewport.
-
-This is what allows native scrolling to
-move forward AND backward through the story.
-```
-
-*/
-
 height:
-calc(100svh * 4);
+calc(
+100svh *
+var(--scene-count)
+);
 
 }
 
@@ -505,20 +504,10 @@ brightness(1.04)
 contrast(1.04)
 saturate(1.08);
 
-/*
-Fast premium crossfade.
-
-```
-Not slow.
-Not abrupt.
-```
-
-*/
-
 transition:
-opacity .48s cubic-bezier(.22,1,.36,1),
-transform .65s cubic-bezier(.22,1,.36,1),
-filter .48s ease;
+opacity .42s cubic-bezier(.22,1,.36,1),
+transform .6s cubic-bezier(.22,1,.36,1),
+filter .42s ease;
 
 }
 
@@ -550,7 +539,7 @@ z-index:5;
 
 left:50%;
 
-top:55%;
+top:54%;
 
 width:min(88%,620px);
 
@@ -564,10 +553,6 @@ color:white;
 pointer-events:none;
 
 }
-
-/* =========================================================
-MOBILE TITLE
-========================================================= */
 
 .mobileContent h3 {
 
@@ -588,15 +573,11 @@ text-shadow:
 0 10px 35px rgba(0,0,0,.4);
 
 animation:
-mobileTitleReveal .5s
+mobileTitleReveal .48s
 cubic-bezier(.22,1,.36,1)
 both;
 
 }
-
-/* =========================================================
-MOBILE DESCRIPTION
-========================================================= */
 
 .mobileContent p {
 
@@ -621,9 +602,9 @@ text-shadow:
 0 5px 20px rgba(0,0,0,.3);
 
 animation:
-mobileDescriptionReveal .55s
+mobileDescriptionReveal .52s
 cubic-bezier(.22,1,.36,1)
-.06s
+.05s
 both;
 
 }
@@ -635,19 +616,31 @@ MOBILE TEXT ANIMATION
 @keyframes mobileTitleReveal {
 
 from {
+
+
 opacity:0;
+
 transform:
-  translateY(20px);
+  translateY(18px);
+
 filter:
-  blur(5px);
+  blur(4px);
+
+
 }
 
 to {
+
+
 opacity:1;
+
 transform:
   translateY(0);
+
 filter:
   blur(0);
+
+
 }
 
 }
@@ -655,19 +648,31 @@ filter:
 @keyframes mobileDescriptionReveal {
 
 from {
+
+
 opacity:0;
+
 transform:
-  translateY(12px);
+  translateY(10px);
+
 filter:
-  blur(4px);
+  blur(3px);
+
+
 }
 
 to {
+
+
 opacity:1;
+
 transform:
   translateY(0);
+
 filter:
   blur(0);
+
+
 }
 
 }
@@ -680,7 +685,7 @@ MINIMAL MOBILE INDICATOR
 
 position:absolute;
 
-right:18px;
+right:20px;
 
 top:50%;
 
@@ -695,9 +700,11 @@ flex-direction:column;
 
 align-items:center;
 
-gap:18px;
+gap:16px;
 
-opacity:.75;
+opacity:.72;
+
+pointer-events:none;
 
 }
 
@@ -705,33 +712,156 @@ opacity:.75;
 
 display:block;
 
-width:7px;
+width:6px;
 
-height:7px;
+height:6px;
 
 border-radius:50%;
 
 background:
-rgba(255,255,255,.42);
+rgba(255,255,255,.4);
 
 transition:
-width .3s cubic-bezier(.22,1,.36,1),
-height .3s cubic-bezier(.22,1,.36,1),
-background .3s ease,
-box-shadow .3s ease;
+width .25s cubic-bezier(.22,1,.36,1),
+height .25s cubic-bezier(.22,1,.36,1),
+background .25s ease,
+box-shadow .25s ease;
 
 }
 
 .mobileDotActive {
 
-width:13px;
+width:12px;
 
-height:13px;
+height:12px;
 
 background:white;
 
 box-shadow:
-0 0 18px rgba(255,255,255,.75);
+0 0 16px rgba(255,255,255,.7);
+
+}
+
+/* =========================================================
+MINIMAL MOBILE NEXT BUTTON
+========================================================= */
+
+.mobileNextButton {
+
+position:absolute;
+
+z-index:10;
+
+right:22px;
+
+bottom:
+max(
+26px,
+env(safe-area-inset-bottom)
+);
+
+width:54px;
+
+height:54px;
+
+padding:0;
+
+border:1px solid
+rgba(255,255,255,.48);
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:
+rgba(255,255,255,.1);
+
+backdrop-filter:
+blur(16px);
+
+-webkit-backdrop-filter:
+blur(16px);
+
+box-shadow:
+0 12px 35px rgba(0,0,0,.28);
+
+color:white;
+
+cursor:pointer;
+
+transition:
+transform .3s cubic-bezier(.22,1,.36,1),
+background .3s ease,
+border-color .3s ease,
+box-shadow .3s ease;
+
+-webkit-tap-highlight-color:
+transparent;
+
+}
+
+.mobileNextButton:hover {
+
+transform:
+translateY(-3px)
+scale(1.04);
+
+background:
+rgba(255,255,255,.17);
+
+border-color:
+rgba(255,255,255,.75);
+
+box-shadow:
+0 16px 40px rgba(0,0,0,.34);
+
+}
+
+.mobileNextButton:active {
+
+transform:
+scale(.94);
+
+}
+
+.mobileNextButton:focus-visible {
+
+outline:
+2px solid white;
+
+outline-offset:4px;
+
+}
+
+.mobileNextArrow {
+
+display:block;
+
+font-family:
+Arial,
+sans-serif;
+
+font-size:
+1.15rem;
+
+font-weight:300;
+
+line-height:1;
+
+transition:
+transform .3s ease;
+
+}
+
+.mobileNextButton:hover
+.mobileNextArrow {
+
+transform:
+translateY(3px);
 
 }
 
@@ -768,19 +898,35 @@ MOBILE / TABLET BREAKPOINT
 @media(max-width:1024px) {
 
 .storyWrapper {
+
+
 display:none;
+
+
 }
 
 .mobileStoryWrapper {
+
+
 display:block;
+
+
 }
 
 .mobileStickyStage {
+
+
 height:100svh;
+
+
 }
 
 .mobileContent {
+
+
 top:54%;
+
+
 }
 
 }
@@ -792,53 +938,108 @@ SMALL PHONES
 @media(max-width:480px) {
 
 .greeceExperience {
+
+
 border-radius:
   28px 28px 0 0;
+
+
 }
 
 .intro {
+
+
 padding:
   5.5rem 0 4rem;
+
+
 }
 
 .intro h2 {
+
+
 font-size:
   clamp(2.2rem,9vw,3rem);
+
+
 }
 
 .intro p {
+
+
 font-size:1rem;
+
+
 }
 
 .mobileContent {
+
+
 top:51%;
+
 width:87%;
+
+
 }
 
 .mobileContent h3 {
+
+
 font-size:
   clamp(2rem,9vw,2.75rem);
+
+
 }
 
 .mobileContent p {
+
+
 font-size:.95rem;
+
 line-height:1.65;
+
+
 }
 
 .mobileIndicator {
+
+
 right:14px;
+
 gap:16px;
+
+
 }
 
 .mobileDot {
+
+
 width:6px;
+
 height:6px;
+
 
 }
 
 .mobileDotActive {
+
+
 width:12px;
+
 height:12px;
+
+
+}
+
+.mobileNextButton {
+
+
+right:16px;
+
+width:50px;
+
+height:50px;
+
 
 }
 
@@ -855,7 +1056,11 @@ orientation:landscape
 ) {
 
 .mobileContent {
+
+
 top:48%;
+
+
 }
 
 .mobileContent h3 {
@@ -883,6 +1088,20 @@ right:16px;
 
 }
 
+.mobileNextButton {
+
+
+right:18px;
+
+bottom:
+  max(
+    16px,
+    env(safe-area-inset-bottom)
+  );
+
+
+}
+
 }
 
 /* =========================================================
@@ -898,7 +1117,9 @@ REDUCED MOTION
 .mobileContent h3,
 .mobileContent p,
 .sceneDot,
-.mobileDot {
+.mobileDot,
+.mobileNextButton,
+.mobileNextArrow {
 
 
 animation:none !important;
