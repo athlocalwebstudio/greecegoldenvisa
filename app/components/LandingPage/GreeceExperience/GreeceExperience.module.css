@@ -1,14 +1,13 @@
 .greeceExperience {
 
-  background:white;
+background:white;
 
-  border-radius:40px 40px 0 0;
+border-radius:40px 40px 0 0;
 
-  box-shadow:
-    0 -40px 90px rgba(15,44,89,.14);
+box-shadow:
+0 -40px 90px rgba(15,44,89,.14);
 
 }
-
 
 /* =========================================================
 INTRO
@@ -16,71 +15,72 @@ INTRO
 
 .intro {
 
-  width:min(900px,90%);
+width:min(900px,90%);
 
-  margin:0 auto;
+margin:0 auto;
 
-  padding:7rem 0 5rem;
+padding:7rem 0 5rem;
 
-  text-align:center;
+text-align:center;
 
-  font-family:var(--font-sans);
+font-family:var(--font-sans);
+
+transition:
+opacity .65s ease,
+transform .65s cubic-bezier(.22,1,.36,1),
+filter .65s ease;
 
 }
-
 
 .label {
 
-  display:inline-block;
+display:inline-block;
 
-  padding:.45rem 1.2rem;
+padding:.45rem 1.2rem;
 
-  border-radius:999px;
+border-radius:999px;
 
-  background:#e8f4fd;
+background:#e8f4fd;
 
-  color:#0F2C59;
+color:#0F2C59;
 
-  font-size:.85rem;
+font-size:.85rem;
 
-  font-weight:700;
+font-weight:700;
 
-  text-transform:uppercase;
+text-transform:uppercase;
 
-  letter-spacing:.08em;
+letter-spacing:.08em;
 
-  margin-bottom:1.5rem;
+margin-bottom:1.5rem;
 
 }
-
 
 .intro h2 {
 
-  font-size:clamp(2.5rem,5vw,4rem);
+font-size:clamp(2.5rem,5vw,4rem);
 
-  line-height:1.05;
+line-height:1.05;
 
-  letter-spacing:-.04em;
+letter-spacing:-.04em;
 
-  margin-bottom:1.5rem;
+margin-bottom:1.5rem;
 
 }
-
 
 .intro p {
 
-  max-width:650px;
+max-width:650px;
 
-  margin:auto;
+margin:auto;
 
-  color:#64748b;
+color:#64748b;
 
-  font-size:1.15rem;
+font-size:1.15rem;
 
-  line-height:1.7;
+line-height:1.7;
 
 }
-
 
 /* =========================================================
 DESKTOP STORY
@@ -88,31 +88,29 @@ DESKTOP STORY
 
 .storyWrapper {
 
-  height:500vh;
+height:500vh;
 
-  position:relative;
+position:relative;
 
 }
-
 
 .stickyStage {
 
-  position:sticky;
+position:sticky;
 
-  top:0;
+top:0;
 
-  height:100vh;
+height:100vh;
 
-  width:100%;
+width:100%;
 
-  overflow:hidden;
+overflow:hidden;
 
-  isolation:isolate;
+isolation:isolate;
 
-  background:#050505;
+background:#050505;
 
 }
-
 
 /* =========================================================
 DESKTOP IMAGE
@@ -120,42 +118,48 @@ DESKTOP IMAGE
 
 .imageWrapper {
 
-  position:absolute;
+position:absolute;
 
-  inset:-10px;
+inset:-10px;
 
-  transform:scale(1.03);
+transform:scale(1.03);
 
 }
-
 
 .image {
 
-  object-fit:cover;
+object-fit:cover;
 
-  will-change:
-    transform,
-    opacity;
+will-change:
+transform,
+opacity;
 
-  transform-origin:
-    center center;
+transform-origin:
+center center;
 
-  filter:
-    brightness(1.05)
-    contrast(1.05)
-    saturate(1.1);
+filter:
+brightness(1.05)
+contrast(1.05)
+saturate(1.1);
 
-  /*
-    Transform is controlled directly by React.
-    Do not add transform transitions here.
-  */
+/*
+Faster image transitions.
 
-  transition:
-    opacity .9s cubic-bezier(.22,1,.36,1),
-    filter .9s ease;
+```
+Previous:
+.9s
+
+New:
+.48s
+```
+
+*/
+
+transition:
+opacity .48s cubic-bezier(.22,1,.36,1),
+filter .48s ease;
 
 }
-
 
 /* =========================================================
 DESKTOP OVERLAY
@@ -163,14 +167,15 @@ DESKTOP OVERLAY
 
 .overlay {
 
-  position:absolute;
+position:absolute;
 
-  inset:0;
+inset:0;
 
-  z-index:3;
+z-index:3;
+
+pointer-events:none;
 
 }
-
 
 /* =========================================================
 DESKTOP TEXT
@@ -178,74 +183,71 @@ DESKTOP TEXT
 
 .sceneContent {
 
-  position:absolute;
+position:absolute;
 
-  z-index:4;
+z-index:4;
 
-  left:50%;
+left:50%;
 
-  top:var(--text-top);
+top:var(--text-top);
 
-  width:min(var(--text-width),90%);
+width:min(var(--text-width),90%);
 
-  text-align:var(--text-align);
+text-align:var(--text-align);
 
-  transform:
-    translate(-50%,-50%);
+transform:
+translate(-50%,-50%);
 
-  transition:
-    opacity .5s ease,
-    filter .5s ease,
-    transform .5s ease;
+transition:
+opacity .35s ease,
+filter .35s ease,
+transform .35s cubic-bezier(.22,1,.36,1);
 
-  overflow:hidden;
+overflow:hidden;
 
 }
-
 
 .sceneContent h3 {
 
-  color:white;
+color:white;
 
-  font-family:inherit;
+font-family:inherit;
 
-  font-size:
-    clamp(2.8rem,5vw,4.8rem);
+font-size:
+clamp(2.8rem,5vw,4.8rem);
 
-  font-weight:500;
+font-weight:500;
 
-  line-height:1;
+line-height:1;
 
-  letter-spacing:-.04em;
+letter-spacing:-.045em;
 
-  margin-bottom:1.5rem;
+margin-bottom:1.35rem;
 
-  text-shadow:
-    0 10px 40px rgba(0,0,0,.35);
+text-shadow:
+0 10px 40px rgba(0,0,0,.35);
 
 }
-
 
 .sceneContent p {
 
-  font-family:var(--font-sans);
+font-family:var(--font-sans);
 
-  font-size:1.25rem;
+font-size:1.2rem;
 
-  line-height:1.8;
+line-height:1.75;
 
-  max-width:600px;
+max-width:600px;
 
-  margin:auto;
+margin:auto;
 
-  color:
-    rgba(255,255,255,.9);
+color:
+rgba(255,255,255,.9);
 
-  text-shadow:
-    0 5px 25px rgba(0,0,0,.4);
+text-shadow:
+0 5px 25px rgba(0,0,0,.4);
 
 }
-
 
 /* =========================================================
 DESKTOP INDICATOR
@@ -253,109 +255,100 @@ DESKTOP INDICATOR
 
 .sceneIndicator {
 
-  position:absolute;
+position:absolute;
 
-  right:28px;
+right:28px;
 
-  top:62%;
+top:50%;
 
-  transform:
-    translateY(-50%)
-    translateX(35px);
+transform:
+translateY(-50%)
+translateX(20px);
 
-  opacity:1;
+opacity:0;
 
-  transition:
-    opacity .8s ease,
-    transform .8s cubic-bezier(.22,1,.36,1);
+transition:
+opacity .45s ease,
+transform .45s cubic-bezier(.22,1,.36,1);
 
-  z-index:5;
+z-index:5;
 
-  display:flex;
+display:flex;
 
-  flex-direction:column;
+flex-direction:column;
 
-  align-items:center;
+align-items:center;
 
 }
-
 
 .indicatorVisible {
 
-  opacity:1;
+opacity:.9;
 
-  transform:
-    translateY(-50%)
-    translateX(0);
+transform:
+translateY(-50%)
+translateX(0);
 
 }
-
 
 .indicatorItem {
 
-  display:flex;
+display:flex;
 
-  flex-direction:column;
+flex-direction:column;
 
-  align-items:center;
+align-items:center;
 
 }
-
 
 .sceneDot {
 
-  width:10px;
+width:8px;
 
-  height:10px;
+height:8px;
 
-  border-radius:50%;
+border-radius:50%;
 
-  background:
-    rgba(255,255,255,.45);
+background:
+rgba(255,255,255,.4);
 
-  transition:
-    all .5s cubic-bezier(.22,1,.36,1);
-
-  box-shadow:
-    0 0 0 rgba(255,255,255,0);
+transition:
+width .3s cubic-bezier(.22,1,.36,1),
+height .3s cubic-bezier(.22,1,.36,1),
+background .3s ease,
+box-shadow .3s ease;
 
 }
-
 
 .activeDot {
 
-  width:16px;
+width:14px;
 
-  height:16px;
+height:14px;
 
-  background:white;
+background:white;
 
-  box-shadow:
-    0 0 20px rgba(255,255,255,.8);
-
-  transform:
-    scale(1.15);
+box-shadow:
+0 0 18px rgba(255,255,255,.75);
 
 }
-
 
 .indicatorLine {
 
-  width:1px;
+width:1px;
 
-  height:45px;
+height:40px;
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.5),
-      rgba(255,255,255,.15)
-    );
+background:
+linear-gradient(
+180deg,
+rgba(255,255,255,.4),
+rgba(255,255,255,.12)
+);
 
-  margin:14px 0;
+margin:12px 0;
 
 }
-
 
 /* =========================================================
 DESKTOP TEXT ANIMATION
@@ -363,129 +356,120 @@ DESKTOP TEXT ANIMATION
 
 .sceneTitle {
 
-  opacity:0;
+opacity:0;
 
-  transform:
-    translateY(40px);
+transform:
+translateY(24px);
 
-  letter-spacing:-0.06em;
-
-  animation:
-    titleReveal .9s cubic-bezier(.22,1,.36,1)
-    forwards;
+animation:
+titleReveal .52s
+cubic-bezier(.22,1,.36,1)
+forwards;
 
 }
-
 
 .sceneDescription {
 
-  opacity:0;
+opacity:0;
 
-  transform:
-    translateY(25px);
+transform:
+translateY(16px);
 
-  letter-spacing:.02em;
-
-  animation:
-    descriptionReveal 1s cubic-bezier(.22,1,.36,1)
-    .25s forwards;
+animation:
+descriptionReveal .55s
+cubic-bezier(.22,1,.36,1)
+.08s
+forwards;
 
 }
-
 
 @keyframes titleReveal {
 
-  from {
+from {
+opacity:0;
+transform:
+  translateY(24px);
+filter:
+  blur(5px);
+}
 
-    opacity:0;
-
-    transform:
-      translateY(40px);
-
-    letter-spacing:-0.12em;
-
-    filter:
-      blur(8px);
-
-  }
-
-  to {
-
-    opacity:1;
-
-    transform:
-      translateY(0);
-
-    letter-spacing:-.04em;
-
-    filter:
-      blur(0);
-
-  }
+to {
+opacity:1;
+transform:
+  translateY(0);
+filter:
+  blur(0);
 
 }
 
+}
 
 @keyframes descriptionReveal {
 
-  from {
+from {
+opacity:0;
+transform:
+  translateY(16px);
+filter:
+  blur(4px);
+}
 
-    opacity:0;
+to {
+opacity:1;
 
-    transform:
-      translateY(25px);
+transform:
+  translateY(0);
 
-    filter:
-      blur(6px);
-
-  }
-
-  to {
-
-    opacity:1;
-
-    transform:
-      translateY(0);
-
-    filter:
-      blur(0);
-
-  }
+filter:
+  blur(0);
+}
 
 }
 
-
 /* =========================================================
-MOBILE + TABLET STORY
+MOBILE / TABLET STORY
 ========================================================= */
 
 .mobileStoryWrapper {
 
-  display:none;
+display:none;
 
-  position:relative;
+position:relative;
 
-  height:100svh;
+/*
+IMPORTANT:
+
+```
+Every scene gets one viewport.
+
+This is what allows native scrolling to
+move forward AND backward through the story.
+```
+
+*/
+
+height:
+calc(100svh * 4);
 
 }
-
 
 .mobileStickyStage {
 
-  position:relative;
+position:sticky;
 
-  height:100svh;
+top:0;
 
-  width:100%;
+height:100svh;
 
-  overflow:hidden;
+width:100%;
 
-  background:#050505;
+overflow:hidden;
 
-  isolation:isolate;
+background:#050505;
+
+isolation:isolate;
 
 }
-
 
 /* =========================================================
 MOBILE IMAGE
@@ -493,42 +477,50 @@ MOBILE IMAGE
 
 .mobileImageWrapper {
 
-  position:absolute;
+position:absolute;
 
-  inset:0;
+inset:0;
 
-  overflow:hidden;
+overflow:hidden;
 
 }
-
 
 .mobileImage {
 
-  position:absolute;
+position:absolute;
 
-  inset:0;
+inset:0;
 
-  object-fit:cover;
+object-fit:cover;
 
-  transform-origin:
-    center center;
+transform-origin:
+center center;
 
-  will-change:
-    opacity,
-    transform;
+will-change:
+opacity,
+transform;
 
-  filter:
-    brightness(1.04)
-    contrast(1.04)
-    saturate(1.08);
+filter:
+brightness(1.04)
+contrast(1.04)
+saturate(1.08);
 
-  transition:
-    opacity .75s cubic-bezier(.22,1,.36,1),
-    transform .9s cubic-bezier(.22,1,.36,1),
-    filter .9s ease;
+/*
+Fast premium crossfade.
+
+```
+Not slow.
+Not abrupt.
+```
+
+*/
+
+transition:
+opacity .48s cubic-bezier(.22,1,.36,1),
+transform .65s cubic-bezier(.22,1,.36,1),
+filter .48s ease;
 
 }
-
 
 /* =========================================================
 MOBILE OVERLAY
@@ -536,16 +528,15 @@ MOBILE OVERLAY
 
 .mobileOverlay {
 
-  position:absolute;
+position:absolute;
 
-  inset:0;
+inset:0;
 
-  z-index:2;
+z-index:3;
 
-  pointer-events:none;
+pointer-events:none;
 
 }
-
 
 /* =========================================================
 MOBILE CONTENT
@@ -553,134 +544,89 @@ MOBILE CONTENT
 
 .mobileContent {
 
-  position:absolute;
+position:absolute;
 
-  z-index:5;
+z-index:5;
 
-  left:50%;
+left:50%;
 
-  top:54%;
+top:55%;
 
-  width:min(90%,620px);
+width:min(88%,620px);
 
-  transform:
-    translate(-50%,-50%);
+transform:
+translate(-50%,-50%);
 
-  text-align:center;
+text-align:center;
 
-  color:white;
+color:white;
 
-  pointer-events:none;
-
-}
-
-
-.mobileSceneCounter {
-
-  display:inline-flex;
-
-  align-items:center;
-
-  gap:7px;
-
-  margin-bottom:1.15rem;
-
-  padding:.38rem .8rem;
-
-  border-radius:999px;
-
-  background:
-    rgba(255,255,255,.12);
-
-  border:
-    1px solid rgba(255,255,255,.2);
-
-  backdrop-filter:
-    blur(14px);
-
-  -webkit-backdrop-filter:
-    blur(14px);
-
-  font-family:
-    var(--font-sans);
-
-  font-size:.75rem;
-
-  font-weight:700;
-
-  letter-spacing:.14em;
-
-  color:
-    rgba(255,255,255,.9);
+pointer-events:none;
 
 }
 
-
-.mobileSceneCounter span {
-
-  opacity:.45;
-
-}
-
+/* =========================================================
+MOBILE TITLE
+========================================================= */
 
 .mobileContent h3 {
 
-  color:#fff;
+color:#fff;
 
-  font-size:
-    clamp(2rem,7vw,3.8rem);
+font-size:
+clamp(2.15rem,8vw,3.5rem);
 
-  font-weight:500;
+font-weight:500;
 
-  line-height:1.03;
+line-height:1.03;
 
-  letter-spacing:-.045em;
+letter-spacing:-.045em;
 
-  margin-bottom:1rem;
+margin-bottom:1rem;
 
-  text-shadow:
-    0 10px 35px rgba(0,0,0,.4);
+text-shadow:
+0 10px 35px rgba(0,0,0,.4);
 
-  animation:
-    mobileTitleReveal
-    .8s
-    cubic-bezier(.22,1,.36,1)
-    both;
+animation:
+mobileTitleReveal .5s
+cubic-bezier(.22,1,.36,1)
+both;
 
 }
 
+/* =========================================================
+MOBILE DESCRIPTION
+========================================================= */
 
 .mobileContent p {
 
-  font-family:
-    var(--font-sans);
+font-family:
+var(--font-sans);
 
-  font-size:
-    clamp(.95rem,2.5vw,1.1rem);
+font-size:
+clamp(.95rem,2.5vw,1.08rem);
 
-  line-height:1.7;
+line-height:1.7;
 
-  font-weight:400;
+font-weight:400;
 
-  max-width:430px;
+max-width:430px;
 
-  margin:auto;
+margin:auto;
 
-  color:
-    rgba(255,255,255,.92);
+color:
+rgba(255,255,255,.9);
 
-  text-shadow:
-    0 5px 20px rgba(0,0,0,.3);
+text-shadow:
+0 5px 20px rgba(0,0,0,.3);
 
-  animation:
-    mobileDescriptionReveal
-    .9s
-    cubic-bezier(.22,1,.36,1)
-    .12s
-    both;
+animation:
+mobileDescriptionReveal .55s
+cubic-bezier(.22,1,.36,1)
+.06s
+both;
 
 }
-
 
 /* =========================================================
 MOBILE TEXT ANIMATION
@@ -688,558 +634,106 @@ MOBILE TEXT ANIMATION
 
 @keyframes mobileTitleReveal {
 
-  from {
-
-    opacity:0;
-
-    transform:
-      translateY(28px);
-
-    filter:
-      blur(7px);
-
-  }
-
-  to {
-
-    opacity:1;
-
-    transform:
-      translateY(0);
-
-    filter:
-      blur(0);
-
-  }
-
+from {
+opacity:0;
+transform:
+  translateY(20px);
+filter:
+  blur(5px);
 }
 
+to {
+opacity:1;
+transform:
+  translateY(0);
+filter:
+  blur(0);
+}
+
+}
 
 @keyframes mobileDescriptionReveal {
 
-  from {
+from {
+opacity:0;
+transform:
+  translateY(12px);
+filter:
+  blur(4px);
+}
 
-    opacity:0;
-
-    transform:
-      translateY(18px);
-
-    filter:
-      blur(5px);
-
-  }
-
-  to {
-
-    opacity:1;
-
-    transform:
-      translateY(0);
-
-    filter:
-      blur(0);
-
-  }
+to {
+opacity:1;
+transform:
+  translateY(0);
+filter:
+  blur(0);
+}
 
 }
 
-
 /* =========================================================
-MOBILE INDICATOR
+MINIMAL MOBILE INDICATOR
 ========================================================= */
 
 .mobileIndicator {
 
-  position:absolute;
+position:absolute;
 
-  right:22px;
+right:18px;
 
-  top:42%;
+top:50%;
 
-  transform:
-    translateY(-50%);
+transform:
+translateY(-50%);
 
-  z-index:8;
+z-index:8;
 
-  display:flex;
+display:flex;
 
-  flex-direction:column;
+flex-direction:column;
 
-  gap:22px;
+align-items:center;
 
-  opacity:.9;
+gap:18px;
 
-}
-
-
-.mobileIndicatorItem {
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
+opacity:.75;
 
 }
 
+.mobileDot {
 
-.mobileIndicator .sceneDot {
+display:block;
 
-  width:8px;
+width:7px;
 
-  height:8px;
+height:7px;
 
-  background:
-    rgba(255,255,255,.4);
+border-radius:50%;
 
-  border-radius:50%;
+background:
+rgba(255,255,255,.42);
 
-  transition:
-    all .5s cubic-bezier(.22,1,.36,1);
-
-}
-
-
-.mobileIndicator .activeDot {
-
-  width:15px;
-
-  height:15px;
-
-  background:white;
-
-  box-shadow:
-    0 0 20px rgba(255,255,255,.8);
+transition:
+width .3s cubic-bezier(.22,1,.36,1),
+height .3s cubic-bezier(.22,1,.36,1),
+background .3s ease,
+box-shadow .3s ease;
 
 }
 
+.mobileDotActive {
 
-/* =========================================================
-MOBILE CONTROLS
-========================================================= */
+width:13px;
 
-.mobileControls {
+height:13px;
 
-  position:absolute;
+background:white;
 
-  z-index:10;
-
-  left:50%;
-
-  bottom:
-    max(28px, env(safe-area-inset-bottom));
-
-  transform:
-    translateX(-50%);
-
-  width:
-    min(88%,430px);
-
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-
-  justify-content:center;
-
-  pointer-events:none;
+box-shadow:
+0 0 18px rgba(255,255,255,.75);
 
 }
-
-
-.mobileInstruction {
-
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-
-  gap:3px;
-
-  margin-bottom:12px;
-
-  color:
-    rgba(255,255,255,.95);
-
-  text-align:center;
-
-  text-shadow:
-    0 4px 20px rgba(0,0,0,.5);
-
-}
-
-
-.mobileInstruction span {
-
-  font-family:
-    var(--font-sans);
-
-  font-size:.78rem;
-
-  font-weight:800;
-
-  letter-spacing:.16em;
-
-  text-transform:uppercase;
-
-}
-
-
-.mobileInstruction small {
-
-  font-family:
-    var(--font-sans);
-
-  font-size:.7rem;
-
-  font-weight:500;
-
-  letter-spacing:.03em;
-
-  color:
-    rgba(255,255,255,.7);
-
-}
-
-
-/* =========================================================
-CONTINUE BUTTON
-========================================================= */
-
-.mobileContinueButton {
-
-  --button-size:72px;
-
-  position:relative;
-
-  width:
-    var(--button-size);
-
-  height:
-    var(--button-size);
-
-  padding:0;
-
-  border:0;
-
-  border-radius:50%;
-
-  background:transparent;
-
-  cursor:pointer;
-
-  transform:
-    scale(var(--button-scale));
-
-  pointer-events:auto;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  transition:
-    transform .65s cubic-bezier(.22,1,.36,1),
-    opacity .3s ease;
-
-  -webkit-tap-highlight-color:
-    transparent;
-
-  touch-action:
-    manipulation;
-
-}
-
-
-.mobileContinueButton:hover {
-
-  transform:
-    scale(
-      calc(
-        var(--button-scale) *
-        1.08
-      )
-    );
-
-}
-
-
-.mobileContinueButton:active {
-
-  transform:
-    scale(
-      calc(
-        var(--button-scale) *
-        .94
-      )
-    );
-
-}
-
-
-.mobileContinueButton:focus-visible {
-
-  outline:
-    3px solid rgba(255,255,255,.9);
-
-  outline-offset:
-    6px;
-
-}
-
-
-.mobileContinueButton:disabled {
-
-  cursor:
-    default;
-
-  opacity:.85;
-
-}
-
-
-/* =========================================================
-OUTER RING
-========================================================= */
-
-.mobileButtonRing {
-
-  position:absolute;
-
-  inset:-4px;
-
-  border-radius:50%;
-
-  border:
-    1px solid rgba(255,255,255,.55);
-
-  background:
-    rgba(255,255,255,.08);
-
-  box-shadow:
-    0 12px 50px rgba(0,0,0,.3),
-    inset 0 0 30px rgba(255,255,255,.08);
-
-  backdrop-filter:
-    blur(14px);
-
-  -webkit-backdrop-filter:
-    blur(14px);
-
-  transition:
-    all .65s cubic-bezier(.22,1,.36,1);
-
-}
-
-
-.mobileContinueActive
-.mobileButtonRing {
-
-  border-color:
-    rgba(255,255,255,.85);
-
-  background:
-    rgba(255,255,255,.14);
-
-  box-shadow:
-    0 15px 60px rgba(0,0,0,.35),
-    0 0 35px rgba(255,255,255,.15),
-    inset 0 0 35px rgba(255,255,255,.1);
-
-}
-
-
-/* =========================================================
-INNER BUTTON
-========================================================= */
-
-.mobileButtonInner {
-
-  position:relative;
-
-  width:58px;
-
-  height:58px;
-
-  border-radius:50%;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  background:
-    rgba(255,255,255,.96);
-
-  box-shadow:
-    0 8px 30px rgba(0,0,0,.25);
-
-  transition:
-    all .65s cubic-bezier(.22,1,.36,1);
-
-}
-
-
-.mobileButtonArrow {
-
-  display:block;
-
-  color:#0F2C59;
-
-  font-family:
-    Arial,
-    sans-serif;
-
-  font-size:1.5rem;
-
-  font-weight:300;
-
-  line-height:1;
-
-  transform:
-    translateX(1px);
-
-  transition:
-    transform .45s ease;
-
-}
-
-
-.mobileContinueButton:hover
-.mobileButtonArrow {
-
-  transform:
-    translateX(5px);
-
-}
-
-
-/* =========================================================
-TAP PROGRESS
-========================================================= */
-
-.mobileTapProgress {
-
-  display:flex;
-
-  align-items:center;
-
-  gap:6px;
-
-  margin-top:11px;
-
-}
-
-
-.mobileTapProgress span {
-
-  width:5px;
-
-  height:5px;
-
-  border-radius:50%;
-
-  background:
-    rgba(255,255,255,.35);
-
-  transition:
-    all .45s cubic-bezier(.22,1,.36,1);
-
-}
-
-
-.mobileTapProgress .tapDone {
-
-  width:18px;
-
-  border-radius:999px;
-
-  background:white;
-
-  box-shadow:
-    0 0 10px rgba(255,255,255,.5);
-
-}
-
-
-.mobileTapHint {
-
-  margin-top:6px;
-
-  font-family:
-    var(--font-sans);
-
-  font-size:.65rem;
-
-  font-weight:700;
-
-  letter-spacing:.12em;
-
-  color:
-    rgba(255,255,255,.55);
-
-  text-transform:
-    uppercase;
-
-}
-
-
-/* =========================================================
-TRANSITION STATE
-========================================================= */
-
-.mobileTransitioning
-.mobileImage {
-
-  transform:
-    scale(1.2) !important;
-
-  opacity:.25 !important;
-
-  filter:
-    brightness(.8)
-    contrast(1.05)
-    saturate(1.15)
-    blur(2px);
-
-}
-
-
-.mobileTransitioning
-.mobileContent {
-
-  opacity:0;
-
-  transform:
-    translate(-50%,-48%)
-    scale(.98);
-
-  transition:
-    opacity .45s ease,
-    transform .55s cubic-bezier(.22,1,.36,1);
-
-}
-
-
-.mobileTransitioning
-.mobileControls {
-
-  opacity:0;
-
-  transform:
-    translateX(-50%)
-    translateY(12px);
-
-  transition:
-    opacity .35s ease,
-    transform .45s ease;
-
-}
-
 
 /* =========================================================
 MOVIE MODE
@@ -1247,73 +741,49 @@ MOVIE MODE
 
 .movieMode {
 
-  transition:
-    background .9s ease,
-    color .9s ease;
+transition:
+background .65s ease,
+color .65s ease;
 
 }
-
-
-.intro {
-
-  transition:
-    opacity .9s ease,
-    transform .9s ease,
-    filter .9s ease;
-
-}
-
 
 .introMovieMode {
 
-  opacity:.18;
+opacity:.16;
 
-  transform:
-    scale(.97);
+transform:
+scale(.975);
 
-  filter:
-    blur(6px);
+filter:
+blur(5px);
 
-  pointer-events:none;
+pointer-events:none;
 
 }
 
-
 /* =========================================================
-MOBILE + TABLET BREAKPOINT
+MOBILE / TABLET BREAKPOINT
 ========================================================= */
 
 @media(max-width:1024px) {
 
-  .storyWrapper {
-
-    display:none;
-
-  }
-
-
-  .mobileStoryWrapper {
-
-    display:block;
-
-  }
-
-
-  .mobileStickyStage {
-
-    height:100svh;
-
-  }
-
-
-  .mobileContent {
-
-    top:53%;
-
-  }
-
+.storyWrapper {
+display:none;
 }
 
+.mobileStoryWrapper {
+display:block;
+}
+
+.mobileStickyStage {
+height:100svh;
+}
+
+.mobileContent {
+top:54%;
+}
+
+}
 
 /* =========================================================
 SMALL PHONES
@@ -1321,172 +791,99 @@ SMALL PHONES
 
 @media(max-width:480px) {
 
-  .greeceExperience {
+.greeceExperience {
+border-radius:
+  28px 28px 0 0;
+}
 
-    border-radius:
-      28px 28px 0 0;
+.intro {
+padding:
+  5.5rem 0 4rem;
+}
 
-  }
+.intro h2 {
+font-size:
+  clamp(2.2rem,9vw,3rem);
+}
 
+.intro p {
+font-size:1rem;
+}
 
-  .intro {
+.mobileContent {
+top:51%;
+width:87%;
+}
 
-    padding:
-      5.5rem 0 4rem;
+.mobileContent h3 {
+font-size:
+  clamp(2rem,9vw,2.75rem);
+}
 
-  }
+.mobileContent p {
+font-size:.95rem;
+line-height:1.65;
+}
 
+.mobileIndicator {
+right:14px;
+gap:16px;
+}
 
-  .intro h2 {
-
-    font-size:
-      clamp(2.2rem,9vw,3rem);
-
-  }
-
-
-  .intro p {
-
-    font-size:1rem;
-
-  }
-
-
-  .mobileContent {
-
-    top:49%;
-
-    width:88%;
-
-  }
-
-
-  .mobileContent h3 {
-
-    font-size:
-      clamp(2rem,9vw,2.75rem);
-
-  }
-
-
-  .mobileContent p {
-
-    font-size:.95rem;
-
-    line-height:1.65;
-
-  }
-
-
-  .mobileIndicator {
-
-    right:16px;
-
-    top:39%;
-
-    gap:18px;
-
-  }
-
-
-  .mobileControls {
-
-    bottom:
-      max(
-        24px,
-        env(safe-area-inset-bottom)
-      );
-
-  }
-
-
-  .mobileContinueButton {
-
-    --button-size:68px;
-
-  }
-
-
-  .mobileButtonInner {
-
-    width:54px;
-
-    height:54px;
-
-  }
+.mobileDot {
+width:6px;
+height:6px;
 
 }
 
+.mobileDotActive {
+width:12px;
+height:12px;
+
+}
+
+}
 
 /* =========================================================
 LANDSCAPE TABLETS / PHONES
 ========================================================= */
 
 @media(
-  max-width:1024px
+max-width:1024px
 ) and (
-  orientation:landscape
+orientation:landscape
 ) {
 
-  .mobileContent {
+.mobileContent {
+top:48%;
+}
 
-    top:47%;
-
-  }
-
-
-  .mobileContent h3 {
-
-    font-size:
-      clamp(1.8rem,5vw,3rem);
-
-  }
+.mobileContent h3 {
 
 
-  .mobileContent p {
+font-size:
+  clamp(1.8rem,5vw,3rem);
 
-    max-width:550px;
-
-  }
-
-
-  .mobileControls {
-
-    bottom:
-      max(
-        14px,
-        env(safe-area-inset-bottom)
-      );
-
-  }
-
-
-  .mobileContinueButton {
-
-    --button-size:62px;
-
-  }
-
-
-  .mobileButtonInner {
-
-    width:50px;
-
-    height:50px;
-
-  }
-
-
-  .mobileIndicator {
-
-    right:18px;
-
-    top:40%;
-
-  }
 
 }
 
+.mobileContent p {
+
+
+max-width:550px;
+
+
+}
+
+.mobileIndicator {
+
+
+right:16px;
+
+
+}
+
+}
 
 /* =========================================================
 REDUCED MOTION
@@ -1494,23 +891,21 @@ REDUCED MOTION
 
 @media(prefers-reduced-motion:reduce) {
 
-  .image,
-  .mobileImage,
-  .sceneContent,
-  .mobileContent,
-  .mobileContent h3,
-  .mobileContent p,
-  .sceneDot,
-  .mobileIndicator .sceneDot,
-  .mobileContinueButton,
-  .mobileButtonRing,
-  .mobileButtonInner,
-  .mobileButtonArrow {
+.image,
+.mobileImage,
+.sceneContent,
+.mobileContent,
+.mobileContent h3,
+.mobileContent p,
+.sceneDot,
+.mobileDot {
 
-    animation:none !important;
 
-    transition:none !important;
+animation:none !important;
 
-  }
+transition:none !important;
+
+
+}
 
 }
