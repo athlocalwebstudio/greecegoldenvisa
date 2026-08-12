@@ -525,26 +525,65 @@ MOBILE CONTENT
 ========================================================= */
 
 .mobileContent {
+  position: absolute;
+  z-index: 5;
 
-position:absolute;
+  left: 50%;
+  top: 54%;
 
-z-index:5;
+  width: min(88%, 620px);
 
-left:50%;
+  transform:
+    translate3d(-50%, -50%, 0);
 
-top:54%;
+  text-align: center;
 
-width:min(88%,620px);
+  color: #ffffff;
 
-transform:
-translate(-50%,-50%);
+  pointer-events: none;
 
-text-align:center;
+  will-change: transform, opacity;
+}
 
-color:white;
+.mobileContent h3 {
+  margin: 0 0 1.15rem;
 
-pointer-events:none;
+  color: #ffffff;
 
+  font-family: inherit;
+
+  font-size:
+    clamp(2.4rem, 8vw, 4rem);
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: -.045em;
+
+  text-shadow:
+    0 10px 40px rgba(0, 0, 0, .38);
+
+  will-change: transform, opacity;
+}
+
+.mobileContent p {
+  margin: 0 auto;
+
+  max-width: 600px;
+
+  color: rgba(255, 255, 255, .92);
+
+  font-family: var(--font-sans);
+
+  font-size: 1.1rem;
+
+  line-height: 1.7;
+
+  text-shadow:
+    0 5px 25px rgba(0, 0, 0, .45);
+
+  will-change: transform, opacity;
 }
 
 .mobileContent h3,
@@ -560,70 +599,75 @@ pointer-events:none;
 MOBILE TEXT ANIMATION
 ========================================================= */
 
-@keyframes mobileTitleReveal {
+@keyframes mobileSceneEnter {
+  0% {
+    opacity: 0;
+    transform:
+      translate3d(-50%, calc(-50% + 24px), 0);
+  }
 
-from {
+  55% {
+    opacity: 1;
+    transform:
+      translate3d(-50%, calc(-50% - 3px), 0);
+  }
 
-
-opacity:0;
-
-transform:
-  translateY(18px);
-
-filter:
-  blur(4px);
-
-
+  100% {
+    opacity: 1;
+    transform:
+      translate3d(-50%, -50%, 0);
+  }
 }
 
-to {
-
-
-opacity:1;
-
-transform:
-  translateY(0);
-
-filter:
-  blur(0);
-
-
+.mobileSceneEnter {
+  animation:
+    mobileSceneEnter
+    .75s
+    cubic-bezier(.22, 1, .36, 1)
+    both;
 }
 
+@keyframes mobileTitleEnter {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
-@keyframes mobileDescriptionReveal {
+@keyframes mobileDescriptionEnter {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
 
-from {
-
-
-opacity:0;
-
-transform:
-  translateY(10px);
-
-filter:
-  blur(3px);
-
-
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
-to {
-
-
-opacity:1;
-
-transform:
-  translateY(0);
-
-filter:
-  blur(0);
-
-
+.mobileContent h3 {
+  animation:
+    mobileTitleEnter
+    .65s
+    cubic-bezier(.22, 1, .36, 1)
+    .08s
+    both;
 }
 
+.mobileContent p {
+  animation:
+    mobileDescriptionEnter
+    .65s
+    cubic-bezier(.22, 1, .36, 1)
+    .18s
+    both;
 }
-
 /* =========================================================
 MINIMAL MOBILE INDICATOR
 ========================================================= */
@@ -700,43 +744,93 @@ MINIMAL MOBILE NEXT BUTTON
   left: 50%;
   bottom: 32px;
 
-  width: 76px;
-  height: 76px;
+  width: 64px;
+  height: 64px;
 
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.65);
 
-  background: rgba(255,255,255,.16);
+  border:
+    1px solid rgba(255, 255, 255, .7);
 
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background:
+    rgba(255, 255, 255, .14);
+
+  backdrop-filter:
+    blur(14px);
+
+  -webkit-backdrop-filter:
+    blur(14px);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   box-shadow:
-    0 20px 60px rgba(0,0,0,.35);
+    0 15px 50px rgba(0, 0, 0, .3);
+
+  cursor: pointer;
 
   pointer-events: auto;
 
-  will-change: transform, opacity;
+  will-change:
+    transform,
+    opacity;
+
+  transform:
+    translate3d(-50%, 0, 0)
+    scale(1);
 
   transition:
-    opacity .4s cubic-bezier(.22,1,.36,1),
-    visibility .4s ease,
-    transform .45s cubic-bezier(.22,1,.36,1),
-    background .3s ease,
-    border-color .3s ease,
-    box-shadow .3s ease;
+    opacity .35s ease,
+    visibility .35s ease,
+    transform .4s cubic-bezier(.22, 1, .36, 1),
+    background .25s ease,
+    border-color .25s ease;
+}
+
+.mobileNextButton:hover {
+  background:
+    rgba(255, 255, 255, .22);
+
+  border-color:
+    rgba(255, 255, 255, .9);
+
+  transform:
+    translate3d(-50%, -3px, 0)
+    scale(1.04);
+}
+
+.mobileNextButton:active {
+  transform:
+    translate3d(-50%, 0, 0)
+    scale(.92);
 }
 
 
 .mobileNextArrow {
+  display: block;
 
-font-size:
-2rem;
+  color: #ffffff;
 
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 1.15rem;
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  transition:
+    transform .35s
+    cubic-bezier(.22, 1, .36, 1);
+}
+
+.mobileNextButton:hover
+.mobileNextArrow {
+  transform:
+    translateY(3px);
 }
 
 

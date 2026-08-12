@@ -279,28 +279,118 @@ export default function GreeceExperience() {
   // animation frame.
   // =========================================================
 
-  function animateMobileTo(
-    targetScene
+function animateMobileTo(targetScene) {
+
+  const totalScenes =
+    greeceScenes.length;
+
+  const target =
+    targetScene /
+    totalScenes;
+
+  const start =
+    mobileProgressRef.current;
+
+  const difference =
+    target -
+    start;
+
+  if (
+    Math.abs(difference) <
+    0.0001
   ) {
 
-    const totalScenes =
-      greeceScenes.length;
+    mobileProgressRef.current =
+      target;
 
-    const target =
-      targetScene /
-      totalScenes;
+    setMobileScene(
+      targetScene
+    );
 
-    const start =
-      mobileProgressRef.current;
+    return;
+  }
 
-    const difference =
-      target -
-      start;
+  cancelAnimationFrame(
+    mobileAnimationRef.current
+  );
+
+  const duration =
+    720;
+
+  const startTime =
+    performance.now();
+
+  function animate(now) {
+
+    const elapsed =
+      now -
+      startTime;
+
+    const raw =
+      Math.min(
+        elapsed /
+        duration,
+        1
+      );
+
+    /*
+     * Cinematic easing.
+     *
+     * Slow start
+     * Fast middle
+     * Soft landing
+     */
+    const eased =
+      raw < 0.5
+        ? 4 * raw * raw * raw
+        : 1 -
+          Math.pow(
+            -2 * raw + 2,
+            3
+          ) / 2;
+
+    const value =
+      start +
+      difference *
+      eased;
+
+    mobileProgressRef.current =
+      value;
+
+    const scene =
+      Math.min(
+        Math.floor(
+          value *
+          totalScenes
+        ),
+        totalScenes - 1
+      );
+
+    setMobileScene(
+      previous => {
+
+        if (
+          previous === scene
+        ) {
+          return previous;
+        }
+
+        return scene;
+
+      }
+    );
 
     if (
-      Math.abs(difference) <
-      0.0001
+      raw <
+      1
     ) {
+
+      mobileAnimationRef.current =
+        requestAnimationFrame(
+          animate
+        );
+
+    } else {
 
       mobileProgressRef.current =
         target;
@@ -309,113 +399,16 @@ export default function GreeceExperience() {
         targetScene
       );
 
-      return;
-
+      mobileAnimationRef.current =
+        null;
     }
-
-    cancelAnimationFrame(
-      mobileAnimationRef.current
-    );
-
-    const duration =
-      650;
-
-    const startTime =
-      performance.now();
-
-    mobileAnimationStartRef.current =
-      startTime;
-
-    function animate(now) {
-
-      const elapsed =
-        now -
-        startTime;
-
-      const raw =
-        Math.min(
-          elapsed /
-          duration,
-          1
-        );
-
-      // Smoothstep easing.
-      const eased =
-        raw *
-        raw *
-        (
-          3 -
-          2 *
-          raw
-        );
-
-      const value =
-        start +
-        difference *
-        eased;
-
-      mobileProgressRef.current =
-        value;
-
-      /*
-       * Only update the scene when we actually
-       * cross into another scene.
-       */
-      const scene =
-        Math.min(
-          Math.floor(
-            value *
-            totalScenes
-          ),
-          totalScenes - 1
-        );
-
-      setMobileScene(
-        previous => {
-
-          if (
-            previous === scene
-          ) {
-            return previous;
-          }
-
-          return scene;
-
-        }
-      );
-
-      if (
-        raw <
-        1
-      ) {
-
-        mobileAnimationRef.current =
-          requestAnimationFrame(
-            animate
-          );
-
-      } else {
-
-        mobileProgressRef.current =
-          target;
-
-        setMobileScene(
-          targetScene
-        );
-
-        mobileAnimationRef.current =
-          null;
-
-      }
-
-    }
-
-    mobileAnimationRef.current =
-      requestAnimationFrame(
-        animate
-      );
-
   }
+
+  mobileAnimationRef.current =
+    requestAnimationFrame(
+      animate
+    );
+}
 
   // =========================================================
   // CANCEL MOBILE ANIMATION ON UNMOUNT
@@ -753,7 +746,7 @@ export default function GreeceExperience() {
     1 +
     (
       easedProgress *
-      0.045
+      0.035
     );
 
   // =========================================================
@@ -1257,13 +1250,9 @@ export default function GreeceExperience() {
           ================================================= */}
 
           <div
-            key={
-              `mobile-content-${mobileScene}`
-            }
-            className={
-              styles.mobileContent
-            }
-          >
+  key={`mobile-content-${mobileScene}`}
+  className={styles.mobileContent}
+>
 
             <h3>
               {
