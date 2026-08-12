@@ -44,12 +44,20 @@ export default function GreeceExperience() {
   const mobileSectionRef =
     useRef(null);
 
-  const mobileImageRefs =
-    useRef([]);
-
   const mobileTransitionTimeoutRef =
     useRef(null);
 
+  /*
+   * Stores images that have already been prepared.
+   *
+   * Example:
+   *
+   * imageCache.current["/images/scene3.jpg"]
+   *
+   * means the browser has already loaded/decoded it.
+   */
+  const mobileImageCache =
+    useRef(new Map());
 
   // =========================================================
   // STATE
@@ -73,7 +81,6 @@ export default function GreeceExperience() {
   const [isMobileTransitioning, setIsMobileTransitioning] =
     useState(false);
 
-
   // =========================================================
   // NAVBAR
   // =========================================================
@@ -81,7 +88,6 @@ export default function GreeceExperience() {
   const {
     setCinematic
   } = useNavbar();
-
 
   // =========================================================
   // DEVICE DETECTION
@@ -114,7 +120,6 @@ export default function GreeceExperience() {
     };
 
   }, []);
-
 
   // =========================================================
   // NAVBAR CINEMATIC MODE
@@ -160,15 +165,125 @@ export default function GreeceExperience() {
     setCinematic
   ]);
 
+  // =========================================================
+  // MOBILE IMAGE PRELOADER
+  //
+  // THIS IS THE IMPORTANT FIX.
+  //
+  // We explicitly load + decode images before allowing
+  // the scene to change.
+  //
+  // That prevents:
+  //
+  // Scene 2
+  // ↓
+  // click
+  // ↓
+  // Scene 2 flashes
+  // ↓
+  // Scene 3 finally loads
+  //
+  // Instead:
+  //
+  // Scene 2
+  // ↓
+  // click
+  // ↓
+  // prepare Scene 3
+  // ↓
+  // Scene 3 ready
+  // ↓
+  // transition starts
+  // =========================================================
+
+  function preloadMobileImage(
+    src
+  ) {
+
+    if (
+      mobileImageCache.current.has(src)
+    ) {
+
+      return Promise.resolve();
+
+    }
+
+    return new Promise(
+      (resolve) => {
+
+        const img =
+          new window.Image();
+
+        img.decoding =
+          "async";
+
+        img.onload =
+          async () => {
+
+            /*
+             * decode() makes sure the image is actually
+             * decoded and ready for painting when possible.
+             *
+             * Some browsers may not support it, so we
+             * gracefully fall back to onload.
+             */
+
+            if (
+              typeof img.decode ===
+              "function"
+            ) {
+
+              try {
+
+                await img.decode();
+
+              } catch {
+
+                /*
+                 * The image is still usable even if
+                 * decode() rejects.
+                 */
+
+              }
+
+            }
+
+            mobileImageCache.current.set(
+              src,
+              true
+            );
+
+            resolve();
+
+          };
+
+        img.onerror =
+          () => {
+
+            /*
+             * Don't permanently lock the UI if an image
+             * fails to preload.
+             *
+             * We allow the scene transition anyway.
+             */
+
+            resolve();
+
+          };
+
+        img.src =
+          src;
+
+      }
+    );
+
+  }
 
   // =========================================================
-  // MOBILE IMAGE PRELOADING
+  // PRELOAD MOBILE IMAGES
   //
-  // We preload every mobile image once.
-  //
-  // This means clicking the button does NOT initiate
-  // an image download at the exact same moment as the
-  // transition.
+  // We prepare the whole cinematic sequence once the
+  // mobile version becomes active.
   // =========================================================
 
   useEffect(() => {
@@ -177,23 +292,37 @@ export default function GreeceExperience() {
       return;
     }
 
-    greeceScenes.forEach(
-      (scene) => {
+    let cancelled =
+      false;
 
-        const img =
-          new window.Image();
+    async function preloadScenes() {
 
-        img.decoding =
-          "async";
+      for (
+        const scene of greeceScenes
+      ) {
 
-        img.src =
-          scene.mobileImage;
+        if (cancelled) {
+          return;
+        }
+
+        await preloadMobileImage(
+          scene.mobileImage
+        );
 
       }
-    );
+
+    }
+
+    preloadScenes();
+
+    return () => {
+
+      cancelled =
+        true;
+
+    };
 
   }, [isMobile]);
-
 
   // =========================================================
   // DESKTOP SCROLL TRACKING
@@ -280,7 +409,6 @@ export default function GreeceExperience() {
     isMobile
   ]);
 
-
   // =========================================================
   // CLEANUP MOBILE TRANSITION
   // =========================================================
@@ -303,22 +431,19 @@ export default function GreeceExperience() {
 
   }, []);
 
-
   // =========================================================
   // MOBILE SCENE NAVIGATION
   //
   // IMPORTANT:
   //
-  // We use ONE React state update per click.
+  // We DON'T change mobileScene immediately.
   //
-  // No requestAnimationFrame loop.
-  // No continuous React rendering.
-  // No scroll animation.
+  // First we make sure the destination image is ready.
   //
-  // CSS handles the visual transition.
+  // This is what removes the tiny "old image" flash.
   // =========================================================
 
-  function changeMobileScene(
+  async function changeMobileScene(
     direction
   ) {
 
@@ -341,23 +466,13 @@ export default function GreeceExperience() {
         ? current + 1
         : current - 1;
 
-
     // =======================================================
-    // OUTSIDE THE CINEMATIC
+    // FIRST SCENE
     // =======================================================
 
     if (next < 0) {
-
-      /*
-       * We are already at the first scene.
-       *
-       * Let the user continue scrolling naturally upward.
-       */
-
       return;
-
     }
-
 
     // =======================================================
     // AFTER LAST SCENE
@@ -384,37 +499,77 @@ export default function GreeceExperience() {
       }
 
       return;
-
     }
 
+    // =======================================================
+    // DESTINATION
+    // =======================================================
+
+    const destinationScene =
+      greeceScenes[next];
+
+    if (!destinationScene) {
+      return;
+    }
 
     // =======================================================
-    // BEGIN TRANSITION
+    // BEGIN LOADING STATE
     // =======================================================
 
     setIsMobileTransitioning(
       true
     );
 
+    /*
+     * The spinner can appear immediately.
+     *
+     * The actual scene DOES NOT change yet.
+     */
+
+    try {
+
+      await preloadMobileImage(
+        destinationScene.mobileImage
+      );
+
+    } catch {
+
+      /*
+       * Even if something unexpected happens,
+       * don't leave the controls permanently locked.
+       */
+
+    }
+
+    // =======================================================
+    // COMPONENT MAY HAVE BEEN UNMOUNTED
+    // =======================================================
+
+    if (
+      !mobileSectionRef.current
+    ) {
+
+      setIsMobileTransitioning(
+        false
+      );
+
+      return;
+    }
+
+    // =======================================================
+    // NOW START THE CINEMATIC TRANSITION
+    // =======================================================
+
     setMobileDirection(
       direction
     );
-
-
-    /*
-     * Change the scene immediately.
-     *
-     * The browser then performs the CSS transform/opacity
-     * transition.
-     */
 
     setMobileScene(
       next
     );
 
-
     // =======================================================
-    // UNLOCK
+    // UNLOCK AFTER CSS TRANSITION
     // =======================================================
 
     mobileTransitionTimeoutRef.current =
@@ -431,7 +586,6 @@ export default function GreeceExperience() {
 
   }
 
-
   // =========================================================
   // TOTAL DURATION
   // =========================================================
@@ -446,7 +600,6 @@ export default function GreeceExperience() {
         scene.duration,
       0
     );
-
 
   // =========================================================
   // DESKTOP SCENE CALCULATION
@@ -508,7 +661,6 @@ export default function GreeceExperience() {
     }
   );
 
-
   // =========================================================
   // CURRENT SCENE
   // =========================================================
@@ -522,7 +674,6 @@ export default function GreeceExperience() {
           calculatedScene
         ];
 
-
   // =========================================================
   // DESKTOP LOCAL PROGRESS
   // =========================================================
@@ -535,7 +686,6 @@ export default function GreeceExperience() {
       ),
       1
     );
-
 
   // =========================================================
   // DESKTOP CINEMATIC EASING
@@ -553,7 +703,6 @@ export default function GreeceExperience() {
       sceneProgress
     );
 
-
   // =========================================================
   // DESKTOP CAMERA
   // =========================================================
@@ -564,7 +713,6 @@ export default function GreeceExperience() {
       easedProgress *
       0.05
     );
-
 
   // =========================================================
   // DESKTOP TEXT
@@ -614,7 +762,6 @@ export default function GreeceExperience() {
       20
     );
 
-
   // =========================================================
   // MOBILE STATE
   // =========================================================
@@ -628,7 +775,6 @@ export default function GreeceExperience() {
   const isLastMobileScene =
     mobileScene ===
     greeceScenes.length - 1;
-
 
   // =========================================================
   // RENDER
@@ -930,9 +1076,6 @@ export default function GreeceExperience() {
 
       {/* =====================================================
           MOBILE STORY
-
-          IMPORTANT:
-          CSS hides this completely above 1024px.
       ===================================================== */}
 
       <div
@@ -976,16 +1119,18 @@ export default function GreeceExperience() {
 
                 const isPrevious =
                   index ===
-                  mobileScene -
-                  1;
+                  mobileScene - 1;
 
                 const isNext =
                   index ===
-                  mobileScene +
-                  1;
+                  mobileScene + 1;
 
                 let imageClass =
                   styles.mobileImageInactive;
+
+                /*
+                 * Normally only the active scene is visible.
+                 */
 
                 if (isActive) {
 
@@ -994,9 +1139,15 @@ export default function GreeceExperience() {
 
                 }
 
+                /*
+                 * During a NEXT transition,
+                 * the destination image gets the
+                 * upward entrance animation.
+                 */
+
                 if (
                   isMobileTransitioning &&
-                  isNext &&
+                  isActive &&
                   mobileDirection ===
                     "next"
                 ) {
@@ -1006,9 +1157,15 @@ export default function GreeceExperience() {
 
                 }
 
+                /*
+                 * During a PREVIOUS transition,
+                 * the destination image gets the
+                 * downward entrance animation.
+                 */
+
                 if (
                   isMobileTransitioning &&
-                  isPrevious &&
+                  isActive &&
                   mobileDirection ===
                     "previous"
                 ) {
@@ -1018,20 +1175,25 @@ export default function GreeceExperience() {
 
                 }
 
+                /*
+                 * Keep the destination above the old
+                 * scene while its animation runs.
+                 */
+
+                const isTransitionDestination =
+                  isMobileTransitioning &&
+                  isActive &&
+                  (
+                    isNext ||
+                    isPrevious ||
+                    true
+                  );
+
                 return (
 
                   <Image
                     key={
                       `mobile-${scene.id}`
-                    }
-                    ref={
-                      (element) => {
-
-                        mobileImageRefs.current[
-                          index
-                        ] = element;
-
-                      }
                     }
                     src={
                       scene.mobileImage
@@ -1060,14 +1222,7 @@ export default function GreeceExperience() {
                         "center center",
 
                       zIndex:
-                        isActive ||
-                        (
-                          isMobileTransitioning &&
-                          (
-                            isNext ||
-                            isPrevious
-                          )
-                        )
+                        isActive
                           ? 2
                           : 1
 

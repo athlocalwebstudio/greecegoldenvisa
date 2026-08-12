@@ -1,5 +1,4 @@
 .greeceExperience {
-
   background: white;
 
   border-radius:
@@ -8,16 +7,13 @@
   box-shadow:
     0 -40px 90px
     rgba(15, 44, 89, .14);
-
 }
-
 
 /* =========================================================
    INTRO
 ========================================================= */
 
 .intro {
-
   width:
     min(900px, 90%);
 
@@ -37,12 +33,9 @@
     opacity .65s ease,
     transform .65s cubic-bezier(.22, 1, .36, 1),
     filter .65s ease;
-
 }
 
-
 .label {
-
   display:
     inline-block;
 
@@ -72,12 +65,9 @@
 
   margin-bottom:
     1.5rem;
-
 }
 
-
 .intro h2 {
-
   font-size:
     clamp(2.5rem, 5vw, 4rem);
 
@@ -89,12 +79,9 @@
 
   margin-bottom:
     1.5rem;
-
 }
 
-
 .intro p {
-
   max-width:
     650px;
 
@@ -109,27 +96,21 @@
 
   line-height:
     1.7;
-
 }
-
 
 /* =========================================================
    DESKTOP STORY
 ========================================================= */
 
 .storyWrapper {
-
   height:
     500vh;
 
   position:
     relative;
-
 }
 
-
 .stickyStage {
-
   position:
     sticky;
 
@@ -150,16 +131,13 @@
 
   background:
     #050505;
-
 }
-
 
 /* =========================================================
    DESKTOP IMAGE
 ========================================================= */
 
 .imageWrapper {
-
   position:
     absolute;
 
@@ -168,12 +146,9 @@
 
   transform:
     scale(1.03);
-
 }
 
-
 .image {
-
   object-fit:
     cover;
 
@@ -193,16 +168,13 @@
     opacity .42s cubic-bezier(.22, 1, .36, 1),
     filter .42s ease,
     transform .65s cubic-bezier(.22, 1, .36, 1);
-
 }
-
 
 /* =========================================================
    DESKTOP OVERLAY
 ========================================================= */
 
 .overlay {
-
   position:
     absolute;
 
@@ -214,16 +186,13 @@
 
   pointer-events:
     none;
-
 }
-
 
 /* =========================================================
    DESKTOP TEXT
 ========================================================= */
 
 .sceneContent {
-
   position:
     absolute;
 
@@ -252,12 +221,9 @@
 
   overflow:
     hidden;
-
 }
 
-
 .sceneContent h3 {
-
   color:
     white;
 
@@ -282,12 +248,9 @@
   text-shadow:
     0 10px 40px
     rgba(0, 0, 0, .35);
-
 }
 
-
 .sceneContent p {
-
   font-family:
     var(--font-sans);
 
@@ -309,16 +272,13 @@
   text-shadow:
     0 5px 25px
     rgba(0, 0, 0, .4);
-
 }
-
 
 /* =========================================================
    DESKTOP INDICATOR
 ========================================================= */
 
 .sceneIndicator {
-
   position:
     absolute;
 
@@ -350,24 +310,18 @@
 
   align-items:
     center;
-
 }
 
-
 .indicatorVisible {
-
   opacity:
     .9;
 
   transform:
     translateY(-50%)
     translateX(0);
-
 }
 
-
 .indicatorItem {
-
   display:
     flex;
 
@@ -376,12 +330,9 @@
 
   align-items:
     center;
-
 }
 
-
 .sceneDot {
-
   width:
     8px;
 
@@ -399,12 +350,9 @@
     height .25s cubic-bezier(.22, 1, .36, 1),
     background .25s ease,
     box-shadow .25s ease;
-
 }
 
-
 .activeDot {
-
   width:
     14px;
 
@@ -417,12 +365,9 @@
   box-shadow:
     0 0 18px
     rgba(255, 255, 255, .75);
-
 }
 
-
 .indicatorLine {
-
   width:
     1px;
 
@@ -438,16 +383,13 @@
 
   margin:
     12px 0;
-
 }
-
 
 /* =========================================================
    DESKTOP TEXT ANIMATION
 ========================================================= */
 
 .sceneTitle {
-
   opacity:
     0;
 
@@ -458,12 +400,9 @@
     titleReveal .5s
     cubic-bezier(.22, 1, .36, 1)
     forwards;
-
 }
 
-
 .sceneDescription {
-
   opacity:
     0;
 
@@ -475,14 +414,10 @@
     cubic-bezier(.22, 1, .36, 1)
     .06s
     forwards;
-
 }
 
-
 @keyframes titleReveal {
-
   from {
-
     opacity:
       0;
 
@@ -491,11 +426,9 @@
 
     filter:
       blur(4px);
-
   }
 
   to {
-
     opacity:
       1;
 
@@ -504,16 +437,11 @@
 
     filter:
       blur(0);
-
   }
-
 }
 
-
 @keyframes descriptionReveal {
-
   from {
-
     opacity:
       0;
 
@@ -522,11 +450,9 @@
 
     filter:
       blur(3px);
-
   }
 
   to {
-
     opacity:
       1;
 
@@ -535,43 +461,31 @@
 
     filter:
       blur(0);
-
   }
-
 }
-
 
 /* =========================================================
    MOBILE STORY
 
-   CRITICAL:
    COMPLETELY HIDDEN ON DESKTOP.
 ========================================================= */
 
 .mobileStoryWrapper {
-
   display:
     none;
-
 }
-
 
 /* =========================================================
    MOBILE / TABLET
 ========================================================= */
 
 @media (max-width: 1024px) {
-
   .storyWrapper {
-
     display:
       none !important;
-
   }
 
-
   .mobileStoryWrapper {
-
     display:
       block;
 
@@ -589,12 +503,9 @@
 
     overscroll-behavior:
       contain;
-
   }
 
-
   .mobileStickyStage {
-
     position:
       sticky;
 
@@ -618,18 +529,14 @@
 
     transform:
       translateZ(0);
-
   }
-
 }
-
 
 /* =========================================================
    MOBILE IMAGE WRAPPER
 ========================================================= */
 
 .mobileImageWrapper {
-
   position:
     absolute;
 
@@ -638,23 +545,16 @@
 
   overflow:
     hidden;
-
 }
-
 
 /* =========================================================
    MOBILE IMAGE
 
    IMPORTANT:
    Only transform + opacity are animated.
-
-   No blur.
-   No filter animation.
-   No backdrop effects.
 ========================================================= */
 
 .mobileImage {
-
   position:
     absolute;
 
@@ -676,50 +576,39 @@
 
   -webkit-backface-visibility:
     hidden;
-
 }
-
 
 /* =========================================================
    DEFAULT / INACTIVE
 ========================================================= */
 
 .mobileImageInactive {
-
   opacity:
     0;
 
   transform:
     translate3d(0, 0, 0)
     scale(1.035);
-
 }
-
 
 /* =========================================================
    ACTIVE
 ========================================================= */
 
 .mobileImageActive {
-
   opacity:
     1;
 
   transform:
     translate3d(0, 0, 0)
     scale(1.035);
-
 }
-
 
 /* =========================================================
    NEXT SCENE
-
-   New scene rises from below.
 ========================================================= */
 
 .mobileImageNext {
-
   opacity:
     1;
 
@@ -728,18 +617,13 @@
     .48s
     cubic-bezier(.22, 1, .36, 1)
     both;
-
 }
-
 
 /* =========================================================
    PREVIOUS SCENE
-
-   Previous scene comes down from above.
 ========================================================= */
 
 .mobileImagePrevious {
-
   opacity:
     1;
 
@@ -748,18 +632,14 @@
     .48s
     cubic-bezier(.22, 1, .36, 1)
     both;
-
 }
-
 
 /* =========================================================
    NEXT ANIMATION
 ========================================================= */
 
 @keyframes mobileSceneNext {
-
   0% {
-
     opacity:
       0;
 
@@ -770,11 +650,9 @@
         0
       )
       scale(1.055);
-
   }
 
   100% {
-
     opacity:
       1;
 
@@ -785,20 +663,15 @@
         0
       )
       scale(1.035);
-
   }
-
 }
-
 
 /* =========================================================
    PREVIOUS ANIMATION
 ========================================================= */
 
 @keyframes mobileScenePrevious {
-
   0% {
-
     opacity:
       0;
 
@@ -809,11 +682,9 @@
         0
       )
       scale(1.055);
-
   }
 
   100% {
-
     opacity:
       1;
 
@@ -824,18 +695,14 @@
         0
       )
       scale(1.035);
-
   }
-
 }
-
 
 /* =========================================================
    MOBILE OVERLAY
 ========================================================= */
 
 .mobileOverlay {
-
   position:
     absolute;
 
@@ -847,16 +714,13 @@
 
   pointer-events:
     none;
-
 }
-
 
 /* =========================================================
    MOBILE CONTENT
 ========================================================= */
 
 .mobileContent {
-
   position:
     absolute;
 
@@ -883,16 +747,13 @@
 
   pointer-events:
     none;
-
 }
-
 
 /* =========================================================
    MOBILE TITLE
 ========================================================= */
 
 .mobileContent h3 {
-
   margin:
     0 0 1.15rem;
 
@@ -924,12 +785,9 @@
     cubic-bezier(.22, 1, .36, 1)
     .04s
     both;
-
 }
 
-
 .mobileContent p {
-
   margin:
     0 auto;
 
@@ -958,18 +816,14 @@
     cubic-bezier(.22, 1, .36, 1)
     .1s
     both;
-
 }
-
 
 /* =========================================================
    MOBILE TEXT ANIMATION
 ========================================================= */
 
 @keyframes mobileTitleEnter {
-
   0% {
-
     opacity:
       0;
 
@@ -979,11 +833,9 @@
         20px,
         0
       );
-
   }
 
   100% {
-
     opacity:
       1;
 
@@ -993,16 +845,11 @@
         0,
         0
       );
-
   }
-
 }
 
-
 @keyframes mobileDescriptionEnter {
-
   0% {
-
     opacity:
       0;
 
@@ -1012,11 +859,9 @@
         12px,
         0
       );
-
   }
 
   100% {
-
     opacity:
       1;
 
@@ -1026,18 +871,14 @@
         0,
         0
       );
-
   }
-
 }
-
 
 /* =========================================================
    MOBILE INDICATOR
 ========================================================= */
 
 .mobileIndicator {
-
   position:
     absolute;
 
@@ -1070,12 +911,9 @@
 
   pointer-events:
     none;
-
 }
 
-
 .mobileDot {
-
   display:
     block;
 
@@ -1096,12 +934,9 @@
     height .25s ease,
     background .25s ease,
     box-shadow .25s ease;
-
 }
 
-
 .mobileDotActive {
-
   width:
     12px;
 
@@ -1114,9 +949,7 @@
   box-shadow:
     0 0 16px
     rgba(255, 255, 255, .7);
-
 }
-
 
 /* =========================================================
    MOBILE CONTROLS
@@ -1125,7 +958,6 @@
 ========================================================= */
 
 .mobileControls {
-
   position:
     absolute;
 
@@ -1152,16 +984,13 @@
 
   pointer-events:
     auto;
-
 }
-
 
 /* =========================================================
    BUTTON
 ========================================================= */
 
 .mobileSceneButton {
-
   width:
     54px;
 
@@ -1174,13 +1003,6 @@
 
   border-radius:
     50%;
-
-  /*
-   * Deliberately NO backdrop-filter.
-   *
-   * This is one of the things we remove to make
-   * the mobile compositor's job easier.
-   */
 
   background:
     rgba(20, 35, 55, .48);
@@ -1216,12 +1038,9 @@
 
   -webkit-tap-highlight-color:
     transparent;
-
 }
 
-
 .mobileSceneButton:hover {
-
   background:
     rgba(30, 50, 75, .62);
 
@@ -1231,57 +1050,42 @@
   transform:
     translate3d(0, -2px, 0)
     scale(1.04);
-
 }
 
-
 .mobileSceneButton:active {
-
   transform:
     translate3d(0, 0, 0)
     scale(.92);
-
 }
-
 
 .mobileSceneButton:disabled {
-
   cursor:
     default;
-
 }
-
 
 /* =========================================================
    DISABLED PREVIOUS
 ========================================================= */
 
 .mobileSceneButtonDisabled {
-
   opacity:
     .28;
-
 }
-
 
 /* =========================================================
    LAST-SCENE NEXT BUTTON
 ========================================================= */
 
 .mobileSceneButtonContinue {
-
   background:
     rgba(15, 44, 89, .65);
-
 }
-
 
 /* =========================================================
    ARROW
 ========================================================= */
 
 .mobileButtonArrow {
-
   display:
     block;
 
@@ -1300,18 +1104,13 @@
 
   line-height:
     1;
-
 }
-
 
 /* =========================================================
    SPINNER
-
-   Tiny, lightweight CSS spinner.
 ========================================================= */
 
 .mobileSpinner {
-
   width:
     19px;
 
@@ -1333,37 +1132,26 @@
     .65s
     linear
     infinite;
-
 }
-
 
 @keyframes mobileSpinnerRotate {
-
   to {
-
     transform:
       rotate(360deg);
-
   }
-
 }
-
 
 /* =========================================================
    MOVIE MODE
 ========================================================= */
 
 .movieMode {
-
   transition:
     background .65s ease,
     color .65s ease;
-
 }
 
-
 .introMovieMode {
-
   opacity:
     .16;
 
@@ -1375,200 +1163,139 @@
 
   pointer-events:
     none;
-
 }
-
 
 /* =========================================================
    SMALL PHONES
 ========================================================= */
 
 @media (max-width: 480px) {
-
   .greeceExperience {
-
     border-radius:
       28px 28px 0 0;
-
   }
-
 
   .intro {
-
     padding:
       5.5rem 0 4rem;
-
   }
-
 
   .intro h2 {
-
     font-size:
       clamp(2.2rem, 9vw, 3rem);
-
   }
-
 
   .intro p {
-
     font-size:
       1rem;
-
   }
 
-
   .mobileContent {
-
     top:
       51%;
 
     width:
       87%;
-
   }
-
 
   .mobileContent h3 {
-
     font-size:
       clamp(2rem, 9vw, 2.75rem);
-
   }
 
-
   .mobileContent p {
-
     font-size:
       .95rem;
 
     line-height:
       1.65;
-
   }
 
-
   .mobileIndicator {
-
     right:
       14px;
 
     gap:
       16px;
-
   }
-
 
   .mobileDot {
-
     width:
       6px;
 
     height:
       6px;
-
   }
-
 
   .mobileDotActive {
-
     width:
       12px;
 
     height:
       12px;
-
   }
 
-
   .mobileControls {
-
     bottom:
       20px;
 
     gap:
       10px;
-
   }
 
-
   .mobileSceneButton {
-
     width:
       50px;
 
     height:
       50px;
-
   }
-
 
   .mobileButtonArrow {
-
     font-size:
       1.1rem;
-
   }
-
 }
-
 
 /* =========================================================
    LANDSCAPE TABLETS / PHONES
 ========================================================= */
 
 @media (max-width: 1024px) and (orientation: landscape) {
-
   .mobileContent {
-
     top:
       48%;
-
   }
-
 
   .mobileContent h3 {
-
     font-size:
       clamp(1.8rem, 5vw, 3rem);
-
   }
-
 
   .mobileContent p {
-
     max-width:
       550px;
-
   }
-
 
   .mobileIndicator {
-
     right:
       16px;
-
   }
 
-
   .mobileControls {
-
     bottom:
       max(
         16px,
         env(safe-area-inset-bottom)
       );
-
   }
-
 }
-
 
 /* =========================================================
    REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
   .image,
   .mobileImage,
   .sceneContent,
@@ -1579,13 +1306,10 @@
   .mobileDot,
   .mobileSceneButton,
   .mobileSpinner {
-
     animation:
       none !important;
 
     transition:
       none !important;
-
   }
-
 }
