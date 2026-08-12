@@ -44,15 +44,6 @@ export default function GreeceExperience() {
   const mobileSectionRef =
     useRef(null);
 
-  const mobileProgressRef =
-    useRef(0);
-
-  const mobileAnimationRef =
-    useRef(null);
-
-  const mobileAnimationStartRef =
-    useRef(0);
-
   // =========================================================
   // STATE
   // =========================================================
@@ -68,6 +59,14 @@ export default function GreeceExperience() {
 
   const [mobileScene, setMobileScene] =
     useState(0);
+
+  // =========================================================
+  // NAVBAR
+  // =========================================================
+
+  const {
+    setCinematic
+  } = useNavbar();
 
   // =========================================================
   // DEVICE DETECTION
@@ -100,14 +99,6 @@ export default function GreeceExperience() {
     };
 
   }, []);
-
-  // =========================================================
-  // NAVBAR
-  // =========================================================
-
-  const {
-    setCinematic
-  } = useNavbar();
 
   // =========================================================
   // NAVBAR CINEMATIC MODE
@@ -155,6 +146,8 @@ export default function GreeceExperience() {
 
   // =========================================================
   // IMAGE PRELOADING
+  //
+  // Only preload the images for the active layout.
   // =========================================================
 
   useEffect(() => {
@@ -173,7 +166,11 @@ export default function GreeceExperience() {
         const img =
           new window.Image();
 
-        img.src = src;
+        img.decoding =
+          "async";
+
+        img.src =
+          src;
 
       }
     );
@@ -217,7 +214,7 @@ export default function GreeceExperience() {
         Math.min(
           Math.max(
             scrolled /
-            scrollHeight,
+              scrollHeight,
             0
           ),
           1
@@ -266,168 +263,15 @@ export default function GreeceExperience() {
   ]);
 
   // =========================================================
-  // MOBILE SCENE ANIMATION
+  // MOBILE SCENE → NEXT
   //
   // IMPORTANT:
   //
-  // We do NOT keep mobileProgress in React state.
+  // No requestAnimationFrame.
+  // No continuous React updates.
   //
-  // The animation is driven through a ref and the scene
-  // itself is changed only when necessary.
-  //
-  // This avoids re-rendering the entire component every
-  // animation frame.
-  // =========================================================
-
-function animateMobileTo(targetScene) {
-
-  const totalScenes =
-    greeceScenes.length;
-
-  const target =
-    targetScene /
-    totalScenes;
-
-  const start =
-    mobileProgressRef.current;
-
-  const difference =
-    target -
-    start;
-
-  if (
-    Math.abs(difference) <
-    0.0001
-  ) {
-
-    mobileProgressRef.current =
-      target;
-
-    setMobileScene(
-      targetScene
-    );
-
-    return;
-  }
-
-  cancelAnimationFrame(
-    mobileAnimationRef.current
-  );
-
-  const duration =
-    720;
-
-  const startTime =
-    performance.now();
-
-  function animate(now) {
-
-    const elapsed =
-      now -
-      startTime;
-
-    const raw =
-      Math.min(
-        elapsed /
-        duration,
-        1
-      );
-
-    /*
-     * Cinematic easing.
-     *
-     * Slow start
-     * Fast middle
-     * Soft landing
-     */
-    const eased =
-      raw < 0.5
-        ? 4 * raw * raw * raw
-        : 1 -
-          Math.pow(
-            -2 * raw + 2,
-            3
-          ) / 2;
-
-    const value =
-      start +
-      difference *
-      eased;
-
-    mobileProgressRef.current =
-      value;
-
-    const scene =
-      Math.min(
-        Math.floor(
-          value *
-          totalScenes
-        ),
-        totalScenes - 1
-      );
-
-    setMobileScene(
-      previous => {
-
-        if (
-          previous === scene
-        ) {
-          return previous;
-        }
-
-        return scene;
-
-      }
-    );
-
-    if (
-      raw <
-      1
-    ) {
-
-      mobileAnimationRef.current =
-        requestAnimationFrame(
-          animate
-        );
-
-    } else {
-
-      mobileProgressRef.current =
-        target;
-
-      setMobileScene(
-        targetScene
-      );
-
-      mobileAnimationRef.current =
-        null;
-    }
-  }
-
-  mobileAnimationRef.current =
-    requestAnimationFrame(
-      animate
-    );
-}
-
-  // =========================================================
-  // CANCEL MOBILE ANIMATION ON UNMOUNT
-  // =========================================================
-
-  useEffect(() => {
-
-    return () => {
-
-      cancelAnimationFrame(
-        mobileAnimationRef.current
-      );
-
-    };
-
-  }, []);
-
-  // =========================================================
-  // MOBILE SCENE → NEXT
+  // React changes the scene ONCE.
+  // CSS performs the cinematic transition.
   // =========================================================
 
   function handleNextScene() {
@@ -439,11 +283,8 @@ function animateMobileTo(targetScene) {
     const totalScenes =
       greeceScenes.length;
 
-    const current =
-      mobileScene;
-
     const next =
-      current + 1;
+      mobileScene + 1;
 
     // -------------------------------------------------------
     // LAST SCENE
@@ -453,26 +294,6 @@ function animateMobileTo(targetScene) {
       next >=
       totalScenes
     ) {
-
-      /*
-       * We are already at the end of the cinematic.
-       *
-       * Do NOT permanently disable the section.
-       *
-       * Instead, simply let the user continue down the page.
-       */
-
-      cancelAnimationFrame(
-        mobileAnimationRef.current
-      );
-
-      mobileProgressRef.current =
-        1;
-
-      /*
-       * Find the element immediately after
-       * the cinematic section.
-       */
 
       const section =
         mobileSectionRef.current;
@@ -497,78 +318,11 @@ function animateMobileTo(targetScene) {
     // NEXT SCENE
     // -------------------------------------------------------
 
-    animateMobileTo(
+    setMobileScene(
       next
     );
 
   }
-
-  // =========================================================
-  // MOBILE SCROLL BACK / EXIT
-  //
-  // We deliberately DO NOT lock the page.
-  //
-  // The user can always scroll upward.
-  // =========================================================
-
-  useEffect(() => {
-
-    if (!isMobile) {
-      return;
-    }
-
-    const section =
-      mobileSectionRef.current;
-
-    if (!section) {
-      return;
-    }
-
-    function handleScroll() {
-
-      const rect =
-        section.getBoundingClientRect();
-
-      /*
-       * If the user is scrolling upward and the
-       * cinematic section is moving below the viewport,
-       * simply allow normal browser scrolling.
-       *
-       * No body overflow locking.
-       * No scroll hijacking.
-       */
-
-      if (
-        rect.top >
-        10
-      ) {
-
-        return;
-
-      }
-
-    }
-
-    window.addEventListener(
-      "scroll",
-      handleScroll,
-      {
-        passive: true
-      }
-    );
-
-    return () => {
-
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
-
-    };
-
-  }, [
-    isMobile
-  ]);
 
   // =========================================================
   // TOTAL DURATION
@@ -672,51 +426,11 @@ function animateMobileTo(targetScene) {
     );
 
   // =========================================================
-  // MOBILE LOCAL SCENE PROGRESS
-  //
-  // The camera uses the actual animation progress.
-  // =========================================================
-
-  const mobileProgress =
-    mobileProgressRef.current;
-
-  const mobileSceneStart =
-    mobileScene /
-    greeceScenes.length;
-
-  const mobileSceneEnd =
-    (
-      mobileScene +
-      1
-    ) /
-    greeceScenes.length;
-
-  const mobileLocalProgress =
-    Math.min(
-      Math.max(
-        (
-          mobileProgress -
-          mobileSceneStart
-        ) /
-        (
-          mobileSceneEnd -
-          mobileSceneStart
-        ),
-        0
-      ),
-      1
-    );
-
-  // =========================================================
-  // CINEMATIC EASING
-  //
-  // THIS WAS THE MISSING PART.
+  // DESKTOP CINEMATIC EASING
   // =========================================================
 
   const sceneProgress =
-    isMobile
-      ? mobileLocalProgress
-      : desktopSceneProgress;
+    desktopSceneProgress;
 
   const easedProgress =
     sceneProgress *
@@ -736,17 +450,6 @@ function animateMobileTo(targetScene) {
     (
       easedProgress *
       0.05
-    );
-
-  // =========================================================
-  // MOBILE CAMERA
-  // =========================================================
-
-  const mobileCameraScale =
-    1 +
-    (
-      easedProgress *
-      0.035
     );
 
   // =========================================================
@@ -807,14 +510,6 @@ function animateMobileTo(targetScene) {
   const isLastMobileScene =
     mobileScene ===
     greeceScenes.length - 1;
-
-  /*
-   * The button is always available while
-   * the mobile cinematic is visible.
-   */
-
-  const showButton =
-    isMobile;
 
   // =========================================================
   // RENDER
@@ -1117,10 +812,8 @@ function animateMobileTo(targetScene) {
       {/* =====================================================
           MOBILE STORY
 
-          IMPORTANT:
-          NO SCROLL LOCK.
-
-          The user can always scroll upward and leave.
+          This is hidden on desktop by CSS.
+          It only exists visually at <= 1024px.
       ===================================================== */}
 
       <div
@@ -1177,30 +870,25 @@ function animateMobileTo(targetScene) {
                         : ""
                     }
                     fill
-                    quality={100}
+                    quality={90}
                     sizes="100vw"
-                    className={
-                      styles.mobileImage
-                    }
+                    className={`
+                      ${styles.mobileImage}
+                      ${
+                        isActive
+                          ? styles.mobileImageActive
+                          : styles.mobileImageInactive
+                      }
+                    `}
                     style={{
 
                       objectPosition:
                         "center center",
 
-                      opacity:
-                        isActive
-                          ? 1
-                          : 0,
-
                       zIndex:
                         isActive
                           ? 2
-                          : 1,
-
-                      transform:
-                        isActive
-                          ? `scale(${mobileCameraScale})`
-                          : "scale(1)"
+                          : 1
 
                     }}
                   />
@@ -1250,9 +938,13 @@ function animateMobileTo(targetScene) {
           ================================================= */}
 
           <div
-  key={`mobile-content-${mobileScene}`}
-  className={styles.mobileContent}
->
+            key={
+              `mobile-content-${mobileScene}`
+            }
+            className={
+              styles.mobileContent
+            }
+          >
 
             <h3>
               {
@@ -1313,14 +1005,9 @@ function animateMobileTo(targetScene) {
 
           <button
             type="button"
-            className={`
-              ${styles.mobileNextButton}
-              ${
-                showButton
-                  ? styles.buttonVisible
-                  : styles.buttonHidden
-              }
-            `}
+            className={
+              styles.mobileNextButton
+            }
             onClick={
               handleNextScene
             }
@@ -1338,7 +1025,7 @@ function animateMobileTo(targetScene) {
                 styles.mobileNextArrow
               }
             >
-              ↓
+              ↑
             </span>
 
           </button>

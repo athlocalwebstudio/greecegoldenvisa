@@ -1,756 +1,1107 @@
 .greeceExperience {
 
-background:white;
+  background: white;
 
-border-radius:40px 40px 0 0;
+  border-radius:
+    40px 40px 0 0;
 
-box-shadow:
-0 -40px 90px rgba(15,44,89,.14);
+  box-shadow:
+    0 -40px 90px
+    rgba(15, 44, 89, .14);
 
 }
 
+
 /* =========================================================
-INTRO
+   INTRO
 ========================================================= */
 
 .intro {
 
-width:min(900px,90%);
+  width:
+    min(900px, 90%);
 
-margin:0 auto;
+  margin:
+    0 auto;
 
-padding:7rem 0 5rem;
+  padding:
+    7rem 0 5rem;
 
-text-align:center;
+  text-align:
+    center;
 
-font-family:var(--font-sans);
+  font-family:
+    var(--font-sans);
 
-transition:
-opacity .65s ease,
-transform .65s cubic-bezier(.22,1,.36,1),
-filter .65s ease;
+  transition:
+    opacity .65s ease,
+    transform .65s cubic-bezier(.22, 1, .36, 1),
+    filter .65s ease;
 
 }
+
 
 .label {
 
-display:inline-block;
+  display:
+    inline-block;
 
-padding:.45rem 1.2rem;
+  padding:
+    .45rem 1.2rem;
 
-border-radius:999px;
+  border-radius:
+    999px;
 
-background:#e8f4fd;
+  background:
+    #e8f4fd;
 
-color:#0F2C59;
+  color:
+    #0F2C59;
 
-font-size:.85rem;
+  font-size:
+    .85rem;
 
-font-weight:700;
+  font-weight:
+    700;
 
-text-transform:uppercase;
+  text-transform:
+    uppercase;
 
-letter-spacing:.08em;
+  letter-spacing:
+    .08em;
 
-margin-bottom:1.5rem;
+  margin-bottom:
+    1.5rem;
 
 }
+
 
 .intro h2 {
 
-font-size:clamp(2.5rem,5vw,4rem);
+  font-size:
+    clamp(2.5rem, 5vw, 4rem);
 
-line-height:1.05;
+  line-height:
+    1.05;
 
-letter-spacing:-.04em;
+  letter-spacing:
+    -.04em;
 
-margin-bottom:1.5rem;
+  margin-bottom:
+    1.5rem;
 
 }
+
 
 .intro p {
 
-max-width:650px;
+  max-width:
+    650px;
 
-margin:auto;
+  margin:
+    auto;
 
-color:#64748b;
+  color:
+    #64748b;
 
-font-size:1.15rem;
+  font-size:
+    1.15rem;
 
-line-height:1.7;
+  line-height:
+    1.7;
 
 }
 
+
 /* =========================================================
-DESKTOP STORY
+   DESKTOP STORY
 ========================================================= */
 
 .storyWrapper {
 
-height:500vh;
+  height:
+    500vh;
 
-position:relative;
+  position:
+    relative;
 
 }
+
 
 .stickyStage {
 
-position:sticky;
+  position:
+    sticky;
 
-top:0;
+  top:
+    0;
 
-height:100vh;
+  height:
+    100vh;
 
-width:100%;
+  width:
+    100%;
 
-overflow:hidden;
+  overflow:
+    hidden;
 
-isolation:isolate;
+  isolation:
+    isolate;
 
-background:#050505;
+  background:
+    #050505;
 
 }
 
+
 /* =========================================================
-DESKTOP IMAGE
+   DESKTOP IMAGE
 ========================================================= */
 
 .imageWrapper {
 
-position:absolute;
+  position:
+    absolute;
 
-inset:-10px;
+  inset:
+    -10px;
 
-transform:scale(1.03);
+  transform:
+    scale(1.03);
 
 }
+
 
 .image {
 
-object-fit:cover;
+  object-fit:
+    cover;
 
-will-change:
-transform,
-opacity;
+  will-change:
+    transform,
+    opacity;
 
-transform-origin:
-center center;
+  transform-origin:
+    center center;
 
-filter:
-brightness(1.05)
-contrast(1.05)
-saturate(1.1);
+  filter:
+    brightness(1.05)
+    contrast(1.05)
+    saturate(1.1);
 
-transition:
-opacity .42s cubic-bezier(.22,1,.36,1),
-filter .42s ease;
+  transition:
+    opacity .42s cubic-bezier(.22, 1, .36, 1),
+    filter .42s ease,
+    transform .65s cubic-bezier(.22, 1, .36, 1);
 
 }
 
+
 /* =========================================================
-DESKTOP OVERLAY
+   DESKTOP OVERLAY
 ========================================================= */
 
 .overlay {
 
-position:absolute;
+  position:
+    absolute;
 
-inset:0;
+  inset:
+    0;
 
-z-index:3;
+  z-index:
+    3;
 
-pointer-events:none;
+  pointer-events:
+    none;
 
 }
 
+
 /* =========================================================
-DESKTOP TEXT
+   DESKTOP TEXT
 ========================================================= */
 
 .sceneContent {
 
-position:absolute;
+  position:
+    absolute;
 
-z-index:4;
+  z-index:
+    4;
 
-left:50%;
+  left:
+    50%;
 
-top:var(--text-top);
+  top:
+    var(--text-top);
 
-width:min(var(--text-width),90%);
+  width:
+    min(var(--text-width), 90%);
 
-text-align:var(--text-align);
+  text-align:
+    var(--text-align);
 
-transform:
-translate(-50%,-50%);
+  transform:
+    translate(-50%, -50%);
 
-transition:
-opacity .3s ease,
-filter .3s ease,
-transform .3s cubic-bezier(.22,1,.36,1);
+  transition:
+    opacity .3s ease,
+    filter .3s ease,
+    transform .3s cubic-bezier(.22, 1, .36, 1);
 
-overflow:hidden;
+  overflow:
+    hidden;
 
 }
+
 
 .sceneContent h3 {
 
-color:white;
+  color:
+    white;
 
-font-family:inherit;
+  font-family:
+    inherit;
 
-font-size:
-clamp(2.8rem,5vw,4.8rem);
+  font-size:
+    clamp(2.8rem, 5vw, 4.8rem);
 
-font-weight:500;
+  font-weight:
+    500;
 
-line-height:1;
+  line-height:
+    1;
 
-letter-spacing:-.045em;
+  letter-spacing:
+    -.045em;
 
-margin-bottom:1.35rem;
+  margin-bottom:
+    1.35rem;
 
-text-shadow:
-0 10px 40px rgba(0,0,0,.35);
+  text-shadow:
+    0 10px 40px
+    rgba(0, 0, 0, .35);
 
 }
+
 
 .sceneContent p {
 
-font-family:var(--font-sans);
+  font-family:
+    var(--font-sans);
 
-font-size:1.2rem;
+  font-size:
+    1.2rem;
 
-line-height:1.75;
+  line-height:
+    1.75;
 
-max-width:600px;
+  max-width:
+    600px;
 
-margin:auto;
+  margin:
+    auto;
 
-color:
-rgba(255,255,255,.9);
+  color:
+    rgba(255, 255, 255, .9);
 
-text-shadow:
-0 5px 25px rgba(0,0,0,.4);
+  text-shadow:
+    0 5px 25px
+    rgba(0, 0, 0, .4);
 
 }
 
+
 /* =========================================================
-DESKTOP INDICATOR
+   DESKTOP INDICATOR
 ========================================================= */
 
 .sceneIndicator {
 
-position:absolute;
+  position:
+    absolute;
 
-right:28px;
+  right:
+    28px;
 
-top:50%;
+  top:
+    50%;
 
-transform:
-translateY(-50%)
-translateX(20px);
+  transform:
+    translateY(-50%)
+    translateX(20px);
 
-opacity:0;
+  opacity:
+    0;
 
-transition:
-opacity .4s ease,
-transform .4s cubic-bezier(.22,1,.36,1);
+  transition:
+    opacity .4s ease,
+    transform .4s cubic-bezier(.22, 1, .36, 1);
 
-z-index:5;
+  z-index:
+    5;
 
-display:flex;
+  display:
+    flex;
 
-flex-direction:column;
+  flex-direction:
+    column;
 
-align-items:center;
+  align-items:
+    center;
 
 }
+
 
 .indicatorVisible {
 
-opacity:.9;
+  opacity:
+    .9;
 
-transform:
-translateY(-50%)
-translateX(0);
+  transform:
+    translateY(-50%)
+    translateX(0);
 
 }
+
 
 .indicatorItem {
 
-display:flex;
+  display:
+    flex;
 
-flex-direction:column;
+  flex-direction:
+    column;
 
-align-items:center;
+  align-items:
+    center;
 
 }
+
 
 .sceneDot {
 
-width:8px;
+  width:
+    8px;
 
-height:8px;
+  height:
+    8px;
 
-border-radius:50%;
+  border-radius:
+    50%;
 
-background:
-rgba(255,255,255,.4);
+  background:
+    rgba(255, 255, 255, .4);
 
-transition:
-width .25s cubic-bezier(.22,1,.36,1),
-height .25s cubic-bezier(.22,1,.36,1),
-background .25s ease,
-box-shadow .25s ease;
+  transition:
+    width .25s cubic-bezier(.22, 1, .36, 1),
+    height .25s cubic-bezier(.22, 1, .36, 1),
+    background .25s ease,
+    box-shadow .25s ease;
 
 }
+
 
 .activeDot {
 
-width:14px;
+  width:
+    14px;
 
-height:14px;
+  height:
+    14px;
 
-background:white;
+  background:
+    white;
 
-box-shadow:
-0 0 18px rgba(255,255,255,.75);
+  box-shadow:
+    0 0 18px
+    rgba(255, 255, 255, .75);
 
 }
+
 
 .indicatorLine {
 
-width:1px;
+  width:
+    1px;
 
-height:40px;
+  height:
+    40px;
 
-background:
-linear-gradient(
-180deg,
-rgba(255,255,255,.4),
-rgba(255,255,255,.12)
-);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, .4),
+      rgba(255, 255, 255, .12)
+    );
 
-margin:12px 0;
+  margin:
+    12px 0;
 
 }
 
+
 /* =========================================================
-DESKTOP TEXT ANIMATION
+   DESKTOP TEXT ANIMATION
 ========================================================= */
 
 .sceneTitle {
 
-opacity:0;
+  opacity:
+    0;
 
-transform:
-translateY(24px);
+  transform:
+    translateY(24px);
 
-animation:
-titleReveal .5s
-cubic-bezier(.22,1,.36,1)
-forwards;
+  animation:
+    titleReveal .5s
+    cubic-bezier(.22, 1, .36, 1)
+    forwards;
 
 }
+
 
 .sceneDescription {
 
-opacity:0;
+  opacity:
+    0;
 
-transform:
-translateY(16px);
+  transform:
+    translateY(16px);
 
-animation:
-descriptionReveal .54s
-cubic-bezier(.22,1,.36,1)
-.06s
-forwards;
+  animation:
+    descriptionReveal .54s
+    cubic-bezier(.22, 1, .36, 1)
+    .06s
+    forwards;
 
 }
+
 
 @keyframes titleReveal {
 
-from {
+  from {
 
+    opacity:
+      0;
 
-opacity:0;
+    transform:
+      translateY(24px);
 
-transform:
-  translateY(24px);
+    filter:
+      blur(4px);
 
-filter:
-  blur(4px);
+  }
 
+  to {
 
-}
+    opacity:
+      1;
 
-to {
+    transform:
+      translateY(0);
 
+    filter:
+      blur(0);
 
-opacity:1;
-
-transform:
-  translateY(0);
-
-filter:
-  blur(0);
-
-
-}
+  }
 
 }
+
 
 @keyframes descriptionReveal {
 
-from {
+  from {
 
+    opacity:
+      0;
 
-opacity:0;
+    transform:
+      translateY(16px);
 
-transform:
-  translateY(16px);
+    filter:
+      blur(3px);
 
-filter:
-  blur(3px);
+  }
 
+  to {
 
-}
+    opacity:
+      1;
 
-to {
+    transform:
+      translateY(0);
 
+    filter:
+      blur(0);
 
-opacity:1;
-
-transform:
-  translateY(0);
-
-filter:
-  blur(0);
-
-
-}
+  }
 
 }
+
 
 /* =========================================================
-MOBILE / TABLET STORY
+   MOBILE STORY
+   IMPORTANT:
+   HIDDEN ON DESKTOP
 ========================================================= */
 
 .mobileStoryWrapper {
 
-display:block;
-
-position:relative;
-
-height:
-calc(
-100svh *
-var(--scene-count)
-);
+  display:
+    none;
 
 }
 
-.mobileStickyStage {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  width: 100%;
-  overflow: hidden;
-  background: #050505;
-  isolation: isolate;
-  transform: translateZ(0);
-  will-change: transform;
-}
+
 /* =========================================================
-MOBILE IMAGE
+   MOBILE / TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+  .storyWrapper {
+
+    display:
+      none;
+
+  }
+
+
+  .mobileStoryWrapper {
+
+    display:
+      block;
+
+    position:
+      relative;
+
+    height:
+      calc(
+        100svh *
+        var(--scene-count)
+      );
+
+    overscroll-behavior:
+      contain;
+
+  }
+
+
+  .mobileStickyStage {
+
+    position:
+      sticky;
+
+    top:
+      0;
+
+    height:
+      100svh;
+
+    width:
+      100%;
+
+    overflow:
+      hidden;
+
+    background:
+      #050505;
+
+    isolation:
+      isolate;
+
+    transform:
+      translateZ(0);
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE IMAGE
 ========================================================= */
 
 .mobileImageWrapper {
 
-position:absolute;
+  position:
+    absolute;
 
-inset:0;
+  inset:
+    0;
 
-overflow:hidden;
+  overflow:
+    hidden;
 
 }
+
 
 .mobileImage {
 
-position:absolute;
+  position:
+    absolute;
 
-inset:0;
+  inset:
+    0;
 
-object-fit:cover;
+  object-fit:
+    cover;
 
-transform-origin:
-center center;
+  transform-origin:
+    center center;
 
-will-change:
-opacity,
-transform;
+  will-change:
+    transform,
+    opacity;
 
-filter:
-brightness(1.04)
-contrast(1.04)
-saturate(1.08);
-
-transition:
-opacity .42s cubic-bezier(.22,1,.36,1),
-transform .6s cubic-bezier(.22,1,.36,1),
-filter .42s ease;
+  filter:
+    brightness(1.04)
+    contrast(1.04)
+    saturate(1.08);
 
 }
 
+
 /* =========================================================
-MOBILE OVERLAY
+   MOBILE ACTIVE IMAGE
+========================================================= */
+
+.mobileImageActive {
+
+  opacity:
+    1;
+
+  animation:
+    mobileImageEnter
+    .85s
+    cubic-bezier(.22, 1, .36, 1)
+    both;
+
+}
+
+
+.mobileImageInactive {
+
+  opacity:
+    0;
+
+  transform:
+    translate3d(0, 0, 0)
+    scale(1.035);
+
+}
+
+
+/*
+   The new photo rises into the viewport.
+   The slight scale makes it feel like a
+   cinematic camera move rather than a slide.
+*/
+
+@keyframes mobileImageEnter {
+
+  0% {
+
+    opacity:
+      0;
+
+    transform:
+      translate3d(0, 7%, 0)
+      scale(1.075);
+
+    filter:
+      brightness(.86)
+      contrast(1.04)
+      saturate(1.02)
+      blur(2px);
+
+  }
+
+  45% {
+
+    opacity:
+      1;
+
+    transform:
+      translate3d(0, 1.5%, 0)
+      scale(1.055);
+
+    filter:
+      brightness(1.01)
+      contrast(1.04)
+      saturate(1.07)
+      blur(.5px);
+
+  }
+
+  100% {
+
+    opacity:
+      1;
+
+    transform:
+      translate3d(0, 0, 0)
+      scale(1.035);
+
+    filter:
+      brightness(1.04)
+      contrast(1.04)
+      saturate(1.08)
+      blur(0);
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE OVERLAY
 ========================================================= */
 
 .mobileOverlay {
 
-position:absolute;
+  position:
+    absolute;
 
-inset:0;
+  inset:
+    0;
 
-z-index:3;
+  z-index:
+    3;
 
-pointer-events:none;
+  pointer-events:
+    none;
 
 }
 
+
 /* =========================================================
-MOBILE CONTENT
+   MOBILE CONTENT
 ========================================================= */
 
 .mobileContent {
-  position: absolute;
-  z-index: 5;
 
-  left: 50%;
-  top: 54%;
+  position:
+    absolute;
 
-  width: min(88%, 620px);
+  z-index:
+    5;
+
+  left:
+    50%;
+
+  top:
+    54%;
+
+  width:
+    min(88%, 620px);
 
   transform:
     translate3d(-50%, -50%, 0);
 
-  text-align: center;
+  text-align:
+    center;
 
-  color: #ffffff;
+  color:
+    #ffffff;
 
-  pointer-events: none;
+  pointer-events:
+    none;
 
-  will-change: transform, opacity;
+  will-change:
+    transform,
+    opacity;
+
 }
 
+
+/* =========================================================
+   MOBILE TITLE
+========================================================= */
+
 .mobileContent h3 {
-  margin: 0 0 1.15rem;
 
-  color: #ffffff;
+  margin:
+    0 0 1.15rem;
 
-  font-family: inherit;
+  color:
+    #ffffff;
+
+  font-family:
+    inherit;
 
   font-size:
     clamp(2.4rem, 8vw, 4rem);
 
-  font-weight: 500;
+  font-weight:
+    500;
 
-  line-height: 1;
+  line-height:
+    1;
 
-  letter-spacing: -.045em;
-
-  text-shadow:
-    0 10px 40px rgba(0, 0, 0, .38);
-
-  will-change: transform, opacity;
-}
-
-.mobileContent p {
-  margin: 0 auto;
-
-  max-width: 600px;
-
-  color: rgba(255, 255, 255, .92);
-
-  font-family: var(--font-sans);
-
-  font-size: 1.1rem;
-
-  line-height: 1.7;
+  letter-spacing:
+    -.045em;
 
   text-shadow:
-    0 5px 25px rgba(0, 0, 0, .45);
+    0 10px 40px
+    rgba(0, 0, 0, .38);
 
-  will-change: transform, opacity;
-}
-
-.mobileContent h3,
-.mobileContent p {
   will-change:
-    opacity,
     transform,
-    filter;
-}
+    opacity;
 
-
-/* =========================================================
-MOBILE TEXT ANIMATION
-========================================================= */
-
-@keyframes mobileSceneEnter {
-  0% {
-    opacity: 0;
-    transform:
-      translate3d(-50%, calc(-50% + 24px), 0);
-  }
-
-  55% {
-    opacity: 1;
-    transform:
-      translate3d(-50%, calc(-50% - 3px), 0);
-  }
-
-  100% {
-    opacity: 1;
-    transform:
-      translate3d(-50%, -50%, 0);
-  }
-}
-
-.mobileSceneEnter {
-  animation:
-    mobileSceneEnter
-    .75s
-    cubic-bezier(.22, 1, .36, 1)
-    both;
-}
-
-@keyframes mobileTitleEnter {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 22px, 0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes mobileDescriptionEnter {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 14px, 0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-.mobileContent h3 {
   animation:
     mobileTitleEnter
-    .65s
+    .7s
     cubic-bezier(.22, 1, .36, 1)
-    .08s
+    .1s
     both;
+
 }
 
+
+/* =========================================================
+   MOBILE DESCRIPTION
+========================================================= */
+
 .mobileContent p {
+
+  margin:
+    0 auto;
+
+  max-width:
+    600px;
+
+  color:
+    rgba(255, 255, 255, .92);
+
+  font-family:
+    var(--font-sans);
+
+  font-size:
+    1.1rem;
+
+  line-height:
+    1.7;
+
+  text-shadow:
+    0 5px 25px
+    rgba(0, 0, 0, .45);
+
+  will-change:
+    transform,
+    opacity;
+
   animation:
     mobileDescriptionEnter
-    .65s
+    .7s
     cubic-bezier(.22, 1, .36, 1)
-    .18s
+    .2s
     both;
+
 }
+
+
 /* =========================================================
-MINIMAL MOBILE INDICATOR
+   MOBILE TEXT ANIMATION
+========================================================= */
+
+@keyframes mobileTitleEnter {
+
+  0% {
+
+    opacity:
+      0;
+
+    transform:
+      translate3d(0, 26px, 0)
+      scale(.985);
+
+    filter:
+      blur(5px);
+
+  }
+
+  60% {
+
+    opacity:
+      1;
+
+    transform:
+      translate3d(0, -2px, 0)
+      scale(1);
+
+    filter:
+      blur(.5px);
+
+  }
+
+  100% {
+
+    opacity:
+      1;
+
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+
+    filter:
+      blur(0);
+
+  }
+
+}
+
+
+@keyframes mobileDescriptionEnter {
+
+  0% {
+
+    opacity:
+      0;
+
+    transform:
+      translate3d(0, 18px, 0);
+
+    filter:
+      blur(4px);
+
+  }
+
+  100% {
+
+    opacity:
+      1;
+
+    transform:
+      translate3d(0, 0, 0);
+
+    filter:
+      blur(0);
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE INDICATOR
 ========================================================= */
 
 .mobileIndicator {
 
-position:absolute;
+  position:
+    absolute;
 
-right:20px;
+  right:
+    20px;
 
-top:50%;
+  top:
+    50%;
 
-transform:
-translateY(-50%);
+  transform:
+    translateY(-50%);
 
-z-index:8;
+  z-index:
+    8;
 
-display:flex;
+  display:
+    flex;
 
-flex-direction:column;
+  flex-direction:
+    column;
 
-align-items:center;
+  align-items:
+    center;
 
-gap:16px;
+  gap:
+    16px;
 
-opacity:.72;
+  opacity:
+    .72;
 
-pointer-events:none;
+  pointer-events:
+    none;
 
 }
+
 
 .mobileDot {
 
-display:block;
+  display:
+    block;
 
-width:6px;
+  width:
+    6px;
 
-height:6px;
+  height:
+    6px;
 
-border-radius:50%;
+  border-radius:
+    50%;
 
-background:
-rgba(255,255,255,.4);
+  background:
+    rgba(255, 255, 255, .4);
 
-transition:
-width .25s cubic-bezier(.22,1,.36,1),
-height .25s cubic-bezier(.22,1,.36,1),
-background .25s ease,
-box-shadow .25s ease;
+  transition:
+    width .3s cubic-bezier(.22, 1, .36, 1),
+    height .3s cubic-bezier(.22, 1, .36, 1),
+    background .3s ease,
+    box-shadow .3s ease;
 
 }
+
 
 .mobileDotActive {
 
-width:12px;
+  width:
+    12px;
 
-height:12px;
+  height:
+    12px;
 
-background:white;
+  background:
+    white;
 
-box-shadow:
-0 0 16px rgba(255,255,255,.7);
+  box-shadow:
+    0 0 16px
+    rgba(255, 255, 255, .7);
 
 }
 
+
 /* =========================================================
-MINIMAL MOBILE NEXT BUTTON
+   MOBILE NEXT BUTTON
 ========================================================= */
 
 .mobileNextButton {
-  position: absolute;
-  z-index: 20;
 
-  left: 50%;
-  bottom: 32px;
+  position:
+    absolute;
 
-  width: 64px;
-  height: 64px;
+  z-index:
+    20;
 
-  border-radius: 50%;
+  left:
+    50%;
+
+  bottom:
+    32px;
+
+  width:
+    64px;
+
+  height:
+    64px;
+
+  border-radius:
+    50%;
 
   border:
-    1px solid rgba(255, 255, 255, .7);
+    1px solid
+    rgba(255, 255, 255, .7);
 
   background:
     rgba(255, 255, 255, .14);
@@ -761,393 +1112,411 @@ MINIMAL MOBILE NEXT BUTTON
   -webkit-backdrop-filter:
     blur(14px);
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
 
   box-shadow:
-    0 15px 50px rgba(0, 0, 0, .3);
+    0 15px 50px
+    rgba(0, 0, 0, .3);
 
-  cursor: pointer;
+  cursor:
+    pointer;
 
-  pointer-events: auto;
-
-  will-change:
-    transform,
-    opacity;
+  pointer-events:
+    auto;
 
   transform:
     translate3d(-50%, 0, 0)
     scale(1);
 
   transition:
-    opacity .35s ease,
-    visibility .35s ease,
-    transform .4s cubic-bezier(.22, 1, .36, 1),
     background .25s ease,
-    border-color .25s ease;
+    border-color .25s ease,
+    box-shadow .25s ease,
+    transform .25s cubic-bezier(.22, 1, .36, 1);
+
+  animation:
+    buttonFloat
+    2.8s
+    ease-in-out
+    infinite;
+
 }
+
+
+/* =========================================================
+   BUTTON FLOAT
+========================================================= */
+
+@keyframes buttonFloat {
+
+  0%,
+  100% {
+
+    transform:
+      translate3d(-50%, 0, 0)
+      scale(1);
+
+  }
+
+  50% {
+
+    transform:
+      translate3d(-50%, -5px, 0)
+      scale(1.015);
+
+  }
+
+}
+
+
+/* =========================================================
+   BUTTON HOVER
+========================================================= */
 
 .mobileNextButton:hover {
+
   background:
-    rgba(255, 255, 255, .22);
+    rgba(255, 255, 255, .23);
 
   border-color:
-    rgba(255, 255, 255, .9);
+    rgba(255, 255, 255, .95);
+
+  box-shadow:
+    0 20px 60px
+    rgba(0, 0, 0, .38);
 
   transform:
-    translate3d(-50%, -3px, 0)
-    scale(1.04);
+    translate3d(-50%, -7px, 0)
+    scale(1.05);
+
+  animation:
+    none;
+
 }
+
+
+/* =========================================================
+   BUTTON ACTIVE
+========================================================= */
 
 .mobileNextButton:active {
+
   transform:
     translate3d(-50%, 0, 0)
-    scale(.92);
+    scale(.9);
+
+  background:
+    rgba(255, 255, 255, .28);
+
+  box-shadow:
+    0 8px 25px
+    rgba(0, 0, 0, .28);
+
+  animation:
+    none;
+
 }
 
 
-.mobileNextArrow {
-  display: block;
+/* =========================================================
+   BUTTON ARROW
+========================================================= */
 
-  color: #ffffff;
+.mobileNextArrow {
+
+  display:
+    block;
+
+  color:
+    #ffffff;
 
   font-family:
     Arial,
     sans-serif;
 
-  font-size: 1.15rem;
+  font-size:
+    1.35rem;
 
-  font-weight: 300;
+  font-weight:
+    300;
 
-  line-height: 1;
+  line-height:
+    1;
+
+  transform:
+    translateY(-1px);
 
   transition:
     transform .35s
     cubic-bezier(.22, 1, .36, 1);
+
 }
+
 
 .mobileNextButton:hover
 .mobileNextArrow {
+
   transform:
-    translateY(3px);
-}
-
-
-
-
-
-.mobileNextButton:active {
-
-transform:
-scale(.94);
+    translateY(-4px);
 
 }
+
+
+/* =========================================================
+   BUTTON FOCUS
+========================================================= */
 
 .mobileNextButton:focus-visible {
 
-outline:
-2px solid white;
+  outline:
+    2px solid
+    white;
 
-outline-offset:4px;
-
-}
-
-.mobileNextArrow {
-
-display:block;
-
-font-family:
-Arial,
-sans-serif;
-
-font-size:
-1.15rem;
-
-font-weight:300;
-
-line-height:1;
-
-transition:
-transform .3s ease;
+  outline-offset:
+    4px;
 
 }
 
-.mobileNextButton:hover
-.mobileNextArrow {
-
-transform:
-translateY(3px);
-
-}
 
 /* =========================================================
-MOVIE MODE
+   MOVIE MODE
 ========================================================= */
 
 .movieMode {
 
-transition:
-background .65s ease,
-color .65s ease;
+  transition:
+    background .65s ease,
+    color .65s ease;
 
 }
+
 
 .introMovieMode {
 
-opacity:.16;
+  opacity:
+    .16;
 
-transform:
-scale(.975);
+  transform:
+    scale(.975);
 
-filter:
-blur(5px);
+  filter:
+    blur(5px);
 
-pointer-events:none;
+  pointer-events:
+    none;
 
 }
+
 
 /* =========================================================
-MOBILE / TABLET BREAKPOINT
+   SMALL PHONES
 ========================================================= */
 
-@media(max-width:1024px) {
+@media (max-width: 480px) {
 
-  .storyWrapper {
-    display:none;
+  .greeceExperience {
+
+    border-radius:
+      28px 28px 0 0;
+
   }
 
-  .mobileStoryWrapper {
-  display: block;
-  position: relative;
-  height: calc(100svh * var(--scene-count));
-  overscroll-behavior: contain;
-}
-  .mobileStickyStage {
-    height:100svh;
+
+  .intro {
+
+    padding:
+      5.5rem 0 4rem;
+
   }
+
+
+  .intro h2 {
+
+    font-size:
+      clamp(2.2rem, 9vw, 3rem);
+
+  }
+
+
+  .intro p {
+
+    font-size:
+      1rem;
+
+  }
+
 
   .mobileContent {
-    top:54%;
+
+    top:
+      51%;
+
+    width:
+      87%;
+
+  }
+
+
+  .mobileContent h3 {
+
+    font-size:
+      clamp(2rem, 9vw, 2.75rem);
+
+  }
+
+
+  .mobileContent p {
+
+    font-size:
+      .95rem;
+
+    line-height:
+      1.65;
+
+  }
+
+
+  .mobileIndicator {
+
+    right:
+      14px;
+
+    gap:
+      16px;
+
+  }
+
+
+  .mobileDot {
+
+    width:
+      6px;
+
+    height:
+      6px;
+
+  }
+
+
+  .mobileDotActive {
+
+    width:
+      12px;
+
+    height:
+      12px;
+
+  }
+
+
+  .mobileNextButton {
+
+    width:
+      54px;
+
+    height:
+      54px;
+
+    bottom:
+      24px;
+
+  }
+
+
+  .mobileNextArrow {
+
+    font-size:
+      1.15rem;
+
   }
 
 }
 
-/* =========================================================
-SMALL PHONES
-========================================================= */
-
-@media(max-width:480px) {
-
-.greeceExperience {
-
-
-border-radius:
-  28px 28px 0 0;
-
-
-}
-
-.intro {
-
-
-padding:
-  5.5rem 0 4rem;
-
-
-}
-
-.intro h2 {
-
-
-font-size:
-  clamp(2.2rem,9vw,3rem);
-
-
-}
-
-.intro p {
-
-
-font-size:1rem;
-
-
-}
-
-.mobileContent {
-
-
-top:51%;
-
-width:87%;
-
-
-}
-
-.mobileContent h3 {
-
-
-font-size:
-  clamp(2rem,9vw,2.75rem);
-
-
-}
-
-.mobileContent p {
-
-
-font-size:.95rem;
-
-line-height:1.65;
-
-
-}
-
-.mobileIndicator {
-
-
-right:14px;
-
-gap:16px;
-
-
-}
-
-.mobileDot {
-
-
-width:6px;
-
-height:6px;
-
-
-}
-
-.mobileDotActive {
-
-
-width:12px;
-
-height:12px;
-
-
-}
-
-.mobileNextButton {
-
-
-right:16px;
-
-width:50px;
-
-height:50px;
-
-
-}
-
-}
 
 /* =========================================================
-LANDSCAPE TABLETS / PHONES
+   LANDSCAPE TABLETS / PHONES
 ========================================================= */
 
-@media(
-max-width:1024px
-) and (
-orientation:landscape
-) {
+@media (max-width: 1024px) and (orientation: landscape) {
 
-.mobileContent {
+  .mobileContent {
 
+    top:
+      48%;
 
-top:48%;
+  }
 
 
-}
+  .mobileContent h3 {
 
-.mobileContent h3 {
+    font-size:
+      clamp(1.8rem, 5vw, 3rem);
 
-
-font-size:
-  clamp(1.8rem,5vw,3rem);
-
-
-}
-
-.mobileContent p {
+  }
 
 
-max-width:550px;
+  .mobileContent p {
+
+    max-width:
+      550px;
+
+  }
 
 
-}
+  .mobileIndicator {
 
-.mobileIndicator {
+    right:
+      16px;
 
-
-right:16px;
-
-
-}
-
-.mobileNextButton {
+  }
 
 
-right:18px;
+  .mobileNextButton {
 
-bottom:
-  max(
-    16px,
-    env(safe-area-inset-bottom)
-  );
+    right:
+      18px;
 
+    bottom:
+      max(
+        16px,
+        env(safe-area-inset-bottom)
+      );
+
+  }
 
 }
 
-}
 
 /* =========================================================
-REDUCED MOTION
+   REDUCED MOTION
 ========================================================= */
 
-@media(prefers-reduced-motion:reduce) {
+@media (prefers-reduced-motion: reduce) {
 
-.image,
-.mobileImage,
-.sceneContent,
-.mobileContent,
-.mobileContent h3,
-.mobileContent p,
-.sceneDot,
-.mobileDot,
-.mobileNextButton,
-.mobileNextArrow {
+  .image,
+  .mobileImage,
+  .sceneContent,
+  .mobileContent,
+  .mobileContent h3,
+  .mobileContent p,
+  .sceneDot,
+  .mobileDot,
+  .mobileNextButton,
+  .mobileNextArrow {
 
+    animation:
+      none !important;
 
-animation:none !important;
+    transition:
+      none !important;
 
-transition:none !important;
+  }
 
-
-}
-
-}
-.buttonVisible {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-
-  transform:
-    translate3d(-50%,0,0)
-    scale(1);
-}
-
-.buttonHidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-
-  transform:
-    translate3d(-50%,20px,0)
-    scale(.85);
 }
