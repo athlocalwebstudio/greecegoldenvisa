@@ -440,7 +440,7 @@ MOBILE / TABLET STORY
 
 .mobileStoryWrapper {
 
-display:none;
+display:block;
 
 position:relative;
 
@@ -748,52 +748,63 @@ MINIMAL MOBILE NEXT BUTTON
 
 .mobileNextButton {
 
-position:absolute;
+  position:absolute;
 
-z-index:20;
+  z-index:20;
 
-left:50%;
+  left:50%;
 
-bottom:
-32px;
+  bottom:32px;
 
-transform:
-translateX(-50%);
+  transform:
+    translateX(-50%)
+    scale(1);
 
-width:76px;
+  width:76px;
 
-height:76px;
+  height:76px;
 
+  border-radius:50%;
 
-border-radius:50%;
+  border:
+    1px solid
+    rgba(255,255,255,.65);
 
+  background:
+    rgba(255,255,255,.16);
 
-border:
-1px solid rgba(255,255,255,.65);
+  backdrop-filter:
+    blur(20px);
 
+  -webkit-backdrop-filter:
+    blur(20px);
 
-background:
-rgba(255,255,255,.16);
+  display:flex;
 
+  align-items:center;
 
-backdrop-filter:
-blur(20px);
+  justify-content:center;
 
+  box-shadow:
+    0 20px 60px
+    rgba(0,0,0,.35);
 
-display:flex;
+  animation:
+    pulseButton 2s infinite;
 
-align-items:center;
+  opacity:1;
 
-justify-content:center;
+  visibility:visible;
 
+  pointer-events:auto;
 
-box-shadow:
-0 20px 60px rgba(0,0,0,.35);
-
-
-animation:
-pulseButton 2s infinite;
-
+  transition:
+    opacity .35s ease,
+    visibility .35s ease,
+    transform .35s cubic-bezier(.22,1,.36,1),
+    background .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease;
 
 }
 
@@ -932,37 +943,23 @@ MOBILE / TABLET BREAKPOINT
 
 @media(max-width:1024px) {
 
-.storyWrapper {
+  .storyWrapper {
+    display:none;
+  }
 
+  .mobileStoryWrapper {
+    display:block;
+    position:relative;
+    height:calc(100svh * var(--scene-count));
+  }
 
-display:none;
+  .mobileStickyStage {
+    height:100svh;
+  }
 
-
-}
-
-.mobileStoryWrapper {
-
-
-display:block;
-
-
-}
-
-.mobileStickyStage {
-
-
-height:100svh;
-
-
-}
-
-.mobileContent {
-
-
-top:54%;
-
-
-}
+  .mobileContent {
+    top:54%;
+  }
 
 }
 
@@ -1163,5 +1160,32 @@ transition:none !important;
 
 
 }
+
+}
+.buttonVisible {
+
+  opacity:1;
+
+  visibility:visible;
+
+  pointer-events:auto;
+
+  transform:
+    translateX(-50%)
+    scale(1);
+
+}
+
+.buttonHidden {
+
+  opacity:0;
+
+  visibility:hidden;
+
+  pointer-events:none;
+
+  transform:
+    translateX(-50%)
+    scale(.85);
 
 }
