@@ -34,11 +34,28 @@ const playfair = Playfair_Display({
 
 export default function GreeceExperience() {
 
+  // =========================================================
+  // REFS
+  // =========================================================
+
   const sectionRef =
     useRef(null);
 
   const mobileSectionRef =
     useRef(null);
+
+  const mobileProgressRef =
+    useRef(0);
+
+  const mobileAnimationRef =
+    useRef(null);
+
+  const mobileAnimationStartRef =
+    useRef(0);
+
+  // =========================================================
+  // STATE
+  // =========================================================
 
   const [progress, setProgress] =
     useState(0);
@@ -49,14 +66,8 @@ export default function GreeceExperience() {
   const [isMobile, setIsMobile] =
     useState(false);
 
-  const [cinematicLocked, setCinematicLocked] =
-    useState(false);
-
-  const [cinematicFinished, setCinematicFinished] =
-    useState(false);
-
-  const lockedScrollYRef =
-    useRef(0);
+  const [mobileScene, setMobileScene] =
+    useState(0);
 
   // =========================================================
   // DEVICE DETECTION
@@ -89,471 +100,6 @@ export default function GreeceExperience() {
     };
 
   }, []);
-
-  // =========================================================
-  // DESKTOP CINEMATIC WHEEL CONTROL
-  // =========================================================
-
-  useEffect(() => {
-
-    if (isMobile) {
-      return;
-    }
-
-    const section =
-      sectionRef.current;
-
-    if (!section) {
-      return;
-    }
-
-    function handleWheel(e) {
-
-      const rect =
-        section.getBoundingClientRect();
-
-      const inside =
-        rect.top <= 100 &&
-        rect.bottom >= window.innerHeight;
-
-      if (!inside) {
-        return;
-      }
-
-      if (cinematicFinished) {
-        return;
-      }
-
-      e.preventDefault();
-
-      const direction =
-        e.deltaY > 0
-          ? 1
-          : -1;
-
-      setProgress(prev => {
-
-        let next =
-          prev +
-          (
-            direction *
-            0.25
-          );
-
-        if (next >= 1) {
-
-          setCinematicFinished(true);
-
-          return 1;
-
-        }
-
-        if (next <= 0) {
-
-          return 0;
-
-        }
-
-        return next;
-
-      });
-
-    }
-
-    window.addEventListener(
-      "wheel",
-      handleWheel,
-      {
-        passive: false
-      }
-    );
-
-    return () => {
-
-      window.removeEventListener(
-        "wheel",
-        handleWheel
-      );
-
-    };
-
-  }, [
-    cinematicFinished,
-    isMobile
-  ]);
-
-  // =========================================================
-  // MOBILE CINEMATIC LOCK
-  //
-  // MOBILE:
-  //
-  // Enter cinematic
-  // ↓
-  // Lock page
-  // ↓
-  // Disable wheel/touch scrolling
-  // ↓
-  // Button becomes ONLY way to advance
-  // =========================================================
-
-  useEffect(() => {
-
-    if (!isMobile) {
-      return;
-    }
-
-    const section =
-      mobileSectionRef.current;
-
-    if (!section) {
-      return;
-    }
-
-    function lockScroll() {
-
-      if (
-        cinematicLocked ||
-        cinematicFinished
-      ) {
-        return;
-      }
-
-      const rect =
-        section.getBoundingClientRect();
-
-      const entered =
-        rect.top <= 5 &&
-        rect.bottom >
-          window.innerHeight * 0.5;
-
-      if (!entered) {
-        return;
-      }
-
-      lockedScrollYRef.current =
-        window.scrollY;
-
-      setCinematicLocked(true);
-
-      setIsMovieMode(true);
-
-      document.body.style.overflow =
-        "hidden";
-
-      document.documentElement.style.overflow =
-        "hidden";
-
-    }
-
-    function preventWheel(event) {
-
-      if (!cinematicLocked) {
-        return;
-      }
-
-      if (event.cancelable) {
-        event.preventDefault();
-      }
-
-    }
-
-    function preventTouch(event) {
-
-      if (!cinematicLocked) {
-        return;
-      }
-
-      if (event.cancelable) {
-        event.preventDefault();
-      }
-
-    }
-
-    function keepPosition() {
-
-      if (!cinematicLocked) {
-        return;
-      }
-
-      if (
-        window.scrollY !==
-        lockedScrollYRef.current
-      ) {
-
-        window.scrollTo(
-          0,
-          lockedScrollYRef.current
-        );
-
-      }
-
-    }
-
-    window.addEventListener(
-      "scroll",
-      lockScroll,
-      {
-        passive: true
-      }
-    );
-
-    window.addEventListener(
-      "wheel",
-      preventWheel,
-      {
-        passive: false
-      }
-    );
-
-    window.addEventListener(
-      "touchmove",
-      preventTouch,
-      {
-        passive: false
-      }
-    );
-
-    window.addEventListener(
-      "scroll",
-      keepPosition,
-      {
-        passive: true
-      }
-    );
-
-    lockScroll();
-
-    return () => {
-
-      window.removeEventListener(
-        "scroll",
-        lockScroll
-      );
-
-      window.removeEventListener(
-        "wheel",
-        preventWheel
-      );
-
-      window.removeEventListener(
-        "touchmove",
-        preventTouch
-      );
-
-      window.removeEventListener(
-        "scroll",
-        keepPosition
-      );
-
-      document.body.style.overflow =
-        "";
-
-      document.documentElement.style.overflow =
-        "";
-
-    };
-
-  }, [
-    isMobile,
-    cinematicLocked,
-    cinematicFinished
-  ]);
-
-  // =========================================================
-  // SCENE CALCULATION
-  //
-  // DESKTOP:
-  // Uses scene durations.
-  //
-  // MOBILE:
-  // Every scene gets exactly one button press.
-  // =========================================================
-
-  const totalDuration =
-    greeceScenes.reduce(
-      (total, scene) =>
-        total + scene.duration,
-      0
-    );
-
-  let accumulated = 0;
-
-  let calculatedScene = 0;
-
-  let activeSceneProgress = 0;
-
-  greeceScenes.forEach(
-    (scene, index) => {
-
-      const start =
-        accumulated /
-        totalDuration;
-
-      const end =
-        (
-          accumulated +
-          scene.duration
-        ) /
-        totalDuration;
-
-      if (
-        progress >= start &&
-        (
-          progress < end ||
-          index ===
-            greeceScenes.length - 1
-        )
-      ) {
-
-        calculatedScene =
-          index;
-
-        activeSceneProgress =
-          (
-            progress - start
-          ) /
-          (
-            end - start
-          );
-
-      }
-
-      accumulated +=
-        scene.duration;
-
-    }
-  );
-
-  // =========================================================
-  // MOBILE SCENE
-  //
-  // Mobile intentionally ignores scene.duration.
-  //
-  // 0.00 → Scene 1
-  // 0.25 → Scene 2
-  // 0.50 → Scene 3
-  // 0.75 → Scene 4
-  // 1.00 → Finish
-  // =========================================================
-
-  const mobileCalculatedScene =
-    Math.min(
-      Math.floor(
-        progress *
-        greeceScenes.length
-      ),
-      greeceScenes.length - 1
-    );
-
-  // =========================================================
-  // CURRENT SCENE
-  // =========================================================
-
-  const currentScene =
-    isMobile
-      ? greeceScenes[
-          mobileCalculatedScene
-        ]
-      : greeceScenes[
-          calculatedScene
-        ];
-
-  // =========================================================
-  // LOCAL SCENE PROGRESS
-  // =========================================================
-
-  const sceneProgress =
-    isMobile
-      ? Math.min(
-          Math.max(
-            (
-              progress *
-              greeceScenes.length
-            ) -
-            mobileCalculatedScene,
-            0
-          ),
-          1
-        )
-      : Math.min(
-          Math.max(
-            activeSceneProgress,
-            0
-          ),
-          1
-        );
-
-  // =========================================================
-  // CINEMATIC EASING
-  // =========================================================
-
-  const easedProgress =
-    sceneProgress *
-    sceneProgress *
-    (
-      3 -
-      2 *
-      sceneProgress
-    );
-
-  // =========================================================
-  // DESKTOP CAMERA
-  // =========================================================
-
-  const desktopCameraScale =
-    1 +
-    (
-      easedProgress *
-      0.05
-    );
-
-  // =========================================================
-  // DESKTOP TEXT
-  // =========================================================
-
-  const textEnter =
-    Math.min(
-      Math.max(
-        (
-          sceneProgress -
-          0.035
-        ) /
-        0.12,
-        0
-      ),
-      1
-    );
-
-  const textExit =
-    Math.min(
-      Math.max(
-        (
-          sceneProgress -
-          0.88
-        ) /
-        0.12,
-        0
-      ),
-      1
-    );
-
-  const textOpacity =
-    textEnter *
-    (
-      1 -
-      textExit
-    );
-
-  const textTranslate =
-    12 -
-    (
-      textEnter *
-      12
-    ) -
-    (
-      textExit *
-      20
-    );
 
   // =========================================================
   // NAVBAR
@@ -594,9 +140,7 @@ export default function GreeceExperience() {
         }
       );
 
-    observer.observe(
-      element
-    );
+    observer.observe(element);
 
     return () => {
 
@@ -629,8 +173,7 @@ export default function GreeceExperience() {
         const img =
           new window.Image();
 
-        img.src =
-          src;
+        img.src = src;
 
       }
     );
@@ -639,19 +182,15 @@ export default function GreeceExperience() {
 
   // =========================================================
   // DESKTOP SCROLL TRACKING
-  //
-  // MOBILE DOES NOT USE THIS.
   // =========================================================
 
   useEffect(() => {
 
-    function handleScroll() {
+    if (isMobile) {
+      return;
+    }
 
-      if (
-        window.innerWidth <= 1024
-      ) {
-        return;
-      }
+    function handleScroll() {
 
       const section =
         sectionRef.current;
@@ -667,9 +206,7 @@ export default function GreeceExperience() {
         section.offsetHeight -
         window.innerHeight;
 
-      if (
-        scrollHeight <= 0
-      ) {
+      if (scrollHeight <= 0) {
         return;
       }
 
@@ -686,12 +223,11 @@ export default function GreeceExperience() {
           1
         );
 
-      setProgress(
-        value
-      );
+      setProgress(value);
 
       setIsMovieMode(
-        value > 0.02
+        value > 0.02 &&
+        value < 0.99
       );
 
     }
@@ -725,14 +261,180 @@ export default function GreeceExperience() {
 
     };
 
+  }, [
+    isMobile
+  ]);
+
+  // =========================================================
+  // MOBILE SCENE ANIMATION
+  //
+  // IMPORTANT:
+  //
+  // We do NOT keep mobileProgress in React state.
+  //
+  // The animation is driven through a ref and the scene
+  // itself is changed only when necessary.
+  //
+  // This avoids re-rendering the entire component every
+  // animation frame.
+  // =========================================================
+
+  function animateMobileTo(
+    targetScene
+  ) {
+
+    const totalScenes =
+      greeceScenes.length;
+
+    const target =
+      targetScene /
+      totalScenes;
+
+    const start =
+      mobileProgressRef.current;
+
+    const difference =
+      target -
+      start;
+
+    if (
+      Math.abs(difference) <
+      0.0001
+    ) {
+
+      mobileProgressRef.current =
+        target;
+
+      setMobileScene(
+        targetScene
+      );
+
+      return;
+
+    }
+
+    cancelAnimationFrame(
+      mobileAnimationRef.current
+    );
+
+    const duration =
+      650;
+
+    const startTime =
+      performance.now();
+
+    mobileAnimationStartRef.current =
+      startTime;
+
+    function animate(now) {
+
+      const elapsed =
+        now -
+        startTime;
+
+      const raw =
+        Math.min(
+          elapsed /
+          duration,
+          1
+        );
+
+      // Smoothstep easing.
+      const eased =
+        raw *
+        raw *
+        (
+          3 -
+          2 *
+          raw
+        );
+
+      const value =
+        start +
+        difference *
+        eased;
+
+      mobileProgressRef.current =
+        value;
+
+      /*
+       * Only update the scene when we actually
+       * cross into another scene.
+       */
+      const scene =
+        Math.min(
+          Math.floor(
+            value *
+            totalScenes
+          ),
+          totalScenes - 1
+        );
+
+      setMobileScene(
+        previous => {
+
+          if (
+            previous === scene
+          ) {
+            return previous;
+          }
+
+          return scene;
+
+        }
+      );
+
+      if (
+        raw <
+        1
+      ) {
+
+        mobileAnimationRef.current =
+          requestAnimationFrame(
+            animate
+          );
+
+      } else {
+
+        mobileProgressRef.current =
+          target;
+
+        setMobileScene(
+          targetScene
+        );
+
+        mobileAnimationRef.current =
+          null;
+
+      }
+
+    }
+
+    mobileAnimationRef.current =
+      requestAnimationFrame(
+        animate
+      );
+
+  }
+
+  // =========================================================
+  // CANCEL MOBILE ANIMATION ON UNMOUNT
+  // =========================================================
+
+  useEffect(() => {
+
+    return () => {
+
+      cancelAnimationFrame(
+        mobileAnimationRef.current
+      );
+
+    };
+
   }, []);
 
   // =========================================================
-  // BUTTON → NEXT SCENE
-  //
-  // MOBILE ONLY.
-  //
-  // This is now the ONLY way to advance.
+  // MOBILE SCENE → NEXT
   // =========================================================
 
   function handleNextScene() {
@@ -741,26 +443,43 @@ export default function GreeceExperience() {
       return;
     }
 
-    if (!cinematicLocked) {
-      return;
-    }
-
     const totalScenes =
       greeceScenes.length;
 
-    const currentIndex =
-      mobileCalculatedScene;
+    const current =
+      mobileScene;
 
-    const nextIndex =
-      currentIndex + 1;
+    const next =
+      current + 1;
 
-    // =======================================================
-    // FINAL SCENE
-    // =======================================================
+    // -------------------------------------------------------
+    // LAST SCENE
+    // -------------------------------------------------------
 
     if (
-      nextIndex >= totalScenes
+      next >=
+      totalScenes
     ) {
+
+      /*
+       * We are already at the end of the cinematic.
+       *
+       * Do NOT permanently disable the section.
+       *
+       * Instead, simply let the user continue down the page.
+       */
+
+      cancelAnimationFrame(
+        mobileAnimationRef.current
+      );
+
+      mobileProgressRef.current =
+        1;
+
+      /*
+       * Find the element immediately after
+       * the cinematic section.
+       */
 
       const section =
         mobileSectionRef.current;
@@ -768,29 +487,11 @@ export default function GreeceExperience() {
       const nextSection =
         section?.nextElementSibling;
 
-      setProgress(1);
-
-      setCinematicFinished(true);
-
-      setCinematicLocked(false);
-
-      setIsMovieMode(false);
-
-      document.body.style.overflow =
-        "";
-
-      document.documentElement.style.overflow =
-        "";
-
       if (nextSection) {
 
-        requestAnimationFrame(() => {
-
-          nextSection.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-
+        nextSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
         });
 
       }
@@ -799,31 +500,201 @@ export default function GreeceExperience() {
 
     }
 
-    // =======================================================
+    // -------------------------------------------------------
     // NEXT SCENE
-    // =======================================================
+    // -------------------------------------------------------
 
-    const nextProgress =
-      nextIndex /
-      totalScenes;
-
-    setProgress(
-      nextProgress
+    animateMobileTo(
+      next
     );
 
   }
 
   // =========================================================
-  // MOBILE CAMERA
+  // MOBILE SCROLL BACK / EXIT
+  //
+  // We deliberately DO NOT lock the page.
+  //
+  // The user can always scroll upward.
   // =========================================================
 
+  useEffect(() => {
+
+    if (!isMobile) {
+      return;
+    }
+
+    const section =
+      mobileSectionRef.current;
+
+    if (!section) {
+      return;
+    }
+
+    function handleScroll() {
+
+      const rect =
+        section.getBoundingClientRect();
+
+      /*
+       * If the user is scrolling upward and the
+       * cinematic section is moving below the viewport,
+       * simply allow normal browser scrolling.
+       *
+       * No body overflow locking.
+       * No scroll hijacking.
+       */
+
+      if (
+        rect.top >
+        10
+      ) {
+
+        return;
+
+      }
+
+    }
+
+    window.addEventListener(
+      "scroll",
+      handleScroll,
+      {
+        passive: true
+      }
+    );
+
+    return () => {
+
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
+
+    };
+
+  }, [
+    isMobile
+  ]);
+
+  // =========================================================
+  // TOTAL DURATION
+  // =========================================================
+
+  const totalDuration =
+    greeceScenes.reduce(
+      (
+        total,
+        scene
+      ) =>
+        total +
+        scene.duration,
+      0
+    );
+
+  // =========================================================
+  // DESKTOP SCENE CALCULATION
+  // =========================================================
+
+  let accumulated =
+    0;
+
+  let calculatedScene =
+    0;
+
+  let activeSceneProgress =
+    0;
+
+  greeceScenes.forEach(
+    (
+      scene,
+      index
+    ) => {
+
+      const start =
+        accumulated /
+        totalDuration;
+
+      const end =
+        (
+          accumulated +
+          scene.duration
+        ) /
+        totalDuration;
+
+      if (
+        progress >= start &&
+        (
+          progress < end ||
+          index ===
+            greeceScenes.length - 1
+        )
+      ) {
+
+        calculatedScene =
+          index;
+
+        activeSceneProgress =
+          (
+            progress -
+            start
+          ) /
+          (
+            end -
+            start
+          );
+
+      }
+
+      accumulated +=
+        scene.duration;
+
+    }
+  );
+
+  // =========================================================
+  // CURRENT SCENE
+  // =========================================================
+
+  const currentScene =
+    isMobile
+      ? greeceScenes[
+          mobileScene
+        ]
+      : greeceScenes[
+          calculatedScene
+        ];
+
+  // =========================================================
+  // DESKTOP LOCAL SCENE PROGRESS
+  // =========================================================
+
+  const desktopSceneProgress =
+    Math.min(
+      Math.max(
+        activeSceneProgress,
+        0
+      ),
+      1
+    );
+
+  // =========================================================
+  // MOBILE LOCAL SCENE PROGRESS
+  //
+  // The camera uses the actual animation progress.
+  // =========================================================
+
+  const mobileProgress =
+    mobileProgressRef.current;
+
   const mobileSceneStart =
-    mobileCalculatedScene /
+    mobileScene /
     greeceScenes.length;
 
   const mobileSceneEnd =
     (
-      mobileCalculatedScene + 1
+      mobileScene +
+      1
     ) /
     greeceScenes.length;
 
@@ -831,7 +702,7 @@ export default function GreeceExperience() {
     Math.min(
       Math.max(
         (
-          progress -
+          mobileProgress -
           mobileSceneStart
         ) /
         (
@@ -843,20 +714,94 @@ export default function GreeceExperience() {
       1
     );
 
-  const mobileEasedProgress =
-    mobileLocalProgress *
-    mobileLocalProgress *
+  // =========================================================
+  // CINEMATIC EASING
+  //
+  // THIS WAS THE MISSING PART.
+  // =========================================================
+
+  const sceneProgress =
+    isMobile
+      ? mobileLocalProgress
+      : desktopSceneProgress;
+
+  const easedProgress =
+    sceneProgress *
+    sceneProgress *
     (
       3 -
       2 *
-      mobileLocalProgress
+      sceneProgress
     );
+
+  // =========================================================
+  // DESKTOP CAMERA
+  // =========================================================
+
+  const desktopCameraScale =
+    1 +
+    (
+      easedProgress *
+      0.05
+    );
+
+  // =========================================================
+  // MOBILE CAMERA
+  // =========================================================
 
   const mobileCameraScale =
     1 +
     (
-      mobileEasedProgress *
+      easedProgress *
       0.045
+    );
+
+  // =========================================================
+  // DESKTOP TEXT
+  // =========================================================
+
+  const textEnter =
+    Math.min(
+      Math.max(
+        (
+          desktopSceneProgress -
+          0.035
+        ) /
+        0.12,
+        0
+      ),
+      1
+    );
+
+  const textExit =
+    Math.min(
+      Math.max(
+        (
+          desktopSceneProgress -
+          0.88
+        ) /
+        0.12,
+        0
+      ),
+      1
+    );
+
+  const textOpacity =
+    textEnter *
+    (
+      1 -
+      textExit
+    );
+
+  const textTranslate =
+    12 -
+    (
+      textEnter *
+      12
+    ) -
+    (
+      textExit *
+      20
     );
 
   // =========================================================
@@ -864,16 +809,19 @@ export default function GreeceExperience() {
   // =========================================================
 
   const mobileSceneNumber =
-    mobileCalculatedScene + 1;
-
-  const showButton =
-    isMobile &&
-    cinematicLocked &&
-    !cinematicFinished;
+    mobileScene + 1;
 
   const isLastMobileScene =
-    mobileCalculatedScene ===
+    mobileScene ===
     greeceScenes.length - 1;
+
+  /*
+   * The button is always available while
+   * the mobile cinematic is visible.
+   */
+
+  const showButton =
+    isMobile;
 
   // =========================================================
   // RENDER
@@ -933,7 +881,9 @@ export default function GreeceExperience() {
       ===================================================== */}
 
       <div
-        ref={sectionRef}
+        ref={
+          sectionRef
+        }
         className={
           styles.storyWrapper
         }
@@ -956,7 +906,10 @@ export default function GreeceExperience() {
           >
 
             {greeceScenes.map(
-              (scene, index) => {
+              (
+                scene,
+                index
+              ) => {
 
                 const isActive =
                   index ===
@@ -965,7 +918,9 @@ export default function GreeceExperience() {
                 return (
 
                   <Image
-                    key={`desktop-${scene.id}`}
+                    key={
+                      `desktop-${scene.id}`
+                    }
                     src={
                       scene.image
                     }
@@ -1117,10 +1072,15 @@ export default function GreeceExperience() {
           >
 
             {greeceScenes.map(
-              (scene, index) => (
+              (
+                scene,
+                index
+              ) => (
 
                 <div
-                  key={scene.id}
+                  key={
+                    scene.id
+                  }
                   className={
                     styles.indicatorItem
                   }
@@ -1162,10 +1122,12 @@ export default function GreeceExperience() {
 
 
       {/* =====================================================
-          MOBILE / TABLET STORY
+          MOBILE STORY
 
-          ONE VIEWPORT PER SCENE.
-          SCROLLING IS LOCKED.
+          IMPORTANT:
+          NO SCROLL LOCK.
+
+          The user can always scroll upward and leave.
       ===================================================== */}
 
       <div
@@ -1198,16 +1160,21 @@ export default function GreeceExperience() {
           >
 
             {greeceScenes.map(
-              (scene, index) => {
+              (
+                scene,
+                index
+              ) => {
 
                 const isActive =
                   index ===
-                  mobileCalculatedScene;
+                  mobileScene;
 
                 return (
 
                   <Image
-                    key={`mobile-${scene.id}`}
+                    key={
+                      `mobile-${scene.id}`
+                    }
                     src={
                       scene.mobileImage
                     }
@@ -1291,7 +1258,7 @@ export default function GreeceExperience() {
 
           <div
             key={
-              `mobile-content-${mobileCalculatedScene}`
+              `mobile-content-${mobileScene}`
             }
             className={
               styles.mobileContent
@@ -1325,15 +1292,20 @@ export default function GreeceExperience() {
           >
 
             {greeceScenes.map(
-              (scene, index) => (
+              (
+                scene,
+                index
+              ) => (
 
                 <span
-                  key={scene.id}
+                  key={
+                    scene.id
+                  }
                   className={`
                     ${styles.mobileDot}
                     ${
                       index ===
-                      mobileCalculatedScene
+                      mobileScene
                         ? styles.mobileDotActive
                         : ""
                     }
@@ -1348,8 +1320,6 @@ export default function GreeceExperience() {
 
           {/* =================================================
               MOBILE NEXT BUTTON
-
-              ONLY WAY TO ADVANCE.
           ================================================= */}
 
           <button
