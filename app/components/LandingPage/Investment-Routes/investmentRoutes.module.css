@@ -1,0 +1,1175 @@
+/* =========================================
+   INVESTMENT ROUTES
+========================================= */
+
+.investmentRoutes {
+  position: relative;
+  width: 100%;
+  padding: 130px 24px;
+  background: #ffffff;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.investmentRoutes *,
+.investmentRoutes *::before,
+.investmentRoutes *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.intro {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 70px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 1.4rem;
+
+  color: #3BA9EF;
+
+  font-size: .78rem;
+  font-weight: 700;
+
+  letter-spacing: .2em;
+}
+
+.intro h2 {
+  margin: 0;
+
+  color: #0F2C59;
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -.05em;
+
+  font-weight: 800;
+}
+
+.intro p {
+  max-width: 600px;
+
+  margin: 1.5rem auto 0;
+
+  color: #64748b;
+
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   CAROUSEL
+========================================= */
+
+.carousel {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.card {
+  position: relative;
+
+  width: min(100%, 1050px);
+  height: 540px;
+
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(15, 44, 89, .10);
+  border-radius: 28px;
+
+  box-shadow:
+    0 30px 80px rgba(15, 44, 89, .12);
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 38px 90px rgba(15, 44, 89, .16);
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.imageWrapper {
+  position: relative;
+
+  width: 100%;
+  height: 540px;
+
+  overflow: hidden;
+
+  background: #e8f2f8;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  animation: imageReveal .5s ease;
+}
+
+@keyframes imageReveal {
+
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+
+/* =========================================
+   IMAGE OVERLAY
+========================================= */
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(15, 44, 89, .03),
+      rgba(15, 44, 89, .38)
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   ROUTE NUMBER
+========================================= */
+
+.routeNumber {
+  position: absolute;
+
+  left: 28px;
+  bottom: 26px;
+
+  color: white;
+
+  font-size: .8rem;
+  font-weight: 700;
+
+  letter-spacing: .18em;
+}
+
+
+/* =========================================
+   CONTENT SIDE
+========================================= */
+
+.cardContent {
+  min-width: 0;
+  min-height: 0;
+
+  display: grid;
+
+  /*
+    FIXED CONTENT SYSTEM
+
+    Row 1 = route label
+    Row 2 = title
+    Row 3 = description
+    Row 4 = best-for
+    Row 5 = dedicated CTA zone
+
+    Every route therefore receives
+    exactly the same vertical structure.
+  */
+
+  grid-template-rows:
+    48px
+    92px
+    125px
+    90px
+    1fr;
+
+  padding: 4rem;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   CARD TOP
+========================================= */
+
+.cardTop {
+  min-width: 0;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin: 0;
+}
+
+.routeLabel {
+  color: #3BA9EF;
+
+  font-size: .72rem;
+  font-weight: 700;
+
+  letter-spacing: .18em;
+}
+
+.routeIndex {
+  flex-shrink: 0;
+
+  color: rgba(15, 44, 89, .18);
+
+  font-size: 3rem;
+  line-height: 1;
+
+  font-weight: 800;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.titleArea {
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  align-items: flex-start;
+
+  overflow: hidden;
+}
+
+.cardContent h3 {
+  width: 100%;
+  max-width: 100%;
+
+  margin: 0;
+
+  color: #0F2C59;
+
+  font-size: clamp(2rem, 3vw, 2.7rem);
+
+  line-height: 1.1;
+  letter-spacing: -.04em;
+
+  font-weight: 800;
+
+  overflow-wrap: break-word;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.descriptionArea {
+  min-width: 0;
+  min-height: 0;
+
+  padding-top: 1rem;
+
+  overflow: hidden;
+}
+
+.description {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 1rem;
+  line-height: 1.7;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   BEST FOR
+========================================= */
+
+.bestFor {
+  min-width: 0;
+  min-height: 0;
+
+  margin: 0;
+
+  padding-left: 1rem;
+
+  border-left: 2px solid #3BA9EF;
+
+  overflow: hidden;
+}
+
+.bestFor > span {
+  display: block;
+
+  margin-bottom: .4rem;
+
+  color: #3BA9EF;
+
+  font-size: .68rem;
+  font-weight: 700;
+
+  letter-spacing: .16em;
+}
+
+.bestFor p {
+  margin: 0;
+
+  color: #0F2C59;
+
+  font-size: .9rem;
+  line-height: 1.5;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   CTA AREA
+========================================= */
+
+.exploreArea {
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  align-items: flex-end;
+
+  /*
+    This is intentional breathing room.
+    The button does NOT touch the text above it.
+  */
+
+  padding-top: 2rem;
+  padding-bottom: .15rem;
+}
+
+
+/* =========================================
+   EXPLORE BUTTON
+========================================= */
+
+.explore {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: .9rem;
+
+  width: fit-content;
+
+  padding: .7rem .75rem .7rem 1rem;
+
+  border-radius: 999px;
+
+  background: #0F2C59;
+
+  color: white;
+
+  font-size: .88rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  transition:
+    background .3s ease,
+    transform .3s ease;
+}
+
+.exploreText {
+  display: block;
+}
+
+.exploreIcon {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #3BA9EF;
+  color: white;
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    color .3s ease;
+}
+
+.card:hover .explore {
+  background: #3BA9EF;
+}
+
+.card:hover .exploreIcon {
+  background: white;
+  color: #0F2C59;
+
+  transform: translate(2px, -2px);
+}
+
+
+/* =========================================
+   NAVIGATION ARROWS
+========================================= */
+
+.arrow {
+  position: absolute;
+
+  z-index: 5;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(15, 44, 89, .12);
+
+  background: white;
+  color: #0F2C59;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 35px rgba(15, 44, 89, .12);
+
+  transition: .3s ease;
+}
+
+.arrow:hover {
+  background: #0F2C59;
+  color: white;
+
+  transform: translateY(-2px);
+}
+
+.arrowLeft {
+  left: -26px;
+}
+
+.arrowRight {
+  right: -26px;
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.controls {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+
+  margin-top: 2rem;
+}
+
+.progress {
+  display: flex;
+
+  align-items: center;
+
+  gap: .5rem;
+}
+
+.progressItem {
+  width: 25px;
+  height: 3px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 999px;
+
+  background: rgba(15, 44, 89, .15);
+
+  cursor: pointer;
+
+  transition: .3s ease;
+}
+
+.progressItem:hover {
+  background: rgba(59, 169, 239, .5);
+}
+
+.progressActive {
+  width: 45px;
+
+  background: #3BA9EF;
+}
+
+.progressText {
+  color: #64748b;
+
+  font-size: .75rem;
+  font-weight: 700;
+
+  letter-spacing: .12em;
+}
+
+
+/* =========================================
+   ASSESSMENT
+========================================= */
+
+.assessment {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 2rem;
+
+  margin: 55px auto 0;
+
+  padding: 1.2rem 1.4rem 1.2rem 1.6rem;
+
+  width: fit-content;
+  max-width: 100%;
+
+  border: 1px solid rgba(15, 44, 89, .10);
+
+  border-radius: 999px;
+
+  background: #f8fafc;
+}
+
+.assessmentText {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: .15rem;
+}
+
+.assessmentLabel {
+  color: #0F2C59;
+
+  font-size: .7rem;
+  font-weight: 800;
+
+  letter-spacing: .14em;
+}
+
+.assessmentDescription {
+  color: #64748b;
+
+  font-size: .82rem;
+}
+
+.assessmentButton {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: .6rem;
+
+  padding: .75rem 1.15rem;
+
+  border-radius: 999px;
+
+  background: #0F2C59;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: .85rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  transition:
+    background .3s ease,
+    transform .3s ease;
+}
+
+.assessmentButton:hover {
+  background: #3BA9EF;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   LARGE TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .container {
+    width: min(100%, 920px);
+  }
+
+  .card {
+    width: min(100%, 850px);
+  }
+
+  .cardContent {
+    padding: 3rem;
+  }
+
+  .cardContent h3 {
+    font-size: clamp(1.9rem, 3vw, 2.4rem);
+  }
+
+  .arrowLeft {
+    left: -18px;
+  }
+
+  .arrowRight {
+    right: -18px;
+  }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .investmentRoutes {
+    padding: 110px 24px;
+  }
+
+  .container {
+    width: min(100%, 720px);
+  }
+
+  .card {
+    width: 100%;
+    height: auto;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    border-radius: 26px;
+  }
+
+  .imageWrapper {
+    height: 380px;
+  }
+
+
+  /*
+    Tablet gets a dedicated content canvas.
+
+    The CTA remains at the bottom,
+    regardless of which route is active.
+  */
+
+  .cardContent {
+    height: 440px;
+    min-height: 440px;
+
+    grid-template-rows:
+      48px
+      75px
+      125px
+      85px
+      1fr;
+
+    padding: 2.8rem 3rem 2.5rem;
+  }
+
+  .cardContent h3 {
+    font-size: 2.25rem;
+  }
+
+  .description {
+    font-size: .98rem;
+  }
+
+  .descriptionArea {
+    padding-top: .7rem;
+  }
+
+  .bestFor {
+    margin: 0;
+  }
+
+  .exploreArea {
+    padding-top: 2rem;
+  }
+
+  .arrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .arrowLeft {
+    left: -16px;
+  }
+
+  .arrowRight {
+    right: -16px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .investmentRoutes {
+    padding: 90px 20px;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+
+  /* INTRO */
+
+  .intro {
+    margin-bottom: 50px;
+  }
+
+  .intro h2 {
+    font-size: 2.35rem;
+  }
+
+  .intro p {
+    font-size: .95rem;
+    line-height: 1.7;
+  }
+
+
+  /* CARD */
+
+  .card {
+    width: 100%;
+
+    border-radius: 22px;
+  }
+
+
+  /* IMAGE */
+
+  .imageWrapper {
+    height: 280px;
+  }
+
+
+  /* CONTENT */
+
+  .cardContent {
+    height: 410px;
+    min-height: 410px;
+
+    grid-template-rows:
+      45px
+      68px
+      115px
+      82px
+      1fr;
+
+    padding: 2rem 1.5rem 2.2rem;
+  }
+
+
+  /* TOP */
+
+  .cardTop {
+    margin: 0;
+  }
+
+  .routeLabel {
+    font-size: .65rem;
+  }
+
+  .routeIndex {
+    font-size: 2.5rem;
+  }
+
+
+  /* TITLE */
+
+  .cardContent h3 {
+    font-size: 1.85rem;
+    line-height: 1.08;
+  }
+
+
+  /* DESCRIPTION */
+
+  .descriptionArea {
+    padding-top: .65rem;
+  }
+
+  .description {
+    font-size: .92rem;
+    line-height: 1.6;
+
+    -webkit-line-clamp: 5;
+  }
+
+
+  /* BEST FOR */
+
+  .bestFor {
+    padding-left: .85rem;
+  }
+
+  .bestFor > span {
+    font-size: .64rem;
+  }
+
+  .bestFor p {
+    font-size: .84rem;
+    line-height: 1.45;
+
+    -webkit-line-clamp: 3;
+  }
+
+
+  /* CTA */
+
+  .exploreArea {
+    padding-top: 1.8rem;
+    padding-bottom: 0;
+  }
+
+  .explore {
+    font-size: .82rem;
+
+    gap: .8rem;
+
+    padding: .6rem .65rem .6rem .9rem;
+  }
+
+  .exploreIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+
+  /* ARROWS */
+
+  .arrow {
+    width: 44px;
+    height: 44px;
+  }
+
+  .arrowLeft {
+    left: -10px;
+  }
+
+  .arrowRight {
+    right: -10px;
+  }
+
+
+  /* PROGRESS */
+
+  .controls {
+    margin-top: 1.5rem;
+  }
+
+
+  /* ASSESSMENT */
+
+  .assessment {
+    width: 100%;
+
+    flex-direction: column;
+
+    gap: 1rem;
+
+    margin-top: 40px;
+
+    padding: 1.3rem;
+
+    border-radius: 20px;
+
+    text-align: center;
+  }
+
+  .assessmentText {
+    align-items: center;
+  }
+
+  .assessmentDescription {
+    line-height: 1.5;
+  }
+
+  .assessmentButton {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .investmentRoutes {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+
+  /* INTRO */
+
+  .intro h2 {
+    font-size: 2.05rem;
+  }
+
+  .intro p {
+    font-size: .9rem;
+  }
+
+
+  /* IMAGE */
+
+  .imageWrapper {
+    height: 235px;
+  }
+
+
+  /* CONTENT */
+
+  .cardContent {
+    height: 395px;
+    min-height: 395px;
+
+    grid-template-rows:
+      42px
+      62px
+      112px
+      80px
+      1fr;
+
+    padding: 1.7rem 1.3rem 2rem;
+  }
+
+
+  .routeIndex {
+    font-size: 2.2rem;
+  }
+
+  .cardContent h3 {
+    font-size: 1.65rem;
+  }
+
+
+  .descriptionArea {
+    padding-top: .55rem;
+  }
+
+  .description {
+    font-size: .88rem;
+    line-height: 1.55;
+  }
+
+  .bestFor p {
+    font-size: .8rem;
+  }
+
+
+  /* CTA */
+
+  .exploreArea {
+    padding-top: 1.7rem;
+  }
+
+  .explore {
+    font-size: .8rem;
+  }
+
+
+  /* ARROWS */
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .arrowLeft {
+    left: -8px;
+  }
+
+  .arrowRight {
+    right: -8px;
+  }
+
+
+  /* PROGRESS */
+
+  .progressItem {
+    width: 20px;
+  }
+
+  .progressActive {
+    width: 38px;
+  }
+
+}
+
+
+/* =========================================
+   VERY SMALL DEVICES
+========================================= */
+
+@media (max-width: 360px) {
+
+  .investmentRoutes {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+
+  .intro h2 {
+    font-size: 1.85rem;
+  }
+
+
+  .imageWrapper {
+    height: 210px;
+  }
+
+
+  .cardContent {
+    height: 385px;
+    min-height: 385px;
+
+    grid-template-rows:
+      40px
+      58px
+      108px
+      78px
+      1fr;
+
+    padding: 1.5rem 1.15rem 1.8rem;
+  }
+
+
+  .cardContent h3 {
+    font-size: 1.5rem;
+  }
+
+
+  .description {
+    font-size: .84rem;
+  }
+
+
+  .bestFor p {
+    font-size: .77rem;
+  }
+
+
+  .explore {
+    font-size: .76rem;
+    gap: .5rem;
+  }
+
+  .exploreIcon {
+    width: 26px;
+    height: 26px;
+  }
+
+
+  .arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .arrowLeft {
+    left: -6px;
+  }
+
+  .arrowRight {
+    right: -6px;
+  }
+
+}
