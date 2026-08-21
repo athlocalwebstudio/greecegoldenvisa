@@ -1,0 +1,2345 @@
+/* =========================================
+   PROPERTY OPPORTUNITIES
+========================================= */
+
+.propertyOpportunities {
+  position: relative;
+  width: 100%;
+
+  padding: 135px 24px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+.propertyOpportunities *,
+.propertyOpportunities *::before,
+.propertyOpportunities *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+  width: min(1200px, 90%);
+  max-width: 100%;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.intro {
+  width: 100%;
+
+  margin-bottom: 62px;
+}
+
+.introEyebrow {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 24px;
+
+  color: #3ba9ef;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  letter-spacing: 0.19em;
+
+  line-height: 1.2;
+}
+
+.eyebrowLine {
+  width: 34px;
+  min-width: 34px;
+  height: 1px;
+
+  background: #3ba9ef;
+}
+
+
+/* =========================================
+   INTRO HEADING
+========================================= */
+
+.introHeading {
+  max-width: 900px;
+}
+
+.introHeading h2 {
+  margin: 0;
+
+  color: #0f2c59;
+
+  font-size: clamp(2.8rem, 5vw, 4.25rem);
+
+  line-height: 1.02;
+
+  letter-spacing: -0.055em;
+
+  font-weight: 800;
+
+  overflow-wrap: break-word;
+}
+
+
+/* =========================================
+   INTRO DESCRIPTION
+========================================= */
+
+.introDescription {
+  max-width: 570px;
+
+  margin-top: 24px;
+}
+
+.introDescription p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 0.96rem;
+
+  line-height: 1.7;
+}
+
+.introNote {
+  display: block;
+
+  margin-top: 15px;
+
+  padding-left: 14px;
+
+  border-left: 2px solid #3ba9ef;
+
+  color: #0f2c59;
+
+  font-size: 0.75rem;
+
+  line-height: 1.55;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   CAROUSEL
+========================================= */
+
+.carousel {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================
+   CLICKABLE CARD LINK
+========================================= */
+
+.propertyCardLink {
+  display: block;
+
+  width: min(100%, 1080px);
+
+  min-width: 0;
+
+  color: inherit;
+
+  text-decoration: none;
+
+  border-radius: 28px;
+
+  outline: none;
+}
+
+.propertyCardLink:focus-visible {
+  outline: 3px solid rgba(59, 169, 239, 0.45);
+
+  outline-offset: 6px;
+}
+
+
+/* =========================================
+   PROPERTY CARD
+========================================= */
+
+.propertyCard {
+  width: 100%;
+
+  min-height: 610px;
+
+  display: grid;
+
+  grid-template-columns: 1.02fr 0.98fr;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(15, 44, 89, 0.1);
+
+  border-radius: 28px;
+
+  box-shadow:
+    0 30px 80px rgba(15, 44, 89, 0.11);
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.propertyCardLink:hover .propertyCard {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 40px 95px rgba(15, 44, 89, 0.16);
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.imageWrapper {
+  position: relative;
+
+  width: 100%;
+  height: 610px;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: #e8f2f8;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  animation: propertyReveal 0.55s ease;
+}
+
+@keyframes propertyReveal {
+  from {
+    opacity: 0;
+
+    transform: scale(1.035);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
+
+.imageOverlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5, 20, 40, 0.1) 0%,
+      rgba(5, 20, 40, 0.01) 42%,
+      rgba(5, 20, 40, 0.62) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   IMAGE TOP
+========================================= */
+
+.imageTop {
+  position: absolute;
+
+  top: 27px;
+  left: 28px;
+  right: 28px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.propertyNumber {
+  color: #ffffff;
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  white-space: nowrap;
+}
+
+.propertyCategory {
+  padding: 7px 11px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(10px);
+
+  color: #ffffff;
+
+  font-size: 0.63rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   IMAGE BOTTOM
+========================================= */
+
+.imageBottom {
+  position: absolute;
+
+  left: 28px;
+  right: 28px;
+  bottom: 27px;
+
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.location {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  min-width: 0;
+
+  color: #ffffff;
+
+  font-size: 0.82rem;
+
+  font-weight: 600;
+}
+
+.location span {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.illustrativeLabel {
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 0.59rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+
+  text-align: right;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================
+   PROPERTY CONTENT
+========================================= */
+
+.propertyContent {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 3.7rem 3.6rem;
+}
+
+
+/* =========================================
+   CONTENT TOP
+========================================= */
+
+.contentTop {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+.titleArea {
+  min-width: 0;
+}
+
+.contentEyebrow {
+  display: block;
+
+  margin-bottom: 19px;
+
+  color: #3ba9ef;
+
+  font-size: 0.65rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.17em;
+
+  line-height: 1.3;
+}
+
+.propertyContent h3 {
+  margin: 0;
+
+  color: #0f2c59;
+
+  font-size: clamp(1.9rem, 3vw, 2.55rem);
+
+  line-height: 1.07;
+
+  letter-spacing: -0.045em;
+
+  font-weight: 800;
+
+  overflow-wrap: break-word;
+}
+
+
+/* =========================================
+   PRICE
+========================================= */
+
+.priceArea {
+  flex-shrink: 0;
+
+  text-align: right;
+}
+
+.priceLabel {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #94a3b8;
+
+  font-size: 0.56rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+
+  white-space: nowrap;
+}
+
+.priceArea strong {
+  display: block;
+
+  color: #0f2c59;
+
+  font-size: 1.28rem;
+
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: -0.03em;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   PROPERTY DETAILS
+========================================= */
+
+.propertyDetails {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  margin-top: 34px;
+
+  border-top: 1px solid rgba(15, 44, 89, 0.1);
+
+  border-bottom: 1px solid rgba(15, 44, 89, 0.1);
+}
+
+.detailItem {
+  min-width: 0;
+
+  padding: 17px 15px 17px 0;
+
+  border-bottom: 1px solid rgba(15, 44, 89, 0.07);
+}
+
+.detailItem:nth-child(odd) {
+  padding-right: 18px;
+
+  border-right: 1px solid rgba(15, 44, 89, 0.07);
+}
+
+.detailItem:nth-child(even) {
+  padding-left: 18px;
+}
+
+.detailItem:nth-child(3),
+.detailItem:nth-child(4) {
+  border-bottom: none;
+}
+
+.detailLabel {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #94a3b8;
+
+  font-size: 0.56rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+
+  line-height: 1.25;
+}
+
+.detailValue {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  min-width: 0;
+
+  color: #0f2c59;
+
+  font-size: 0.75rem;
+
+  line-height: 1.35;
+
+  font-weight: 700;
+
+  overflow-wrap: anywhere;
+}
+
+.detailValue svg {
+  flex-shrink: 0;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.description {
+  max-width: 430px;
+
+  margin: 25px 0 0;
+
+  color: #64748b;
+
+  font-size: 0.87rem;
+
+  line-height: 1.68;
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.propertyDivider {
+  width: 100%;
+  height: 1px;
+
+  margin-top: 26px;
+
+  background: rgba(15, 44, 89, 0.1);
+}
+
+
+/* =========================================
+   BOTTOM CONTENT
+========================================= */
+
+.bottomContent {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  margin-top: auto;
+}
+
+.selectionNote {
+  min-width: 0;
+
+  max-width: 220px;
+}
+
+.selectionNote > span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #3ba9ef;
+
+  font-size: 0.6rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+}
+
+.selectionNote p {
+  margin: 0;
+
+  color: #0f2c59;
+
+  font-size: 0.73rem;
+
+  line-height: 1.5;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   EXPLORE BUTTON
+========================================= */
+
+.exploreButton {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  flex-shrink: 0;
+
+  padding: 7px 7px 7px 16px;
+
+  border: 1px solid rgba(15, 44, 89, 0.12);
+
+  border-radius: 999px;
+
+  background: #ffffff;
+
+  color: #0f2c59;
+
+  font-size: 0.77rem;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.exploreIcon {
+  width: 31px;
+  height: 31px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #0f2c59;
+
+  color: #ffffff;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.propertyCardLink:hover .exploreButton {
+  background: #0f2c59;
+
+  border-color: #0f2c59;
+
+  color: #ffffff;
+}
+
+.propertyCardLink:hover .exploreIcon {
+  background: #3ba9ef;
+
+  transform: translate(2px, -2px);
+}
+
+
+/* =========================================
+   NAVIGATION ARROWS
+========================================= */
+
+.arrow {
+  position: absolute;
+
+  z-index: 5;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  padding: 0;
+
+  border: 1px solid rgba(15, 44, 89, 0.12);
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #0f2c59;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 35px rgba(15, 44, 89, 0.12);
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.arrow:hover {
+  background: #0f2c59;
+
+  color: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+.arrowLeft {
+  left: -26px;
+}
+
+.arrowRight {
+  right: -26px;
+}
+
+
+/* =========================================
+   CONTROLS
+========================================= */
+
+.controls {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  margin-top: 25px;
+}
+
+.progress {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+.progressItem {
+  width: 24px;
+  height: 3px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: rgba(15, 44, 89, 0.14);
+
+  cursor: pointer;
+
+  transition:
+    width 0.3s ease,
+    background 0.3s ease;
+}
+
+.progressItem:hover {
+  background: rgba(59, 169, 239, 0.55);
+}
+
+.progressActive {
+  width: 44px;
+
+  background: #3ba9ef;
+}
+
+.progressText {
+  color: #64748b;
+
+  font-size: 0.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   BOTTOM CTA
+========================================= */
+
+.bottomCta {
+  width: min(100%, 1080px);
+
+  margin: 62px auto 0;
+
+  padding: 27px 29px 27px 31px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  border: 1px solid rgba(15, 44, 89, 0.1);
+
+  border-radius: 24px;
+
+  background: #f8fafc;
+}
+
+.ctaCopy {
+  min-width: 0;
+}
+
+.ctaEyebrow {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #3ba9ef;
+
+  font-size: 0.6rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+}
+
+.ctaCopy h3 {
+  margin: 0;
+
+  color: #0f2c59;
+
+  font-size: 1.18rem;
+
+  line-height: 1.25;
+
+  letter-spacing: -0.025em;
+}
+
+.ctaCopy p {
+  max-width: 500px;
+
+  margin: 7px 0 0;
+
+  color: #64748b;
+
+  font-size: 0.77rem;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================
+   CTA BUTTON
+========================================= */
+
+.ctaButton {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  flex-shrink: 0;
+
+  padding: 13px 17px;
+
+  border: 1px solid #0f2c59;
+
+  border-radius: 13px;
+
+  background: #0f2c59;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 0.77rem;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.ctaButton:hover {
+  background: #3ba9ef;
+
+  border-color: #3ba9ef;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   LARGE DESKTOP / 4K
+========================================= */
+
+@media (min-width: 1600px) {
+
+  .propertyOpportunities {
+    padding-top: 165px;
+    padding-bottom: 165px;
+  }
+
+  .container {
+    width: min(1400px, 90%);
+  }
+
+  .intro {
+    margin-bottom: 75px;
+  }
+
+  .introEyebrow {
+    font-size: 0.76rem;
+  }
+
+  .introHeading {
+    max-width: 1050px;
+  }
+
+  .introHeading h2 {
+    font-size: clamp(4rem, 4.2vw, 5.4rem);
+  }
+
+  .introDescription {
+    max-width: 620px;
+  }
+
+  .introDescription p {
+    font-size: 1.02rem;
+  }
+
+  .propertyCardLink,
+  .bottomCta {
+    width: min(100%, 1200px);
+  }
+
+  .propertyCard {
+    min-height: 670px;
+  }
+
+  .imageWrapper {
+    height: 670px;
+  }
+
+  .propertyContent {
+    padding: 4.4rem 4.4rem;
+  }
+
+  .propertyContent h3 {
+    font-size: clamp(2.4rem, 2.5vw, 3.1rem);
+  }
+
+  .description {
+    font-size: 0.94rem;
+    line-height: 1.75;
+  }
+
+  .propertyDetails {
+    margin-top: 38px;
+  }
+
+  .detailValue {
+    font-size: 0.8rem;
+  }
+
+  .selectionNote {
+    max-width: 260px;
+  }
+
+  .bottomCta {
+    margin-top: 75px;
+
+    padding: 31px 34px;
+  }
+
+  .ctaCopy h3 {
+    font-size: 1.3rem;
+  }
+
+  .ctaCopy p {
+    font-size: 0.82rem;
+  }
+
+  .ctaButton {
+    padding: 14px 19px;
+
+    font-size: 0.8rem;
+  }
+}
+
+
+/* =========================================
+   1440px — LARGE LAPTOP
+========================================= */
+
+@media (min-width: 1201px) and (max-width: 1599px) {
+
+  .container {
+    width: min(1200px, 92%);
+  }
+
+  .propertyCardLink,
+  .bottomCta {
+    width: min(100%, 1080px);
+  }
+}
+
+
+/* =========================================
+   1200px — LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
+
+  .container {
+    width: min(100%, 1080px);
+  }
+
+  .propertyCardLink {
+    width: min(100%, 980px);
+  }
+
+  .propertyContent {
+    padding: 3.3rem 3.1rem;
+  }
+
+  .arrowLeft {
+    left: -22px;
+  }
+
+  .arrowRight {
+    right: -22px;
+  }
+}
+
+
+/* =========================================
+   1100px — SMALL LAPTOP
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .propertyOpportunities {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .container {
+    width: min(100%, 920px);
+  }
+
+  .propertyCardLink {
+    width: min(100%, 850px);
+  }
+
+  .propertyContent {
+    padding: 3rem;
+  }
+
+  .propertyContent h3 {
+    font-size: clamp(1.8rem, 3vw, 2.3rem);
+  }
+
+  .propertyDetails {
+    margin-top: 30px;
+  }
+
+  .detailValue {
+    font-size: 0.7rem;
+  }
+
+  .description {
+    font-size: 0.84rem;
+  }
+
+  .arrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .arrowLeft {
+    left: -18px;
+  }
+
+  .arrowRight {
+    right: -18px;
+  }
+}
+
+
+/* =========================================
+   1000px — TABLET LANDSCAPE
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .propertyOpportunities {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  .introHeading h2 {
+    font-size: clamp(2.6rem, 5.5vw, 3.8rem);
+  }
+
+  .propertyCardLink {
+    width: min(100%, 800px);
+  }
+
+  .propertyCard {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .propertyContent {
+    padding: 2.7rem 2.5rem;
+  }
+
+  .contentTop {
+    gap: 15px;
+  }
+
+  .priceArea strong {
+    font-size: 1.15rem;
+  }
+
+  .propertyDetails {
+    margin-top: 27px;
+  }
+
+  .detailItem {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .detailItem:nth-child(odd) {
+    padding-right: 12px;
+  }
+
+  .detailItem:nth-child(even) {
+    padding-left: 12px;
+  }
+
+  .detailValue {
+    font-size: 0.66rem;
+  }
+
+  .description {
+    margin-top: 21px;
+
+    font-size: 0.8rem;
+  }
+
+  .selectionNote {
+    max-width: 170px;
+  }
+
+  .selectionNote p {
+    font-size: 0.68rem;
+  }
+
+  .exploreButton {
+    font-size: 0.7rem;
+
+    padding-left: 12px;
+  }
+
+  .exploreIcon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+
+/* =========================================
+   900px — TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .propertyOpportunities {
+    padding: 110px 24px;
+  }
+
+  .container {
+    width: min(100%, 720px);
+  }
+
+  .intro {
+    margin-bottom: 52px;
+  }
+
+  .introHeading h2 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+  }
+
+  .introDescription {
+    max-width: 600px;
+  }
+
+  .propertyCardLink {
+    width: 100%;
+  }
+
+  .propertyCard {
+    grid-template-columns: 1fr;
+
+    min-height: 0;
+
+    border-radius: 25px;
+  }
+
+  .imageWrapper {
+    height: 390px;
+  }
+
+  .propertyContent {
+    min-height: 520px;
+
+    padding: 3rem;
+  }
+
+  .propertyContent h3 {
+    font-size: clamp(2rem, 5vw, 2.6rem);
+  }
+
+  .description {
+    max-width: 600px;
+  }
+
+  .bottomCta {
+    width: 100%;
+  }
+
+  .arrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .arrowLeft {
+    left: -16px;
+  }
+
+  .arrowRight {
+    right: -16px;
+  }
+}
+
+
+/* =========================================
+   820px — SMALL TABLET
+========================================= */
+
+@media (max-width: 820px) {
+
+  .propertyOpportunities {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .introHeading h2 {
+    font-size: clamp(2.4rem, 7vw, 3.2rem);
+  }
+
+  .imageWrapper {
+    height: 370px;
+  }
+
+  .propertyContent {
+    padding: 2.7rem 2.5rem;
+  }
+
+  .bottomContent {
+    gap: 18px;
+  }
+
+  .selectionNote {
+    max-width: 230px;
+  }
+}
+
+
+/* =========================================
+   768px — MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .propertyOpportunities {
+    padding: 90px 20px;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .intro {
+    margin-bottom: 48px;
+  }
+
+  .introEyebrow {
+    margin-bottom: 20px;
+
+    font-size: 0.65rem;
+  }
+
+  .introHeading h2 {
+    font-size: 2.35rem;
+
+    line-height: 1.05;
+  }
+
+  .introDescription {
+    max-width: 520px;
+
+    margin-top: 20px;
+  }
+
+  .introDescription p {
+    font-size: 0.9rem;
+
+    line-height: 1.65;
+  }
+
+  .introNote {
+    font-size: 0.71rem;
+  }
+
+
+  /* CARD */
+
+  .propertyCardLink {
+    width: 100%;
+
+    border-radius: 22px;
+  }
+
+  .propertyCard {
+    border-radius: 22px;
+  }
+
+  .imageWrapper {
+    height: 285px;
+  }
+
+  .imageTop {
+    top: 20px;
+
+    left: 20px;
+    right: 20px;
+  }
+
+  .propertyCategory {
+    padding: 6px 9px;
+
+    font-size: 0.57rem;
+  }
+
+  .imageBottom {
+    left: 20px;
+    right: 20px;
+
+    bottom: 20px;
+  }
+
+  .location {
+    font-size: 0.74rem;
+  }
+
+  .illustrativeLabel {
+    max-width: 130px;
+
+    font-size: 0.54rem;
+
+    line-height: 1.35;
+  }
+
+
+  /* CONTENT */
+
+  .propertyContent {
+    min-height: 545px;
+
+    padding: 2rem 1.5rem;
+  }
+
+  .contentTop {
+    gap: 15px;
+  }
+
+  .contentEyebrow {
+    margin-bottom: 15px;
+
+    font-size: 0.59rem;
+  }
+
+  .propertyContent h3 {
+    font-size: 1.75rem;
+
+    line-height: 1.08;
+  }
+
+  .priceArea strong {
+    font-size: 1.08rem;
+  }
+
+  .priceLabel {
+    font-size: 0.51rem;
+  }
+
+
+  /* DETAILS */
+
+  .propertyDetails {
+    margin-top: 27px;
+  }
+
+  .detailItem {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .detailLabel {
+    font-size: 0.51rem;
+  }
+
+  .detailValue {
+    font-size: 0.68rem;
+  }
+
+
+  /* DESCRIPTION */
+
+  .description {
+    margin-top: 20px;
+
+    font-size: 0.84rem;
+
+    line-height: 1.62;
+  }
+
+
+  /* BOTTOM */
+
+  .propertyDivider {
+    margin-top: 22px;
+  }
+
+  .bottomContent {
+    align-items: flex-end;
+
+    gap: 18px;
+  }
+
+  .selectionNote {
+    max-width: 180px;
+  }
+
+  .selectionNote > span {
+    font-size: 0.56rem;
+  }
+
+  .selectionNote p {
+    font-size: 0.69rem;
+  }
+
+  .exploreButton {
+    font-size: 0.7rem;
+
+    padding-left: 12px;
+  }
+
+  .exploreIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+
+  /* ARROWS */
+
+  .arrow {
+    width: 44px;
+    height: 44px;
+  }
+
+  .arrowLeft {
+    left: -10px;
+  }
+
+  .arrowRight {
+    right: -10px;
+  }
+
+
+  /* CONTROLS */
+
+  .controls {
+    margin-top: 19px;
+  }
+
+
+  /* CTA */
+
+  .bottomCta {
+    margin-top: 45px;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 20px;
+
+    padding: 23px;
+
+    border-radius: 22px;
+  }
+
+  .ctaCopy h3 {
+    font-size: 1.05rem;
+  }
+
+  .ctaCopy p {
+    font-size: 0.72rem;
+  }
+
+  .ctaButton {
+    width: 100%;
+  }
+}
+
+
+/* =========================================
+   640px — LARGE PHONE / SMALL TABLET
+========================================= */
+
+@media (max-width: 640px) {
+
+  .propertyOpportunities {
+    padding-top: 82px;
+    padding-bottom: 82px;
+  }
+
+  .intro {
+    margin-bottom: 42px;
+  }
+
+  .introHeading h2 {
+    font-size: 2.2rem;
+  }
+
+  .introDescription {
+    margin-top: 18px;
+  }
+
+  .propertyContent {
+    min-height: 555px;
+  }
+
+  .propertyDetails {
+    margin-top: 25px;
+  }
+
+  .detailValue {
+    font-size: 0.66rem;
+  }
+
+  .bottomCta {
+    margin-top: 40px;
+  }
+}
+
+
+/* =========================================
+   540px — PHONE
+========================================= */
+
+@media (max-width: 540px) {
+
+  .propertyOpportunities {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .introEyebrow {
+    gap: 9px;
+
+    font-size: 0.61rem;
+
+    letter-spacing: 0.16em;
+  }
+
+  .eyebrowLine {
+    width: 27px;
+    min-width: 27px;
+  }
+
+  .introHeading h2 {
+    font-size: 2.08rem;
+
+    letter-spacing: -0.045em;
+  }
+
+  .introDescription p {
+    font-size: 0.86rem;
+  }
+
+  .introNote {
+    font-size: 0.68rem;
+  }
+
+  .imageWrapper {
+    height: 260px;
+  }
+
+  .propertyContent {
+    min-height: 565px;
+
+    padding: 1.8rem 1.4rem;
+  }
+
+  .contentTop {
+    gap: 13px;
+  }
+
+  .propertyContent h3 {
+    font-size: 1.68rem;
+  }
+
+  .priceArea strong {
+    font-size: 1.02rem;
+  }
+
+  .propertyDetails {
+    margin-top: 24px;
+  }
+
+  .detailItem {
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+
+  .detailLabel {
+    font-size: 0.48rem;
+  }
+
+  .detailValue {
+    font-size: 0.63rem;
+
+    line-height: 1.3;
+  }
+
+  .description {
+    margin-top: 18px;
+
+    font-size: 0.81rem;
+
+    line-height: 1.58;
+  }
+
+  .selectionNote {
+    max-width: 170px;
+  }
+
+  .selectionNote p {
+    font-size: 0.67rem;
+  }
+
+  .exploreButton {
+    font-size: 0.68rem;
+  }
+
+  .exploreIcon {
+    width: 27px;
+    height: 27px;
+  }
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .arrowLeft {
+    left: -8px;
+  }
+
+  .arrowRight {
+    right: -8px;
+  }
+
+  .bottomCta {
+    padding: 21px;
+
+    border-radius: 20px;
+  }
+}
+
+
+/* =========================================
+   480px — SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .propertyOpportunities {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .intro {
+    margin-bottom: 38px;
+  }
+
+  .introHeading h2 {
+    font-size: 2.05rem;
+  }
+
+  .introDescription p {
+    font-size: 0.84rem;
+  }
+
+  .introNote {
+    font-size: 0.66rem;
+  }
+
+  .imageWrapper {
+    height: 235px;
+  }
+
+  .imageTop {
+    top: 18px;
+
+    left: 18px;
+    right: 18px;
+  }
+
+  .propertyNumber {
+    font-size: 0.68rem;
+  }
+
+  .propertyCategory {
+    padding: 5px 8px;
+
+    font-size: 0.53rem;
+  }
+
+  .imageBottom {
+    left: 18px;
+    right: 18px;
+
+    bottom: 18px;
+
+    gap: 12px;
+  }
+
+  .location {
+    font-size: 0.69rem;
+  }
+
+  .illustrativeLabel {
+    max-width: 105px;
+
+    font-size: 0.49rem;
+  }
+
+  .propertyContent {
+    min-height: 565px;
+
+    padding: 1.7rem 1.3rem 1.8rem;
+  }
+
+  .contentTop {
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
+  .priceArea {
+    text-align: left;
+  }
+
+  .propertyContent h3 {
+    font-size: 1.62rem;
+  }
+
+  .priceLabel {
+    margin-bottom: 4px;
+  }
+
+  .propertyDetails {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .detailItem:nth-child(odd) {
+    padding-right: 12px;
+  }
+
+  .detailItem:nth-child(even) {
+    padding-left: 12px;
+  }
+
+  .detailValue {
+    font-size: 0.65rem;
+  }
+
+  .description {
+    font-size: 0.82rem;
+
+    line-height: 1.58;
+  }
+
+  .bottomContent {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 17px;
+  }
+
+  .selectionNote {
+    max-width: 100%;
+  }
+
+  .exploreButton {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .arrowLeft {
+    left: -8px;
+  }
+
+  .arrowRight {
+    right: -8px;
+  }
+
+  .progressItem {
+    width: 20px;
+  }
+
+  .progressActive {
+    width: 37px;
+  }
+
+  .bottomCta {
+    margin-top: 38px;
+
+    padding: 20px;
+
+    border-radius: 20px;
+  }
+
+  .ctaEyebrow {
+    font-size: 0.56rem;
+  }
+
+  .ctaCopy h3 {
+    font-size: 1rem;
+  }
+
+  .ctaCopy p {
+    font-size: 0.69rem;
+  }
+
+  .ctaButton {
+    padding: 12px 14px;
+
+    font-size: 0.7rem;
+  }
+}
+
+
+/* =========================================
+   400px — VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+  .propertyOpportunities {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .introHeading h2 {
+    font-size: 1.92rem;
+  }
+
+  .introDescription p {
+    font-size: 0.81rem;
+  }
+
+  .introNote {
+    font-size: 0.63rem;
+  }
+
+  .imageWrapper {
+    height: 220px;
+  }
+
+  .propertyContent {
+    min-height: 575px;
+
+    padding: 1.6rem 1.2rem 1.7rem;
+  }
+
+  .propertyContent h3 {
+    font-size: 1.55rem;
+  }
+
+  .propertyDetails {
+    margin-top: 22px;
+  }
+
+  .detailItem {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .detailLabel {
+    font-size: 0.45rem;
+  }
+
+  .detailValue {
+    font-size: 0.61rem;
+  }
+
+  .description {
+    font-size: 0.79rem;
+  }
+
+  .selectionNote p {
+    font-size: 0.64rem;
+  }
+
+  .exploreButton {
+    font-size: 0.66rem;
+  }
+
+  .exploreIcon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .arrow {
+    width: 38px;
+    height: 38px;
+  }
+
+  .arrowLeft {
+    left: -7px;
+  }
+
+  .arrowRight {
+    right: -7px;
+  }
+}
+
+
+/* =========================================
+   360px — VERY SMALL DEVICES
+========================================= */
+
+@media (max-width: 360px) {
+
+  .propertyOpportunities {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .introEyebrow {
+    font-size: 0.57rem;
+
+    letter-spacing: 0.13em;
+  }
+
+  .eyebrowLine {
+    width: 23px;
+    min-width: 23px;
+  }
+
+  .introHeading h2 {
+    font-size: 1.82rem;
+  }
+
+  .introDescription p {
+    font-size: 0.78rem;
+  }
+
+  .introNote {
+    font-size: 0.6rem;
+
+    padding-left: 11px;
+  }
+
+  .imageWrapper {
+    height: 210px;
+  }
+
+  .imageTop {
+    top: 15px;
+
+    left: 15px;
+    right: 15px;
+  }
+
+  .imageBottom {
+    left: 15px;
+    right: 15px;
+
+    bottom: 15px;
+  }
+
+  .propertyNumber {
+    font-size: 0.63rem;
+  }
+
+  .propertyCategory {
+    padding: 5px 7px;
+
+    font-size: 0.48rem;
+  }
+
+  .location {
+    font-size: 0.63rem;
+  }
+
+  .illustrativeLabel {
+    max-width: 90px;
+
+    font-size: 0.45rem;
+  }
+
+  .propertyContent {
+    min-height: 580px;
+
+    padding: 1.5rem 1.15rem 1.6rem;
+  }
+
+  .contentEyebrow {
+    font-size: 0.54rem;
+  }
+
+  .propertyContent h3 {
+    font-size: 1.48rem;
+  }
+
+  .priceArea strong {
+    font-size: 0.98rem;
+  }
+
+  .propertyDetails {
+    margin-top: 20px;
+  }
+
+  .detailValue {
+    font-size: 0.59rem;
+  }
+
+  .description {
+    font-size: 0.77rem;
+
+    line-height: 1.55;
+  }
+
+  .selectionNote p {
+    font-size: 0.62rem;
+  }
+
+  .exploreButton {
+    font-size: 0.64rem;
+  }
+
+  .exploreIcon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .arrowLeft {
+    left: -6px;
+  }
+
+  .arrowRight {
+    right: -6px;
+  }
+
+  .progress {
+    gap: 5px;
+  }
+
+  .progressItem {
+    width: 18px;
+  }
+
+  .progressActive {
+    width: 33px;
+  }
+
+  .progressText {
+    font-size: 0.62rem;
+  }
+
+  .bottomCta {
+    padding: 18px;
+
+    border-radius: 18px;
+  }
+
+  .ctaEyebrow {
+    font-size: 0.52rem;
+  }
+
+  .ctaCopy h3 {
+    font-size: 0.95rem;
+  }
+
+  .ctaCopy p {
+    font-size: 0.66rem;
+  }
+
+  .ctaButton {
+    padding: 11px 13px;
+
+    font-size: 0.66rem;
+  }
+}
+
+
+/* =========================================
+   320px — EXTREMELY SMALL DEVICES
+========================================= */
+
+@media (max-width: 320px) {
+
+  .propertyOpportunities {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .introHeading h2 {
+    font-size: 1.7rem;
+  }
+
+  .introDescription p {
+    font-size: 0.75rem;
+  }
+
+  .imageWrapper {
+    height: 195px;
+  }
+
+  .propertyContent {
+    min-height: 590px;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .propertyContent h3 {
+    font-size: 1.38rem;
+  }
+
+  .detailLabel {
+    font-size: 0.42rem;
+  }
+
+  .detailValue {
+    font-size: 0.56rem;
+  }
+
+  .description {
+    font-size: 0.73rem;
+  }
+
+  .arrow {
+    width: 33px;
+    height: 33px;
+  }
+
+  .arrowLeft {
+    left: -5px;
+  }
+
+  .arrowRight {
+    right: -5px;
+  }
+
+  .exploreButton {
+    font-size: 0.61rem;
+  }
+
+  .bottomCta {
+    padding: 16px;
+  }
+}
+
+
+/* =========================================
+   TOUCH DEVICES
+   Prevent hover lift from feeling strange
+========================================= */
+
+@media (hover: none) {
+
+  .propertyCardLink:hover .propertyCard {
+    transform: none;
+
+    box-shadow:
+      0 30px 80px rgba(15, 44, 89, 0.11);
+  }
+
+  .propertyCardLink:hover .exploreButton {
+    background: #ffffff;
+
+    border-color: rgba(15, 44, 89, 0.12);
+
+    color: #0f2c59;
+  }
+
+  .propertyCardLink:hover .exploreIcon {
+    background: #0f2c59;
+
+    transform: none;
+  }
+
+  .arrow:hover {
+    background: #ffffff;
+
+    color: #0f2c59;
+
+    transform: none;
+  }
+
+  .ctaButton:hover {
+    background: #0f2c59;
+
+    border-color: #0f2c59;
+
+    transform: none;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .image {
+    animation: none;
+  }
+
+  .propertyCard,
+  .exploreButton,
+  .exploreIcon,
+  .arrow,
+  .ctaButton,
+  .progressItem {
+    transition: none;
+  }
+}
