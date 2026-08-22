@@ -4,6 +4,7 @@ import GreeceExperience from "./components/LandingPage/GreeceExperience/GreeceEx
 import InvestmentRoutes from "./components/LandingPage/Investment-Routes/InvestmentRoutes";
 import WhatWeDo from "./components/LandingPage/WhatWeDo/WhatWeDo";
 import PropertyOpportunities from "./components/LandingPage/PropertyOpportunities/PropertyOpportunities";
+import ReviewsProof from "./components/LandingPage/ReviewsProof/ReviewsProof";
 
 export default function Home() {
   return (
@@ -14,5 +15,6 @@ export default function Home() {
   <InvestmentRoutes />
   <WhatWeDo />
   <PropertyOpportunities />
+  <ReviewsProof />
   </>);
 }
