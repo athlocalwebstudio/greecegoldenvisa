@@ -1,0 +1,735 @@
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  padding: 88px 24px 30px;
+
+  background: #071d3a;
+  color: #ffffff;
+
+  box-sizing: border-box;
+}
+
+.footer *,
+.footer *::before,
+.footer *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   MAIN FOOTER
+========================================= */
+
+.footerMain {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 0.8fr;
+
+  gap: 75px;
+
+  padding-bottom: 68px;
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.brandColumn {
+  max-width: 340px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 11px;
+
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.brandMark {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #ffffff;
+  color: #0f2c59;
+
+  font-size: 0.65rem;
+  font-weight: 900;
+
+  letter-spacing: -0.03em;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.brandText strong {
+  color: #ffffff;
+
+  font-size: 0.69rem;
+  font-weight: 900;
+
+  letter-spacing: 0.12em;
+}
+
+.brandText span {
+  color: #3ba9ef;
+
+  font-size: 0.5rem;
+  font-weight: 800;
+
+  letter-spacing: 0.21em;
+}
+
+.brandDescription {
+  max-width: 310px;
+
+  margin: 23px 0 0;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 0.72rem;
+  line-height: 1.7;
+}
+
+.credentials {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  margin-top: 24px;
+}
+
+.credentials span {
+  color: rgba(255, 255, 255, 0.34);
+
+  font-size: 0.51rem;
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navigationColumns {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 40px;
+}
+
+.footerColumn h3,
+.contactColumn h3 {
+  margin: 2px 0 21px;
+
+  color: #ffffff;
+
+  font-size: 0.59rem;
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.footerColumn nav {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 12px;
+}
+
+.footerColumn a {
+  position: relative;
+
+  color: rgba(255, 255, 255, 0.56);
+
+  font-size: 0.69rem;
+  font-weight: 600;
+
+  line-height: 1.4;
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.footerColumn a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -3px;
+
+  width: 0;
+  height: 1px;
+
+  background: #3ba9ef;
+
+  transition: width 0.25s ease;
+}
+
+.footerColumn a:hover {
+  color: #ffffff;
+
+  transform: translateX(2px);
+}
+
+.footerColumn a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contactColumn {
+  min-width: 0;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.contactList a {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  color: #ffffff;
+
+  text-decoration: none;
+}
+
+.contactList a span,
+.location > span {
+  color: rgba(255, 255, 255, 0.34);
+
+  font-size: 0.49rem;
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+}
+
+.contactList a strong {
+  overflow-wrap: anywhere;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 0.69rem;
+  line-height: 1.4;
+
+  font-weight: 700;
+
+  transition: color 0.25s ease;
+}
+
+.contactList a:hover strong {
+  color: #3ba9ef;
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  margin-top: 22px;
+  padding-top: 19px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.location strong {
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 0.69rem;
+  font-weight: 700;
+}
+
+
+/* =========================================
+   PROFESSIONAL NOTE
+========================================= */
+
+.professionalNote {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 14px;
+
+  padding: 20px 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.noteMark {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(59, 169, 239, 0.12);
+
+  color: #3ba9ef;
+}
+
+.professionalNote > div:last-child {
+  min-width: 0;
+}
+
+.professionalNote span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 0.53rem;
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+}
+
+.professionalNote p {
+  max-width: 850px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 0.64rem;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================
+   FOOTER BOTTOM
+========================================= */
+
+.footerBottom {
+  display: grid;
+
+  grid-template-columns: 1fr auto auto;
+
+  align-items: center;
+
+  gap: 25px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================
+   BOTTOM LEFT
+========================================= */
+
+.bottomLeft {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.34);
+
+  font-size: 0.57rem;
+
+  line-height: 1.5;
+}
+
+.copyright span {
+  margin-left: 5px;
+}
+
+
+/* =========================================
+   MADE BY
+========================================= */
+
+.madeBy {
+  color: rgba(255, 255, 255, 0.3);
+
+  font-size: 0.52rem;
+
+  line-height: 1.5;
+}
+
+.madeBy a {
+  color: rgba(255, 255, 255, 0.52);
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: color 0.25s ease;
+}
+
+.madeBy a:hover {
+  color: #3ba9ef;
+}
+
+
+/* =========================================
+   LEGAL LINKS
+========================================= */
+
+.legalLinks {
+  display: flex;
+  align-items: center;
+
+  gap: 19px;
+}
+
+.legalLinks a {
+  color: rgba(255, 255, 255, 0.34);
+
+  font-size: 0.55rem;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: color 0.25s ease;
+}
+
+.legalLinks a:hover {
+  color: #ffffff;
+}
+
+
+/* =========================================
+   LANGUAGES
+========================================= */
+
+.languages {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  color: rgba(255, 255, 255, 0.2);
+
+  font-size: 0.53rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+.languageActive {
+  color: #ffffff;
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1600px) {
+  .footer {
+    padding-top: 105px;
+  }
+
+  .container {
+    width: min(1280px, 88%);
+  }
+
+  .footerMain {
+    padding-bottom: 78px;
+  }
+}
+
+
+/* =========================================
+   4K
+========================================= */
+
+@media (min-width: 2200px) {
+  .footer {
+    padding-top: 125px;
+
+    padding-bottom: 35px;
+  }
+
+  .container {
+    width: min(1450px, 82%);
+  }
+
+  .footerMain {
+    gap: 110px;
+
+    padding-bottom: 90px;
+  }
+}
+
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
+  .container {
+    width: min(100%, 1040px);
+  }
+
+  .footerMain {
+    gap: 50px;
+  }
+}
+
+
+/* =========================================
+   TABLET LANDSCAPE
+========================================= */
+
+@media (max-width: 950px) {
+  .footer {
+    padding-top: 75px;
+  }
+
+  .footerMain {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 55px 50px;
+  }
+
+  .brandColumn {
+    max-width: 390px;
+  }
+
+  .contactColumn {
+    grid-column: 2;
+  }
+
+  .footerBottom {
+    grid-template-columns: 1fr auto;
+  }
+
+  .languages {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .legalLinks {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+
+
+/* =========================================
+   TABLET PORTRAIT
+========================================= */
+
+@media (max-width: 700px) {
+  .footer {
+    padding: 68px 20px 25px;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .footerMain {
+    grid-template-columns: 1fr;
+
+    gap: 42px;
+
+    padding-bottom: 45px;
+  }
+
+  .brandColumn {
+    max-width: 500px;
+  }
+
+  .navigationColumns {
+    max-width: 500px;
+  }
+
+  .contactColumn {
+    grid-column: auto;
+  }
+
+  .footerBottom {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .languages {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .legalLinks {
+    grid-column: auto;
+    grid-row: auto;
+
+    flex-wrap: wrap;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 60px 16px 22px;
+  }
+
+  .footerMain {
+    gap: 38px;
+  }
+
+  .navigationColumns {
+    gap: 25px;
+  }
+
+  .footerColumn h3,
+  .contactColumn h3 {
+    margin-bottom: 17px;
+  }
+
+  .footerColumn nav {
+    gap: 11px;
+  }
+
+  .footerColumn a {
+    font-size: 0.66rem;
+  }
+
+  .brandDescription {
+    font-size: 0.69rem;
+  }
+
+  .professionalNote {
+    gap: 11px;
+
+    padding: 17px;
+  }
+
+  .professionalNote p {
+    font-size: 0.6rem;
+  }
+
+  .legalLinks {
+    gap: 10px 16px;
+  }
+
+  .madeBy {
+    font-size: 0.5rem;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL DEVICES
+========================================= */
+
+@media (max-width: 360px) {
+  .footer {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .navigationColumns {
+    gap: 17px;
+  }
+
+  .footerColumn a {
+    font-size: 0.62rem;
+  }
+
+  .professionalNote {
+    padding: 15px;
+  }
+
+  .professionalNote p {
+    font-size: 0.57rem;
+  }
+
+  .copyright {
+    font-size: 0.54rem;
+  }
+
+  .legalLinks a {
+    font-size: 0.52rem;
+  }
+
+  .madeBy {
+    font-size: 0.48rem;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .footerColumn a,
+  .footerColumn a::after,
+  .contactList a strong,
+  .legalLinks a,
+  .madeBy a {
+    transition: none;
+  }
+}
