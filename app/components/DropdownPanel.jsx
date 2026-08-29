@@ -2,48 +2,27 @@
 
 import styles from "@/app/styles/navbar.module.css";
 import { navigation } from "./navigationData";
+import Link from "next/link";
 
-import {
-  FileText,
-  ShieldCheck,
-  CheckCircle2,
-  Workflow,
-  Home,
-  Building2,
-  Landmark,
-  Scale,
-  Sun,
-  Globe2,
-  TrendingUp,
-  HeartHandshake,
-  BookOpen,
-  FileCheck,
-  Files,
-  CircleHelp,
-  ArrowRight,
-} from "lucide-react";
-
-
-
+import { ArrowRight } from "lucide-react";
 
 export default function DropdownPanel({ activeMenu }) {
-
   const menuItem = navigation.find(
-  (item) => item.id === activeMenu
-);
+    (item) => item.id === activeMenu
+  );
 
+  if (!menuItem) {
+    return null;
+  }
 
-if (!menuItem) {
-  return null;
-}
-
-
-const menu = menuItem?.dropdown;
-
+  const menu = menuItem.dropdown;
 
   return (
-
     <div className={styles.dropdownPanel}>
+
+      {/* =========================================
+          HEADER
+      ========================================= */}
 
       <div className={styles.dropdownHeader}>
 
@@ -58,24 +37,25 @@ const menu = menuItem?.dropdown;
       </div>
 
 
+      {/* =========================================
+          CARDS
+      ========================================= */}
 
       <div className={styles.dropdownGrid}>
 
-        {menu.cards.map((card)=>{
+        {menu.cards.map((card) => {
 
           const Icon = card.icon;
 
-
           return (
-
-            <a
-              href="#"
+            <Link
+              href={card.href}
               key={card.title}
               className={styles.dropdownCard}
             >
 
               <div className={styles.cardIcon}>
-                <Icon size={24}/>
+                <Icon size={24} />
               </div>
 
 
@@ -92,14 +72,12 @@ const menu = menuItem?.dropdown;
 
                 <span className={styles.cardAction}>
                   Explore
-                  <ArrowRight size={16}/>
+                  <ArrowRight size={16} />
                 </span>
 
               </div>
 
-
-            </a>
-
+            </Link>
           );
 
         })}
@@ -107,13 +85,14 @@ const menu = menuItem?.dropdown;
       </div>
 
 
+      {/* =========================================
+          BOTTOM BUTTON
+      ========================================= */}
 
       <button className={styles.dropdownButton}>
         {menu.button}
       </button>
 
-
     </div>
-
   );
 }

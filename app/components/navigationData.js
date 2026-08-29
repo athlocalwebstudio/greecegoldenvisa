@@ -65,7 +65,7 @@ export const navigation = [
           description:
             "Follow every step from choosing your investment to receiving residency.",
           icon: Workflow,
-          href: "/program/process",
+          href: "/program/journey",
         },
       ],
     },

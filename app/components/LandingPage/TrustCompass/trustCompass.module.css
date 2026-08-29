@@ -1,965 +1,1362 @@
+/* =========================================
+   TRUST COMPASS
+========================================= */
+
 .trustCompass {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 125px 24px 120px;
+  background: #f7fbff;
+  color: #0f2c59;
+}
 
-  padding:120px 24px;
-
-  background:#f7fbff;
-
-  box-shadow:
-    0 -30px 70px rgba(15,44,89,.10);
-
+.trustCompass *,
+.trustCompass *::before,
+.trustCompass *::after {
+  box-sizing: border-box;
 }
 
 
+/* =========================================
+   CONTAINER
+========================================= */
 
 .container {
-
-  width:min(1200px,90%);
-
-  margin:0 auto;
-
-
-  display:grid;
-
-  grid-template-columns: .9fr 1.1fr;
-
-  align-items:center;
-
-  gap:5rem;
-
+  width: min(1200px, 90%);
+  margin: 0 auto;
 }
-
 
 
 /* =========================================
-   LEFT CONTENT
+   INTRO
 ========================================= */
 
-
-.content {
-
-  max-width:520px;
-
+.intro {
+  max-width: 760px;
+  margin-bottom: 72px;
 }
 
-
-
-.eyebrow {
-
-  display:inline-block;
-
-  margin-bottom:1.5rem;
-
-
-  color:#3BA9EF;
-
-
-  font-size:.8rem;
-
-  font-weight:700;
-
-
-  letter-spacing:.18em;
-
+.eyebrow,
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #3ba9ef;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
-
-
-.content h2 {
-
-  color:#0F2C59;
-
-
-  font-size:clamp(2.2rem,4vw,3.4rem);
-
-
-  line-height:1.12;
-
-
-  letter-spacing:-.045em;
-
-
-  font-weight:800;
-
+.eyebrow::before,
+.sectionLabel::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: #3ba9ef;
 }
 
-
-
-.content p {
-
-  margin-top:1.5rem;
-
-
-  color:#64748b;
-
-
-  font-size:1.1rem;
-
-
-  line-height:1.75;
-
+.intro h2 {
+  margin: 22px 0 0;
+  color: #0f2c59;
+  font-size: clamp(3rem, 5vw, 4.7rem);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+  font-weight: 800;
 }
 
-
-
-.trustStatement {
-
-  margin-top:2rem;
-
-
-  padding-left:1.25rem;
-
-
-  border-left:
-
-  3px solid #3BA9EF;
-
-
+.intro h2 span {
+  color: #3ba9ef;
 }
 
-
-
-.trustStatement span {
-
-  color:#0F2C59;
-
-
-  font-size:.95rem;
-
-
-  font-weight:600;
-
+.introText {
+  max-width: 650px;
+  margin: 25px 0 0;
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.75;
 }
-
 
 
 /* =========================================
-   DESKTOP COMPASS
+   MAIN GRID
 ========================================= */
 
-
-.desktopCompass {
-
-  position:relative;
-
-
-  width:620px;
-
-  height:620px;
-
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-
+.mainGrid {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.85fr) minmax(0, 1.15fr);
+  gap: 70px;
+  align-items: start;
 }
-
-
-
-/* outer circle */
-
-
-.desktopCompass::before {
-
-  content:"";
-
-
-  position:absolute;
-
-
-  inset:55px;
-
-
-  border-radius:50%;
-
-
-  border:
-
-  1px solid rgba(15,44,89,.14);
-
-
-}
-
-
-
-/* inner circle */
-
-
-.desktopCompass::after {
-
-  content:"";
-
-
-  position:absolute;
-
-
-  inset:120px;
-
-
-  border-radius:50%;
-
-
-  border:
-
-  1px solid rgba(59,169,239,.20);
-
-
-}
-
 
 
 /* =========================================
-   CENTER
+   PROFILE CARD
 ========================================= */
 
-
-.center {
-
-
-  position:relative;
-
-
-  z-index:3;
-
-
-
-  width:165px;
-
-  height:165px;
-
-
-
-  border-radius:50%;
-
-
-
-  background:white;
-
-
-
-  border:
-
-  1px solid rgba(15,44,89,.15);
-
-
-
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-
-  justify-content:center;
-
-
-
-  text-align:center;
-
-
-
-  text-transform:uppercase;
-
-
-
-  box-shadow:
-
-  0 25px 60px rgba(15,44,89,.12);
-
-
-
-}
-
-
-
-.center span {
-
-
-  color:#0F2C59;
-
-
-  font-size:.65rem;
-
-
-  font-weight:700;
-
-
-  letter-spacing:.18em;
-
-
-}
-
-
-
-.center span:nth-child(2),
-
-.center span:nth-child(3) {
-
-
-  color:#3BA9EF;
-
-}
-
-
-
-.center::before {
-
-
-  content:"N";
-
-
-  position:absolute;
-
-
-  top:-45px;
-
-
-
-  color:#0F2C59;
-
-
-
-  font-size:.75rem;
-
-
-
-  font-weight:700;
-
-
-
-  letter-spacing:.2em;
-
-}
-
-
-
-/* compass center marker */
-
-
-.center::after {
-
-
-  content:"";
-
-
-  position:absolute;
-
-
-  top:-25px;
-
-
-
-  height:20px;
-
-
-  width:2px;
-
-
-
-  background:#3BA9EF;
-
-}
-
-
-
-/* =========================================
-   POINTS
-========================================= */
-
-
-.point {
-
-  position:absolute;
-
-
-  width:190px;
-
-
-  text-align:center;
-
-
-  cursor:pointer;
-
-
-
-}
-
-
-
-.direction {
-
-
-  display:block;
-
-
-  margin-bottom:.5rem;
-
-
-
-  color:#3BA9EF;
-
-
-  font-size:.75rem;
-
-
-  font-weight:700;
-
-
-  letter-spacing:.2em;
-
-
-
-}
-
-
-
-.point h3 {
-
-
-  color:#0F2C59;
-
-
-  font-size:1rem;
-
-
-  font-weight:700;
-
-
-  transition:.3s ease;
-
-
-}
-
-
-
-.point:hover h3 {
-
-
-  color:#3BA9EF;
-
-
-}
-
-
-
-.point p {
-
-
-  margin-top:.8rem;
-
-
-  color:#64748b;
-
-
-  font-size:.9rem;
-
-
-  line-height:1.5;
-
-
-
-  opacity:0;
-
-
-
-  transform:translateY(10px);
-
-
+.profileCard {
+  overflow: hidden;
+  border: 1px solid rgba(15, 44, 89, 0.1);
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 25px 70px rgba(15, 44, 89, 0.08);
 
   transition:
-
-
-  opacity .35s ease,
-
-
-  transform .35s ease;
-
-
+    transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.45s ease;
 }
 
-
-
-.point:hover p {
-
-
-  opacity:1;
-
-
-  transform:translateY(0);
-
-
+.profileCard:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 35px 90px rgba(15, 44, 89, 0.14);
 }
-
 
 
 /* =========================================
-   CONNECTION LINES
+   PROFILE IMAGE
 ========================================= */
 
-
-.point::after {
-
-
-  content:"";
-
-
-  position:absolute;
-
-
-  background:rgba(15,44,89,.15);
-
-
+.profileImageWrap {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  background: #dfeaf3;
 }
 
+.profileImage {
+  object-fit: cover;
+  object-position: center top;
 
-
-/* NORTH */
-
-
-.top {
-
-
-  top:25px;
-
-  left:50%;
-
-
-  transform:translateX(-50%);
-
-
+  transition:
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-
-.top::after {
-
-
-  width:1px;
-
-
-  height:90px;
-
-
-  left:50%;
-
-
-  top:100%;
-
-
+.profileCard:hover .profileImage {
+  transform: scale(1.035);
 }
 
+.imageOverlay {
+  position: absolute;
+  inset: 0;
 
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(15, 44, 89, 0) 45%,
+      rgba(15, 44, 89, 0.45) 100%
+    );
 
-/* EAST */
-
-
-.right {
-
-
-  right:-20px;
-
-
-  top:50%;
-
-
-  transform:translateY(-50%);
-
-
+  pointer-events: none;
 }
 
+.profileBadge {
+  position: absolute;
+  left: 22px;
+  bottom: 20px;
 
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 
-.right::after {
+  padding: 9px 13px;
 
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
 
-  height:1px;
+  background: rgba(15, 44, 89, 0.82);
+  color: #ffffff;
 
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
 
-  width:90px;
-
-
-  right:100%;
-
-
-  top:50%;
-
-
+  backdrop-filter: blur(10px);
 }
 
-
-
-/* SOUTH */
-
-
-.bottom {
-
-
-  bottom:25px;
-
-
-  left:50%;
-
-
-  transform:translateX(-50%);
-
-
+.badgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3ba9ef;
 }
-
-
-
-.bottom::after {
-
-
-  width:1px;
-
-
-  height:90px;
-
-
-  left:50%;
-
-
-  bottom:100%;
-
-
-}
-
-
-
-/* WEST */
-
-
-.left {
-
-
-  left:-20px;
-
-
-  top:50%;
-
-
-  transform:translateY(-50%);
-
-
-}
-
-
-
-.left::after {
-
-
-  height:1px;
-
-
-  width:90px;
-
-
-  left:100%;
-
-
-  top:50%;
-
-
-}
-
 
 
 /* =========================================
-   MOBILE PLACEHOLDER
+   PROFILE CONTENT
 ========================================= */
 
-
-.mobileJourney {
-
-  display:none;
-
+.profileContent {
+  padding: 31px 32px 30px;
 }
 
+.profileEyebrow {
+  color: #94a3b8;
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.profileContent h3 {
+  margin: 12px 0 0;
+
+  color: #0f2c59;
+
+  font-size: 2.35rem;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  font-weight: 800;
+}
+
+.profileRole {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+
+  margin: 13px 0 0;
+
+  color: #3ba9ef;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.profileRole span {
+  color: #cbd5e1;
+}
+
+.profileDescription {
+  margin: 18px 0 0;
+
+  color: #64748b;
+
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+
 /* =========================================
-   MOBILE JOURNEY
+   CREDENTIALS
 ========================================= */
 
+.credentials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 
-@media (max-width: 768px) {
+  margin-top: 25px;
+}
+
+.credential {
+  padding: 15px 16px;
+
+  border: 1px solid rgba(15, 44, 89, 0.08);
+  border-radius: 12px;
+
+  background: #f8fafc;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.credential:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(59, 169, 239, 0.3);
+
+  background: #f1f9ff;
+}
+
+.credential strong {
+  display: block;
+
+  color: #0f2c59;
+
+  font-size: 1.35rem;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.credential span {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #94a3b8;
+
+  font-size: 0.48rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
 
 
+/* =========================================
+   LANGUAGES
+========================================= */
+
+.languages {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-top: 22px;
+  padding-top: 19px;
+
+  border-top: 1px solid rgba(15, 44, 89, 0.08);
+}
+
+.languageList {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.languageList span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 26px;
+
+  border: 1px solid rgba(15, 44, 89, 0.1);
+  border-radius: 6px;
+
+  color: #94a3b8;
+
+  font-size: 0.48rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.languageList .languageActive {
+  border-color: rgba(59, 169, 239, 0.35);
+  background: #e8f4fd;
+  color: #0f2c59;
+}
+
+.languages p {
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 0.58rem;
+  line-height: 1.45;
+}
+
+
+/* =========================================
+   APPROACH
+========================================= */
+
+.approach {
+  padding-top: 4px;
+}
+
+.approachHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 30px;
+  margin-bottom: 18px;
+}
+
+.approachHeader h3 {
+  margin: 17px 0 0;
+
+  color: #0f2c59;
+
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  font-weight: 800;
+}
+
+.approachIndex {
+  flex-shrink: 0;
+
+  padding-bottom: 4px;
+
+  color: #94a3b8;
+
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+
+/* =========================================
+   APPROACH ITEMS
+========================================= */
+
+.approachItem {
+  display: grid;
+  grid-template-columns: 42px 1fr 28px;
+  align-items: start;
+
+  gap: 20px;
+
+  padding: 25px 0;
+
+  border-top: 1px solid rgba(15, 44, 89, 0.1);
+
+  transition:
+    padding-left 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease;
+}
+
+.approachItem:last-child {
+  border-bottom: 1px solid rgba(15, 44, 89, 0.1);
+}
+
+.approachItem:hover {
+  padding-left: 8px;
+
+  border-color: rgba(59, 169, 239, 0.35);
+}
+
+.approachNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border: 1px solid rgba(15, 44, 89, 0.12);
+  border-radius: 50%;
+
+  color: #0f2c59;
+
+  font-size: 0.55rem;
+  font-weight: 800;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.approachItem:hover .approachNumber {
+  transform: scale(1.06);
+
+  border-color: #3ba9ef;
+  background: #3ba9ef;
+  color: #ffffff;
+}
+
+.approachContent h4 {
+  margin: 0;
+
+  color: #0f2c59;
+
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.approachContent p {
+  max-width: 510px;
+
+  margin: 7px 0 0;
+
+  color: #64748b;
+
+  font-size: 0.72rem;
+  line-height: 1.65;
+}
+
+.approachArrow {
+  padding-top: 2px;
+
+  color: #cbd5e1;
+
+  font-size: 1rem;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.approachItem:hover .approachArrow {
+  color: #3ba9ef;
+  transform: translate(3px, -3px);
+}
+
+
+/* =========================================
+   DUE DILIGENCE
+========================================= */
+
+.dueDiligence {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: 90px;
+
+  margin-top: 110px;
+  padding: 65px 0;
+
+  border-top: 1px solid rgba(15, 44, 89, 0.1);
+  border-bottom: 1px solid rgba(15, 44, 89, 0.1);
+}
+
+.dueIntro {
+  max-width: 470px;
+}
+
+.dueIntro h3 {
+  margin: 19px 0 0;
+
+  color: #0f2c59;
+
+  font-size: clamp(2rem, 3.4vw, 3.15rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  font-weight: 800;
+}
+
+.dueIntro p {
+  margin: 20px 0 0;
+
+  color: #64748b;
+
+  font-size: 0.78rem;
+  line-height: 1.75;
+}
+
+
+/* =========================================
+   CHECKLIST
+========================================= */
+
+.checkList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  column-gap: 35px;
+}
+
+.checkItem {
+  display: flex;
+  gap: 15px;
+
+  padding: 18px 0;
+
+  border-top: 1px solid rgba(15, 44, 89, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    padding-left 0.3s ease;
+}
+
+.checkItem:nth-last-child(1) {
+  grid-column: 1 / -1;
+}
+
+.checkItem:hover {
+  transform: translateX(5px);
+  padding-left: 4px;
+}
+
+.checkItem > span {
+  flex-shrink: 0;
+
+  color: #3ba9ef;
+
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.checkItem strong {
+  display: block;
+
+  color: #0f2c59;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.checkItem p {
+  margin: 5px 0 0;
+
+  color: #94a3b8;
+
+  font-size: 0.62rem;
+  line-height: 1.55;
+}
+
+
+/* =========================================
+   BOTTOM STATEMENT
+========================================= */
+
+.bottomStatement {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+
+  align-items: center;
+
+  gap: 35px;
+
+  padding-top: 62px;
+}
+
+.statementLine {
+  width: 55px;
+  height: 1px;
+
+  background: #3ba9ef;
+}
+
+.statementContent > span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #94a3b8;
+
+  font-size: 0.53rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.statementContent p {
+  max-width: 680px;
+
+  margin: 0;
+
+  color: #0f2c59;
+
+  font-size: 0.9rem;
+  line-height: 1.7;
+  font-weight: 600;
+}
+
+.statementSignature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  gap: 4px;
+
+  text-align: right;
+}
+
+.statementSignature span {
+  color: #0f2c59;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.statementSignature small {
+  color: #94a3b8;
+
+  font-size: 0.5rem;
+  font-weight: 700;
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1600px) {
   .trustCompass {
-
-    padding:90px 20px;
-
+    padding-top: 145px;
+    padding-bottom: 135px;
   }
-
-
 
   .container {
-
-    width:100%;
-
-    display:block;
-
+    width: min(1280px, 88%);
   }
 
-
-
-  .content {
-
-    max-width:none;
-
-    text-align:center;
-
+  .profileImageWrap {
+    height: 440px;
   }
-
-
-
-  .eyebrow {
-
-    margin-bottom:1rem;
-
-  }
-
-
-
-  .content h2 {
-
-    font-size:2.2rem;
-
-  }
-
-
-
-  .content p {
-
-    font-size:1rem;
-
-  }
-
-
-
-  .trustStatement {
-
-    display:none;
-
-  }
-
-
-
-  /* Hide desktop compass */
-
-
-  .desktopCompass {
-
-    display:none;
-
-  }
-
-
-
-  /* Show mobile journey */
-
-
-  .mobileJourney {
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    margin-top:70px;
-
-  }
-
-
-
-  .mobileCenter {
-
-    width:150px;
-
-    height:150px;
-
-
-    border-radius:50%;
-
-
-    background:white;
-
-
-    border:1px solid rgba(15,44,89,.15);
-
-
-    display:flex;
-
-    flex-direction:column;
-
-
-    justify-content:center;
-
-    align-items:center;
-
-
-    text-align:center;
-
-
-    text-transform:uppercase;
-
-
-    box-shadow:
-
-    0 20px 45px rgba(15,44,89,.12);
-
-
-    color:#0F2C59;
-
-
-    font-size:.7rem;
-
-
-    font-weight:700;
-
-
-    letter-spacing:.15em;
-
-
-    margin-bottom:50px;
-
-
-  }
-
-
-
-  .mobileCenter span:nth-child(2),
-  .mobileCenter span:nth-child(3) {
-
-    color:#3BA9EF;
-
-  }
-
-
-
-  .mobilePoint {
-
-
-    width:100%;
-
-
-    max-width:320px;
-
-
-    text-align:center;
-
-
-    position:relative;
-
-
-  }
-
-
-
-  .mobilePoint:not(:last-child)::after {
-
-
-    content:"↓";
-
-
-    display:block;
-
-
-    margin:30px auto;
-
-
-    color:#3BA9EF;
-
-
-    font-size:1.4rem;
-
-
-    font-weight:600;
-
-
-  }
-
-
-
-  .arrow {
-
-    display:none;
-
-  }
-
-
-
-.stepNumber {
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  margin-bottom:.8rem;
-
-  width:40px;
-
-  height:40px;
-
-  margin-left:auto;
-
-  margin-right:auto;
-
-  border-radius:50%;
-
-  background:#ffffff;
-
-  border:1px solid rgba(15,44,89,.15);
-
-  color:#0F2C59;
-
-  font-size:.8rem;
-
-  font-weight:700;
-
 }
 
 
+/* =========================================
+   LAPTOP
+========================================= */
 
-  .mobilePoint h3 {
+@media (max-width: 1200px) {
+  .container {
+    width: min(100%, 1040px);
+  }
+
+  .mainGrid {
+    gap: 50px;
+  }
+
+  .dueDiligence {
+    gap: 55px;
+  }
+}
 
 
-    color:#0F2C59;
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 950px) {
+  .trustCompass {
+    padding: 100px 24px;
+  }
+
+  .mainGrid {
+    grid-template-columns: 1fr;
+    gap: 65px;
+  }
+
+  .profileCard {
+    max-width: 560px;
+  }
+
+  .profileImageWrap {
+    height: 440px;
+  }
+
+  .approach {
+    max-width: 760px;
+  }
+
+  .dueDiligence {
+    grid-template-columns: 1fr;
+    gap: 45px;
+
+    margin-top: 80px;
+  }
+}
 
 
-    font-size:1.15rem;
+/* =========================================
+   MOBILE
+   IMPORTANT:
+   Desktop above remains unchanged.
+========================================= */
 
+@media (max-width: 700px) {
 
-    margin-bottom:.6rem;
+  .trustCompass {
+    padding: 70px 18px 72px;
+  }
 
-
+  .container {
+    width: 100%;
   }
 
 
+  /* =======================================
+     INTRO
+  ======================================= */
 
-  .mobilePoint p {
+  .intro {
+    margin-bottom: 38px;
+  }
 
+  .eyebrow,
+  .sectionLabel {
+    font-size: 0.57rem;
+    letter-spacing: 0.16em;
+  }
 
-    opacity:1;
+  .eyebrow::before,
+  .sectionLabel::before {
+    width: 20px;
+  }
 
+  .intro h2 {
+    margin-top: 17px;
 
-    transform:none;
+    font-size: clamp(2.15rem, 9.5vw, 2.65rem);
 
+    line-height: 1.04;
+    letter-spacing: -0.045em;
+  }
 
-    margin:0;
+  .introText {
+    margin-top: 18px;
 
-
-    color:#64748b;
-
-
-    font-size:.95rem;
-
-
-    line-height:1.6;
-
-
+    font-size: 0.84rem;
+    line-height: 1.65;
   }
 
 
+  /* =======================================
+     MAIN GRID
+  ======================================= */
+
+  .mainGrid {
+    display: flex;
+    flex-direction: column;
+
+    gap: 45px;
+  }
+
+
+  /* =======================================
+     PROFILE CARD
+  ======================================= */
+
+  .profileCard {
+    width: 100%;
+    max-width: none;
+
+    border-radius: 18px;
+
+    box-shadow:
+      0 18px 50px rgba(15, 44, 89, 0.08);
+  }
+
+  /*
+     IMPORTANT MOBILE CHANGE:
+     The image becomes shorter so the entire
+     profile does not dominate the page.
+  */
+
+  .profileImageWrap {
+    height: 285px;
+  }
+
+  .profileImage {
+    object-position: center top;
+  }
+
+  .profileBadge {
+    left: 14px;
+    bottom: 14px;
+
+    padding: 7px 10px;
+
+    font-size: 0.47rem;
+  }
+
+  .badgeDot {
+    width: 5px;
+    height: 5px;
+  }
+
+
+  /* =======================================
+     PROFILE CONTENT
+  ======================================= */
+
+  .profileContent {
+    padding: 23px 20px 21px;
+  }
+
+  .profileEyebrow {
+    font-size: 0.49rem;
+    letter-spacing: 0.14em;
+  }
+
+  .profileContent h3 {
+    margin-top: 9px;
+
+    font-size: 2rem;
+    line-height: 0.98;
+  }
+
+  .profileRole {
+    gap: 5px;
+
+    margin-top: 10px;
+
+    font-size: 0.62rem;
+    line-height: 1.4;
+  }
+
+  .profileDescription {
+    margin-top: 14px;
+
+    font-size: 0.71rem;
+    line-height: 1.6;
+  }
+
+
+  /* =======================================
+     CREDENTIALS
+  ======================================= */
+
+  .credentials {
+    gap: 7px;
+
+    margin-top: 18px;
+  }
+
+  .credential {
+    padding: 11px 10px;
+
+    border-radius: 9px;
+  }
+
+  .credential strong {
+    font-size: 1.05rem;
+  }
+
+  .credential span {
+    margin-top: 5px;
+
+    font-size: 0.39rem;
+    line-height: 1.25;
+  }
+
+
+  /* =======================================
+     LANGUAGES
+  ======================================= */
+
+  .languages {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 17px;
+    padding-top: 15px;
+  }
+
+  .languageList {
+    gap: 4px;
+  }
+
+  .languageList span {
+    width: 27px;
+    height: 23px;
+
+    border-radius: 5px;
+
+    font-size: 0.43rem;
+  }
+
+  .languages p {
+    font-size: 0.5rem;
+    line-height: 1.3;
+  }
+
+
+  /* =======================================
+     APPROACH
+  ======================================= */
+
+  .approach {
+    width: 100%;
+    max-width: none;
+    padding-top: 0;
+  }
+
+  .approachHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+    gap: 15px;
+
+    margin-bottom: 10px;
+  }
+
+  .approachHeader > div {
+    flex: 1;
+  }
+
+  .approachHeader h3 {
+    margin-top: 12px;
+
+    font-size: 2rem;
+    line-height: 1.03;
+  }
+
+  .approachIndex {
+    padding-bottom: 3px;
+
+    font-size: 0.48rem;
+    white-space: nowrap;
+  }
+
+
+  /* =======================================
+     APPROACH ITEMS
+  ======================================= */
+
+  .approachItem {
+    grid-template-columns: 31px 1fr 16px;
+
+    gap: 11px;
+
+    padding: 17px 0;
+  }
+
+  .approachItem:hover {
+    padding-left: 3px;
+  }
+
+  .approachNumber {
+    width: 30px;
+    height: 30px;
+
+    font-size: 0.46rem;
+  }
+
+  .approachContent h4 {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .approachContent p {
+    margin-top: 5px;
+
+    max-width: none;
+
+    font-size: 0.63rem;
+    line-height: 1.5;
+  }
+
+  .approachArrow {
+    font-size: 0.8rem;
+  }
+
+
+  /* =======================================
+     DUE DILIGENCE
+     
+     This is intentionally much smaller on
+     mobile. No giant visual/graphic.
+  ======================================= */
+
+  .dueDiligence {
+    display: block;
+
+    margin-top: 52px;
+    padding: 38px 0;
+
+    border-top: 1px solid rgba(15, 44, 89, 0.1);
+    border-bottom: 1px solid rgba(15, 44, 89, 0.1);
+  }
+
+  .dueIntro {
+    max-width: none;
+  }
+
+  .dueIntro h3 {
+    margin-top: 15px;
+
+    font-size: 2rem;
+    line-height: 1.04;
+  }
+
+  .dueIntro p {
+    margin-top: 14px;
+
+    font-size: 0.7rem;
+    line-height: 1.65;
+  }
+
+
+  /* =======================================
+     CHECKLIST
+  ======================================= */
+
+  .checkList {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    margin-top: 20px;
+  }
+
+  .checkItem {
+    gap: 12px;
+
+    padding: 13px 0;
+  }
+
+  .checkItem:nth-last-child(1) {
+    grid-column: auto;
+  }
+
+  .checkItem:hover {
+    transform: translateX(3px);
+
+    padding-left: 2px;
+  }
+
+  .checkItem > span {
+    min-width: 20px;
+
+    font-size: 0.48rem;
+  }
+
+  .checkItem strong {
+    font-size: 0.67rem;
+    line-height: 1.35;
+  }
+
+  .checkItem p {
+    margin-top: 3px;
+
+    font-size: 0.57rem;
+    line-height: 1.45;
+  }
+
+
+  /* =======================================
+     BOTTOM STATEMENT
+  ======================================= */
+
+  .bottomStatement {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+
+    padding-top: 42px;
+  }
+
+  .statementLine {
+    width: 30px;
+  }
+
+  .statementContent > span {
+    margin-bottom: 6px;
+
+    font-size: 0.48rem;
+  }
+
+  .statementContent p {
+    max-width: none;
+
+    font-size: 0.75rem;
+    line-height: 1.6;
+  }
+
+  .statementSignature {
+    align-items: flex-start;
+
+    text-align: left;
+  }
+
+  .statementSignature span {
+    font-size: 0.6rem;
+  }
+
+  .statementSignature small {
+    font-size: 0.45rem;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .trustCompass {
+    padding: 62px 15px 65px;
+  }
+
+  .intro {
+    margin-bottom: 34px;
+  }
+
+  .intro h2 {
+    font-size: 2.15rem;
+  }
+
+  .introText {
+    font-size: 0.8rem;
+  }
+
+
+  /* Profile */
+
+  .profileImageWrap {
+    height: 255px;
+  }
+
+  .profileContent {
+    padding: 21px 18px 19px;
+  }
+
+  .profileContent h3 {
+    font-size: 1.85rem;
+  }
+
+  .profileRole {
+    font-size: 0.58rem;
+  }
+
+  .profileDescription {
+    font-size: 0.68rem;
+  }
+
+
+  /* Credentials */
+
+  .credential {
+    padding: 10px 9px;
+  }
+
+  .credential strong {
+    font-size: 1rem;
+  }
+
+  .credential span {
+    font-size: 0.36rem;
+  }
+
+
+  /* Languages */
+
+  .languages {
+    gap: 7px;
+  }
+
+  .languageList span {
+    width: 25px;
+    height: 22px;
+
+    font-size: 0.4rem;
+  }
+
+  .languages p {
+    font-size: 0.46rem;
+  }
+
+
+  /* Approach */
+
+  .approachHeader h3 {
+    font-size: 1.85rem;
+  }
+
+  .approachItem {
+    grid-template-columns: 29px 1fr 14px;
+
+    gap: 9px;
+
+    padding: 15px 0;
+  }
+
+  .approachNumber {
+    width: 28px;
+    height: 28px;
+
+    font-size: 0.43rem;
+  }
+
+  .approachContent h4 {
+    font-size: 0.76rem;
+  }
+
+  .approachContent p {
+    font-size: 0.59rem;
+  }
+
+
+  /* Due diligence */
+
+  .dueDiligence {
+    margin-top: 45px;
+    padding: 34px 0;
+  }
+
+  .dueIntro h3 {
+    font-size: 1.85rem;
+  }
+
+  .dueIntro p {
+    font-size: 0.67rem;
+  }
+
+  .checkItem {
+    padding: 12px 0;
+  }
+
+  .checkItem strong {
+    font-size: 0.64rem;
+  }
+
+  .checkItem p {
+    font-size: 0.55rem;
+  }
+
+
+  /* Statement */
+
+  .bottomStatement {
+    padding-top: 36px;
+  }
+
+  .statementContent p {
+    font-size: 0.71rem;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL DEVICES
+========================================= */
+
+@media (max-width: 360px) {
+
+  .trustCompass {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .intro h2 {
+    font-size: 2rem;
+  }
+
+  .profileImageWrap {
+    height: 235px;
+  }
+
+  .credentials {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .profileContent h3 {
+    font-size: 1.75rem;
+  }
+
+  .approachHeader h3 {
+    font-size: 1.75rem;
+  }
+
+  .approachContent h4 {
+    font-size: 0.72rem;
+  }
+
+  .approachContent p {
+    font-size: 0.55rem;
+  }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .profileCard,
+  .profileImage,
+  .credential,
+  .approachItem,
+  .approachNumber,
+  .approachArrow,
+  .checkItem {
+    transition: none;
+  }
 }

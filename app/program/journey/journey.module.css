@@ -1,0 +1,1942 @@
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page {
+  --navy: #0f2c59;
+  --blue: #3ba9ef;
+  --light-blue: #e8f4fd;
+  --muted: #64748b;
+  --soft: #f7fbff;
+  --line: rgba(15, 44, 89, 0.1);
+
+  min-height: 100vh;
+  background: #ffffff;
+  color: var(--navy);
+}
+
+.container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+.page a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================
+   SHARED LABELS
+========================================= */
+
+.eyebrow,
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--blue);
+
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.eyebrow span {
+  width: 30px;
+  height: 1px;
+  background: var(--blue);
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  position: relative;
+
+  min-height: 600px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 145px 0 90px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 82% 42%,
+      rgba(59, 169, 239, 0.15),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #f7fbff 0%,
+      #ffffff 68%
+    );
+}
+
+.heroGlow {
+  position: absolute;
+
+  width: 520px;
+  height: 520px;
+
+  right: -230px;
+  top: 80px;
+
+  border-radius: 50%;
+
+  background: rgba(59, 169, 239, 0.08);
+
+  filter: blur(40px);
+}
+
+.heroLine {
+  position: absolute;
+
+  right: 8%;
+  top: 0;
+
+  width: 1px;
+  height: 100%;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(15, 44, 89, 0.09),
+    transparent
+  );
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 1fr 190px;
+
+  gap: 100px;
+
+  align-items: end;
+}
+
+.heroContent {
+  max-width: 900px;
+}
+
+.hero h1 {
+  margin-top: 24px;
+
+  color: var(--navy);
+
+  font-size: clamp(3.7rem, 6vw, 6rem);
+  line-height: 0.94;
+
+  letter-spacing: -0.065em;
+
+  font-weight: 800;
+}
+
+.hero h1 em {
+  color: var(--blue);
+  font-style: normal;
+}
+
+.heroContent > p {
+  max-width: 650px;
+
+  margin-top: 30px;
+
+  color: var(--muted);
+
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-top: 32px;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-height: 44px;
+
+  padding: 12px 18px;
+
+  border-radius: 999px;
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.primaryButton {
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  background: var(--blue);
+}
+
+.secondaryButton {
+  border: 1px solid rgba(15, 44, 89, 0.14);
+  color: var(--navy);
+}
+
+.secondaryButton:hover {
+  transform: translateY(-2px);
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.heroMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding-left: 24px;
+
+  border-left: 1px solid var(--line);
+
+  color: #94a3b8;
+
+  font-size: 0.5rem;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+}
+
+.heroMeta strong {
+  color: var(--blue);
+  font-size: 0.68rem;
+}
+
+/* =========================================
+   INTRO
+========================================= */
+
+.introSection {
+  padding: 115px 0 120px;
+
+  background: #ffffff;
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: 1fr 0.75fr;
+
+  gap: 90px;
+
+  align-items: end;
+}
+
+.introGrid h2,
+.journeyHeader h2,
+.decisionsHeader h2,
+.responsibilitiesHeader h2,
+.teamHeader h2,
+.delaysHeader h2,
+.faqIntro h2 {
+  margin-top: 20px;
+
+  color: var(--navy);
+
+  font-size: clamp(2.9rem, 4.5vw, 4.5rem);
+
+  line-height: 0.98;
+
+  letter-spacing: -0.055em;
+
+  font-weight: 800;
+}
+
+.introGrid h2 span,
+.journeyHeader h2 span,
+.decisionsHeader h2 span,
+.responsibilitiesHeader h2 span,
+.teamHeader h2 span,
+.delaysHeader h2 span,
+.faqIntro h2 span {
+  color: var(--blue);
+}
+
+.introCopy {
+  max-width: 450px;
+}
+
+.introCopy p {
+  color: var(--muted);
+
+  font-size: 0.78rem;
+  line-height: 1.85;
+}
+
+.introCopy p + p {
+  margin-top: 18px;
+}
+
+/* =========================================
+   JOURNEY
+========================================= */
+
+.journeySection {
+  padding: 120px 0 135px;
+
+  background: var(--soft);
+}
+
+.journeyHeader {
+  display: grid;
+  grid-template-columns: 1fr 0.75fr;
+
+  gap: 90px;
+
+  align-items: end;
+
+  margin-bottom: 80px;
+}
+
+.journeyHeader > p {
+  max-width: 440px;
+
+  margin-bottom: 3px;
+
+  color: var(--muted);
+
+  font-size: 0.78rem;
+  line-height: 1.8;
+}
+
+.journeyTrack {
+  position: relative;
+}
+
+.trackLine {
+  position: absolute;
+
+  left: 37px;
+  top: 35px;
+  bottom: 35px;
+
+  width: 1px;
+
+  background: rgba(59, 169, 239, 0.28);
+}
+
+.journeyStep {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 75px 1fr;
+
+  gap: 35px;
+
+  min-height: 260px;
+
+  padding-bottom: 55px;
+}
+
+.journeyStep:last-child {
+  padding-bottom: 0;
+}
+
+.stepMarker {
+  position: relative;
+  z-index: 2;
+
+  width: 75px;
+  height: 75px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(59, 169, 239, 0.35);
+
+  border-radius: 50%;
+
+  background: var(--soft);
+
+  color: var(--blue);
+
+  font-size: 0.65rem;
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+.stepContent {
+  position: relative;
+
+  min-height: 230px;
+
+  padding: 32px 35px;
+
+  border: 1px solid var(--line);
+
+  background: #ffffff;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.stepContent:hover {
+  transform: translateX(5px);
+
+  box-shadow:
+    0 20px 55px rgba(15, 44, 89, 0.07);
+}
+
+.journeyStepFeatured .stepContent {
+  border-color: rgba(59, 169, 239, 0.35);
+
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(59, 169, 239, 0.13),
+      transparent 32%
+    ),
+    #ffffff;
+}
+
+.stepTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stepLabel {
+  color: var(--blue);
+
+  font-size: 0.52rem;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+}
+
+.stepIcon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--light-blue);
+
+  color: var(--navy);
+}
+
+.stepContent h3 {
+  max-width: 620px;
+
+  margin-top: 38px;
+
+  color: var(--navy);
+
+  font-size: 1.35rem;
+  line-height: 1.15;
+
+  letter-spacing: -0.035em;
+}
+
+.stepContent > p {
+  max-width: 650px;
+
+  margin-top: 13px;
+
+  color: var(--muted);
+
+  font-size: 0.68rem;
+  line-height: 1.8;
+}
+
+.stepOutcome {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 25px;
+
+  color: #94a3b8;
+
+  font-size: 0.48rem;
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+.stepOutcome svg {
+  color: var(--blue);
+}
+
+/* =========================================
+   DUE DILIGENCE
+========================================= */
+
+.dueDiligenceSection {
+  padding: 110px 0;
+
+  background: #ffffff;
+}
+
+.dueDiligenceCard {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+
+  min-height: 570px;
+
+  overflow: hidden;
+
+  background: var(--navy);
+}
+
+.dueDiligenceVisual {
+  position: relative;
+
+  min-height: 570px;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(59, 169, 239, 0.22),
+      transparent 42%
+    ),
+    #102f5d;
+}
+
+.visualGrid {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.3;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.07) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.07) 1px,
+      transparent 1px
+    );
+
+  background-size: 45px 45px;
+}
+
+.visualCenter {
+  position: relative;
+  z-index: 3;
+
+  width: 170px;
+  height: 170px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(125, 199, 244, 0.4);
+
+  border-radius: 50%;
+
+  background: rgba(15, 44, 89, 0.8);
+
+  box-shadow:
+    0 0 0 18px rgba(59, 169, 239, 0.05),
+    0 0 0 36px rgba(59, 169, 239, 0.03);
+
+  color: #ffffff;
+}
+
+.visualCenter svg {
+  color: var(--blue);
+  margin-bottom: 13px;
+}
+
+.visualCenter span {
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 0.43rem;
+  font-weight: 800;
+
+  letter-spacing: 0.17em;
+}
+
+.visualCenter strong {
+  margin-top: 5px;
+
+  color: #ffffff;
+
+  font-size: 0.68rem;
+
+  letter-spacing: 0.13em;
+}
+
+.visualNode {
+  position: absolute;
+  z-index: 4;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 12px;
+
+  border: 1px solid rgba(125, 199, 244, 0.2);
+
+  background: rgba(15, 44, 89, 0.82);
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 0.43rem;
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+.visualNode svg {
+  color: var(--blue);
+}
+
+.nodeTop {
+  top: 17%;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.nodeRight {
+  right: 9%;
+  top: 50%;
+
+  transform: translateY(-50%);
+}
+
+.nodeBottom {
+  bottom: 17%;
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.nodeLeft {
+  left: 9%;
+  top: 50%;
+
+  transform: translateY(-50%);
+}
+
+.dueDiligenceContent {
+  padding: 70px 65px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dueDiligenceContent .sectionLabel {
+  color: #7dc7f4;
+}
+
+.dueDiligenceContent h2 {
+  margin-top: 20px;
+
+  color: #ffffff;
+
+  font-size: clamp(2.8rem, 4.2vw, 4.2rem);
+
+  line-height: 0.98;
+
+  letter-spacing: -0.055em;
+}
+
+.dueDiligenceContent h2 span {
+  color: var(--blue);
+}
+
+.dueDiligenceContent > p {
+  max-width: 520px;
+
+  margin-top: 25px;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 0.72rem;
+  line-height: 1.85;
+}
+
+.checkList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px 25px;
+
+  margin-top: 32px;
+}
+
+.checkList div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: rgba(255, 255, 255, 0.76);
+
+  font-size: 0.57rem;
+  line-height: 1.5;
+}
+
+.checkList svg {
+  flex-shrink: 0;
+
+  color: var(--blue);
+}
+
+.dueNote {
+  opacity: 0.5;
+}
+
+/* =========================================
+   DECISIONS
+========================================= */
+
+.decisionsSection {
+  padding: 120px 0 130px;
+
+  background: var(--soft);
+}
+
+.decisionsHeader {
+  max-width: 820px;
+}
+
+.decisionsHeader > p {
+  max-width: 520px;
+
+  margin-top: 25px;
+
+  color: var(--muted);
+
+  font-size: 0.78rem;
+  line-height: 1.8;
+}
+
+.decisionGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  margin-top: 65px;
+
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.decisionCard {
+  position: relative;
+
+  min-height: 315px;
+
+  padding: 30px;
+
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+
+  background: #ffffff;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.decisionCard:hover {
+  z-index: 2;
+
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 20px 55px rgba(15, 44, 89, 0.08);
+}
+
+.decisionCard > span {
+  color: var(--blue);
+
+  font-size: 0.52rem;
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+.decisionCard h3 {
+  margin-top: 65px;
+
+  color: var(--navy);
+
+  font-size: 1.03rem;
+  line-height: 1.25;
+
+  letter-spacing: -0.025em;
+}
+
+.decisionCard p {
+  max-width: 280px;
+
+  margin-top: 13px;
+
+  color: var(--muted);
+
+  font-size: 0.65rem;
+  line-height: 1.75;
+}
+
+.decisionArrow {
+  position: absolute;
+
+  right: 28px;
+  bottom: 28px;
+
+  color: var(--blue);
+
+  transition: transform 0.25s ease;
+}
+
+.decisionCard:hover .decisionArrow {
+  transform: translateX(4px);
+}
+
+/* =========================================
+   RESPONSIBILITIES
+========================================= */
+
+.responsibilitiesSection {
+  padding: 120px 0;
+
+  background: #ffffff;
+}
+
+.responsibilitiesHeader {
+  max-width: 900px;
+}
+
+.responsibilitiesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 1px;
+
+  margin-top: 65px;
+
+  background: var(--line);
+
+  border: 1px solid var(--line);
+}
+
+.responsibilityCard {
+  min-height: 390px;
+
+  padding: 40px;
+
+  background: var(--soft);
+}
+
+.responsibilityFeatured {
+  background: var(--navy);
+}
+
+.responsibilityTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.responsibilityFeatured .responsibilityTop {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.responsibilityTop span {
+  color: var(--blue);
+
+  font-size: 0.52rem;
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+.responsibilityTop strong {
+  color: var(--navy);
+
+  font-size: 0.56rem;
+
+  letter-spacing: 0.15em;
+}
+
+.responsibilityFeatured .responsibilityTop strong {
+  color: #ffffff;
+}
+
+.responsibilityList {
+  display: flex;
+  flex-direction: column;
+
+  gap: 19px;
+
+  margin-top: 30px;
+}
+
+.responsibilityList div {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  color: var(--muted);
+
+  font-size: 0.67rem;
+
+  line-height: 1.6;
+}
+
+.responsibilityList svg {
+  flex-shrink: 0;
+
+  margin-top: 2px;
+
+  color: var(--blue);
+}
+
+.responsibilityFeatured .responsibilityList div {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+/* =========================================
+   TEAM
+========================================= */
+
+.teamSection {
+  padding: 120px 0 130px;
+
+  background: var(--soft);
+}
+
+.teamHeader {
+  display: grid;
+  grid-template-columns: 1fr 0.75fr;
+
+  gap: 90px;
+
+  align-items: end;
+}
+
+.teamHeader > p {
+  max-width: 440px;
+
+  color: var(--muted);
+
+  font-size: 0.78rem;
+  line-height: 1.8;
+}
+
+.teamLayout {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 540px;
+
+  margin-top: 70px;
+}
+
+.teamCenter {
+  position: relative;
+  z-index: 3;
+
+  width: 175px;
+  height: 175px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--navy);
+
+  box-shadow:
+    0 0 0 25px rgba(59, 169, 239, 0.06),
+    0 0 0 50px rgba(59, 169, 239, 0.035);
+
+  color: #ffffff;
+
+  text-align: center;
+}
+
+.teamCenterIcon {
+  margin-bottom: 13px;
+
+  color: var(--blue);
+}
+
+.teamCenter span {
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 0.43rem;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+}
+
+.teamCenter strong {
+  margin-top: 5px;
+
+  font-size: 0.68rem;
+
+  letter-spacing: 0.13em;
+}
+
+.teamGrid {
+  position: absolute;
+  inset: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 160px;
+
+  align-items: center;
+}
+
+.teamCard {
+  position: relative;
+
+  min-height: 180px;
+
+  padding: 25px;
+
+  border: 1px solid var(--line);
+
+  background: #ffffff;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.teamCard:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 18px 45px rgba(15, 44, 89, 0.07);
+}
+
+.teamCard:nth-child(1),
+.teamCard:nth-child(2) {
+  align-self: start;
+}
+
+.teamCard:nth-child(3),
+.teamCard:nth-child(4) {
+  align-self: end;
+}
+
+.teamCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.teamCardTop span {
+  color: var(--blue);
+
+  font-size: 0.5rem;
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+.teamCardTop svg {
+  color: var(--blue);
+}
+
+.teamCard h3 {
+  margin-top: 45px;
+
+  color: var(--navy);
+
+  font-size: 0.95rem;
+}
+
+.teamCard p {
+  max-width: 260px;
+
+  margin-top: 9px;
+
+  color: var(--muted);
+
+  font-size: 0.62rem;
+  line-height: 1.7;
+}
+
+/* =========================================
+   DELAYS
+========================================= */
+
+.delaysSection {
+  padding: 120px 0 130px;
+
+  background: #ffffff;
+}
+
+.delaysHeader {
+  max-width: 850px;
+}
+
+.delaysHeader > p {
+  max-width: 520px;
+
+  margin-top: 25px;
+
+  color: var(--muted);
+
+  font-size: 0.78rem;
+  line-height: 1.8;
+}
+
+.delayGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  margin-top: 65px;
+
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.delayCard {
+  min-height: 285px;
+
+  padding: 30px;
+
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+
+  background: #ffffff;
+}
+
+.delayTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delayTop span {
+  color: var(--blue);
+
+  font-size: 0.52rem;
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+.delayTop svg {
+  color: var(--navy);
+}
+
+.delayCard h3 {
+  margin-top: 65px;
+
+  color: var(--navy);
+
+  font-size: 1rem;
+}
+
+.delayCard p {
+  max-width: 280px;
+
+  margin-top: 13px;
+
+  color: var(--muted);
+
+  font-size: 0.65rem;
+  line-height: 1.75;
+}
+
+/* =========================================
+   FAQ
+========================================= */
+
+.faqSection {
+  padding: 125px 0;
+
+  background: var(--soft);
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+
+  gap: 100px;
+}
+
+.faqIntro > p {
+  max-width: 350px;
+
+  margin-top: 25px;
+
+  color: var(--muted);
+
+  font-size: 0.76rem;
+  line-height: 1.8;
+}
+
+.faqList {
+  border-top: 1px solid var(--line);
+}
+
+.faqItem {
+  border-bottom: 1px solid var(--line);
+}
+
+.faqItem summary {
+  display: grid;
+  grid-template-columns: 45px 1fr 25px;
+
+  align-items: center;
+
+  gap: 18px;
+
+  padding: 23px 0;
+
+  cursor: pointer;
+
+  list-style: none;
+
+  color: var(--navy);
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  transition: color 0.25s ease;
+}
+
+.faqItem summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqItem summary:hover {
+  color: var(--blue);
+}
+
+.faqNumber {
+  color: var(--blue);
+
+  font-size: 0.5rem;
+  font-weight: 800;
+}
+
+.faqIcon {
+  color: #94a3b8;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.faqItem[open] .faqIcon {
+  transform: rotate(180deg);
+  color: var(--blue);
+}
+
+.answer {
+  padding: 0 43px 24px 63px;
+}
+
+.answer p {
+  max-width: 650px;
+
+  color: var(--muted);
+
+  font-size: 0.68rem;
+  line-height: 1.8;
+}
+
+/* =========================================
+   CTA
+========================================= */
+
+.ctaSection {
+  padding: 0 0 100px;
+
+  background: var(--soft);
+}
+
+.ctaCard {
+  display: grid;
+  grid-template-columns: 55px 1fr auto;
+
+  gap: 35px;
+
+  align-items: center;
+
+  padding: 55px;
+
+  background: var(--navy);
+}
+
+.ctaIcon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  color: var(--blue);
+}
+
+.ctaContent .sectionLabel {
+  color: #7dc7f4;
+}
+
+.ctaContent h2 {
+  margin-top: 18px;
+
+  color: #ffffff;
+
+  font-size: clamp(2.5rem, 3.7vw, 3.8rem);
+
+  line-height: 0.98;
+
+  letter-spacing: -0.05em;
+}
+
+.ctaContent h2 span {
+  color: var(--blue);
+}
+
+.ctaContent p {
+  max-width: 560px;
+
+  margin-top: 18px;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 0.7rem;
+  line-height: 1.75;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 14px 21px;
+
+  border-radius: 999px;
+
+  background: #ffffff;
+
+  color: var(--navy);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    color 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+
+  background: var(--blue);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 15px 35px rgba(59, 169, 239, 0.2);
+}
+
+/* =========================================
+   LEGAL
+========================================= */
+
+.legalSection {
+  padding: 35px 0;
+
+  border-top: 1px solid var(--line);
+
+  background: #fbfdff;
+}
+
+.legalInner {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 14px;
+
+  max-width: 900px;
+
+  color: #94a3b8;
+}
+
+.legalInner svg {
+  flex-shrink: 0;
+
+  margin-top: 3px;
+
+  color: var(--blue);
+}
+
+.legalInner p {
+  color: #94a3b8;
+
+  font-size: 0.56rem;
+  line-height: 1.7;
+}
+
+.legalInner strong {
+  color: var(--navy);
+}
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1600px) {
+  .container {
+    width: min(1280px, 88%);
+  }
+
+  .hero {
+    min-height: 630px;
+  }
+}
+
+/* =========================================
+   LAPTOP
+========================================= */
+
+@media (max-width: 1100px) {
+  .hero .container {
+    gap: 60px;
+  }
+
+  .introGrid,
+  .journeyHeader,
+  .teamHeader {
+    gap: 55px;
+  }
+
+  .faqGrid {
+    gap: 65px;
+  }
+
+  .dueDiligenceContent {
+    padding: 55px 45px;
+  }
+
+  .ctaCard {
+    grid-template-columns: 50px 1fr;
+
+    padding: 45px;
+  }
+
+  .ctaButton {
+    grid-column: 2;
+
+    justify-self: start;
+  }
+
+  .decisionGrid,
+  .delayGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .teamGrid {
+    gap: 100px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 950px) {
+  .hero {
+    min-height: auto;
+
+    padding: 130px 0 80px;
+  }
+
+  .hero .container {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .heroMeta {
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding-left: 0;
+    padding-top: 20px;
+
+    border-left: none;
+    border-top: 1px solid var(--line);
+  }
+
+  .heroMeta strong {
+    margin-right: 5px;
+  }
+
+  .introGrid,
+  .journeyHeader,
+  .teamHeader {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+  .dueDiligenceCard {
+    grid-template-columns: 1fr;
+  }
+
+  .dueDiligenceVisual {
+    min-height: 470px;
+  }
+
+  .dueDiligenceContent {
+    min-height: 500px;
+  }
+
+  .faqGrid {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+
+  .teamLayout {
+    min-height: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 45px;
+  }
+
+  .teamGrid {
+    position: relative;
+    inset: auto;
+
+    width: 100%;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 1px;
+
+    background: var(--line);
+
+    border: 1px solid var(--line);
+  }
+
+  .teamCard {
+    min-height: 200px;
+
+    border: none;
+  }
+
+  .teamCard:nth-child(1),
+  .teamCard:nth-child(2),
+  .teamCard:nth-child(3),
+  .teamCard:nth-child(4) {
+    align-self: auto;
+  }
+
+  .responsibilitiesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .container {
+    width: calc(100% - 40px);
+  }
+
+  .hero {
+    padding: 110px 0 65px;
+  }
+
+  .hero h1 {
+    font-size: 3.25rem;
+  }
+
+  .heroContent > p {
+    margin-top: 24px;
+
+    font-size: 0.77rem;
+  }
+
+  .heroActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+
+  .heroMeta {
+    font-size: 0.46rem;
+  }
+
+  .introSection,
+  .journeySection,
+  .decisionsSection,
+  .responsibilitiesSection,
+  .teamSection,
+  .delaysSection,
+  .faqSection {
+    padding: 80px 0;
+  }
+
+  .dueDiligenceSection {
+    padding: 80px 0;
+  }
+
+  .introGrid h2,
+  .journeyHeader h2,
+  .decisionsHeader h2,
+  .responsibilitiesHeader h2,
+  .teamHeader h2,
+  .delaysHeader h2,
+  .faqIntro h2 {
+    font-size: 2.7rem;
+  }
+
+  .introCopy p,
+  .journeyHeader > p,
+  .teamHeader > p,
+  .delaysHeader > p,
+  .faqIntro > p {
+    font-size: 0.72rem;
+  }
+
+  .journeyHeader {
+    margin-bottom: 50px;
+  }
+
+  .journeyStep {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+    padding-bottom: 35px;
+  }
+
+  .trackLine {
+    left: 20px;
+
+    top: 20px;
+    bottom: 20px;
+  }
+
+  .stepMarker {
+    width: 40px;
+    height: 40px;
+
+    font-size: 0.5rem;
+  }
+
+  .stepContent {
+    min-height: auto;
+
+    padding: 25px;
+  }
+
+  .stepContent h3 {
+    margin-top: 35px;
+
+    font-size: 1.15rem;
+  }
+
+  .stepContent > p {
+    font-size: 0.65rem;
+  }
+
+  .dueDiligenceVisual {
+    min-height: 390px;
+  }
+
+  .visualCenter {
+    width: 140px;
+    height: 140px;
+  }
+
+  .visualNode {
+    font-size: 0.38rem;
+  }
+
+  .nodeLeft {
+    left: 4%;
+  }
+
+  .nodeRight {
+    right: 4%;
+  }
+
+  .dueDiligenceContent {
+    min-height: auto;
+
+    padding: 45px 25px;
+  }
+
+  .dueDiligenceContent h2 {
+    font-size: 2.7rem;
+  }
+
+  .checkList {
+    grid-template-columns: 1fr;
+
+    gap: 13px;
+  }
+
+  .decisionGrid,
+  .delayGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .decisionCard {
+    min-height: 250px;
+
+    padding: 25px;
+  }
+
+  .decisionCard h3,
+  .delayCard h3 {
+    margin-top: 50px;
+  }
+
+  .responsibilityCard {
+    min-height: auto;
+
+    padding: 30px 25px;
+  }
+
+  .teamLayout {
+    margin-top: 50px;
+  }
+
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .teamCard {
+    min-height: 180px;
+  }
+
+  .teamCard h3 {
+    margin-top: 35px;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 30px 1fr 20px;
+
+    gap: 10px;
+
+    padding: 20px 0;
+
+    font-size: 0.7rem;
+  }
+
+  .answer {
+    padding: 0 20px 20px 40px;
+  }
+
+  .answer p {
+    font-size: 0.62rem;
+  }
+
+  .ctaSection {
+    padding-bottom: 70px;
+  }
+
+  .ctaCard {
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+
+    padding: 35px 25px;
+  }
+
+  .ctaButton {
+    grid-column: auto;
+
+    width: 100%;
+  }
+
+  .ctaContent h2 {
+    font-size: 2.45rem;
+  }
+
+  .ctaContent p {
+    font-size: 0.65rem;
+  }
+
+  .legalInner {
+    gap: 9px;
+  }
+
+  .legalInner p {
+    font-size: 0.51rem;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .container {
+    width: calc(100% - 32px);
+  }
+
+  .hero {
+    padding-top: 100px;
+  }
+
+  .hero h1 {
+    font-size: 2.75rem;
+  }
+
+  .heroContent > p {
+    font-size: 0.72rem;
+  }
+
+  .eyebrow,
+  .sectionLabel {
+    font-size: 0.54rem;
+  }
+
+  .introGrid h2,
+  .journeyHeader h2,
+  .decisionsHeader h2,
+  .responsibilitiesHeader h2,
+  .teamHeader h2,
+  .delaysHeader h2,
+  .faqIntro h2 {
+    font-size: 2.3rem;
+  }
+
+  .stepContent {
+    padding: 22px;
+  }
+
+  .stepContent h3 {
+    font-size: 1.05rem;
+  }
+
+  .dueDiligenceContent h2 {
+    font-size: 2.3rem;
+  }
+
+  .visualCenter {
+    width: 125px;
+    height: 125px;
+  }
+
+  .visualNode {
+    padding: 7px 8px;
+  }
+
+  .teamCenter {
+    width: 150px;
+    height: 150px;
+  }
+
+  .ctaContent h2 {
+    font-size: 2.2rem;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryButton,
+  .secondaryButton,
+  .stepContent,
+  .decisionCard,
+  .decisionArrow,
+  .teamCard,
+  .ctaButton {
+    transition: none;
+  }
+
+  .stepContent:hover,
+  .decisionCard:hover,
+  .teamCard:hover,
+  .primaryButton:hover,
+  .secondaryButton:hover,
+  .ctaButton:hover {
+    transform: none;
+  }
+}
+
