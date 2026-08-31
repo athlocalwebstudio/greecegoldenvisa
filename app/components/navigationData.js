@@ -98,7 +98,7 @@ export const navigation = [
           description:
             "Explore renovation and redevelopment investment opportunities.",
           icon: Building2,
-          href: "/investments/strategic-properties",
+          href: "/investments/strategic-opportunities",
         },
 
         {
@@ -106,7 +106,7 @@ export const navigation = [
           description:
             "Discover investment options beyond traditional real estate.",
           icon: Landmark,
-          href: "/investments/alternative",
+          href: "/investments/alternative-investments",
         },
 
         {
@@ -114,7 +114,7 @@ export const navigation = [
           description:
             "Compare every investment route side-by-side before deciding.",
           icon: Scale,
-          href: "/investments/compare",
+          href: "/investments/compare-options",
         },
       ],
     },
@@ -139,7 +139,7 @@ export const navigation = [
           description:
             "Enjoy exceptional quality of life, climate and culture.",
           icon: Sun,
-          href: "/greece/lifestyle",
+          href: "/why-greece/mediterranean-lifestyle",
         },
 
         {
