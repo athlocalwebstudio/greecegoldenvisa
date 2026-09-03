@@ -1,0 +1,1684 @@
+.page {
+  --navy: #0f2c59;
+  --light-blue: #e8f4fd;
+  --white: #ffffff;
+  --black: #050505;
+  --muted: #64748b;
+  --line: rgba(15, 44, 89, 0.14);
+
+  background: var(--white);
+  color: var(--black);
+  overflow: hidden;
+}
+
+.page p {
+  line-height: 1.7;
+}
+
+/* =========================================================
+   SHARED
+========================================================= */
+
+.sectionNumber,
+.sectionLabel,
+.eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.sectionNumber {
+  margin-bottom: 0.65rem;
+  color: var(--muted);
+}
+
+.sectionLabel {
+  color: var(--navy);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+  min-height: 92svh;
+  display: flex;
+  align-items: center;
+  padding: 8rem 7vw 7rem;
+  overflow: hidden;
+  color: var(--white);
+  isolation: isolate;
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.heroImagePhoto {
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.02);
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 17, 35, 0.92) 0%,
+      rgba(3, 17, 35, 0.8) 32%,
+      rgba(3, 17, 35, 0.58) 65%,
+      rgba(3, 17, 35, 0.38) 100%
+    );
+}
+
+.heroVignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      transparent 28%,
+      transparent 68%,
+      rgba(0, 0, 0, 0.42) 100%
+    );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 1100px);
+}
+
+.hero .eyebrow {
+  margin-bottom: 2.25rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.hero h1 {
+  max-width: 1050px;
+  margin: 0;
+  color: var(--white);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(4rem, 8vw, 8.6rem);
+  font-weight: 400;
+  line-height: 0.91;
+  letter-spacing: -0.055em;
+  text-shadow: 0 3px 30px rgba(0, 0, 0, 0.22);
+}
+
+.hero h1 span,
+.hero h1 em {
+  color: var(--white);
+  font-weight: 400;
+}
+
+.hero p {
+  max-width: 620px;
+  margin: 3rem 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+}
+
+.heroFacts {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 2.75rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: var(--font-sans);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.heroDot {
+  opacity: 0.45;
+}
+
+.heroBottom {
+  position: absolute;
+  right: 7vw;
+  bottom: 2.5rem;
+  left: 7vw;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  color: rgba(255, 255, 255, 0.58);
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+
+/* =========================================================
+   POSITION
+========================================================= */
+
+.positionSection {
+  padding: 10rem 7vw;
+}
+
+.sectionIntro {
+  display: grid;
+  grid-template-columns: 0.25fr 1fr;
+  gap: 3rem;
+}
+
+.sectionMarker {
+  padding-top: 0.4rem;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 5rem;
+}
+
+.sectionHeading h2 {
+  flex-shrink: 0;
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(4rem, 7.5vw, 7.8rem);
+  font-weight: 400;
+  line-height: 0.91;
+  letter-spacing: -0.055em;
+}
+
+.sectionHeading h2 em {
+  color: var(--navy);
+  font-weight: 400;
+}
+
+.sectionHeading p {
+  max-width: 380px;
+  margin: 0 0 0.5rem;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.94rem;
+}
+
+.positionStatement {
+  display: grid;
+  grid-template-columns: 1px 1fr 0.8fr;
+  gap: 3rem;
+  margin-top: 9rem;
+}
+
+.positionLine {
+  width: 1px;
+  height: 100%;
+  min-height: 180px;
+  background: var(--navy);
+}
+
+.positionQuote span {
+  display: block;
+  margin-bottom: 1.75rem;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.positionQuote h3 {
+  max-width: 650px;
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.positionBody {
+  align-self: end;
+  max-width: 430px;
+}
+
+.positionBody p {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+}
+
+.positionBody p + p {
+  margin-top: 1.25rem;
+}
+
+/* =========================================================
+   INTERACTIVE FACTS
+========================================================= */
+
+.factGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 9rem;
+  border-top: 1px solid var(--line);
+}
+
+.factCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 285px;
+  padding: 2.5rem 2rem 2rem 0;
+  border-right: 1px solid var(--line);
+  outline: none;
+  cursor: default;
+  transition:
+    background 350ms ease,
+    transform 350ms ease,
+    padding 350ms ease;
+}
+
+.factCard + .factCard {
+  padding-left: 2rem;
+}
+
+.factCard:last-child {
+  border-right: 0;
+}
+
+.factCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.factNumber {
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  transition: color 300ms ease;
+}
+
+.factArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--navy);
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: translateY(5px);
+  transition:
+    opacity 300ms ease,
+    transform 300ms ease,
+    background 300ms ease,
+    color 300ms ease;
+}
+
+.factContent {
+  margin-top: auto;
+}
+
+.factContent h3 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+  transition:
+    transform 350ms ease,
+    color 350ms ease;
+}
+
+.factReveal {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 0.8rem;
+  max-height: 0;
+  margin-top: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    max-height 400ms ease,
+    margin-top 350ms ease,
+    opacity 300ms ease,
+    transform 350ms ease;
+}
+
+.factRevealLine {
+  width: 1px;
+  height: 100%;
+  min-height: 40px;
+  background: var(--navy);
+}
+
+.factReveal p {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+}
+
+.factCard:hover,
+.factCard:focus-visible {
+  background: #f7fafc;
+  transform: translateY(-4px);
+}
+
+.factCard:hover .factArrow,
+.factCard:focus-visible .factArrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.factCard:hover .factArrow,
+.factCard:focus-visible .factArrow {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.factCard:hover .factContent h3,
+.factCard:focus-visible .factContent h3 {
+  color: var(--navy);
+  transform: translateX(4px);
+}
+
+.factCard:hover .factReveal,
+.factCard:focus-visible .factReveal {
+  max-height: 120px;
+  margin-top: 1.5rem;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   DOCUMENT
+========================================================= */
+
+.documentSection {
+  padding: 10rem 7vw;
+  background: #f7fafc;
+}
+
+.documentHeader {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 4rem;
+  align-items: end;
+  margin-bottom: 6rem;
+}
+
+.documentHeader p {
+  max-width: 650px;
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-sans);
+}
+
+.documentLayout {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 7vw;
+  align-items: center;
+}
+
+.documentStage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 620px;
+  padding: 5rem;
+  background: #edf3f7;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.documentGlow {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  filter: blur(70px);
+}
+
+.documentCard {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 720px);
+  aspect-ratio: 1.586 / 1;
+  overflow: hidden;
+  background: var(--white);
+  box-shadow:
+    0 35px 80px rgba(15, 44, 89, 0.14),
+    0 8px 25px rgba(15, 44, 89, 0.08);
+}
+
+.documentImage {
+  object-fit: contain;
+  object-position: center;
+}
+
+.documentCaption {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 1.1rem;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.56rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.documentCaption span:last-child {
+  color: var(--navy);
+}
+
+.documentCopy {
+  max-width: 520px;
+}
+
+.documentIndex {
+  display: block;
+  margin-bottom: 1.75rem;
+  color: rgba(15, 44, 89, 0.13);
+  font-family: "Playfair Display", serif;
+  font-size: 5rem;
+  line-height: 1;
+}
+
+.documentCopy h2 {
+  margin: 0 0 2rem;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3.5rem, 5.8vw, 6rem);
+  font-weight: 400;
+  line-height: 0.91;
+  letter-spacing: -0.055em;
+}
+
+.documentCopy h2 em {
+  color: var(--navy);
+  font-weight: 400;
+}
+
+.documentLead {
+  margin: 0 0 1.5rem;
+  color: var(--black);
+  font-family: "Playfair Display", serif;
+  font-size: 1.35rem;
+  line-height: 1.3 !important;
+}
+
+.documentCopy > p:not(.documentLead) {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+
+.documentNote {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.noteMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--navy);
+  border-radius: 50%;
+  color: var(--navy);
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+}
+
+.documentNote p {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  line-height: 1.55 !important;
+}
+
+/* =========================================================
+   WHAT RESIDENCE MAKES POSSIBLE
+========================================================= */
+
+.residenceSection {
+  position: relative;
+  padding: 10rem 7vw;
+  background: var(--navy);
+  color: var(--white);
+  overflow: hidden;
+}
+
+.residenceWatermark {
+  position: absolute;
+  top: 50%;
+  right: -4vw;
+  z-index: 0;
+  color: rgba(255, 255, 255, 0.035);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(8rem, 21vw, 22rem);
+  font-weight: 400;
+  line-height: 0.75;
+  letter-spacing: -0.08em;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translateY(-50%);
+  user-select: none;
+}
+
+.residenceSection::before {
+  content: "";
+  position: absolute;
+  top: -15%;
+  right: -12%;
+  width: 700px;
+  height: 700px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 90px rgba(255, 255, 255, 0.025),
+    0 0 0 180px rgba(255, 255, 255, 0.018);
+  pointer-events: none;
+}
+
+.residenceTop {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 0.42fr 1.58fr;
+  gap: 4rem;
+}
+
+.residenceMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.residenceSection .sectionNumber,
+.residenceSection .sectionLabel {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.residenceMetaLine {
+  width: 55px;
+  height: 1px;
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.residenceHeading {
+  max-width: 1050px;
+}
+
+.residenceKicker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 700px;
+  margin-bottom: 2.25rem;
+  color: rgba(255, 255, 255, 0.42);
+  font-family: var(--font-sans);
+  font-size: 0.59rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
+.residenceHeading h2 {
+  margin: 0;
+  color: var(--white);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(4rem, 7.5vw, 8rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+
+.residenceHeading h2 em {
+  color: #b8d9ed;
+  font-weight: 400;
+}
+
+.residenceHeading > p {
+  max-width: 620px;
+  margin: 3rem 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+}
+
+/* =========================================================
+   RESIDENCE FEATURE
+========================================================= */
+
+.residenceFeature {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 0.25fr 1fr 60px;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 8rem;
+  padding: 2rem 2.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.09),
+      rgba(255, 255, 255, 0.025)
+    );
+  backdrop-filter: blur(10px);
+  transition:
+    border-color 350ms ease,
+    background 350ms ease,
+    transform 350ms ease;
+}
+
+.residenceFeature:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.13),
+      rgba(255, 255, 255, 0.04)
+    );
+  transform: translateY(-3px);
+}
+
+.residenceFeatureNumber {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.residenceFeatureNumber span:first-child {
+  color: rgba(255, 255, 255, 0.32);
+  font-family: "Playfair Display", serif;
+  font-size: 3.3rem;
+  line-height: 0.9;
+}
+
+.residenceFeatureNumber span:last-child {
+  color: rgba(255, 255, 255, 0.42);
+  font-family: var(--font-sans);
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+}
+
+.residenceFeatureContent {
+  padding: 0.5rem 0;
+}
+
+.residenceFeatureEyebrow {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.residenceFeatureContent h3 {
+  margin: 0;
+  color: var(--white);
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 3.4vw, 3.7rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.residenceFeatureContent h3 em {
+  color: #b8d9ed;
+  font-weight: 400;
+}
+
+.residenceFeatureMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  transition:
+    background 300ms ease,
+    color 300ms ease,
+    transform 300ms ease;
+}
+
+.residenceFeature:hover .residenceFeatureMark {
+  background: var(--white);
+  color: var(--navy);
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+   RESIDENCE POINTS
+========================================================= */
+
+.residenceGrid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.residencePoint {
+  position: relative;
+  min-height: 300px;
+  padding: 2.25rem 2rem 2.5rem 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+  outline: none;
+  transition:
+    background 350ms ease,
+    padding 350ms ease;
+}
+
+.residencePoint + .residencePoint {
+  padding-left: 2rem;
+}
+
+.residencePoint:last-child {
+  border-right: 0;
+}
+
+.residencePointTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+}
+
+.residencePointTop > span:first-child {
+  color: rgba(255, 255, 255, 0.38);
+  font-family: var(--font-sans);
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+}
+
+.residencePointArrow {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition:
+    opacity 300ms ease,
+    transform 300ms ease;
+}
+
+.residencePointBody {
+  position: relative;
+  z-index: 2;
+}
+
+.residencePoint h3 {
+  margin: 0 0 1rem;
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.residencePoint p {
+  max-width: 350px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  transition: color 300ms ease;
+}
+
+.residencePointLine {
+  position: absolute;
+  right: 2rem;
+  bottom: 1.5rem;
+  left: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  transform-origin: left;
+  transition:
+    transform 400ms ease,
+    background 300ms ease;
+}
+
+.residencePoint + .residencePoint .residencePointLine {
+  left: 2rem;
+}
+
+.residencePoint:hover,
+.residencePoint:focus-visible {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.residencePoint:hover .residencePointArrow,
+.residencePoint:focus-visible .residencePointArrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.residencePoint:hover p,
+.residencePoint:focus-visible p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.residencePoint:hover .residencePointLine,
+.residencePoint:focus-visible .residencePointLine {
+  background: rgba(184, 217, 237, 0.65);
+  transform: scaleX(0.65);
+}
+
+/* =========================================================
+   IMPORTANT DISTINCTION
+========================================================= */
+
+.residenceBottom {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 0.42fr 1.58fr;
+  gap: 4rem;
+  margin-top: 7rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.residenceBottom > span {
+  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.residenceBottom p {
+  max-width: 700px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+}
+
+/* =========================================================
+   VERIFICATION
+========================================================= */
+
+.verificationSection {
+  padding: 10rem 7vw;
+}
+
+.verificationTop {
+  display: grid;
+  grid-template-columns: 0.45fr 1.55fr;
+  gap: 4rem;
+}
+
+.verificationTop h2 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3.8rem, 6.5vw, 6.8rem);
+  font-weight: 400;
+  line-height: 0.91;
+  letter-spacing: -0.055em;
+}
+
+.verificationTop h2 em {
+  color: var(--navy);
+  font-weight: 400;
+}
+
+.verificationIntro {
+  max-width: 600px;
+  margin: 3rem 0 0;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+}
+
+.process {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+  margin-top: 9rem;
+}
+
+.processLine {
+  position: absolute;
+  top: 13px;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: var(--line);
+}
+
+.processStep {
+  position: relative;
+  z-index: 2;
+  padding-right: 1.25rem;
+}
+
+.processNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--navy);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--navy);
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+}
+
+.processStep h3 {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+}
+
+.processStep p {
+  max-width: 190px;
+  margin: 0.8rem 0 0;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+}
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.finalSection {
+  min-height: 78svh;
+  display: flex;
+  align-items: center;
+  padding: 9rem 7vw;
+  background: var(--light-blue);
+}
+
+.finalContent {
+  width: min(100%, 1100px);
+}
+
+.finalTop {
+  display: flex;
+  gap: 3rem;
+  align-items: baseline;
+}
+
+.finalSection h2 {
+  margin: 2rem 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(4rem, 8vw, 8.4rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+
+.finalSection h2 em {
+  color: var(--navy);
+  font-weight: 400;
+}
+
+.finalSection p {
+  max-width: 600px;
+  margin: 0;
+  color: #526276;
+  font-family: var(--font-sans);
+}
+
+.finalActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  min-width: 225px;
+  padding: 1.15rem 1.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition:
+    transform 250ms ease,
+    background 250ms ease,
+    color 250ms ease;
+}
+
+.primaryButton {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.secondaryButton {
+  border: 1px solid rgba(15, 44, 89, 0.2);
+  color: var(--navy);
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-3px);
+}
+
+.primaryButton span,
+.secondaryButton span {
+  font-size: 1rem;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+  .hero {
+    padding-right: 5vw;
+    padding-left: 5vw;
+  }
+
+  .heroBottom {
+    right: 5vw;
+    left: 5vw;
+  }
+
+  .positionSection,
+  .documentSection,
+  .residenceSection,
+  .verificationSection,
+  .finalSection {
+    padding-right: 5vw;
+    padding-left: 5vw;
+  }
+
+  .sectionIntro {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .sectionHeading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .sectionHeading p {
+    max-width: 550px;
+  }
+
+  .positionStatement {
+    grid-template-columns: 1px 1fr;
+  }
+
+  .positionBody {
+    grid-column: 2;
+    max-width: 600px;
+    margin-top: 1rem;
+  }
+
+  .documentLayout {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+
+  .documentCopy {
+    max-width: 700px;
+  }
+
+  .residenceTop,
+  .residenceBottom,
+  .verificationTop {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .residenceMeta {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .residenceMeta .sectionNumber {
+    margin-bottom: 0;
+  }
+
+  .residenceMetaLine {
+    display: none;
+  }
+
+  .residenceFeature {
+    margin-top: 6rem;
+  }
+
+  .residenceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .residencePoint,
+  .residencePoint + .residencePoint {
+    min-height: auto;
+    padding: 2.5rem 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .residencePoint:last-child {
+    border-bottom: 0;
+  }
+
+  .residencePointTop {
+    margin-bottom: 2.5rem;
+  }
+
+  .residencePointLine,
+  .residencePoint + .residencePoint .residencePointLine {
+    right: 0;
+    left: 0;
+  }
+
+  .process {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 6rem;
+  }
+
+  .processLine {
+    top: 0;
+    bottom: 0;
+    left: 13px;
+    right: auto;
+    width: 1px;
+    height: auto;
+  }
+
+  .processStep {
+    display: grid;
+    grid-template-columns: 27px 1fr;
+    column-gap: 1.5rem;
+    padding-right: 0;
+  }
+
+  .processNumber {
+    grid-row: span 2;
+    margin-bottom: 0;
+  }
+
+  .processStep p {
+    max-width: 500px;
+    margin-top: 0.6rem;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .sectionNumber,
+  .sectionLabel,
+  .eyebrow {
+    font-size: 0.59rem;
+  }
+
+  /* HERO */
+
+  .hero {
+    min-height: 90svh;
+    padding: 7rem 1.25rem 6rem;
+  }
+
+  .heroImagePhoto {
+    object-position: 60% center;
+  }
+
+  .heroOverlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(3, 17, 35, 0.91) 0%,
+        rgba(3, 17, 35, 0.79) 42%,
+        rgba(3, 17, 35, 0.74) 100%
+      );
+  }
+
+  .heroVignette {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.25) 0%,
+        transparent 35%,
+        rgba(0, 0, 0, 0.35) 100%
+      );
+  }
+
+  .hero .eyebrow {
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    color: var(--white);
+    font-size: clamp(3.35rem, 15vw, 5rem);
+    line-height: 0.93;
+  }
+
+  .hero h1 span,
+  .hero h1 em {
+    color: var(--white);
+  }
+
+  .hero p {
+    max-width: 500px;
+    margin-top: 2rem;
+    font-size: 0.93rem;
+  }
+
+  .heroFacts {
+    gap: 0.45rem;
+    margin-top: 2rem;
+    font-size: 0.53rem;
+    line-height: 1.7;
+  }
+
+  .heroBottom {
+    right: 1.25rem;
+    bottom: 1.5rem;
+    left: 1.25rem;
+    padding-top: 0.9rem;
+    font-size: 0.5rem;
+  }
+
+  /* SHARED SECTIONS */
+
+  .positionSection,
+  .documentSection,
+  .residenceSection,
+  .verificationSection,
+  .finalSection {
+    padding: 6rem 1.25rem;
+  }
+
+  /* POSITION */
+
+  .sectionIntro {
+    gap: 1.5rem;
+  }
+
+  .sectionHeading {
+    gap: 2.5rem;
+  }
+
+  .sectionHeading h2 {
+    font-size: clamp(3.2rem, 14vw, 4.9rem);
+    line-height: 0.94;
+  }
+
+  .sectionHeading p {
+    max-width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .positionStatement {
+    grid-template-columns: 1px 1fr;
+    gap: 1.25rem;
+    margin-top: 5rem;
+  }
+
+  .positionLine {
+    min-height: 230px;
+  }
+
+  .positionQuote span {
+    margin-bottom: 1.25rem;
+    font-size: 0.55rem;
+  }
+
+  .positionQuote h3 {
+    font-size: 2rem;
+    line-height: 1.08;
+  }
+
+  .positionBody {
+    grid-column: 2;
+    margin-top: 0;
+  }
+
+  .positionBody p {
+    font-size: 0.86rem;
+  }
+
+  .factGrid {
+    grid-template-columns: 1fr;
+    margin-top: 5rem;
+  }
+
+  .factCard,
+  .factCard + .factCard {
+    min-height: 220px;
+    grid-template-columns: 1fr;
+    padding: 2rem 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .factCard:last-child {
+    border-bottom: 0;
+  }
+
+  .factArrow {
+    opacity: 1;
+    transform: none;
+  }
+
+  .factReveal {
+    max-height: none;
+    margin-top: 1.25rem;
+    opacity: 1;
+    transform: none;
+  }
+
+  .factContent h3 {
+    font-size: 1.7rem;
+  }
+
+  /* DOCUMENT */
+
+  .documentHeader {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .documentHeader p {
+    font-size: 0.87rem;
+  }
+
+  .documentLayout {
+    gap: 4rem;
+  }
+
+  .documentStage {
+    min-height: 330px;
+    padding: 2rem 1rem;
+  }
+
+  .documentCard {
+    width: 100%;
+  }
+
+  .documentCaption {
+    right: 0.7rem;
+    bottom: 0.7rem;
+    left: 0.7rem;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.7rem 0.8rem;
+    font-size: 0.48rem;
+  }
+
+  .documentIndex {
+    margin-bottom: 1.25rem;
+    font-size: 3.5rem;
+  }
+
+  .documentCopy h2 {
+    margin-bottom: 1.5rem;
+    font-size: clamp(3.3rem, 15vw, 5rem);
+  }
+
+  .documentLead {
+    font-size: 1.15rem;
+  }
+
+  .documentCopy > p:not(.documentLead) {
+    font-size: 0.86rem;
+  }
+
+  .documentNote {
+    margin-top: 2rem;
+  }
+
+  /* RESIDENCE */
+
+  .residenceSection {
+    min-height: auto;
+  }
+
+  .residenceWatermark {
+    top: 18%;
+    right: -35%;
+    font-size: 8rem;
+    transform: none;
+  }
+
+  .residenceSection::before {
+    top: 4%;
+    right: -70%;
+    width: 480px;
+    height: 480px;
+  }
+
+  .residenceTop {
+    gap: 2.75rem;
+  }
+
+  .residenceMeta {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .residenceMeta .sectionNumber {
+    margin-bottom: 0.65rem;
+  }
+
+  .residenceHeading {
+    position: relative;
+    z-index: 2;
+  }
+
+  .residenceKicker {
+    margin-bottom: 1.75rem;
+  }
+
+  .residenceHeading h2 {
+    font-size: clamp(3.4rem, 15vw, 5.5rem);
+    line-height: 0.92;
+  }
+
+  .residenceHeading > p {
+    margin-top: 2rem;
+    font-size: 0.88rem;
+  }
+
+  .residenceFeature {
+    grid-template-columns: 1fr auto;
+    gap: 1.25rem;
+    margin-top: 5rem;
+    padding: 1.5rem;
+  }
+
+  .residenceFeatureNumber {
+    display: none;
+  }
+
+  .residenceFeatureContent {
+    padding: 0;
+  }
+
+  .residenceFeatureEyebrow {
+    margin-bottom: 0.65rem;
+    font-size: 0.48rem;
+  }
+
+  .residenceFeatureContent h3 {
+    font-size: clamp(1.8rem, 8vw, 2.6rem);
+    line-height: 1.02;
+  }
+
+  .residenceFeatureMark {
+    width: 42px;
+    height: 42px;
+    font-size: 0.9rem;
+  }
+
+  .residenceGrid {
+    margin-top: 3rem;
+  }
+
+  .residencePoint,
+  .residencePoint + .residencePoint {
+    padding: 2rem 0;
+  }
+
+  .residencePointTop {
+    margin-bottom: 2rem;
+  }
+
+  .residencePoint h3 {
+    font-size: 0.62rem;
+  }
+
+  .residencePoint p {
+    max-width: 100%;
+    font-size: 0.82rem;
+  }
+
+  .residencePointArrow {
+    opacity: 1;
+    transform: none;
+  }
+
+  .residencePointLine,
+  .residencePoint + .residencePoint .residencePointLine {
+    right: 0;
+    bottom: 0.75rem;
+    left: 0;
+  }
+
+  .residenceBottom {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 5rem;
+  }
+
+  .residenceBottom p {
+    font-size: 0.68rem;
+  }
+
+  /* VERIFICATION */
+
+  .verificationTop {
+    gap: 2.5rem;
+  }
+
+  .verificationTop h2 {
+    font-size: clamp(3.25rem, 14vw, 5.2rem);
+  }
+
+  .verificationIntro {
+    margin-top: 2rem;
+    font-size: 0.87rem;
+  }
+
+  .process {
+    gap: 2.5rem;
+    margin-top: 5rem;
+  }
+
+  .processStep {
+    column-gap: 1.1rem;
+  }
+
+  .processStep h3 {
+    font-size: 0.61rem;
+  }
+
+  .processStep p {
+    font-size: 0.76rem;
+  }
+
+  /* FINAL */
+
+  .finalSection {
+    min-height: auto;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+  .finalTop {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .finalSection h2 {
+    margin: 2rem 0 1.75rem;
+    font-size: clamp(3.6rem, 15vw, 5.8rem);
+    line-height: 0.92;
+  }
+
+  .finalSection p {
+    font-size: 0.88rem;
+  }
+
+  .finalActions {
+    flex-direction: column;
+    margin-top: 2.5rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    min-width: 0;
+  }
+}

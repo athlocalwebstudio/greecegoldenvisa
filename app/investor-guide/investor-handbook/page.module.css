@@ -1,0 +1,1205 @@
+.page {
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+/* =========================================================
+   SHARED
+========================================================= */
+
+.container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  color: var(--color-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+}
+
+.sectionHeader {
+  max-width: 760px;
+  margin-bottom: 4rem;
+}
+
+.sectionHeader h2 {
+  margin: 0 0 1.25rem;
+  color: var(--color-primary);
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.sectionHeader p {
+  max-width: 680px;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0.95rem 1.7rem;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.primaryButton {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.primaryButton:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  border: 1px solid rgba(15, 44, 89, 0.2);
+  background: transparent;
+  color: var(--color-primary);
+}
+
+.secondaryButton:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.inlineLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.75rem;
+  color: var(--color-primary);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    gap 0.2s ease;
+}
+
+.inlineLink span {
+  font-size: 1.15rem;
+  transition: transform 0.2s ease;
+}
+
+.inlineLink:hover {
+  color: var(--color-accent);
+  gap: 0.85rem;
+}
+
+.inlineLink:hover span {
+  transform: translateX(3px);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 85% 25%,
+      rgba(59, 169, 239, 0.1),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #ffffff 58%,
+      var(--color-surface) 100%
+    );
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 8%;
+  width: 1px;
+  height: 100%;
+  background: rgba(15, 44, 89, 0.08);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  right: 12%;
+  bottom: 0;
+  width: 320px;
+  height: 320px;
+  border: 1px solid rgba(59, 169, 239, 0.15);
+  border-radius: 50%;
+  transform: translate(25%, 45%);
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 7rem 0 5rem;
+}
+
+.heroContent {
+  max-width: 920px;
+}
+
+.heroContent h1 {
+  max-width: 900px;
+  margin: 0;
+  color: var(--color-primary);
+  font-size: clamp(3.2rem, 8vw, 7rem);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+}
+
+.heroContent h1 span {
+  display: block;
+  color: var(--color-accent);
+}
+
+.heroText {
+  max-width: 670px;
+  margin: 2rem 0 0;
+  color: var(--color-text-muted);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.8;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2.25rem;
+}
+
+.heroMeta {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(15, 44, 89, 0.12);
+  color: var(--color-text-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+  padding: 9rem 0;
+  background: var(--color-background);
+}
+
+.essentialsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+}
+
+.essentialCard {
+  min-height: 300px;
+  padding: 2rem;
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.essentialCard:hover {
+  background: var(--color-surface);
+  transform: translateY(-4px);
+}
+
+.cardNumber {
+  display: block;
+  margin-bottom: 5rem;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.essentialCard h3 {
+  margin: 0 0 0.8rem;
+  color: var(--color-primary);
+  font-size: 1.15rem;
+}
+
+.essentialCard p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   INVESTMENT ROUTES
+========================================================= */
+
+.routesSection {
+  padding: 9rem 0;
+  background: var(--color-surface);
+}
+
+.routesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.routeCard {
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.routeCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-soft);
+}
+
+.routeTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--color-text-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.routeTop span:first-child {
+  color: var(--color-accent);
+}
+
+.routeAmount {
+  margin-top: 5rem;
+  color: var(--color-primary);
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.routeCard h3 {
+  margin: 1.75rem 0 0.75rem;
+  color: var(--color-primary);
+  font-size: 1.25rem;
+}
+
+.routeCard p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+.routeNote {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.6;
+  border-top: 1px solid var(--color-border);
+}
+
+.legalNote {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid var(--color-accent);
+  background: rgba(59, 169, 239, 0.06);
+  color: var(--color-text-muted);
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+
+.legalNote strong {
+  color: var(--color-primary);
+}
+
+/* =========================================================
+   ELIGIBILITY
+========================================================= */
+
+.eligibilitySection {
+  padding: 9rem 0;
+}
+
+.splitSection {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 8rem;
+  align-items: start;
+}
+
+.splitIntro h2 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.splitIntro p {
+  max-width: 480px;
+  margin: 1.5rem 0 0;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+.checkList {
+  border-top: 1px solid var(--color-border);
+}
+
+.checkItem {
+  display: grid;
+  grid-template-columns: 55px 1fr;
+  gap: 1.5rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.checkItem > span {
+  color: var(--color-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.checkItem h3 {
+  margin: 0 0 0.5rem;
+  color: var(--color-primary);
+  font-size: 1rem;
+}
+
+.checkItem p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   RESIDENCE
+========================================================= */
+
+.residenceSection {
+  padding: 8rem 0;
+  background: var(--color-primary);
+}
+
+.residenceBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7rem;
+  align-items: center;
+}
+
+.residenceBox .eyebrow {
+  color: var(--color-accent);
+}
+
+.residenceBox h2 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2.6rem, 5vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.residenceText p {
+  margin: 0 0 1.5rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.residenceText p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   PROPERTY
+========================================================= */
+
+.propertySection {
+  padding: 9rem 0;
+}
+
+.propertySection .sectionHeader h2 span {
+  display: block;
+  color: var(--color-accent);
+}
+
+.propertyGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.propertyStatement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 460px;
+  padding: 3rem;
+  border-right: 1px solid var(--color-border);
+}
+
+.propertyStatement span {
+  margin-bottom: 0.75rem;
+  color: var(--color-text-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.propertyStatement strong {
+  margin-bottom: 2rem;
+  color: var(--color-primary);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.propertyStatement strong:last-child {
+  margin-bottom: 0;
+  color: var(--color-accent);
+}
+
+.propertyChecks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.propertyCheck {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 115px;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.propertyCheck:nth-child(odd) {
+  border-right: 1px solid var(--color-border);
+}
+
+.propertyCheck:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.propertyCheck span {
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.propertyCheck p {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.advisorCallout {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 4rem;
+  margin-top: 2rem;
+  padding: 2.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.advisorCallout h3 {
+  max-width: 650px;
+  margin: 0;
+  color: var(--color-primary);
+  font-size: clamp(1.6rem, 3vw, 2.7rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.advisorCallout p {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.processSection {
+  padding: 9rem 0;
+  background: var(--color-surface);
+}
+
+.timeline {
+  border-top: 1px solid var(--color-border);
+}
+
+.timelineItem {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.timelineNumber {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.timelineContent {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 3rem;
+}
+
+.timelineContent h3 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+}
+
+.timelineContent p {
+  max-width: 600px;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   FAMILY
+========================================================= */
+
+.familySection {
+  padding: 9rem 0;
+}
+
+.familyGrid {
+  display: grid;
+  grid-template-columns: 1fr 0.75fr;
+  gap: 8rem;
+  align-items: end;
+}
+
+.familyGrid h2 {
+  max-width: 720px;
+  margin: 0;
+  color: var(--color-primary);
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.familyGrid h2 span {
+  display: block;
+  color: var(--color-accent);
+}
+
+.familyGrid p {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* =========================================================
+   COSTS
+========================================================= */
+
+.costSection {
+  padding: 9rem 0;
+  background: var(--color-surface);
+}
+
+.costGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+}
+
+.costItem {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  min-height: 140px;
+  padding: 1.75rem;
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  background: #fff;
+}
+
+.costItem span {
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.costItem p {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.costWarning {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 3rem;
+  margin-top: 1.5rem;
+  padding: 2rem;
+  border: 1px solid rgba(59, 169, 239, 0.25);
+  background: rgba(59, 169, 239, 0.05);
+}
+
+.costWarning strong {
+  color: var(--color-primary);
+}
+
+.costWarning p {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faqSection {
+  padding: 9rem 0;
+}
+
+.faqList {
+  border-top: 1px solid var(--color-border);
+}
+
+.faqItem {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faqItem summary {
+  display: grid;
+  grid-template-columns: 70px 1fr 30px;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.6rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faqItem summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqItem summary > span {
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.faqItem summary strong {
+  color: var(--color-primary);
+  font-size: 1rem;
+}
+
+.faqItem summary i {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 300;
+  transition: transform 0.2s ease;
+}
+
+.faqItem[open] summary i {
+  transform: rotate(45deg);
+}
+
+.faqAnswer {
+  padding: 0 4rem 1.75rem 70px;
+}
+
+.faqAnswer p {
+  max-width: 750px;
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
+.faqLinkWrapper {
+  margin-top: 1.5rem;
+}
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.finalCta {
+  padding: 8rem 0;
+  background: var(--color-primary);
+}
+
+.finalCtaInner {
+  max-width: 850px;
+}
+
+.finalCta .eyebrow {
+  color: var(--color-accent);
+}
+
+.finalCta h2 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.finalCta p {
+  max-width: 650px;
+  margin: 1.5rem 0 0;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+}
+
+.finalCta .primaryButton {
+  background: #fff;
+  color: var(--color-primary);
+}
+
+.finalCta .primaryButton:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.finalCta .secondaryButton {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.finalCta .secondaryButton:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* =========================================================
+   DISCLAIMER
+========================================================= */
+
+.disclaimer {
+  padding: 2rem 0;
+  background: #061a35;
+}
+
+.disclaimer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.disclaimer p {
+  max-width: 850px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+
+.disclaimer strong {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.disclaimer span {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+  .essentialsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .routesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .routeCard {
+    min-height: 360px;
+  }
+
+  .routeAmount {
+    margin-top: 3rem;
+  }
+
+  .splitSection {
+    gap: 4rem;
+  }
+
+  .residenceBox {
+    gap: 4rem;
+  }
+
+  .propertyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .propertyStatement {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .advisorCallout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .timelineContent {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .familyGrid {
+    gap: 4rem;
+  }
+
+  .costGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .costWarning {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .container {
+    width: min(100% - 2rem, 1200px);
+  }
+
+  .hero {
+    min-height: 100svh;
+  }
+
+  .hero .container {
+    min-height: 100svh;
+    justify-content: center;
+    padding: 6.5rem 0 3rem;
+  }
+
+  .hero::before,
+  .hero::after {
+    display: none;
+  }
+
+  .heroContent h1 {
+    font-size: clamp(3rem, 14vw, 4.5rem);
+    line-height: 0.94;
+  }
+
+  .heroText {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .heroActions {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1.75rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+
+  .heroMeta {
+    margin-top: 3rem;
+    gap: 1rem;
+    font-size: 0.6rem;
+  }
+
+  .intro,
+  .routesSection,
+  .eligibilitySection,
+  .propertySection,
+  .processSection,
+  .familySection,
+  .costSection,
+  .faqSection {
+    padding: 6rem 0;
+  }
+
+  .residenceSection,
+  .finalCta {
+    padding: 6rem 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 2.75rem;
+  }
+
+  .sectionHeader h2 {
+    font-size: clamp(2.3rem, 11vw, 3.5rem);
+  }
+
+  .sectionHeader p {
+    font-size: 0.95rem;
+  }
+
+  .essentialsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .essentialCard {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .cardNumber {
+    margin-bottom: 3rem;
+  }
+
+  .routeCard {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .routeAmount {
+    margin-top: 3rem;
+    font-size: 3.7rem;
+  }
+
+  .splitSection {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .splitIntro h2 {
+    font-size: clamp(2.4rem, 11vw, 3.5rem);
+  }
+
+  .checkItem {
+    grid-template-columns: 38px 1fr;
+    gap: 0.75rem;
+  }
+
+  .residenceBox {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .residenceBox h2 {
+    font-size: clamp(2.6rem, 12vw, 4rem);
+  }
+
+  .propertyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .propertyStatement {
+    padding: 2rem 1.5rem;
+  }
+
+  .propertyStatement strong {
+    font-size: 2.2rem;
+  }
+
+  .propertyChecks {
+    grid-template-columns: 1fr;
+  }
+
+  .propertyCheck {
+    min-height: 90px;
+  }
+
+  .propertyCheck:nth-child(odd) {
+    border-right: 0;
+  }
+
+  .propertyCheck:nth-last-child(-n + 2) {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .propertyCheck:last-child {
+    border-bottom: 0;
+  }
+
+  .advisorCallout {
+    padding: 1.5rem;
+  }
+
+  .advisorCallout h3 {
+    font-size: 1.7rem;
+  }
+
+  .timelineItem {
+    grid-template-columns: 45px 1fr;
+    gap: 1rem;
+    padding: 1.5rem 0;
+  }
+
+  .timelineContent {
+    gap: 0.5rem;
+  }
+
+  .timelineContent h3 {
+    font-size: 1rem;
+  }
+
+  .timelineContent p {
+    font-size: 0.88rem;
+  }
+
+  .familyGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .familyGrid h2 {
+    font-size: clamp(2.5rem, 11vw, 3.8rem);
+  }
+
+  .costGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .costWarning {
+    padding: 1.5rem;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 40px 1fr 25px;
+    gap: 0.75rem;
+    padding: 1.4rem 0;
+  }
+
+  .faqItem summary strong {
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .faqAnswer {
+    padding: 0 1rem 1.5rem 40px;
+  }
+
+  .faqAnswer p {
+    font-size: 0.88rem;
+  }
+
+  .finalCta h2 {
+    font-size: clamp(2.8rem, 13vw, 4.5rem);
+  }
+
+  .finalCta p {
+    font-size: 0.95rem;
+  }
+
+  .disclaimer .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .disclaimer span {
+    font-size: 0.58rem;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+  .container {
+    width: calc(100% - 1.5rem);
+  }
+
+  .hero .container {
+    padding-top: 6rem;
+  }
+
+  .heroContent h1 {
+    font-size: 2.8rem;
+  }
+
+  .heroText {
+    font-size: 0.9rem;
+  }
+
+  .sectionHeader h2 {
+    font-size: 2.25rem;
+  }
+
+  .routeAmount {
+    font-size: 3.2rem;
+  }
+
+  .propertyStatement strong {
+    font-size: 2rem;
+  }
+}

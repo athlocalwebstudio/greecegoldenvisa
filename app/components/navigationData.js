@@ -147,7 +147,7 @@ export const navigation = [
           description:
             "Visa-free access across the Schengen Area and Europe.",
           icon: Globe2,
-          href: "/greece/europe",
+          href: "/why-greece/gateway-to-europe",
         },
 
         {
@@ -155,7 +155,7 @@ export const navigation = [
           description:
             "Explore one of Europe's fastest-growing property markets.",
           icon: TrendingUp,
-          href: "/greece/market",
+          href: "/why-greece/real-estate-potential",
         },
 
         {
@@ -163,7 +163,7 @@ export const navigation = [
           description:
             "Build long-term security for you and your family.",
           icon: HeartHandshake,
-          href: "/greece/family",
+          href: "/why-greece/family-and-future",
         },
       ],
     },
@@ -188,7 +188,7 @@ export const navigation = [
           description:
             "Read our complete guide before making your investment.",
           icon: BookOpen,
-          href: "/guide/handbook",
+          href: "/investor-guide/investor-handbook",
         },
 
         {
@@ -196,7 +196,7 @@ export const navigation = [
           description:
             "Estimate costs and understand your investment budget.",
           icon: Calculator,
-          href: "/calculator",
+          href: "/investor-guide/calculator",
         },
 
         {
@@ -204,7 +204,7 @@ export const navigation = [
           description:
             "Track every document and requirement before applying.",
           icon: ClipboardCheck,
-          href: "/guide/checklist",
+          href: "/investor-guide/application-checklist",
         },
 
         {
@@ -212,7 +212,7 @@ export const navigation = [
           description:
             "Find answers to the most frequently asked questions.",
           icon: CircleHelp,
-          href: "/faq",
+          href: "/investor-guide/faq",
         },
       ],
     },
@@ -237,7 +237,7 @@ export const navigation = [
           description:
             "Learn about our company and our mission.",
           icon: Users,
-          href: "/team",
+          href: "/team/who-we-are",
         },
 
         {
@@ -245,7 +245,7 @@ export const navigation = [
           description:
             "Discover our expertise in Greek real estate and residency.",
           icon: Briefcase,
-          href: "/experience",
+          href: "/team/our-experience",
         },
 
         {

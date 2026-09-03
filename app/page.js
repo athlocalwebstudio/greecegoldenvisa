@@ -5,7 +5,6 @@ import InvestmentRoutes from "./components/LandingPage/Investment-Routes/Investm
 import WhatWeDo from "./components/LandingPage/WhatWeDo/WhatWeDo";
 import PropertyOpportunities from "./components/LandingPage/PropertyOpportunities/PropertyOpportunities";
 import ReviewsProof from "./components/LandingPage/ReviewsProof/ReviewsProof";
-import FAQ from "./components/LandingPage/FAQ/FAQ";
 import FinalCTA from "./components/LandingPage/Final-CTA/FinalCTA";
 import Footer from "./components/LandingPage/Footer/Footer";
 
@@ -19,7 +18,6 @@ export default function Home() {
   <WhatWeDo />
   <PropertyOpportunities />
   <ReviewsProof />
-  <FAQ />
   <FinalCTA />
   <Footer />
   </>);

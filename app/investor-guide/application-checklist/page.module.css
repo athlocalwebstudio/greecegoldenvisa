@@ -1,0 +1,1185 @@
+.page {
+  --navy: #0f2c59;
+  --blue: #3ba9ef;
+  --light-blue: #e8f4fd;
+  --soft: #f7fbff;
+  --muted: #64748b;
+  --line: rgba(15, 44, 89, 0.1);
+  --line-strong: rgba(15, 44, 89, 0.16);
+
+  background: #ffffff;
+  color: var(--navy);
+  overflow: hidden;
+}
+
+/* =========================================================
+   SHARED
+========================================================= */
+
+.container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+.sectionLabel {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1;
+
+  color: var(--blue);
+}
+
+.primaryButton,
+.secondaryButton {
+  min-height: 52px;
+  padding: 0.9rem 1.35rem;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+
+  border-radius: 999px;
+
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 750;
+  text-decoration: none;
+
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.primaryButton {
+  color: #ffffff;
+  background: var(--navy);
+  border: 1px solid var(--navy);
+  box-shadow: 0 12px 30px rgba(15, 44, 89, 0.12);
+}
+
+.primaryButton:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 35px rgba(59, 169, 239, 0.2);
+}
+
+.secondaryButton {
+  color: var(--navy);
+  background: #ffffff;
+  border: 1px solid var(--line-strong);
+}
+
+.secondaryButton:hover {
+  color: var(--blue);
+  border-color: var(--blue);
+  transform: translateY(-2px);
+}
+
+.arrowIcon {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  min-height: 78vh;
+  display: flex;
+  align-items: flex-end;
+
+  background:
+    radial-gradient(
+      circle at 82% 22%,
+      rgba(59, 169, 239, 0.12),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #f8fbff 0%,
+      #ffffff 58%,
+      #edf7fd 100%
+    );
+
+  border-bottom: 1px solid var(--line);
+}
+
+.hero .container {
+  min-height: 78vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.heroContent {
+  max-width: 820px;
+  padding: 9rem 0 5rem;
+}
+
+.heroContent h1 {
+  max-width: 800px;
+  margin: 0;
+
+  font-size: clamp(3.2rem, 7vw, 6.6rem);
+  line-height: 0.94;
+  letter-spacing: -0.065em;
+  font-weight: 750;
+
+  color: var(--navy);
+}
+
+.heroContent p {
+  max-width: 670px;
+  margin: 2rem 0 0;
+
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.heroActions {
+  margin-top: 2.3rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.heroMeta {
+  padding: 1.1rem 0;
+
+  display: flex;
+  justify-content: space-between;
+
+  border-top: 1px solid var(--line);
+
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+  padding: 8rem 0;
+  background: #ffffff;
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+  gap: 7rem;
+  align-items: start;
+}
+
+.intro h2 {
+  max-width: 680px;
+  margin: 0;
+
+  font-size: clamp(2.3rem, 4vw, 4.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+  font-weight: 750;
+}
+
+.introCopy {
+  padding-top: 2.2rem;
+}
+
+.introCopy p {
+  margin: 0 0 1.3rem;
+
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+.introCopy p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progressSection {
+  padding: 0 0 6rem;
+  background: #ffffff;
+}
+
+.progressCard {
+  padding: 2rem;
+
+  border: 1px solid var(--line);
+  border-radius: 24px;
+
+  background: var(--soft);
+}
+
+.progressTop {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.progressLabel {
+  display: block;
+  margin-bottom: 0.55rem;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.progressTop strong {
+  display: block;
+
+  font-size: clamp(2.7rem, 5vw, 4.4rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  font-weight: 750;
+}
+
+.progressCount {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+
+  color: var(--muted);
+}
+
+.progressCount span {
+  font-size: 1.4rem;
+  font-weight: 750;
+  color: var(--navy);
+}
+
+.progressCount small {
+  font-size: 0.82rem;
+}
+
+.progressTrack {
+  height: 8px;
+  margin-top: 2rem;
+
+  overflow: hidden;
+  border-radius: 999px;
+
+  background: rgba(15, 44, 89, 0.08);
+}
+
+.progressTrack span {
+  display: block;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: var(--blue);
+
+  transition: width 300ms ease;
+}
+
+.progressBottom {
+  margin-top: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.resetButton {
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  font: inherit;
+  font-weight: 700;
+  color: var(--navy);
+
+  cursor: pointer;
+}
+
+.resetButton:hover {
+  color: var(--blue);
+}
+
+/* =========================================================
+   CHECKLIST HEADER
+========================================================= */
+
+.checklistSection {
+  padding: 2rem 0 8rem;
+  background: var(--soft);
+}
+
+.checklistHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.55fr);
+  gap: 5rem;
+
+  padding-bottom: 4rem;
+}
+
+.checklistHeader h2 {
+  margin: 0;
+
+  font-size: clamp(2.5rem, 4vw, 4.4rem);
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.checklistHeader > p {
+  max-width: 480px;
+  margin: 2rem 0 0;
+
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* =========================================================
+   CHECKLIST BLOCKS
+========================================================= */
+
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.checklistBlock {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.blockIntro {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr) auto;
+  gap: 1.4rem;
+  align-items: start;
+
+  padding: 2rem;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.blockNumber {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: var(--light-blue);
+
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--blue);
+}
+
+.blockTitle h3 {
+  margin: 0;
+
+  font-size: 1.35rem;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.blockTitle p {
+  max-width: 680px;
+  margin: 0.65rem 0 0;
+
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.blockProgress {
+  padding: 0.45rem 0.75rem;
+
+  border: 1px solid var(--line);
+  border-radius: 999px;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+/* =========================================================
+   ITEMS
+========================================================= */
+
+.items {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  position: relative;
+
+  min-height: 105px;
+  padding: 1.35rem 1.5rem;
+
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+
+  border-bottom: 1px solid var(--line);
+
+  cursor: pointer;
+
+  transition:
+    background 180ms ease,
+    opacity 180ms ease;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+.item:hover {
+  background: var(--soft);
+}
+
+.item input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.customCheckbox {
+  width: 22px;
+  height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1.5px solid rgba(15, 44, 89, 0.24);
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.itemComplete .customCheckbox {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.checkIcon {
+  width: 14px;
+  height: 14px;
+
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.itemContent {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.itemTitle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+
+  font-size: 0.96rem;
+  font-weight: 750;
+  color: var(--navy);
+}
+
+.itemDescription {
+  max-width: 760px;
+
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.required {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 0.24rem 0.48rem;
+
+  border-radius: 999px;
+  background: var(--light-blue);
+
+  font-size: 0.55rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  color: var(--blue);
+}
+
+.itemStatus {
+  font-size: 0.6rem;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.itemComplete .itemTitle {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(15, 44, 89, 0.3);
+}
+
+.itemComplete .itemStatus {
+  color: var(--blue);
+}
+
+/* =========================================================
+   IMPORTANT NOTE
+========================================================= */
+
+.noteSection {
+  padding: 8rem 0;
+  background: #ffffff;
+}
+
+.noteCard {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr);
+  gap: 2rem;
+
+  padding: 3rem;
+
+  border: 1px solid rgba(59, 169, 239, 0.25);
+  border-radius: 28px;
+
+  background: var(--light-blue);
+}
+
+.noteMark {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--blue);
+  color: #ffffff;
+
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.noteCard h2 {
+  max-width: 720px;
+  margin: 0;
+
+  font-size: clamp(2rem, 3.5vw, 3.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.noteCard p {
+  max-width: 780px;
+  margin: 1.2rem 0 0;
+
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* =========================================================
+   NEXT STEPS
+========================================================= */
+
+.nextSection {
+  padding: 8rem 0;
+  background: var(--soft);
+  border-top: 1px solid var(--line);
+}
+
+.nextHeader {
+  max-width: 800px;
+}
+
+.nextHeader h2 {
+  margin: 0;
+
+  font-size: clamp(2.8rem, 5vw, 5.2rem);
+  line-height: 0.97;
+  letter-spacing: -0.06em;
+}
+
+.nextHeader p {
+  max-width: 620px;
+  margin: 1.7rem 0 0;
+
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.nextSteps {
+  margin-top: 5rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.nextStep {
+  min-height: 260px;
+  padding: 2rem;
+
+  background: #ffffff;
+}
+
+.nextStep span {
+  display: block;
+  margin-bottom: 4rem;
+
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  color: var(--blue);
+}
+
+.nextStep strong {
+  display: block;
+
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.nextStep p {
+  max-width: 300px;
+  margin: 0.7rem 0 0;
+
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta {
+  padding: 7rem 0;
+  background: #ffffff;
+}
+
+.ctaCard {
+  position: relative;
+  overflow: hidden;
+
+  padding: clamp(2.5rem, 7vw, 6rem);
+
+  border-radius: 32px;
+
+  background: var(--navy);
+
+  color: #ffffff;
+}
+
+.ctaCard::after {
+  content: "";
+
+  position: absolute;
+  width: 420px;
+  height: 420px;
+
+  right: -180px;
+  bottom: -220px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    0 0 0 70px rgba(255, 255, 255, 0.025),
+    0 0 0 140px rgba(255, 255, 255, 0.02);
+
+  pointer-events: none;
+}
+
+.ctaCard .sectionLabel {
+  color: #8bd2ff;
+}
+
+.ctaCard h2 {
+  position: relative;
+  z-index: 1;
+
+  max-width: 900px;
+  margin: 0;
+
+  font-size: clamp(2.8rem, 6vw, 6rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em;
+
+  color: #ffffff;
+}
+
+.ctaCard > p {
+  position: relative;
+  z-index: 1;
+
+  max-width: 640px;
+  margin: 1.8rem 0 0;
+
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.8;
+}
+
+.ctaActions {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 2.2rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.ctaCard .primaryButton {
+  color: var(--navy);
+  background: #ffffff;
+  border-color: #ffffff;
+  box-shadow: none;
+}
+
+.ctaCard .primaryButton:hover {
+  color: #ffffff;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.ctaCard .secondaryButton {
+  color: #ffffff;
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.ctaCard .secondaryButton:hover {
+  border-color: #ffffff;
+}
+
+/* =========================================================
+   DISCLAIMER
+========================================================= */
+
+.disclaimer {
+  padding: 2rem 0 3rem;
+
+  border-top: 1px solid var(--line);
+
+  background: #ffffff;
+}
+
+.disclaimer p {
+  max-width: 950px;
+  margin: 0;
+
+  font-size: 0.72rem;
+  line-height: 1.75;
+
+  color: var(--muted);
+}
+
+.disclaimer strong {
+  color: var(--navy);
+}
+
+.sources {
+  margin-top: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+
+  font-size: 0.65rem;
+}
+
+.sources span {
+  color: var(--muted);
+}
+
+.sources a {
+  color: var(--navy);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sources a:hover {
+  color: var(--blue);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+  .hero,
+  .hero .container {
+    min-height: 72vh;
+  }
+
+  .heroContent {
+    padding-top: 8rem;
+  }
+
+  .introGrid {
+    gap: 4rem;
+  }
+
+  .checklistHeader {
+    gap: 3rem;
+  }
+
+  .nextSteps {
+    grid-template-columns: 1fr;
+  }
+
+  .nextStep {
+    min-height: auto;
+  }
+
+  .nextStep span {
+    margin-bottom: 2rem;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .container {
+    width: min(100% - 2rem, 1200px);
+  }
+
+  .hero,
+  .hero .container {
+    min-height: 88svh;
+  }
+
+  .heroContent {
+    padding: 7.5rem 0 3.5rem;
+  }
+
+  .heroContent h1 {
+    font-size: clamp(2.85rem, 13vw, 4.5rem);
+    line-height: 0.95;
+  }
+
+  .heroContent p {
+    margin-top: 1.4rem;
+
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .heroActions {
+    margin-top: 1.8rem;
+
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+
+  .heroMeta {
+    padding: 0.9rem 0;
+
+    font-size: 0.58rem;
+  }
+
+  .intro {
+    padding: 5.5rem 0;
+  }
+
+  .introGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .intro h2 {
+    font-size: clamp(2.2rem, 10vw, 3.3rem);
+  }
+
+  .introCopy {
+    padding-top: 1.2rem;
+  }
+
+  .progressSection {
+    padding-bottom: 4rem;
+  }
+
+  .progressCard {
+    padding: 1.35rem;
+    border-radius: 20px;
+  }
+
+  .progressTop {
+    align-items: flex-start;
+  }
+
+  .progressTop strong {
+    font-size: 3rem;
+  }
+
+  .progressCount {
+    display: none;
+  }
+
+  .progressBottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .checklistSection {
+    padding: 1rem 0 5.5rem;
+  }
+
+  .checklistHeader {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    padding-bottom: 2.5rem;
+  }
+
+  .checklistHeader h2 {
+    font-size: clamp(2.4rem, 10vw, 3.4rem);
+  }
+
+  .checklistHeader > p {
+    margin-top: 0;
+  }
+
+  .sections {
+    gap: 1rem;
+  }
+
+  .checklistBlock {
+    border-radius: 18px;
+  }
+
+  .blockIntro {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 1rem;
+
+    padding: 1.35rem;
+  }
+
+  .blockNumber {
+    width: 42px;
+    height: 42px;
+  }
+
+  .blockTitle h3 {
+    font-size: 1.15rem;
+  }
+
+  .blockTitle p {
+    font-size: 0.8rem;
+  }
+
+  .blockProgress {
+    grid-column: 2;
+
+    justify-self: start;
+
+    margin-top: 0.2rem;
+  }
+
+  .item {
+    min-height: auto;
+
+    padding: 1.15rem 1rem;
+
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 0.8rem;
+
+    align-items: start;
+  }
+
+  .customCheckbox {
+    margin-top: 0.1rem;
+  }
+
+  .itemTitle {
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  .itemDescription {
+    font-size: 0.76rem;
+    line-height: 1.6;
+  }
+
+  .itemStatus {
+    display: none;
+  }
+
+  .required {
+    font-size: 0.5rem;
+  }
+
+  .noteSection {
+    padding: 5.5rem 0;
+  }
+
+  .noteCard {
+    grid-template-columns: 1fr;
+    gap: 1.3rem;
+
+    padding: 1.5rem;
+
+    border-radius: 22px;
+  }
+
+  .noteCard h2 {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .nextSection {
+    padding: 5.5rem 0;
+  }
+
+  .nextHeader h2 {
+    font-size: clamp(2.5rem, 11vw, 3.8rem);
+  }
+
+  .nextSteps {
+    margin-top: 3rem;
+  }
+
+  .nextStep {
+    padding: 1.5rem;
+  }
+
+  .cta {
+    padding: 4rem 0;
+  }
+
+  .ctaCard {
+    padding: 2.2rem 1.4rem;
+    border-radius: 24px;
+  }
+
+  .ctaCard h2 {
+    font-size: clamp(2.5rem, 11vw, 4rem);
+  }
+
+  .ctaActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .disclaimer {
+    padding-bottom: 2.5rem;
+  }
+
+  .sources {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+  .heroContent {
+    padding-top: 6.8rem;
+  }
+
+  .heroContent h1 {
+    font-size: 2.75rem;
+  }
+
+  .heroContent p {
+    font-size: 0.9rem;
+  }
+
+  .blockIntro {
+    padding: 1.1rem;
+  }
+
+  .item {
+    padding: 1rem 0.85rem;
+  }
+
+  .itemTitle {
+    font-size: 0.84rem;
+  }
+
+  .itemDescription {
+    font-size: 0.73rem;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryButton,
+  .secondaryButton,
+  .customCheckbox,
+  .progressTrack span,
+  .item {
+    transition: none;
+  }
+}
