@@ -253,7 +253,7 @@ export const navigation = [
           description:
             "See what makes investors choose our team.",
           icon: Award,
-          href: "/reviews",
+          href: "/team/why-clients-trust-us",
         },
 
         {
@@ -261,7 +261,7 @@ export const navigation = [
           description:
             "Speak directly with a Golden Visa specialist.",
           icon: Phone,
-          href: "/contact",
+          href: "/team/contact",
         },
       ],
     },
