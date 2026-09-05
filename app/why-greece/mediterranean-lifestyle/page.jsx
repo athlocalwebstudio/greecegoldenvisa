@@ -1,4 +1,6 @@
 
+import MediterraneanLifestyleClient from "./MediterraneanLifestyleClient";
+
 export const metadata = {
   title: "Mediterranean Lifestyle in Greece",
 
@@ -62,3 +64,7 @@ export const metadata = {
       "Discover the Mediterranean lifestyle in Greece, from coastal living and Greek food to culture, nature, islands, cities and year-round experiences.",
   },
 };
+
+export default function MediterraneanLifestylePage() {
+  return <MediterraneanLifestyleClient />;
+}
