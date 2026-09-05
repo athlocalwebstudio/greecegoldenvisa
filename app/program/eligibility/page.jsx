@@ -395,7 +395,7 @@ export default function EligibilityPage() {
             </div>
 
             <Link
-              href="/contact"
+              href="/team/contact"
               className={styles.ctaButton}
             >
               Speak With an Advisor

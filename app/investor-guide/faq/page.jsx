@@ -339,7 +339,7 @@ export default function FAQ() {
             </p>
           </div>
 
-          <a href="#contact" className={styles.ctaButton}>
+          <a href="/team/contact" className={styles.ctaButton}>
             <span>Start Your Free Assessment</span>
 
             <svg

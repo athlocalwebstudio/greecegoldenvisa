@@ -281,7 +281,7 @@ HERO
           </a>
 
           <Link
-            href="/contact"
+            href="/team/contact"
             className={styles.secondaryButton}
           >
             Speak With an Advisor
@@ -1001,7 +1001,7 @@ HERO
         </div>
 
         <Link
-          href="/contact"
+          href="/team/contact"
           className={styles.ctaButton}
         >
           Book a Private Consultation

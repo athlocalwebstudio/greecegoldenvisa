@@ -215,13 +215,13 @@ export default function OurExperiencePage() {
               </p>
 
               <div className={styles.heroActions}>
-                <Link href="/contact" className={styles.primaryButton}>
+                <Link href="/team/contact" className={styles.primaryButton}>
                   Discuss Your Investment
                   <span>→</span>
                 </Link>
 
                 <Link
-                  href="/investor-guide"
+                  href="/investor-guide/investor-handbook"
                   className={styles.secondaryButton}
                 >
                   Explore the Investor Guide
@@ -842,12 +842,12 @@ export default function OurExperiencePage() {
             </div>
 
             <div className={styles.ctaActions}>
-              <Link href="/contact" className={styles.ctaPrimary}>
+              <Link href="/team/contact" className={styles.ctaPrimary}>
                 Book a Private Consultation
                 <span>→</span>
               </Link>
 
-              <Link href="/investor-guide" className={styles.ctaSecondary}>
+              <Link href="/investor-guide/investor-handbook" className={styles.ctaSecondary}>
                 Explore the Investor Guide
               </Link>
             </div>

@@ -322,7 +322,7 @@ export default function StrategicPropertyClient() {
                 </a>
 
                 <Link
-                  href="/contact"
+                  href="/team/contact"
                   className={styles.secondaryButton}
                 >
                   Discuss an Opportunity
@@ -817,7 +817,7 @@ export default function StrategicPropertyClient() {
                       </div>
 
                       <Link
-                        href={`/contact?property=${encodeURIComponent(
+                        href={`/team/contact?property=${encodeURIComponent(
                           opportunity.title
                         )}`}
                         className={styles.reviewLink}
@@ -1050,7 +1050,7 @@ export default function StrategicPropertyClient() {
             </div>
 
             <Link
-              href="/contact"
+              href="/team/contact"
               className={styles.ctaButton}
             >
               Request a Strategic Review

@@ -737,7 +737,7 @@ export default function JourneyPage() {
             </div>
 
             <Link
-              href="/contact"
+              href="/team/contact"
               className={styles.ctaButton}
             >
               Book a Private Consultation

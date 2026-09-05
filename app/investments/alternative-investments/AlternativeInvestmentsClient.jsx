@@ -215,7 +215,7 @@ return ( <main className={styles.page}> <section className={styles.hero}> <div c
             </a>
 
             <Link
-              href="/contact"
+              href="/team/contact"
               className={styles.secondaryButton}
             >
               Discuss Your Investment
@@ -447,7 +447,7 @@ return ( <main className={styles.page}> <section className={styles.hero}> <div c
                     <div className={styles.routeFooter}>
                       <span>QUALIFYING ROUTE</span>
 
-                      <Link href="/contact">
+                      <Link href="/team/contact">
                         Discuss
                         <ArrowRight size={14} />
                       </Link>
@@ -643,7 +643,7 @@ return ( <main className={styles.page}> <section className={styles.hero}> <div c
           </p>
 
           <Link
-            href="/contact"
+            href="/team/contact"
             className={styles.positionButton}
           >
             Discuss Your Investment Strategy
@@ -792,7 +792,7 @@ return ( <main className={styles.page}> <section className={styles.hero}> <div c
         </div>
 
         <Link
-          href="/contact"
+          href="/team/contact"
           className={styles.ctaButton}
         >
           Discuss Your Investment Strategy

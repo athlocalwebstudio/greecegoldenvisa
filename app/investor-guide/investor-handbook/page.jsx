@@ -159,7 +159,7 @@ export default function InvestorHandbookPage() {
                 Start Reading
               </a>
 
-              <Link href="/eligibility" className={styles.secondaryButton}>
+              <Link href="/program/eligibility" className={styles.secondaryButton}>
                 Check Your Eligibility
               </Link>
             </div>
@@ -261,7 +261,7 @@ export default function InvestorHandbookPage() {
               </p>
 
               <Link
-                href="/eligibility"
+                href="/program/eligibility"
                 className={styles.inlineLink}
               >
                 Check your eligibility <span>→</span>
@@ -551,11 +551,11 @@ export default function InvestorHandbookPage() {
             </p>
 
             <div className={styles.heroActions}>
-              <Link href="/eligibility" className={styles.primaryButton}>
+              <Link href="/program/eligibility" className={styles.primaryButton}>
                 Check Your Eligibility
               </Link>
 
-              <Link href="/contact" className={styles.secondaryButton}>
+              <Link href="/team/contact" className={styles.secondaryButton}>
                 Book a Private Consultation
               </Link>
             </div>

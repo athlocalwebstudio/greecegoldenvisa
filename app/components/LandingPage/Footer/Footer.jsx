@@ -7,19 +7,19 @@ const footerColumns = [
   {
     title: "Golden Visa",
     links: [
-      { label: "Investment Routes", href: "#investment-routes" },
-      { label: "How It Works", href: "#golden-visa-journey" },
+      { label: "Investment Routes", href: "/investments/compare-options" },
+      { label: "How It Works", href: "/program/journey" },
       { label: "Technical Due Diligence", href: "#due-diligence" },
-      { label: "FAQ", href: "#faq" },
+      { label: "FAQ", href: "/investor-guide/faq" },
     ],
   },
   {
     title: "Explore",
     links: [
-      { label: "About", href: "#about" },
-      { label: "Greece Experience", href: "#greece-experience" },
-      { label: "Client Stories", href: "#reviews-proof" },
-      { label: "Contact", href: "#contact" },
+      { label: "About", href: "/team/who-we-are" },
+      { label: "Greece Experience", href: "/why-greece/mediterranean-lifestyle" },
+      { label: "Clients Trust", href: "/team/why-clients-trust-us" },
+      { label: "Contact", href: "/team/contact" },
     ],
   },
 ];
@@ -27,13 +27,13 @@ const footerColumns = [
 const contactDetails = [
   {
     label: "EMAIL",
-    value: "hello@example.com",
-    href: "mailto:hello@example.com",
+    value: "info@homesingreece.eu",
+    href: "info@homesingreece.eu",
   },
   {
     label: "PHONE",
-    value: "+30 000 000 0000",
-    href: "tel:+300000000000",
+    value: "+306976695096",
+    href: "tel:+306976695096",
   },
 ];
 

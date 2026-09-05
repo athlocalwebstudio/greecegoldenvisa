@@ -305,7 +305,7 @@ return ( <main className={styles.page}> <section className={styles.hero}> <div c
           </a>
 
           <Link
-            href="/contact"
+            href="/team/contact"
             className={styles.secondaryButton}
           >
             Request a Property Review
@@ -671,7 +671,7 @@ return ( <main className={styles.page}> <section className={styles.hero}> <div c
 
                 <div className={styles.propertyActions}>
                   <Link
-                    href={`/contact?property=${encodeURIComponent(
+                    href={`/team/contact?property=${encodeURIComponent(
                       property.title
                     )}`}
                     className={styles.propertyPrimary}
@@ -751,7 +751,7 @@ return ( <main className={styles.page}> <section className={styles.hero}> <div c
         </div>
 
         <Link
-          href="/contact"
+          href="/team/contact"
           className={styles.reviewButton}
         >
           Request a Property Review
@@ -835,7 +835,7 @@ return ( <main className={styles.page}> <section className={styles.hero}> <div c
         </div>
 
         <Link
-          href="/contact"
+          href="/team/contact"
           className={styles.ctaButton}
         >
           Speak With an Advisor

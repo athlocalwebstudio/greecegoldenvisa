@@ -186,12 +186,12 @@ export default function WhyClientsTrustUsPage() {
             </p>
 
             <div className={styles.heroActions}>
-              <Link href="/contact" className={styles.primaryButton}>
+              <Link href="/team/contact" className={styles.primaryButton}>
                 Book a Private Consultation
                 <ArrowIcon />
               </Link>
 
-              <Link href="/investor-guide" className={styles.secondaryButton}>
+              <Link href="/investor-guide/investor-handbook" className={styles.secondaryButton}>
                 Explore the Investor Guide
               </Link>
             </div>
@@ -666,7 +666,7 @@ export default function WhyClientsTrustUsPage() {
               </p>
             </div>
 
-            <Link href="/contact" className={styles.ctaButton}>
+            <Link href="/team/contact" className={styles.ctaButton}>
               Book a Private Consultation
               <ArrowIcon />
             </Link>

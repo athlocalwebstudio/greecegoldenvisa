@@ -626,7 +626,7 @@ export default function RealEstatePotentialPage() {
           </p>
 
           <div className={styles.finalActions}>
-            <Link href="/contact" className={styles.primaryButton}>
+            <Link href="/team/contact" className={styles.primaryButton}>
               Request Property Review
               <span>↗</span>
             </Link>

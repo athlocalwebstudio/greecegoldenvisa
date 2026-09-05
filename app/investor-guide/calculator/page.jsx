@@ -458,7 +458,7 @@ export default function InvestmentCalculatorPage() {
             </div>
 
             <Link
-              href="/contact"
+              href="/team/contact"
               className={styles.dueDiligenceButton}
             >
               Request Property Review
@@ -570,14 +570,14 @@ export default function InvestmentCalculatorPage() {
 
             <div className={styles.ctaActions}>
               <Link
-                href="/eligibility"
+                href="/program/eligibility"
                 className={styles.ctaPrimary}
               >
                 Check Your Eligibility
               </Link>
 
               <Link
-                href="/contact"
+                href="/team/contact"
                 className={styles.ctaSecondary}
               >
                 Book a Private Consultation

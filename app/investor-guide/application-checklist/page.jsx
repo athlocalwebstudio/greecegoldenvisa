@@ -257,7 +257,7 @@ export default function ApplicationChecklistPage() {
               </a>
 
               <Link
-                href="/investor-guide"
+                href="/investor-guide/investor-handbook"
                 className={styles.secondaryButton}
               >
                 Explore the Investor Guide
@@ -558,7 +558,7 @@ export default function ApplicationChecklistPage() {
               </Link>
 
               <Link
-                href="/contact"
+                href="/team/contact"
                 className={styles.secondaryButton}
               >
                 Book a Private Consultation

@@ -36,12 +36,12 @@ export default function FamilyAndFuturePage() {
           </p>
 
           <div className={styles.heroActions}>
-            <Link href="/contact" className={styles.primaryButton}>
+            <Link href="/team/contact" className={styles.primaryButton}>
               Discuss Your Family&apos;s Future
               <span>↗</span>
             </Link>
 
-            <Link href="/eligibility" className={styles.secondaryButton}>
+            <Link href="/program/eligibility" className={styles.secondaryButton}>
               Check Your Eligibility
             </Link>
           </div>
@@ -374,12 +374,12 @@ export default function FamilyAndFuturePage() {
           </p>
 
           <div className={styles.finalActions}>
-            <Link href="/contact" className={styles.finalPrimary}>
+            <Link href="/team/contact" className={styles.finalPrimary}>
               Discuss Your Family&apos;s Future
               <span>↗</span>
             </Link>
 
-            <Link href="/eligibility" className={styles.finalSecondary}>
+            <Link href="/program/eligibility" className={styles.finalSecondary}>
               Check Your Eligibility
             </Link>
           </div>

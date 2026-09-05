@@ -429,7 +429,7 @@ export default function GatewayToEuropePage() {
           </p>
 
           <div className={styles.finalActions}>
-            <Link href="/contact" className={styles.primaryButton}>
+            <Link href="/team/contact" className={styles.primaryButton}>
               Discuss Your Investment
               <span>↗</span>
             </Link>

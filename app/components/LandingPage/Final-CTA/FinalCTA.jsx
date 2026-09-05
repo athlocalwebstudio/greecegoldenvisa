@@ -28,7 +28,7 @@ export default function FinalCTA() {
           </p>
 
           <div className={styles.actions}>
-            <Link href="/assessment" className={styles.primaryButton}>
+            <Link href="/investor-guide/application-checklist" className={styles.primaryButton}>
               <span>Start Your Free Assessment</span>
 
               <svg
@@ -48,7 +48,7 @@ export default function FinalCTA() {
               </svg>
             </Link>
 
-            <Link href="/contact" className={styles.secondaryButton}>
+            <Link href="/team/contact" className={styles.secondaryButton}>
               Talk to Us
             </Link>
           </div>

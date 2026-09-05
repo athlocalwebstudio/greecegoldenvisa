@@ -879,7 +879,7 @@ export default function MediterraneanLifestyleClient() {
             </p>
 
             <Link
-              href="/contact"
+              href="/team/contact"
               className={styles.closingButton}
             >
               Speak With an Advisor

@@ -95,7 +95,7 @@ export default function WhoWeArePage() {
 
             <div className={styles.heroActions}>
               <Link
-                href="/contact"
+                href="/team/contact"
                 className={styles.primaryButton}
               >
                 Meet With Us
@@ -103,7 +103,7 @@ export default function WhoWeArePage() {
               </Link>
 
               <Link
-                href="/investor-guide"
+                href="/investor-guide/investor-handbook"
                 className={styles.secondaryButton}
               >
                 Explore the Investor Guide
@@ -425,7 +425,7 @@ export default function WhoWeArePage() {
 
             <div className={styles.ctaActions}>
               <Link
-                href="/contact"
+                href="/team/contact"
                 className={styles.ctaPrimary}
               >
                 Book a Private Consultation
@@ -433,7 +433,7 @@ export default function WhoWeArePage() {
               </Link>
 
               <Link
-                href="/investor-guide"
+                href="/investor-guide/investor-handbook"
                 className={styles.ctaSecondary}
               >
                 Return to Investor Guide

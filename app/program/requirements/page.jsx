@@ -558,7 +558,7 @@ export default function InvestmentRequirementsPage() {
             </div>
 
             <Link
-              href="/contact"
+              href="/team/contact"
               className={styles.ctaButton}
             >
               Request a Property Review
