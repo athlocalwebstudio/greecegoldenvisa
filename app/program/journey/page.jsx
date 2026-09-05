@@ -19,11 +19,70 @@ import {
 
 import styles from "./journey.module.css";
 
+
 export const metadata = {
-  title: "Greek Golden Visa Application Journey | Golden Visa Greece",
+  title: "Greek Golden Visa Application Process",
+
   description:
-    "Understand the key stages of the Greek Golden Visa journey, from eligibility and investment strategy to property due diligence, transaction coordination and residence permit application.",
+    "Understand the Greek Golden Visa application process step by step, from eligibility and investment strategy to property due diligence, transaction coordination and residence permit application.",
+
+  keywords: [
+    "Greece Golden Visa process",
+    "Greek Golden Visa process",
+    "Golden Visa Greece application process",
+    "Greece Golden Visa application",
+    "Greek Golden Visa application",
+    "Greece Golden Visa journey",
+    "Golden Visa Greece steps",
+    "Greek Golden Visa steps",
+    "Greece Golden Visa procedure",
+    "Golden Visa property due diligence",
+    "Greece Golden Visa property investment",
+    "Golden Visa Greece requirements",
+    "Greece residency by investment",
+    "Greek residency by investment",
+  ],
+
+  alternates: {
+    canonical: "/program/journey",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  openGraph: {
+    type: "website",
+    url: "/program/journey",
+    siteName: "Greece Golden Visa",
+    locale: "en_GB",
+
+    title: "Greek Golden Visa Application Process | Greece Golden Visa",
+
+    description:
+      "Understand the Greek Golden Visa application process step by step, from eligibility and investment strategy to property due diligence, transaction coordination and residence permit application.",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title: "Greek Golden Visa Application Process | Greece Golden Visa",
+
+    description:
+      "Understand the Greek Golden Visa application process step by step, from eligibility and investment strategy to property due diligence, transaction coordination and residence permit application.",
+  },
 };
+
+
 
 const journeySteps = [
   {

@@ -13,11 +13,71 @@ import {
 
 import styles from "./requirements.module.css";
 
+
 export const metadata = {
-  title: "Greek Golden Visa Investment Requirements | Golden Visa Greece",
+  title: "Greek Golden Visa Investment Requirements",
+
   description:
-    "Understand the current Greek Golden Visa investment thresholds, property requirements and qualifying investment routes.",
+    "Understand the Greek Golden Visa investment thresholds, €250K, €400K and €800K property routes, location requirements and key conditions before investing in Greece.",
+
+  keywords: [
+    "Greece Golden Visa requirements",
+    "Greek Golden Visa requirements",
+    "Golden Visa Greece requirements",
+    "Greece Golden Visa investment requirements",
+    "Greek Golden Visa investment requirements",
+    "Golden Visa property requirements Greece",
+    "Greece Golden Visa minimum investment",
+    "Golden Visa Greece €250K",
+    "Golden Visa Greece €400K",
+    "Golden Visa Greece €800K",
+    "Greece Golden Visa property investment",
+    "Greek residency by investment",
+    "Greece residency by investment",
+  ],
+
+  alternates: {
+    canonical: "/program/requirements",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  openGraph: {
+    type: "website",
+    url: "/program/requirements",
+    siteName: "Greece Golden Visa",
+    locale: "en_GB",
+
+    title:
+      "Greek Golden Visa Investment Requirements | Greece Golden Visa",
+
+    description:
+      "Understand the Greek Golden Visa investment thresholds, €250K, €400K and €800K property routes, location requirements and key conditions before investing in Greece.",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title:
+      "Greek Golden Visa Investment Requirements | Greece Golden Visa",
+
+    description:
+      "Understand the Greek Golden Visa investment thresholds, €250K, €400K and €800K property routes, location requirements and key conditions before investing in Greece.",
+  },
 };
+
+
 
 const investmentRoutes = [
   {

@@ -13,11 +13,69 @@ import {
 
 import styles from "./benefits.module.css";
 
+
 export const metadata = {
-  title: "Greek Golden Visa Residency Benefits | Golden Visa Greece",
+  title: "Greek Golden Visa Benefits",
+
   description:
-    "Understand the main residence, travel and family benefits associated with the Greek Golden Visa.",
+    "Discover the main Greek Golden Visa benefits, including residence in Greece, Schengen travel, family residence and five-year permit renewal.",
+
+  keywords: [
+    "Greece Golden Visa benefits",
+    "Greek Golden Visa benefits",
+    "Golden Visa Greece benefits",
+    "Greek Golden Visa advantages",
+    "Greece Golden Visa residence permit",
+    "Golden Visa Greece Schengen travel",
+    "Greece Golden Visa family",
+    "Greek Golden Visa family benefits",
+    "Greece Golden Visa five year residence",
+    "Golden Visa Greece residency",
+    "Greece residency by investment",
+    "Greek residency by investment",
+    "Golden Visa Greece investment",
+  ],
+
+  alternates: {
+    canonical: "/program/benefits",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  openGraph: {
+    type: "website",
+    url: "/program/benefits",
+    siteName: "Greece Golden Visa",
+    locale: "en_GB",
+
+    title: "Greek Golden Visa Benefits | Greece Golden Visa",
+
+    description:
+      "Discover the main Greek Golden Visa benefits, including residence in Greece, Schengen travel, family residence and five-year permit renewal.",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title: "Greek Golden Visa Benefits | Greece Golden Visa",
+
+    description:
+      "Discover the main Greek Golden Visa benefits, including residence in Greece, Schengen travel, family residence and five-year permit renewal.",
+  },
 };
+
+
 
 const benefits = [
   {

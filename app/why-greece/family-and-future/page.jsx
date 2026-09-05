@@ -3,6 +3,71 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./familyAndFuture.module.css";
 
+
+export const metadata = {
+  title: "Family & Future in Greece | Golden Visa",
+
+  description:
+    "Discover how Greece can become a European base for your family, with residence options for qualifying family members, Mediterranean living and a long-term future in Greece.",
+
+  keywords: [
+    "Greece Golden Visa family",
+    "Greek Golden Visa family",
+    "Golden Visa Greece family benefits",
+    "Greece Golden Visa family residence",
+    "Greek Golden Visa family residence",
+    "Golden Visa Greece spouse",
+    "Golden Visa Greece children",
+    "Greece residency by investment family",
+    "Greek residency by investment family",
+    "living in Greece with family",
+    "family life in Greece",
+    "moving to Greece with family",
+    "Greece family residence",
+    "Greece Golden Visa benefits",
+    "Greek Golden Visa",
+  ],
+
+  alternates: {
+    canonical: "/why-greece/family-and-future",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  openGraph: {
+    type: "website",
+    url: "/why-greece/family-and-future",
+    siteName: "Greece Golden Visa",
+    locale: "en_GB",
+
+    title: "Family & Future in Greece | Greece Golden Visa",
+
+    description:
+      "Explore family residence possibilities, Mediterranean living and the long-term lifestyle Greece can offer families considering the Golden Visa.",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title: "Family & Future in Greece | Greece Golden Visa",
+
+    description:
+      "Explore family residence possibilities, Mediterranean living and the long-term lifestyle Greece can offer families considering the Golden Visa.",
+  },
+};
+
+
 export default function FamilyAndFuturePage() {
   return (
     <main className={styles.page}>

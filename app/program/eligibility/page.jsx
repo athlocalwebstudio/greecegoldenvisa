@@ -15,9 +15,63 @@ import {
 import styles from "./eligibility.module.css";
 
 export const metadata = {
-  title: "Greek Golden Visa Eligibility | Golden Visa Greece",
+  title: "Greek Golden Visa Eligibility",
+
   description:
-    "Understand who can apply for the Greek Golden Visa, the main eligibility conditions and what should be checked before starting the application.",
+    "Find out who can qualify for the Greek Golden Visa, the main eligibility conditions, investment requirements and key factors to check before applying.",
+
+  keywords: [
+    "Greece Golden Visa eligibility",
+    "Greek Golden Visa eligibility",
+    "Golden Visa Greece eligibility",
+    "who can apply for Greece Golden Visa",
+    "Greece Golden Visa requirements",
+    "Greek Golden Visa requirements",
+    "Golden Visa Greece investment requirements",
+    "Greece residency by investment",
+    "Greek residency by investment",
+    "Golden Visa Greece family",
+    "Greece Golden Visa property investment",
+    "Golden Visa Greece application",
+  ],
+
+  alternates: {
+    canonical: "/program/eligibility",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  openGraph: {
+    type: "website",
+    url: "/program/eligibility",
+    siteName: "Greece Golden Visa",
+    locale: "en_GB",
+
+    title: "Greek Golden Visa Eligibility | Greece Golden Visa",
+
+    description:
+      "Find out who can qualify for the Greek Golden Visa, the main eligibility conditions, investment requirements and key factors to check before applying.",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+
+    title: "Greek Golden Visa Eligibility | Greece Golden Visa",
+
+    description:
+      "Find out who can qualify for the Greek Golden Visa, the main eligibility conditions, investment requirements and key factors to check before applying.",
+  },
 };
 
 const eligibilitySteps = [

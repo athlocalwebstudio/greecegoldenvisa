@@ -1,3 +1,4 @@
+
 import "./globals.css";
 
 import Navbar from "./components/Navbar";
@@ -9,6 +10,14 @@ import {
 } from "next/font/google";
 
 import ClientLayout from "./ClientLayout";
+
+const BASE_URL =
+  "https://greecegoldenvisa-mocha.vercel.app";
+
+const SITE_NAME = "Greece Golden Visa";
+
+const SITE_DESCRIPTION =
+  "Expert guidance for investors exploring the Greece Golden Visa through property investment, technical due diligence and a structured residency process.";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -22,42 +31,96 @@ const inter = Inter({
   display: "swap",
 });
 
+/*
+|--------------------------------------------------------------------------
+| STRUCTURED DATA
+|--------------------------------------------------------------------------
+| Helps search engines understand the website and its main subject.
+| This does not change anything visually on the website.
+*/
+
+const websiteStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${BASE_URL}/#website`,
+  name: SITE_NAME,
+  url: BASE_URL,
+  description: SITE_DESCRIPTION,
+  inLanguage: "en",
+};
+
+const organizationStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${BASE_URL}/#organization`,
+  name: SITE_NAME,
+  url: BASE_URL,
+  logo: `${BASE_URL}/logo.jpg`,
+  description: SITE_DESCRIPTION,
+};
+
+const webpageStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${BASE_URL}/#webpage`,
+  url: BASE_URL,
+  name: "Greece Golden Visa | Investment & Residency Guidance",
+  description: SITE_DESCRIPTION,
+  isPartOf: {
+    "@id": `${BASE_URL}/#website`,
+  },
+  about: [
+    {
+      "@type": "Thing",
+      name: "Greek Golden Visa",
+    },
+    {
+      "@type": "Thing",
+      name: "Greece Residency by Investment",
+    },
+    {
+      "@type": "Thing",
+      name: "Property Investment in Greece",
+    },
+  ],
+  inLanguage: "en",
+};
+
 export const metadata = {
-  metadataBase: new URL(
-    "https://greecegoldenvisa-mocha.vercel.app"
-  ),
+  metadataBase: new URL(BASE_URL),
 
   title: {
-    default: "Greece Golden Visa | Investment & Residency Guidance",
+    default:
+      "Greece Golden Visa | Investment & Residency Guidance",
     template: "%s | Greece Golden Visa",
   },
 
-  description:
-    "Expert guidance for investors exploring the Greece Golden Visa through property investment, technical due diligence and a structured residency process.",
+  description: SITE_DESCRIPTION,
 
-  applicationName: "Greece Golden Visa",
+  applicationName: SITE_NAME,
 
   authors: [
     {
       name: "Greece Golden Visa",
+      url: BASE_URL,
     },
   ],
 
-  creator: "Greece Golden Visa",
+  creator: SITE_NAME,
 
-  publisher: "Greece Golden Visa",
+  publisher: SITE_NAME,
 
   keywords: [
     "Greece Golden Visa",
-    "Greek Golden Visa",
     "Golden Visa Greece",
+    "Greek Golden Visa",
     "Greece residency by investment",
-    "Golden Visa property investment",
-    "Greek residency",
-    "Greece investment",
-    "Golden Visa requirements",
-    "Golden Visa eligibility",
+    "Greek residency by investment",
+    "Golden Visa requirements Greece",
+    "Golden Visa eligibility Greece",
+    "Golden Visa property investment Greece",
     "property investment Greece",
+    "Greek property investment",
   ],
 
   robots: {
@@ -75,19 +138,23 @@ export const metadata = {
 
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "en_GB",
     url: "/",
-    siteName: "Greece Golden Visa",
-    title: "Greece Golden Visa | Investment & Residency Guidance",
-    description:
-      "Expert guidance for investors exploring the Greece Golden Visa through property investment, technical due diligence and a structured residency process.",
+    siteName: SITE_NAME,
+
+    title:
+      "Greece Golden Visa | Investment & Residency Guidance",
+
+    description: SITE_DESCRIPTION,
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Greece Golden Visa | Investment & Residency Guidance",
-    description:
-      "Expert guidance for investors exploring the Greece Golden Visa through property investment, technical due diligence and a structured residency process.",
+
+    title:
+      "Greece Golden Visa | Investment & Residency Guidance",
+
+    description: SITE_DESCRIPTION,
   },
 
   alternates: {
@@ -105,6 +172,33 @@ export default function RootLayout({ children }) {
       <body
         className={`${playfair.variable} ${inter.variable}`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              websiteStructuredData
+            ),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              organizationStructuredData
+            ),
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              webpageStructuredData
+            ),
+          }}
+        />
+
         <ClientLayout>
           <NavbarProvider>
             <Navbar />
