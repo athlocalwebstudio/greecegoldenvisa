@@ -4,7 +4,7 @@ import GreeceExperience from "./components/LandingPage/GreeceExperience/GreeceEx
 import InvestmentRoutes from "./components/LandingPage/Investment-Routes/InvestmentRoutes";
 import WhatWeDo from "./components/LandingPage/WhatWeDo/WhatWeDo";
 import PropertyOpportunities from "./components/LandingPage/PropertyOpportunities/PropertyOpportunities";
-import ReviewsProof from "./components/LandingPage/ReviewsProof/ReviewsProof";
+
 import FinalCTA from "./components/LandingPage/Final-CTA/FinalCTA";
 import Footer from "./components/LandingPage/Footer/Footer";
 
@@ -13,11 +13,10 @@ export default function Home() {
   <>
   <Hero />
   <TrustCompass />
+   <WhatWeDo />
   <GreeceExperience />
   <InvestmentRoutes />
-  <WhatWeDo />
   <PropertyOpportunities />
-  <ReviewsProof />
   <FinalCTA />
   <Footer />
   </>);
