@@ -888,7 +888,7 @@ HERO
             closer consideration.
           </p>
 
-          <Link href="/investments/strategic-properties">
+          <Link href="/investments/strategic-opportunities">
             Explore Strategic Options
             <ArrowRight size={15} />
           </Link>

@@ -565,7 +565,7 @@ export default function ResidencyBenefitsPage() {
               </p>
 
               <Link
-                href="/contact"
+                href="/team/contact"
                 className={styles.outlineButton}
               >
                 Speak with an advisor

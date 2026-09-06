@@ -461,7 +461,7 @@ export default function InvestorHandbookPage() {
                 arrangements connected to the investor.
               </p>
 
-              <Link href="/why-greece/family-future" className={styles.inlineLink}>
+              <Link href="/why-greece/family-and-future" className={styles.inlineLink}>
                 Explore Family & Future <span>→</span>
               </Link>
             </div>
@@ -530,7 +530,7 @@ export default function InvestorHandbookPage() {
           </div>
 
           <div className={styles.faqLinkWrapper}>
-            <Link href="/faq" className={styles.inlineLink}>
+            <Link href="/investor-guide/faq" className={styles.inlineLink}>
               View all FAQs <span>→</span>
             </Link>
           </div>
