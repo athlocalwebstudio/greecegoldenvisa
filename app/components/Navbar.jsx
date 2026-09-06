@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -11,6 +10,7 @@ import DropdownPanel from "./DropdownPanel";
 import MobileMenu from "./MobileMenu";
 import { navigation } from "./navigationData";
 import { useNavbar } from "@/app/context/NavbarContext";
+import ConsultationButton from "./consultation/ConsultationButton";
 
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -65,12 +65,9 @@ export default function Navbar() {
       </div>
 
       {/* DESKTOP CTA */}
-      <Link
-        href="/team/contact"
-        className={styles.cta}
-      >
+      <ConsultationButton className={styles.cta}>
         Free Consultation
-      </Link>
+      </ConsultationButton>
 
       {/* MOBILE MENU BUTTON */}
       <button

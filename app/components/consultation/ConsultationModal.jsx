@@ -96,41 +96,56 @@ export default function ConsultationModal({
   |--------------------------------------------------------------------------
   */
 
-  async function handleSubmit(event) {
-    event.preventDefault();
+ async function handleSubmit(event) {
+  event.preventDefault();
 
-    setSubmitting(true);
-    setError("");
+  setSubmitting(true);
+  setError("");
 
-    const form = event.currentTarget;
-    const formData = new FormData(form);
+  const form = event.currentTarget;
+  const formData = new FormData(form);
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        body: formData,
-      });
+  const fields = {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    phone: formData.get("phone"),
+    nationality: formData.get("nationality"),
+    budget: formData.get("budget"),
+    propertyStatus: formData.get("propertyStatus"),
+    language: formData.get("language"),
+    topics: formData.getAll("topic"),
+    message: formData.get("message"),
+  };
 
-      const data = await response.json();
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(fields),
+    });
 
-      if (!response.ok) {
-        throw new Error(
-          data?.error ||
-            "Something went wrong. Please try again."
-        );
-      }
+    const data = await response.json();
 
-      setSubmitted(true);
-      form.reset();
-    } catch (submitError) {
-      setError(
-        submitError.message ||
+    if (!response.ok) {
+      throw new Error(
+        data?.error ||
           "Something went wrong. Please try again."
       );
-    } finally {
-      setSubmitting(false);
     }
+
+    setSubmitted(true);
+    form.reset();
+  } catch (submitError) {
+    setError(
+      submitError.message ||
+        "Something went wrong. Please try again."
+    );
+  } finally {
+    setSubmitting(false);
   }
+}
 
   /*
   |--------------------------------------------------------------------------
