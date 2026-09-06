@@ -1,0 +1,709 @@
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background: rgba(5, 15, 30, 0.58);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  overflow-y: auto;
+
+  animation: overlayIn 0.25s ease;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+  position: relative;
+
+  width: min(760px, 100%);
+
+  max-height: calc(100vh - 60px);
+  max-height: calc(100dvh - 60px);
+
+  overflow-y: auto;
+
+  padding: 46px;
+
+  background: #ffffff;
+  color: #0f2c59;
+
+  border: 1px solid rgba(15, 44, 89, 0.1);
+  border-radius: 24px;
+
+  box-shadow:
+    0 35px 100px rgba(5, 20, 40, 0.28);
+
+  animation: modalIn 0.3s ease;
+}
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  width: 42px;
+  height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(15, 44, 89, 0.12);
+  border-radius: 50%;
+
+  background: #ffffff;
+  color: #0f2c59;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.closeButton:hover {
+  transform: rotate(5deg);
+  background: #e8f4fd;
+  border-color: rgba(59, 169, 239, 0.4);
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+  max-width: 620px;
+  margin-bottom: 30px;
+  padding-right: 45px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 16px;
+
+  color: #3ba9ef;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  line-height: 1;
+}
+
+.eyebrow span {
+  width: 25px;
+  height: 1px;
+
+  background: #3ba9ef;
+}
+
+.header h2,
+.success h2 {
+  margin: 0;
+
+  color: #0f2c59;
+
+  font-family:
+    var(--font-serif,
+    "Playfair Display",
+    Georgia,
+    serif);
+
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.header h2 span,
+.success h2 span {
+  color: #3ba9ef;
+}
+
+.header p {
+  max-width: 560px;
+
+  margin: 18px 0 0;
+
+  color: #64748b;
+
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  min-width: 0;
+}
+
+.field > span,
+.fieldLabel {
+  color: #0f2c59;
+
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+
+  border: 1px solid rgba(15, 44, 89, 0.13);
+  border-radius: 12px;
+
+  background: #f8fafc;
+  color: #0f2c59;
+
+  font-family: inherit;
+  font-size: 0.88rem;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.field input,
+.field select {
+  min-height: 48px;
+  padding: 0 14px;
+}
+
+.field textarea {
+  min-height: 108px;
+  padding: 13px 14px;
+
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #94a3b8;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: rgba(59, 169, 239, 0.65);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(59, 169, 239, 0.1);
+}
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+.languageField {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.languageRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.languageRow label {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+}
+
+.languageRow input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.languageRow label span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 40px;
+
+  padding: 0 17px;
+
+  border: 1px solid rgba(15, 44, 89, 0.13);
+  border-radius: 999px;
+
+  background: #f8fafc;
+  color: #0f2c59;
+
+  font-size: 0.76rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.languageRow input:checked + span {
+  border-color: #0f2c59;
+  background: #0f2c59;
+  color: #ffffff;
+}
+
+.languageRow label span:hover {
+  border-color: rgba(59, 169, 239, 0.5);
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.error {
+  padding: 12px 14px;
+
+  border: 1px solid rgba(190, 40, 40, 0.2);
+  border-radius: 10px;
+
+  background: rgba(190, 40, 40, 0.06);
+  color: #9f2d2d;
+
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   FORM BOTTOM
+========================================================= */
+
+.formBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding-top: 5px;
+}
+
+.formBottom p {
+  max-width: 370px;
+
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 0.67rem;
+  line-height: 1.55;
+}
+
+.submitButton {
+  flex: 0 0 auto;
+
+  min-height: 50px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 0 20px;
+
+  border: 0;
+  border-radius: 999px;
+
+  background: #0f2c59;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: #3ba9ef;
+  box-shadow: 0 12px 30px rgba(15, 44, 89, 0.15);
+}
+
+.submitButton:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+.success {
+  min-height: 480px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 30px 15px;
+}
+
+.successIcon {
+  width: 58px;
+  height: 58px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 22px;
+
+  border-radius: 50%;
+
+  background: #e8f4fd;
+  color: #3ba9ef;
+}
+
+.success h2 {
+  margin-top: 3px;
+}
+
+.success > p {
+  max-width: 540px;
+
+  margin: 20px 0 0;
+
+  color: #64748b;
+
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.successActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-top: 28px;
+}
+
+.successActions a {
+  min-height: 44px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 0 16px;
+
+  border: 1px solid rgba(15, 44, 89, 0.13);
+  border-radius: 999px;
+
+  background: #ffffff;
+  color: #0f2c59;
+
+  font-size: 0.73rem;
+  font-weight: 750;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.successActions a:hover {
+  transform: translateY(-2px);
+  background: #e8f4fd;
+  border-color: rgba(59, 169, 239, 0.4);
+}
+
+.doneButton {
+  margin-top: 24px;
+
+  min-height: 44px;
+
+  padding: 0 18px;
+
+  border: 0;
+  border-radius: 999px;
+
+  background: #0f2c59;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 0.73rem;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.doneButton:hover {
+  transform: translateY(-2px);
+  background: #3ba9ef;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 700px) {
+  .overlay {
+    align-items: flex-start;
+
+    padding: 15px;
+  }
+
+  .modal {
+    width: 100%;
+
+    max-height: calc(100vh - 30px);
+    max-height: calc(100dvh - 30px);
+
+    padding: 34px 24px;
+
+    border-radius: 20px;
+  }
+
+  .header {
+    padding-right: 35px;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .formBottom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .formBottom p {
+    max-width: none;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
+
+  .success {
+    min-height: 430px;
+    padding: 25px 5px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+  .overlay {
+    padding: 8px;
+  }
+
+  .modal {
+    max-height: calc(100vh - 16px);
+    max-height: calc(100dvh - 16px);
+
+    padding: 30px 18px;
+
+    border-radius: 18px;
+  }
+
+  .closeButton {
+    top: 13px;
+    right: 13px;
+
+    width: 38px;
+    height: 38px;
+  }
+
+  .header {
+    margin-bottom: 25px;
+    padding-right: 38px;
+  }
+
+  .eyebrow {
+    margin-bottom: 13px;
+
+    font-size: 0.6rem;
+  }
+
+  .header h2,
+  .success h2 {
+    font-size: 2rem;
+  }
+
+  .header p {
+    margin-top: 14px;
+
+    font-size: 0.82rem;
+  }
+
+  .form {
+    gap: 16px;
+  }
+
+  .languageRow {
+    gap: 7px;
+  }
+
+  .languageRow label span {
+    min-height: 38px;
+
+    padding: 0 13px;
+
+    font-size: 0.7rem;
+  }
+
+  .successActions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .successActions a {
+    width: 100%;
+  }
+
+  .doneButton {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+  .modal {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .header h2,
+  .success h2 {
+    font-size: 1.8rem;
+  }
+
+  .languageRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .languageRow label,
+  .languageRow label span {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+  .closeButton:hover,
+  .submitButton:hover:not(:disabled),
+  .successActions a:hover,
+  .doneButton:hover {
+    transform: none;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .modal {
+    animation: none;
+  }
+
+  .closeButton,
+  .submitButton,
+  .successActions a,
+  .doneButton {
+    transition: none;
+  }
+}

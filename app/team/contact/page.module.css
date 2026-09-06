@@ -3215,3 +3215,79 @@
   min-width: 0;
 }
 
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsappButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 45px;
+  max-width: 100%;
+  padding: 12px 19px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 44, 89, 0.14);
+  background: #ffffff;
+  color: var(--navy);
+  font-size: 0.63rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.whatsappButton:hover {
+  transform: translateY(-2px);
+  background: var(--light-blue);
+  border-color: rgba(59, 169, 239, 0.4);
+  color: var(--navy);
+}
+
+@media (max-width: 700px) {
+  .whatsappButton {
+    width: 100%;
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 520px) {
+  .whatsappButton {
+    font-size: 0.59rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .whatsappButton {
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 360px) {
+  .whatsappButton {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .whatsappButton:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsappButton {
+    transition: none;
+  }
+
+  .whatsappButton:hover {
+    transform: none;
+  }
+}

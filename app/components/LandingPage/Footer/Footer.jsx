@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -32,8 +33,13 @@ const contactDetails = [
   },
   {
     label: "PHONE",
-    value: "+306976695096",
-    href: "tel:+306976695096",
+    value: "+306993229390",
+    href: "tel:+306993229390",
+  },
+  {
+    label: "WHATSAPP",
+    value: "+306993229390",
+    href: "https://wa.me/306993229390",
   },
 ];
 

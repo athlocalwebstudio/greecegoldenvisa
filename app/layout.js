@@ -1,8 +1,8 @@
-
 import "./globals.css";
 
 import Navbar from "./components/Navbar";
 import { NavbarProvider } from "./context/NavbarContext";
+import { ConsultationProvider } from "./components/consultation/ConsultationProvider";
 
 import {
   Playfair_Display,
@@ -18,6 +18,12 @@ const SITE_NAME = "Greece Golden Visa";
 
 const SITE_DESCRIPTION =
   "Expert guidance for investors exploring the Greece Golden Visa through property investment, technical due diligence and a structured residency process.";
+
+/*
+|--------------------------------------------------------------------------
+| FONTS
+|--------------------------------------------------------------------------
+*/
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -199,13 +205,15 @@ export default function RootLayout({ children }) {
           }}
         />
 
-        <ClientLayout>
-          <NavbarProvider>
-            <Navbar />
+        <ConsultationProvider>
+          <ClientLayout>
+            <NavbarProvider>
+              <Navbar />
 
-            {children}
-          </NavbarProvider>
-        </ClientLayout>
+              {children}
+            </NavbarProvider>
+          </ClientLayout>
+        </ConsultationProvider>
       </body>
     </html>
   );
