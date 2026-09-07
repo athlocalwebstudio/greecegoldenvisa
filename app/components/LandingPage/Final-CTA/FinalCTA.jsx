@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import styles from "@/app/components/LandingPage/Final-CTA/finalCTA.module.css";
+import styles from "../Final-CTA/finalCTA.module.css";
 
 export default function FinalCTA() {
   return (
