@@ -28,8 +28,8 @@ const footerColumns = [
 const contactDetails = [
   {
     label: "EMAIL",
-    value: "info@homesingreece.eu",
-    href: "info@homesingreece.eu",
+    value: "higolgenvisa@gmail.com",
+    href: "higolgenvisa@gmail.com",
   },
   {
     label: "PHONE",

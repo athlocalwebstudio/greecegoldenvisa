@@ -1,5 +1,7 @@
 import ReadyPropertiesClient from "./ReadyPropertyClients";
 
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
 
 export const metadata = {
   title: "Golden Visa Properties in Greece",
@@ -63,7 +65,72 @@ export const metadata = {
   },
 };
 
+const PROPERTIES_QUERY = `
+  *[
+    _type == "property"
+    && published == true
+  ] | order(_createdAt desc) {
+    _id,
+    title,
+    mainImage,
+    location,
+    city,
+    price,
+    route,
+    type,
+    status,
+    description,
+    features,
+    propertyUrl
+  }
+`;
 
-export default function ReadyPropertiesPage() {
-return <ReadyPropertiesClient />;
+export default async function ReadyPropertiesPage() {
+  const sanityProperties = await client.fetch(
+    PROPERTIES_QUERY,
+    {},
+    {
+      next: {
+        revalidate: 60,
+      },
+    }
+  );
+
+  const properties = sanityProperties.map((property) => ({
+    id: property._id,
+
+    title: property.title,
+
+    location: property.location,
+
+    city: property.city,
+
+    price: property.price,
+
+    route: property.route,
+
+    type: property.type,
+
+    status: property.status,
+
+    image: property.mainImage
+      ? urlFor(property.mainImage)
+          .width(1200)
+          .height(800)
+          .fit("crop")
+          .url()
+      : "/images/properties/property-placeholder.jpg",
+
+    description: property.description,
+
+    features: property.features || [],
+
+    propertyUrl: property.propertyUrl,
+  }));
+
+  return (
+    <ReadyPropertiesClient
+      properties={properties}
+    />
+  );
 }

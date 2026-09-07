@@ -320,8 +320,8 @@ export default function TermsAndConditionsPage() {
                 <div className={styles.contactBox}>
                   <strong>Greece Golden Visa</strong>
 
-                  <a href="mailto:info@homesingreece.eu">
-                    info@homesingreece.eu
+                  <a href="mailto:higolgenvisa@gmail.com">
+                    higolgenvisa@gmail.com
                   </a>
                 </div>
               </section>

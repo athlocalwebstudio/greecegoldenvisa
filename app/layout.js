@@ -1,15 +1,13 @@
 import "./globals.css";
 
-import Navbar from "./components/Navbar";
-import { NavbarProvider } from "./context/NavbarContext";
-import { ConsultationProvider } from "./components/consultation/ConsultationProvider";
+import SiteShell from "./SiteShell";
 
 import {
   Playfair_Display,
   Inter,
 } from "next/font/google";
 
-import ClientLayout from "./ClientLayout";
+
 
 const BASE_URL =
   "https://greecegoldenvisa-mocha.vercel.app";
@@ -205,15 +203,9 @@ export default function RootLayout({ children }) {
           }}
         />
 
-        <ConsultationProvider>
-          <ClientLayout>
-            <NavbarProvider>
-              <Navbar />
-
-              {children}
-            </NavbarProvider>
-          </ClientLayout>
-        </ConsultationProvider>
+       <SiteShell>
+  {children}
+</SiteShell>
       </body>
     </html>
   );

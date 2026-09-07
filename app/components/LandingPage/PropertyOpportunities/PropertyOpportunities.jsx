@@ -1,7 +1,7 @@
+
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -13,94 +13,354 @@ import {
 
 import styles from "./propertyOpportunities.module.css";
 
-const properties = [
-  {
-    id: "athens-residence",
-    number: "01",
-    title: "Contemporary Athens Residence",
-    location: "Athens, Attica",
-    category: "RESIDENTIAL",
-    investment: "€250,000+",
-    price: "€285,000",
-    type: "Apartment",
-    size: "92 m²",
-    bedrooms: "2 Bedrooms",
-    route: "€250K Investment Route",
-    description:
-      "A contemporary residence in Athens, selected for investors seeking a well-connected location with strong lifestyle appeal and long-term investment potential.",
-    image: "/ready-to-move.jpg",
-    href: "/program/eligibility",
-  },
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
 
-  {
-    id: "athens-riviera",
-    number: "02",
-    title: "Athens Riviera Residence",
-    location: "Athens Riviera",
-    category: "RESIDENTIAL",
-    investment: "€400,000+",
-    price: "€425,000",
-    type: "Premium Residence",
-    size: "118 m²",
-    bedrooms: "3 Bedrooms",
-    route: "€400K Investment Route",
-    description:
-      "A premium coastal residence positioned in one of the most sought-after areas of the Athens metropolitan region, combining lifestyle and investment appeal.",
-    image: "/alternative-investments.jpg",
-    href: "/program/eligibility",
-  },
+/*
+|--------------------------------------------------------------------------
+| SANITY QUERY
+|--------------------------------------------------------------------------
+*/
 
-  {
-    id: "island-villa",
-    number: "03",
-    title: "Private Island Villa",
-    location: "Greek Islands",
-    category: "VILLA",
-    investment: "Lifestyle",
-    price: "€650,000",
-    type: "Private Villa",
-    size: "164 m²",
-    bedrooms: "4 Bedrooms",
-    route: "Lifestyle Investment",
-    description:
-      "A distinctive Greek island property combining privacy, architectural character and the Mediterranean lifestyle that makes Greece a compelling investment destination.",
-    image: "/third_scene.jpg",
-    href: "/program/eligibility",
-  },
+const PROPERTIES_QUERY = `
+  *[
+    _type == "property"
+    && published == true
+  ] {
+    _id,
+    title,
+    mainImage,
+    location,
+    city,
+    price,
+    route,
+    type,
+    status,
+    description,
+    features,
+    propertyUrl
+  }
+`;
 
-  {
-    id: "urban-investment",
-    number: "04",
-    title: "Central Athens Investment",
-    location: "Central Athens",
-    category: "INVESTMENT",
-    investment: "€800,000+",
-    price: "€820,000",
-    type: "Investment Residence",
-    size: "156 m²",
-    bedrooms: "3 Bedrooms",
-    route: "€800K Investment Route",
-    description:
-      "A strategically located urban property for investors seeking a premium Athens asset with strong positioning within one of Greece's most established property markets.",
-    image: "/commercial-image.jpg",
-    href: "/program/eligibility",
-  },
-];
+/*
+|--------------------------------------------------------------------------
+| HELPERS
+|--------------------------------------------------------------------------
+*/
+
+function formatPrice(price) {
+  if (!price) return "Price on request";
+
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "EUR",
+    maximumFractionDigits: 0,
+  }).format(price);
+}
+
+function getFeature(features = [], pattern) {
+  return (
+    features.find((feature) =>
+      pattern.test(String(feature))
+    ) || null
+  );
+}
+
+function getPropertySize(features = []) {
+  return (
+    getFeature(
+      features,
+      /^\s*[\d,.]+\s*sqm\b/i
+    ) ||
+    getFeature(
+      features,
+      /^\s*[\d,.]+\s*m²\b/i
+    ) ||
+    "—"
+  );
+}
+
+function getBedrooms(features = []) {
+  return getFeature(
+    features,
+    /bedroom/i
+  );
+}
+
+function getCategory(type) {
+  if (type === "Land") {
+    return "LAND";
+  }
+
+  return "RESIDENTIAL";
+}
+
+function getRouteLabel(route) {
+  if (
+    !route ||
+    route === "Not Yet Verified"
+  ) {
+    return "Route to be verified";
+  }
+
+  return `${route} Investment Route`;
+}
+
+/*
+|--------------------------------------------------------------------------
+| COMPONENT
+|--------------------------------------------------------------------------
+*/
 
 export default function PropertyOpportunities() {
+  const [properties, setProperties] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const activeProperty = properties[activeIndex];
+  /*
+  |--------------------------------------------------------------------------
+  | FETCH PUBLISHED SANITY PROPERTIES
+  |--------------------------------------------------------------------------
+  */
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function fetchProperties() {
+      try {
+        const data = await client.fetch(
+          PROPERTIES_QUERY
+        );
+
+        if (isMounted) {
+          setProperties(data || []);
+        }
+      } catch (error) {
+        console.error(
+          "Failed to load Sanity properties:",
+          error
+        );
+
+        if (isMounted) {
+          setProperties([]);
+        }
+      } finally {
+        if (isMounted) {
+          setIsLoading(false);
+        }
+      }
+    }
+
+    fetchProperties();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  /*
+  |--------------------------------------------------------------------------
+  | MAP SANITY DATA → CARD DATA
+  |--------------------------------------------------------------------------
+  */
+
+  const mappedProperties = useMemo(() => {
+    const sortedProperties = [
+      ...properties,
+    ].sort((a, b) => {
+      const aTitle =
+        a.title?.toLowerCase() || "";
+
+      const bTitle =
+        b.title?.toLowerCase() || "";
+
+      /*
+      |--------------------------------------------------------------
+      | CAROUSEL ORDER
+      |
+      | 01 — Luxury 260 sqm Villa in Anavyssos
+      | 02 — Luxury 157 sqm Maisonette in Varkiza
+      | 03 — Coastal Development Land in Ermioni
+      |--------------------------------------------------------------
+      */
+
+      const aIsAnavyssos =
+        aTitle.includes("anavyssos") ||
+        aTitle.includes("villa");
+
+      const bIsAnavyssos =
+        bTitle.includes("anavyssos") ||
+        bTitle.includes("villa");
+
+      const aIsVarkiza =
+        aTitle.includes("varkiza") ||
+        aTitle.includes("maisonette");
+
+      const bIsVarkiza =
+        bTitle.includes("varkiza") ||
+        bTitle.includes("maisonette");
+
+      if (
+        aIsAnavyssos &&
+        !bIsAnavyssos
+      ) {
+        return -1;
+      }
+
+      if (
+        !aIsAnavyssos &&
+        bIsAnavyssos
+      ) {
+        return 1;
+      }
+
+      if (
+        aIsVarkiza &&
+        !bIsVarkiza
+      ) {
+        return -1;
+      }
+
+      if (
+        !aIsVarkiza &&
+        bIsVarkiza
+      ) {
+        return 1;
+      }
+
+      return 0;
+    });
+
+    return sortedProperties.map(
+      (property, index) => {
+        const features =
+          property.features || [];
+
+        const bedrooms =
+          getBedrooms(features);
+
+        return {
+          id:
+            property._id ||
+            `property-${index}`,
+
+          number: String(
+            index + 1
+          ).padStart(2, "0"),
+
+          title:
+            property.title ||
+            "Property Opportunity",
+
+          location:
+            property.city &&
+            property.location
+              ? `${property.city}, ${property.location}`
+              : property.city ||
+                property.location ||
+                "Greece",
+
+          category:
+            getCategory(property.type),
+
+          price:
+            formatPrice(property.price),
+
+          type:
+            property.type ||
+            "Property",
+
+          size:
+            getPropertySize(features),
+
+          bedrooms,
+
+          route:
+            getRouteLabel(
+              property.route
+            ),
+
+          description:
+            property.description ||
+            "A selected property opportunity in Greece.",
+
+          image:
+            property.mainImage
+              ? urlFor(property.mainImage)
+                  .width(1400)
+                  .height(900)
+                  .fit("crop")
+                  .url()
+              : "/ready-to-move.jpg",
+
+          href:
+            property.propertyUrl ||
+            "/program/eligibility",
+
+          status:
+            property.status ||
+            "Available",
+        };
+      }
+    );
+  }, [properties]);
+
+  /*
+  |--------------------------------------------------------------------------
+  | KEEP INDEX VALID
+  |--------------------------------------------------------------------------
+  */
+
+  useEffect(() => {
+    if (
+      activeIndex >=
+      mappedProperties.length
+    ) {
+      setActiveIndex(0);
+    }
+  }, [
+    activeIndex,
+    mappedProperties.length,
+  ]);
+
+  /*
+  |--------------------------------------------------------------------------
+  | LOADING
+  |--------------------------------------------------------------------------
+  */
+
+  if (
+    isLoading ||
+    !mappedProperties.length
+  ) {
+    return null;
+  }
+
+  const activeProperty =
+    mappedProperties[activeIndex];
+
+  /*
+  |--------------------------------------------------------------------------
+  | SLIDER CONTROLS
+  |--------------------------------------------------------------------------
+  */
 
   const previousSlide = () => {
-    setActiveIndex((current) =>
-      current === 0 ? properties.length - 1 : current - 1
+    setActiveIndex(
+      (current) =>
+        current === 0
+          ? mappedProperties.length - 1
+          : current - 1
     );
   };
 
   const nextSlide = () => {
-    setActiveIndex((current) =>
-      current === properties.length - 1 ? 0 : current + 1
+    setActiveIndex(
+      (current) =>
+        current ===
+        mappedProperties.length - 1
+          ? 0
+          : current + 1
     );
   };
 
@@ -109,8 +369,14 @@ export default function PropertyOpportunities() {
   };
 
   return (
-    <section className={styles.propertyOpportunities}>
-      <div className={styles.container}>
+    <section
+      className={
+        styles.propertyOpportunities
+      }
+    >
+      <div
+        className={styles.container}
+      >
 
         {/* =========================================
             INTRO
@@ -118,12 +384,27 @@ export default function PropertyOpportunities() {
 
         <div className={styles.intro}>
 
-          <div className={styles.introEyebrow}>
-            <span className={styles.eyebrowLine} />
-            <span>PROPERTY OPPORTUNITIES</span>
+          <div
+            className={
+              styles.introEyebrow
+            }
+          >
+            <span
+              className={
+                styles.eyebrowLine
+              }
+            />
+
+            <span>
+              PROPERTY OPPORTUNITIES
+            </span>
           </div>
 
-          <div className={styles.introHeading}>
+          <div
+            className={
+              styles.introHeading
+            }
+          >
             <h2>
               Explore properties
               <br />
@@ -131,14 +412,26 @@ export default function PropertyOpportunities() {
             </h2>
           </div>
 
-          <div className={styles.introDescription}>
+          <div
+            className={
+              styles.introDescription
+            }
+          >
             <p>
-              Discover a selection of properties that may fit different
-              investment strategies across Greece.
+              Discover a selection of
+              properties across Greece
+              that may fit different
+              investment strategies.
             </p>
 
-            <span className={styles.introNote}>
-              Each opportunity is reviewed around your goals before you move
+            <span
+              className={
+                styles.introNote
+              }
+            >
+              Each opportunity is
+              considered around your
+              goals before you move
               forward.
             </span>
           </div>
@@ -150,7 +443,9 @@ export default function PropertyOpportunities() {
             CAROUSEL
         ========================================= */}
 
-        <div className={styles.carousel}>
+        <div
+          className={styles.carousel}
+        >
 
           {/* LEFT ARROW */}
 
@@ -168,61 +463,120 @@ export default function PropertyOpportunities() {
 
 
           {/* =========================================
-              CLICKABLE PROPERTY CARD
+              PROPERTY CARD
           ========================================= */}
 
-          <Link
+          <a
             href={activeProperty.href}
-            className={styles.propertyCardLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={
+              styles.propertyCardLink
+            }
             aria-label={`Explore ${activeProperty.title}`}
           >
 
-            <article className={styles.propertyCard}>
+            <article
+              className={
+                styles.propertyCard
+              }
+            >
 
               {/* =========================================
                   IMAGE
               ========================================= */}
 
-              <div className={styles.imageWrapper}>
+              <div
+                className={
+                  styles.imageWrapper
+                }
+              >
 
                 <img
-                  key={activeProperty.image}
-                  src={activeProperty.image}
-                  alt={activeProperty.title}
-                  className={styles.image}
+                  key={
+                    activeProperty.image
+                  }
+                  src={
+                    activeProperty.image
+                  }
+                  alt={
+                    activeProperty.title
+                  }
+                  className={
+                    styles.image
+                  }
                 />
 
-                <div className={styles.imageOverlay} />
+                <div
+                  className={
+                    styles.imageOverlay
+                  }
+                />
 
-                <div className={styles.imageTop}>
+                <div
+                  className={
+                    styles.imageTop
+                  }
+                >
 
-                  <span className={styles.propertyNumber}>
-                    {activeProperty.number} /{" "}
-                    {String(properties.length).padStart(2, "0")}
+                  <span
+                    className={
+                      styles.propertyNumber
+                    }
+                  >
+                    {
+                      activeProperty.number
+                    }{" "}
+                    /{" "}
+                    {String(
+                      mappedProperties.length
+                    ).padStart(2, "0")}
                   </span>
 
-                  <span className={styles.propertyCategory}>
-                    {activeProperty.category}
+                  <span
+                    className={
+                      styles.propertyCategory
+                    }
+                  >
+                    {
+                      activeProperty.category
+                    }
                   </span>
 
                 </div>
 
 
-                <div className={styles.imageBottom}>
+                <div
+                  className={
+                    styles.imageBottom
+                  }
+                >
 
-                  <div className={styles.location}>
+                  <div
+                    className={
+                      styles.location
+                    }
+                  >
+
                     <MapPin
                       size={15}
                       strokeWidth={1.8}
                     />
 
                     <span>
-                      {activeProperty.location}
+                      {
+                        activeProperty.location
+                      }
                     </span>
+
                   </div>
 
-                  <span className={styles.illustrativeLabel}>
-                    ILLUSTRATIVE PROPERTY
+                  <span
+                    className={
+                      styles.illustrativeLabel
+                    }
+                  >
+                    SELECTED PROPERTY
                   </span>
 
                 </div>
@@ -234,31 +588,59 @@ export default function PropertyOpportunities() {
                   PROPERTY CONTENT
               ========================================= */}
 
-              <div className={styles.propertyContent}>
+              <div
+                className={
+                  styles.propertyContent
+                }
+              >
 
-                <div className={styles.contentTop}>
+                <div
+                  className={
+                    styles.contentTop
+                  }
+                >
 
-                  <div className={styles.titleArea}>
+                  <div
+                    className={
+                      styles.titleArea
+                    }
+                  >
 
-                    <span className={styles.contentEyebrow}>
+                    <span
+                      className={
+                        styles.contentEyebrow
+                      }
+                    >
                       SELECTED OPPORTUNITY
                     </span>
 
                     <h3>
-                      {activeProperty.title}
+                      {
+                        activeProperty.title
+                      }
                     </h3>
 
                   </div>
 
 
-                  <div className={styles.priceArea}>
+                  <div
+                    className={
+                      styles.priceArea
+                    }
+                  >
 
-                    <span className={styles.priceLabel}>
+                    <span
+                      className={
+                        styles.priceLabel
+                      }
+                    >
                       INDICATIVE VALUE
                     </span>
 
                     <strong>
-                      {activeProperty.price}
+                      {
+                        activeProperty.price
+                      }
                     </strong>
 
                   </div>
@@ -270,65 +652,139 @@ export default function PropertyOpportunities() {
                     PROPERTY DETAILS
                 ========================================= */}
 
-                <div className={styles.propertyDetails}>
+                <div
+                  className={
+                    styles.propertyDetails
+                  }
+                >
 
-                  <div className={styles.detailItem}>
+                  <div
+                    className={
+                      styles.detailItem
+                    }
+                  >
 
-                    <span className={styles.detailLabel}>
+                    <span
+                      className={
+                        styles.detailLabel
+                      }
+                    >
                       TYPE
                     </span>
 
-                    <span className={styles.detailValue}>
-                      {activeProperty.type}
+                    <span
+                      className={
+                        styles.detailValue
+                      }
+                    >
+                      {
+                        activeProperty.type
+                      }
                     </span>
 
                   </div>
 
 
-                  <div className={styles.detailItem}>
+                  <div
+                    className={
+                      styles.detailItem
+                    }
+                  >
 
-                    <span className={styles.detailLabel}>
+                    <span
+                      className={
+                        styles.detailLabel
+                      }
+                    >
                       SIZE
                     </span>
 
-                    <span className={styles.detailValue}>
+                    <span
+                      className={
+                        styles.detailValue
+                      }
+                    >
+
                       <Ruler
                         size={14}
                         strokeWidth={1.8}
                       />
 
-                      {activeProperty.size}
+                      {
+                        activeProperty.size
+                      }
+
                     </span>
 
                   </div>
 
 
-                  <div className={styles.detailItem}>
+                  <div
+                    className={
+                      styles.detailItem
+                    }
+                  >
 
-                    <span className={styles.detailLabel}>
-                      BEDROOMS
+                    <span
+                      className={
+                        styles.detailLabel
+                      }
+                    >
+                      {
+                        activeProperty.bedrooms
+                          ? "BEDROOMS"
+                          : "STATUS"
+                      }
                     </span>
 
-                    <span className={styles.detailValue}>
-                      <BedDouble
-                        size={14}
-                        strokeWidth={1.8}
-                      />
+                    <span
+                      className={
+                        styles.detailValue
+                      }
+                    >
 
-                      {activeProperty.bedrooms}
+                      {activeProperty.bedrooms ? (
+                        <>
+                          <BedDouble
+                            size={14}
+                            strokeWidth={1.8}
+                          />
+
+                          {
+                            activeProperty.bedrooms
+                          }
+                        </>
+                      ) : (
+                        activeProperty.status
+                      )}
+
                     </span>
 
                   </div>
 
 
-                  <div className={styles.detailItem}>
+                  <div
+                    className={
+                      styles.detailItem
+                    }
+                  >
 
-                    <span className={styles.detailLabel}>
+                    <span
+                      className={
+                        styles.detailLabel
+                      }
+                    >
                       INVESTMENT ROUTE
                     </span>
 
-                    <span className={styles.detailValue}>
-                      {activeProperty.route}
+                    <span
+                      className={
+                        styles.detailValue
+                      }
+                    >
+                      {
+                        activeProperty.route
+                      }
                     </span>
 
                   </div>
@@ -340,45 +796,76 @@ export default function PropertyOpportunities() {
                     DESCRIPTION
                 ========================================= */}
 
-                <p className={styles.description}>
-                  {activeProperty.description}
+                <p
+                  className={
+                    styles.description
+                  }
+                >
+                  {
+                    activeProperty.description
+                  }
                 </p>
 
 
-                <div className={styles.propertyDivider} />
+                <div
+                  className={
+                    styles.propertyDivider
+                  }
+                />
 
 
                 {/* =========================================
                     BOTTOM CONTENT
                 ========================================= */}
 
-                <div className={styles.bottomContent}>
+                <div
+                  className={
+                    styles.bottomContent
+                  }
+                >
 
-                  <div className={styles.selectionNote}>
+                  <div
+                    className={
+                      styles.selectionNote
+                    }
+                  >
 
                     <span>
                       OUR APPROACH
                     </span>
 
                     <p>
-                      Properties are considered around your investment
-                      objectives — not simply available inventory.
+                      Properties are
+                      considered around
+                      your investment
+                      objectives — not simply
+                      available inventory.
                     </p>
 
                   </div>
 
 
-                  <span className={styles.exploreButton}>
+                  <span
+                    className={
+                      styles.exploreButton
+                    }
+                  >
 
                     <span>
-                      Explore property
+                      View property
                     </span>
 
-                    <span className={styles.exploreIcon}>
+                    <span
+                      className={
+                        styles.exploreIcon
+                      }
+                    >
+
                       <ArrowUpRight
                         size={17}
                         strokeWidth={2}
                       />
+
                     </span>
 
                   </span>
@@ -389,7 +876,7 @@ export default function PropertyOpportunities() {
 
             </article>
 
-          </Link>
+          </a>
 
 
           {/* RIGHT ARROW */}
@@ -413,29 +900,46 @@ export default function PropertyOpportunities() {
             CONTROLS
         ========================================= */}
 
-        <div className={styles.controls}>
+        <div
+          className={styles.controls}
+        >
 
-          <div className={styles.progress}>
+          <div
+            className={styles.progress}
+          >
 
-            {properties.map((property, index) => (
-              <button
-                type="button"
-                key={property.id}
-                onClick={() => goToSlide(index)}
-                className={`${styles.progressItem} ${
-                  index === activeIndex
-                    ? styles.progressActive
-                    : ""
-                }`}
-                aria-label={`Go to ${property.title}`}
-              />
-            ))}
+            {mappedProperties.map(
+              (property, index) => (
+                <button
+                  type="button"
+                  key={property.id}
+                  onClick={() =>
+                    goToSlide(index)
+                  }
+                  className={`${styles.progressItem} ${
+                    index === activeIndex
+                      ? styles.progressActive
+                      : ""
+                  }`}
+                  aria-label={`Go to ${property.title}`}
+                />
+              )
+            )}
 
           </div>
 
-          <span className={styles.progressText}>
-            {activeProperty.number} /{" "}
-            {String(properties.length).padStart(2, "0")}
+          <span
+            className={
+              styles.progressText
+            }
+          >
+            {
+              activeProperty.number
+            }{" "}
+            /{" "}
+            {String(
+              mappedProperties.length
+            ).padStart(2, "0")}
           </span>
 
         </div>
@@ -445,12 +949,21 @@ export default function PropertyOpportunities() {
             BOTTOM CTA
         ========================================= */}
 
-        <div className={styles.bottomCta}>
+        <div
+          className={styles.bottomCta}
+        >
 
-          <div className={styles.ctaCopy}>
+          <div
+            className={styles.ctaCopy}
+          >
 
-            <span className={styles.ctaEyebrow}>
-              HAVE A SPECIFIC PROPERTY IN MIND?
+            <span
+              className={
+                styles.ctaEyebrow
+              }
+            >
+              HAVE A SPECIFIC PROPERTY
+              IN MIND?
             </span>
 
             <h3>
@@ -458,17 +971,21 @@ export default function PropertyOpportunities() {
             </h3>
 
             <p>
-              Share a property or tell us what you are looking for and we can
-              discuss the next step.
+              Share a property or tell us
+              what you are looking for and
+              we can discuss the next step.
             </p>
 
           </div>
 
 
-          <Link
+          <a
             href="/program/eligibility"
-            className={styles.ctaButton}
+            className={
+              styles.ctaButton
+            }
           >
+
             <span>
               Request a property review
             </span>
@@ -477,7 +994,8 @@ export default function PropertyOpportunities() {
               size={17}
               strokeWidth={2}
             />
-          </Link>
+
+          </a>
 
         </div>
 

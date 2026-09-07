@@ -141,7 +141,7 @@ export default function ContactPage() {
               </a> 
  
               <a 
-                href="mailto:info@homesingreece.eu" 
+                href="mailto:higolgenvisa@gmail.com" 
                 className={styles.secondaryButton} 
               > 
                 Send an Email 
@@ -233,9 +233,9 @@ export default function ContactPage() {
                   <strong>+306993229390</strong> 
                 </a> 
  
-                <a href="mailto:info@homesingreece.eu"> 
+                <a href="mailto:higolgenvisa@gmail.com"> 
                   <small>EMAIL</small> 
-                  <strong>info@homesingreece.eu</strong> 
+                  <strong>higolgenvisa@gmail.com</strong> 
                 </a> 
               </div> 
             </div> 
@@ -554,7 +554,7 @@ export default function ContactPage() {
                       Call directly <span>↗</span> 
                     </a> 
  
-                    <a href="mailto:info@homesingreece.eu"> 
+                    <a href="mailto:higolgenvisa@gmail.com"> 
                       Email directly <span>↗</span> 
                     </a> 
                   </div> 
@@ -728,7 +728,7 @@ export default function ContactPage() {
               </a> 
  
               <a 
-                href="mailto:info@homesingreece.eu" 
+                href="mailto:higolgenvisa@gmail.com" 
                 className={styles.ctaButtonSecondary} 
               > 
                 Send an Email 

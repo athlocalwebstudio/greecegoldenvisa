@@ -103,7 +103,7 @@ export default function PrivacyPolicyPage() {
                     <br />
                     Athens, 10431, GREECE
                     <br />
-                    Email: info@homesingreece.eu
+                    Email: higolgenvisa@gmail.com
                   </p>
                 </div>
 
@@ -382,8 +382,8 @@ export default function PrivacyPolicyPage() {
                 <div className={styles.contactBox}>
                   <strong>Greece Golden Visa</strong>
 
-                  <a href="mailto:info@homesingreece.eu">
-                    info@homesingreece.eu
+                  <a href="mailto:higolgenvisa@gmail.com">
+                    higolgenvisa@gmail.com
                   </a>
                 </div>
               </section>

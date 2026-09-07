@@ -32,7 +32,7 @@ const investmentRoutes = [
     bestFor:
       "Investors looking for flexibility and carefully selected opportunities.",
     image: "/strategic-option.jpg",
-    href: "/investments/strategic-properties",
+    href: "/investments/strategic-opportunities",
   },
 
   {
@@ -44,7 +44,7 @@ const investmentRoutes = [
     bestFor:
       "Investors considering larger or more specialized property opportunities.",
     image: "/commercial-image.jpg",
-    href: "/investments/commercial-hospitality",
+    href: "/investments/compare-options",
   },
 
   {
@@ -56,7 +56,7 @@ const investmentRoutes = [
     bestFor:
       "Investors looking beyond the conventional property investment route.",
     image: "/alternative-investments.jpg",
-    href: "/investments/alternative",
+    href: "/investments/alternative-investments",
   },
 ];
 
