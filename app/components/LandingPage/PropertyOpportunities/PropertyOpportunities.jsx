@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -25,7 +24,7 @@ import { urlFor } from "@/sanity/lib/image";
 const PROPERTIES_QUERY = `
   *[
     _type == "property"
-    && published == true
+    && visibility == "Published"
   ] {
     _id,
     title,
@@ -36,9 +35,14 @@ const PROPERTIES_QUERY = `
     route,
     type,
     status,
+    visibility,
+    size,
+    bedrooms,
+    bathrooms,
     description,
     features,
-    propertyUrl
+    propertyUrl,
+    featured
   }
 `;
 
@@ -58,38 +62,30 @@ function formatPrice(price) {
   }).format(price);
 }
 
-function getFeature(features = [], pattern) {
-  return (
-    features.find((feature) =>
-      pattern.test(String(feature))
-    ) || null
-  );
+function formatSize(size) {
+  if (!size) return "—";
+
+  return `${size} m²`;
 }
 
-function getPropertySize(features = []) {
-  return (
-    getFeature(
-      features,
-      /^\s*[\d,.]+\s*sqm\b/i
-    ) ||
-    getFeature(
-      features,
-      /^\s*[\d,.]+\s*m²\b/i
-    ) ||
-    "—"
-  );
-}
+function formatBedrooms(bedrooms) {
+  if (
+    typeof bedrooms !== "number" ||
+    bedrooms < 1
+  ) {
+    return null;
+  }
 
-function getBedrooms(features = []) {
-  return getFeature(
-    features,
-    /bedroom/i
-  );
+  return bedrooms;
 }
 
 function getCategory(type) {
   if (type === "Land") {
     return "LAND";
+  }
+
+  if (type === "Commercial") {
+    return "COMMERCIAL";
   }
 
   return "RESIDENTIAL";
@@ -175,13 +171,13 @@ export default function PropertyOpportunities() {
         b.title?.toLowerCase() || "";
 
       /*
-      |--------------------------------------------------------------
+      |----------------------------------------------------------------
       | CAROUSEL ORDER
       |
       | 01 — Luxury 260 sqm Villa in Anavyssos
       | 02 — Luxury 157 sqm Maisonette in Varkiza
       | 03 — Coastal Development Land in Ermioni
-      |--------------------------------------------------------------
+      |----------------------------------------------------------------
       */
 
       const aIsAnavyssos =
@@ -233,11 +229,10 @@ export default function PropertyOpportunities() {
 
     return sortedProperties.map(
       (property, index) => {
-        const features =
-          property.features || [];
-
         const bedrooms =
-          getBedrooms(features);
+          formatBedrooms(
+            property.bedrooms
+          );
 
         return {
           id:
@@ -271,9 +266,12 @@ export default function PropertyOpportunities() {
             "Property",
 
           size:
-            getPropertySize(features),
+            formatSize(property.size),
 
           bedrooms,
+
+          bathrooms:
+            property.bathrooms || null,
 
           route:
             getRouteLabel(
@@ -300,6 +298,9 @@ export default function PropertyOpportunities() {
           status:
             property.status ||
             "Available",
+
+          featured:
+            property.featured || false,
         };
       }
     );
@@ -438,7 +439,6 @@ export default function PropertyOpportunities() {
 
         </div>
 
-
         {/* =========================================
             CAROUSEL
         ========================================= */}
@@ -460,7 +460,6 @@ export default function PropertyOpportunities() {
               strokeWidth={1.8}
             />
           </button>
-
 
           {/* =========================================
               PROPERTY CARD
@@ -545,7 +544,6 @@ export default function PropertyOpportunities() {
 
                 </div>
 
-
                 <div
                   className={
                     styles.imageBottom
@@ -582,7 +580,6 @@ export default function PropertyOpportunities() {
                 </div>
 
               </div>
-
 
               {/* =========================================
                   PROPERTY CONTENT
@@ -622,7 +619,6 @@ export default function PropertyOpportunities() {
 
                   </div>
 
-
                   <div
                     className={
                       styles.priceArea
@@ -646,7 +642,6 @@ export default function PropertyOpportunities() {
                   </div>
 
                 </div>
-
 
                 {/* =========================================
                     PROPERTY DETAILS
@@ -684,7 +679,6 @@ export default function PropertyOpportunities() {
 
                   </div>
 
-
                   <div
                     className={
                       styles.detailItem
@@ -717,7 +711,6 @@ export default function PropertyOpportunities() {
                     </span>
 
                   </div>
-
 
                   <div
                     className={
@@ -762,7 +755,6 @@ export default function PropertyOpportunities() {
 
                   </div>
 
-
                   <div
                     className={
                       styles.detailItem
@@ -791,7 +783,6 @@ export default function PropertyOpportunities() {
 
                 </div>
 
-
                 {/* =========================================
                     DESCRIPTION
                 ========================================= */}
@@ -806,13 +797,11 @@ export default function PropertyOpportunities() {
                   }
                 </p>
 
-
                 <div
                   className={
                     styles.propertyDivider
                   }
                 />
-
 
                 {/* =========================================
                     BOTTOM CONTENT
@@ -843,7 +832,6 @@ export default function PropertyOpportunities() {
                     </p>
 
                   </div>
-
 
                   <span
                     className={
@@ -878,7 +866,6 @@ export default function PropertyOpportunities() {
 
           </a>
 
-
           {/* RIGHT ARROW */}
 
           <button
@@ -894,7 +881,6 @@ export default function PropertyOpportunities() {
           </button>
 
         </div>
-
 
         {/* =========================================
             CONTROLS
@@ -944,7 +930,6 @@ export default function PropertyOpportunities() {
 
         </div>
 
-
         {/* =========================================
             BOTTOM CTA
         ========================================= */}
@@ -977,7 +962,6 @@ export default function PropertyOpportunities() {
             </p>
 
           </div>
-
 
           <a
             href="/program/eligibility"

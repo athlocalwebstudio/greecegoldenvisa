@@ -6,10 +6,15 @@ export default defineType({
   type: "document",
 
   fields: [
+    // =========================================================
+    // BASIC INFORMATION
+    // =========================================================
+
     defineField({
       name: "title",
       title: "Property Title",
       type: "string",
+      description: "The main name displayed for the property.",
       validation: (Rule) => Rule.required(),
     }),
 
@@ -20,13 +25,34 @@ export default defineType({
       options: {
         hotspot: true,
       },
+      description: "The main image displayed on the property card.",
       validation: (Rule) => Rule.required(),
     }),
+
+    defineField({
+      name: "gallery",
+      title: "Gallery Images",
+      type: "array",
+      description: "Additional images for this property.",
+      of: [
+        {
+          type: "image",
+          options: {
+            hotspot: true,
+          },
+        },
+      ],
+    }),
+
+    // =========================================================
+    // LOCATION
+    // =========================================================
 
     defineField({
       name: "location",
       title: "Location",
       type: "string",
+      description: "The specific area or location of the property.",
       validation: (Rule) => Rule.required(),
     }),
 
@@ -34,13 +60,19 @@ export default defineType({
       name: "city",
       title: "City",
       type: "string",
+      description: "The city where the property is located.",
       validation: (Rule) => Rule.required(),
     }),
+
+    // =========================================================
+    // INVESTMENT
+    // =========================================================
 
     defineField({
       name: "price",
       title: "Price (€)",
       type: "number",
+      description: "The property price in euros.",
       validation: (Rule) => Rule.required().positive(),
     }),
 
@@ -63,6 +95,10 @@ export default defineType({
             value: "€800K",
           },
           {
+            title: "Lifestyle Investment",
+            value: "Lifestyle Investment",
+          },
+          {
             title: "Not Yet Verified",
             value: "Not Yet Verified",
           },
@@ -71,6 +107,10 @@ export default defineType({
       },
       validation: (Rule) => Rule.required(),
     }),
+
+    // =========================================================
+    // PROPERTY DETAILS
+    // =========================================================
 
     defineField({
       name: "type",
@@ -87,8 +127,16 @@ export default defineType({
             value: "Residence",
           },
           {
+            title: "Villa",
+            value: "Villa",
+          },
+          {
             title: "Land",
             value: "Land",
+          },
+          {
+            title: "Commercial",
+            value: "Commercial",
           },
         ],
         layout: "dropdown",
@@ -97,8 +145,49 @@ export default defineType({
     }),
 
     defineField({
+      name: "size",
+      title: "Size (m²)",
+      type: "number",
+      description: "The property's size in square metres.",
+      validation: (Rule) => Rule.positive(),
+    }),
+
+    defineField({
+      name: "bedrooms",
+      title: "Bedrooms",
+      type: "number",
+      description: "Number of bedrooms.",
+      validation: (Rule) => Rule.integer().min(0),
+    }),
+
+    defineField({
+      name: "bathrooms",
+      title: "Bathrooms",
+      type: "number",
+      description: "Number of bathrooms.",
+      validation: (Rule) => Rule.integer().min(0),
+    }),
+
+    defineField({
+      name: "features",
+      title: "Features",
+      type: "array",
+      description:
+        "Short features such as sea view, parking, pool, renovated, etc.",
+      of: [
+        {
+          type: "string",
+        },
+      ],
+    }),
+
+    // =========================================================
+    // PROPERTY STATUS
+    // =========================================================
+
+    defineField({
       name: "status",
-      title: "Status",
+      title: "Property Status",
       type: "string",
       options: {
         list: [
@@ -125,24 +214,62 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
 
+    // =========================================================
+    // VISIBILITY
+    // =========================================================
+
+    defineField({
+      name: "visibility",
+      title: "Visibility",
+      type: "string",
+      description:
+        "Controls whether this property appears on the public website.",
+      options: {
+        list: [
+          {
+            title: "Published",
+            value: "Published",
+          },
+          {
+            title: "Draft",
+            value: "Draft",
+          },
+        ],
+        layout: "radio",
+      },
+      initialValue: "Published",
+      validation: (Rule) => Rule.required(),
+    }),
+
+    // =========================================================
+    // FEATURED
+    // =========================================================
+
+    defineField({
+      name: "featured",
+      title: "Featured Property",
+      type: "boolean",
+      description:
+        "Marks this property as featured for future featured-property sections.",
+      initialValue: false,
+    }),
+
+    // =========================================================
+    // DESCRIPTION
+    // =========================================================
+
     defineField({
       name: "description",
       title: "Description",
       type: "text",
       rows: 6,
+      description: "The main description of the property.",
       validation: (Rule) => Rule.required(),
     }),
 
-    defineField({
-      name: "features",
-      title: "Features",
-      type: "array",
-      of: [
-        {
-          type: "string",
-        },
-      ],
-    }),
+    // =========================================================
+    // EXTERNAL LISTING
+    // =========================================================
 
     defineField({
       name: "propertyUrl",
@@ -152,12 +279,42 @@ export default defineType({
         "External property page, such as Homes in Greece or another partner listing.",
       validation: (Rule) => Rule.required(),
     }),
-
-    defineField({
-      name: "published",
-      title: "Published",
-      type: "boolean",
-      initialValue: true,
-    }),
   ],
+
+  // =========================================================
+  // SANITY STUDIO PREVIEW
+  // =========================================================
+
+  preview: {
+    select: {
+      title: "title",
+      location: "location",
+      price: "price",
+      status: "status",
+      visibility: "visibility",
+      media: "mainImage",
+    },
+
+    prepare({
+      title,
+      location,
+      price,
+      status,
+      visibility,
+      media,
+    }) {
+      const formattedPrice =
+        typeof price === "number"
+          ? `€${price.toLocaleString("en-US")}`
+          : "No price";
+
+      return {
+        title: title || "Untitled Property",
+        subtitle: `${location || "No location"} · ${formattedPrice} · ${
+          status || "No status"
+        } · ${visibility || "No visibility"}`,
+        media,
+      };
+    },
+  },
 });
