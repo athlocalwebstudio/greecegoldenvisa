@@ -68,7 +68,7 @@ export const metadata = {
 const PROPERTIES_QUERY = `
   *[
     _type == "property"
-    && published == true
+    && visibility == "Published"
   ] | order(_createdAt desc) {
     _id,
     title,
@@ -128,9 +128,5 @@ export default async function ReadyPropertiesPage() {
     propertyUrl: property.propertyUrl,
   }));
 
-  return (
-    <ReadyPropertiesClient
-      properties={properties}
-    />
-  );
+  return <ReadyPropertiesClient properties={properties} />;
 }

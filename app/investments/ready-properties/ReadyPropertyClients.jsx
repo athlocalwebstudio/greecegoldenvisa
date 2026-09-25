@@ -32,6 +32,7 @@ const routes = [
   "€250K",
   "€400K",
   "€800K",
+  "Lifestyle Investment",
   "Not Yet Verified",
 ];
 
@@ -39,7 +40,9 @@ const propertyTypes = [
   "All property types",
   "Apartment",
   "Residence",
+  "Villa",
   "Land",
+  "Commercial",
 ];
 
 const faqs = [
@@ -76,9 +79,7 @@ function formatPrice(price) {
   }).format(price);
 }
 
-export default function ReadyPropertiesClient({
-  properties,
-}) {
+export default function ReadyPropertiesClient({ properties }) {
   const [selectedLocation, setSelectedLocation] =
     useState("All locations");
 
