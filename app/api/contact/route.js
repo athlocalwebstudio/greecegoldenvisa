@@ -26,8 +26,8 @@ export async function POST(request) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: "Golden Visa Website <onboarding@resend.dev>",
-      to: ["athlocalwebstudio@gmail.com"],
+     from: "Golden Visa Greece <noreply@goldenvisagreece.org>",
+      to: ["higoldenvisa@gmail.com"],
       replyTo: email,
 subject: `New Investor Enquiry — ${name}`,
 html: `

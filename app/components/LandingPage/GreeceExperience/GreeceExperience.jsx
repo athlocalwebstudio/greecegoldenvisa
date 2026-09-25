@@ -1,26 +1,27 @@
 "use client";
 
 import {
+  useCallback,
   useEffect,
   useRef,
-  useState
+  useState,
 } from "react";
-
-import {
-  useNavbar
-} from "@/app/context/NavbarContext";
 
 import Image from "next/image";
 
 import {
-  greeceScenes
+  Playfair_Display,
+} from "next/font/google";
+
+import {
+  useNavbar,
+} from "@/app/context/NavbarContext";
+
+import {
+  greeceScenes,
 } from "./GreeceExperienceData";
 
 import styles from "./GreeceExperience.module.css";
-
-import {
-  Playfair_Display
-} from "next/font/google";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -28,57 +29,36 @@ const playfair = Playfair_Display({
     "400",
     "500",
     "600",
-    "700"
-  ]
+    "700",
+  ],
 });
 
 export default function GreeceExperience() {
-
   // =========================================================
   // REFS
   // =========================================================
 
-  const sectionRef =
-    useRef(null);
+  const sectionRef = useRef(null);
 
-  const mobileSectionRef =
-    useRef(null);
+  const imageCache = useRef(new Map());
 
-  const mobileTransitionTimeoutRef =
-    useRef(null);
+  const touchStartX = useRef(0);
 
-  /*
-   * Stores images that have already been prepared.
-   *
-   * Example:
-   *
-   * imageCache.current["/images/scene3.jpg"]
-   *
-   * means the browser has already loaded/decoded it.
-   */
-  const mobileImageCache =
-    useRef(new Map());
+  const touchStartY = useRef(0);
+
+  const touchStartTime = useRef(0);
+
+  const transitionTimeoutRef = useRef(null);
 
   // =========================================================
   // STATE
   // =========================================================
 
-  const [progress, setProgress] =
-    useState(0);
+  const [currentScene, setCurrentScene] = useState(0);
 
-  const [isMovieMode, setIsMovieMode] =
-    useState(false);
+  const [direction, setDirection] = useState("next");
 
-  const [isMobile, setIsMobile] =
-    useState(false);
-
-  const [mobileScene, setMobileScene] =
-    useState(0);
-
-  const [mobileDirection, setMobileDirection] =
-    useState("next");
-
-  const [isMobileTransitioning, setIsMobileTransitioning] =
+  const [isTransitioning, setIsTransitioning] =
     useState(false);
 
   // =========================================================
@@ -86,51 +66,87 @@ export default function GreeceExperience() {
   // =========================================================
 
   const {
-    setCinematic
+    setCinematic,
   } = useNavbar();
 
   // =========================================================
-  // DEVICE DETECTION
+  // PRELOAD IMAGE
+  // =========================================================
+
+  const preloadImage = useCallback(
+    (src) => {
+      if (!src) {
+        return Promise.resolve();
+      }
+
+      if (imageCache.current.has(src)) {
+        return Promise.resolve();
+      }
+
+      return new Promise((resolve) => {
+        const img = new window.Image();
+
+        img.decoding = "async";
+
+        img.onload = async () => {
+          if (typeof img.decode === "function") {
+            try {
+              await img.decode();
+            } catch {
+              // The image is still usable.
+            }
+          }
+
+          imageCache.current.set(src, true);
+
+          resolve();
+        };
+
+        img.onerror = () => {
+          resolve();
+        };
+
+        img.src = src;
+      });
+    },
+    []
+  );
+
+  // =========================================================
+  // PRELOAD ALL SCENES
   // =========================================================
 
   useEffect(() => {
+    let cancelled = false;
 
-    function handleResize() {
+    async function preloadScenes() {
+      for (const scene of greeceScenes) {
+        if (cancelled) {
+          return;
+        }
 
-      setIsMobile(
-        window.innerWidth <= 1024
-      );
-
+        await Promise.all([
+          preloadImage(scene.image),
+          preloadImage(
+            scene.mobileImage || scene.image
+          ),
+        ]);
+      }
     }
 
-    handleResize();
-
-    window.addEventListener(
-      "resize",
-      handleResize
-    );
+    preloadScenes();
 
     return () => {
-
-      window.removeEventListener(
-        "resize",
-        handleResize
-      );
-
+      cancelled = true;
     };
-
-  }, []);
+  }, [preloadImage]);
 
   // =========================================================
   // NAVBAR CINEMATIC MODE
   // =========================================================
 
   useEffect(() => {
-
-    const element =
-      isMobile
-        ? mobileSectionRef.current
-        : sectionRef.current;
+    const element = sectionRef.current;
 
     if (!element) {
       return;
@@ -139,681 +155,371 @@ export default function GreeceExperience() {
     const observer =
       new IntersectionObserver(
         ([entry]) => {
-
           setCinematic(
             entry.isIntersecting
           );
-
         },
         {
           threshold: 0.1,
           rootMargin:
-            "-84px 0px 0px 0px"
+            "-84px 0px 0px 0px",
         }
       );
 
     observer.observe(element);
 
     return () => {
-
       observer.disconnect();
-
     };
-
-  }, [
-    isMobile,
-    setCinematic
-  ]);
+  }, [setCinematic]);
 
   // =========================================================
-  // MOBILE IMAGE PRELOADER
-  //
-  // THIS IS THE IMPORTANT FIX.
-  //
-  // We explicitly load + decode images before allowing
-  // the scene to change.
-  //
-  // That prevents:
-  //
-  // Scene 2
-  // ↓
-  // click
-  // ↓
-  // Scene 2 flashes
-  // ↓
-  // Scene 3 finally loads
-  //
-  // Instead:
-  //
-  // Scene 2
-  // ↓
-  // click
-  // ↓
-  // prepare Scene 3
-  // ↓
-  // Scene 3 ready
-  // ↓
-  // transition starts
-  // =========================================================
-
-  function preloadMobileImage(
-    src
-  ) {
-
-    if (
-      mobileImageCache.current.has(src)
-    ) {
-
-      return Promise.resolve();
-
-    }
-
-    return new Promise(
-      (resolve) => {
-
-        const img =
-          new window.Image();
-
-        img.decoding =
-          "async";
-
-        img.onload =
-          async () => {
-
-            /*
-             * decode() makes sure the image is actually
-             * decoded and ready for painting when possible.
-             *
-             * Some browsers may not support it, so we
-             * gracefully fall back to onload.
-             */
-
-            if (
-              typeof img.decode ===
-              "function"
-            ) {
-
-              try {
-
-                await img.decode();
-
-              } catch {
-
-                /*
-                 * The image is still usable even if
-                 * decode() rejects.
-                 */
-
-              }
-
-            }
-
-            mobileImageCache.current.set(
-              src,
-              true
-            );
-
-            resolve();
-
-          };
-
-        img.onerror =
-          () => {
-
-            /*
-             * Don't permanently lock the UI if an image
-             * fails to preload.
-             *
-             * We allow the scene transition anyway.
-             */
-
-            resolve();
-
-          };
-
-        img.src =
-          src;
-
-      }
-    );
-
-  }
-
-  // =========================================================
-  // PRELOAD MOBILE IMAGES
-  //
-  // We prepare the whole cinematic sequence once the
-  // mobile version becomes active.
+  // CLEANUP
   // =========================================================
 
   useEffect(() => {
-
-    if (!isMobile) {
-      return;
-    }
-
-    let cancelled =
-      false;
-
-    async function preloadScenes() {
-
-      for (
-        const scene of greeceScenes
-      ) {
-
-        if (cancelled) {
-          return;
-        }
-
-        await preloadMobileImage(
-          scene.mobileImage
-        );
-
-      }
-
-    }
-
-    preloadScenes();
-
     return () => {
-
-      cancelled =
-        true;
-
-    };
-
-  }, [isMobile]);
-
-  // =========================================================
-  // DESKTOP SCROLL TRACKING
-  // =========================================================
-
-  useEffect(() => {
-
-    if (isMobile) {
-      return;
-    }
-
-    function handleScroll() {
-
-      const section =
-        sectionRef.current;
-
-      if (!section) {
-        return;
-      }
-
-      const rect =
-        section.getBoundingClientRect();
-
-      const scrollHeight =
-        section.offsetHeight -
-        window.innerHeight;
-
-      if (scrollHeight <= 0) {
-        return;
-      }
-
-      const scrolled =
-        -rect.top;
-
-      const value =
-        Math.min(
-          Math.max(
-            scrolled /
-              scrollHeight,
-            0
-          ),
-          1
-        );
-
-      setProgress(value);
-
-      setIsMovieMode(
-        value > 0.02 &&
-        value < 0.99
-      );
-
-    }
-
-    handleScroll();
-
-    window.addEventListener(
-      "scroll",
-      handleScroll,
-      {
-        passive: true
-      }
-    );
-
-    window.addEventListener(
-      "resize",
-      handleScroll
-    );
-
-    return () => {
-
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
-
-      window.removeEventListener(
-        "resize",
-        handleScroll
-      );
-
-    };
-
-  }, [
-    isMobile
-  ]);
-
-  // =========================================================
-  // CLEANUP MOBILE TRANSITION
-  // =========================================================
-
-  useEffect(() => {
-
-    return () => {
-
-      if (
-        mobileTransitionTimeoutRef.current
-      ) {
-
+      if (transitionTimeoutRef.current) {
         clearTimeout(
-          mobileTransitionTimeoutRef.current
+          transitionTimeoutRef.current
         );
-
       }
-
     };
-
   }, []);
 
   // =========================================================
-  // MOBILE SCENE NAVIGATION
-  //
-  // IMPORTANT:
-  //
-  // We DON'T change mobileScene immediately.
-  //
-  // First we make sure the destination image is ready.
-  //
-  // This is what removes the tiny "old image" flash.
+  // START TRANSITION
   // =========================================================
 
-  async function changeMobileScene(
-    direction
-  ) {
-
-    if (!isMobile) {
-      return;
+  const finishTransition = useCallback(() => {
+    if (transitionTimeoutRef.current) {
+      clearTimeout(
+        transitionTimeoutRef.current
+      );
     }
 
-    if (isMobileTransitioning) {
-      return;
-    }
+    transitionTimeoutRef.current =
+      window.setTimeout(() => {
+        setIsTransitioning(false);
+      }, 650);
+  }, []);
 
-    const totalScenes =
-      greeceScenes.length;
+  // =========================================================
+  // CHANGE SCENE
+  // =========================================================
 
-    const current =
-      mobileScene;
-
-    const next =
-      direction === "next"
-        ? current + 1
-        : current - 1;
-
-    // =======================================================
-    // FIRST SCENE
-    // =======================================================
-
-    if (next < 0) {
-      return;
-    }
-
-    // =======================================================
-    // AFTER LAST SCENE
-    // =======================================================
-
-    if (
-      next >=
-      totalScenes
-    ) {
-
-      const section =
-        mobileSectionRef.current;
-
-      const nextSection =
-        section?.nextElementSibling;
-
-      if (nextSection) {
-
-        nextSection.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-
+  const changeScene = useCallback(
+    async (nextDirection) => {
+      if (isTransitioning) {
+        return;
       }
 
-      return;
-    }
+      const totalScenes =
+        greeceScenes.length;
 
-    // =======================================================
-    // DESTINATION
-    // =======================================================
+      if (totalScenes <= 1) {
+        return;
+      }
 
-    const destinationScene =
-      greeceScenes[next];
-
-    if (!destinationScene) {
-      return;
-    }
-
-    // =======================================================
-    // BEGIN LOADING STATE
-    // =======================================================
-
-    setIsMobileTransitioning(
-      true
-    );
-
-    /*
-     * The spinner can appear immediately.
-     *
-     * The actual scene DOES NOT change yet.
-     */
-
-    try {
-
-      await preloadMobileImage(
-        destinationScene.mobileImage
-      );
-
-    } catch {
-
-      /*
-       * Even if something unexpected happens,
-       * don't leave the controls permanently locked.
-       */
-
-    }
-
-    // =======================================================
-    // COMPONENT MAY HAVE BEEN UNMOUNTED
-    // =======================================================
-
-    if (
-      !mobileSectionRef.current
-    ) {
-
-      setIsMobileTransitioning(
-        false
-      );
-
-      return;
-    }
-
-    // =======================================================
-    // NOW START THE CINEMATIC TRANSITION
-    // =======================================================
-
-    setMobileDirection(
-      direction
-    );
-
-    setMobileScene(
-      next
-    );
-
-    // =======================================================
-    // UNLOCK AFTER CSS TRANSITION
-    // =======================================================
-
-    mobileTransitionTimeoutRef.current =
-      window.setTimeout(
-        () => {
-
-          setIsMobileTransitioning(
-            false
-          );
-
-        },
-        520
-      );
-
-  }
-
-  // =========================================================
-  // TOTAL DURATION
-  // =========================================================
-
-  const totalDuration =
-    greeceScenes.reduce(
-      (
-        total,
-        scene
-      ) =>
-        total +
-        scene.duration,
-      0
-    );
-
-  // =========================================================
-  // DESKTOP SCENE CALCULATION
-  // =========================================================
-
-  let accumulated =
-    0;
-
-  let calculatedScene =
-    0;
-
-  let activeSceneProgress =
-    0;
-
-  greeceScenes.forEach(
-    (
-      scene,
-      index
-    ) => {
-
-      const start =
-        accumulated /
-        totalDuration;
-
-      const end =
-        (
-          accumulated +
-          scene.duration
-        ) /
-        totalDuration;
+      const nextIndex =
+        nextDirection === "next"
+          ? currentScene + 1
+          : currentScene - 1;
 
       if (
-        progress >= start &&
-        (
-          progress < end ||
-          index ===
-            greeceScenes.length - 1
-        )
+        nextIndex < 0 ||
+        nextIndex >= totalScenes
       ) {
-
-        calculatedScene =
-          index;
-
-        activeSceneProgress =
-          (
-            progress -
-            start
-          ) /
-          (
-            end -
-            start
-          );
-
+        return;
       }
 
-      accumulated +=
-        scene.duration;
+      const destination =
+        greeceScenes[nextIndex];
 
-    }
+      if (!destination) {
+        return;
+      }
+
+      setIsTransitioning(true);
+
+      setDirection(nextDirection);
+
+      await Promise.all([
+        preloadImage(
+          destination.image
+        ),
+        preloadImage(
+          destination.mobileImage ||
+            destination.image
+        ),
+      ]);
+
+      if (!sectionRef.current) {
+        setIsTransitioning(false);
+        return;
+      }
+
+      setCurrentScene(nextIndex);
+
+      finishTransition();
+    },
+    [
+      currentScene,
+      isTransitioning,
+      preloadImage,
+      finishTransition,
+    ]
   );
 
   // =========================================================
-  // CURRENT SCENE
+  // DIRECT SCENE NAVIGATION
+  // =========================================================
+  //
+  // Dot navigation may jump from scene 1 → scene 4.
+  // We therefore calculate the actual direction and
+  // preload the actual destination before changing it.
+  //
+
+  const goToScene = useCallback(
+    async (targetIndex) => {
+      if (isTransitioning) {
+        return;
+      }
+
+      if (
+        targetIndex < 0 ||
+        targetIndex >= greeceScenes.length ||
+        targetIndex === currentScene
+      ) {
+        return;
+      }
+
+      const destination =
+        greeceScenes[targetIndex];
+
+      if (!destination) {
+        return;
+      }
+
+      const nextDirection =
+        targetIndex > currentScene
+          ? "next"
+          : "previous";
+
+      setIsTransitioning(true);
+
+      setDirection(nextDirection);
+
+      await Promise.all([
+        preloadImage(
+          destination.image
+        ),
+        preloadImage(
+          destination.mobileImage ||
+            destination.image
+        ),
+      ]);
+
+      if (!sectionRef.current) {
+        setIsTransitioning(false);
+        return;
+      }
+
+      setCurrentScene(targetIndex);
+
+      finishTransition();
+    },
+    [
+      currentScene,
+      isTransitioning,
+      preloadImage,
+      finishTransition,
+    ]
+  );
+
+  // =========================================================
+  // KEYBOARD NAVIGATION
   // =========================================================
 
-  const currentScene =
-    isMobile
-      ? greeceScenes[
-          mobileScene
-        ]
-      : greeceScenes[
-          calculatedScene
-        ];
+  useEffect(() => {
+    function handleKeyDown(event) {
+      const target = event.target;
 
-  // =========================================================
-  // DESKTOP LOCAL PROGRESS
-  // =========================================================
+      if (
+        target instanceof
+          HTMLInputElement ||
+        target instanceof
+          HTMLTextAreaElement ||
+        target instanceof
+          HTMLSelectElement ||
+        target?.isContentEditable
+      ) {
+        return;
+      }
 
-  const desktopSceneProgress =
-    Math.min(
-      Math.max(
-        activeSceneProgress,
-        0
-      ),
-      1
+      if (event.key === "ArrowRight") {
+        changeScene("next");
+      }
+
+      if (event.key === "ArrowLeft") {
+        changeScene("previous");
+      }
+    }
+
+    window.addEventListener(
+      "keydown",
+      handleKeyDown
     );
 
-  // =========================================================
-  // DESKTOP CINEMATIC EASING
-  // =========================================================
-
-  const sceneProgress =
-    desktopSceneProgress;
-
-  const easedProgress =
-    sceneProgress *
-    sceneProgress *
-    (
-      3 -
-      2 *
-      sceneProgress
-    );
+    return () => {
+      window.removeEventListener(
+        "keydown",
+        handleKeyDown
+      );
+    };
+  }, [changeScene]);
 
   // =========================================================
-  // DESKTOP CAMERA
+  // TOUCH START
   // =========================================================
 
-  const desktopCameraScale =
-    1 +
-    (
-      easedProgress *
-      0.05
-    );
+  function handleTouchStart(event) {
+    if (isTransitioning) {
+      return;
+    }
+
+    const touch =
+      event.touches[0];
+
+    if (!touch) {
+      return;
+    }
+
+    touchStartX.current =
+      touch.clientX;
+
+    touchStartY.current =
+      touch.clientY;
+
+    touchStartTime.current =
+      Date.now();
+  }
 
   // =========================================================
-  // DESKTOP TEXT
+  // TOUCH END
   // =========================================================
 
-  const textEnter =
-    Math.min(
-      Math.max(
-        (
-          desktopSceneProgress -
-          0.035
-        ) /
-        0.12,
-        0
-      ),
-      1
-    );
+  function handleTouchEnd(event) {
+    if (isTransitioning) {
+      return;
+    }
 
-  const textExit =
-    Math.min(
-      Math.max(
-        (
-          desktopSceneProgress -
-          0.88
-        ) /
-        0.12,
-        0
-      ),
-      1
-    );
+    const touch =
+      event.changedTouches[0];
 
-  const textOpacity =
-    textEnter *
-    (
-      1 -
-      textExit
-    );
+    if (!touch) {
+      return;
+    }
 
-  const textTranslate =
-    12 -
-    (
-      textEnter *
-      12
-    ) -
-    (
-      textExit *
-      20
-    );
+    const deltaX =
+      touch.clientX -
+      touchStartX.current;
+
+    const deltaY =
+      touch.clientY -
+      touchStartY.current;
+
+    const elapsed =
+      Date.now() -
+      touchStartTime.current;
+
+    const minimumDistance = 45;
+
+    const isHorizontal =
+      Math.abs(deltaX) >
+      Math.abs(deltaY) * 1.2;
+
+    const isFastEnough =
+      elapsed < 800;
+
+    if (
+      Math.abs(deltaX) <
+        minimumDistance ||
+      !isHorizontal ||
+      !isFastEnough
+    ) {
+      return;
+    }
+
+    if (deltaX < 0) {
+      changeScene("next");
+    } else {
+      changeScene("previous");
+    }
+  }
 
   // =========================================================
-  // MOBILE STATE
+  // TOUCH CANCEL
   // =========================================================
 
-  const mobileSceneNumber =
-    mobileScene + 1;
+  function handleTouchCancel() {
+    touchStartX.current = 0;
+    touchStartY.current = 0;
+    touchStartTime.current = 0;
+  }
 
-  const isFirstMobileScene =
-    mobileScene === 0;
+  // =========================================================
+  // SCENE
+  // =========================================================
 
-  const isLastMobileScene =
-    mobileScene ===
+  const scene =
+    greeceScenes[currentScene];
+
+  if (!scene) {
+    return null;
+  }
+
+  // =========================================================
+  // NAVIGATION STATE
+  // =========================================================
+
+  const isFirstScene =
+    currentScene === 0;
+
+  const isLastScene =
+    currentScene ===
     greeceScenes.length - 1;
+
+  const sceneNumber =
+    String(currentScene + 1).padStart(
+      2,
+      "0"
+    );
+
+  const totalSceneNumber =
+    String(greeceScenes.length).padStart(
+      2,
+      "0"
+    );
 
   // =========================================================
   // RENDER
   // =========================================================
 
   return (
-
     <section
+      ref={sectionRef}
       className={`
         ${styles.greeceExperience}
         ${playfair.className}
-        ${
-          isMovieMode
-            ? styles.movieMode
-            : ""
-        }
       `}
     >
-
       {/* =====================================================
           INTRO
       ===================================================== */}
 
-      <div
-        className={`
-          ${styles.intro}
-          ${
-            isMovieMode
-              ? styles.introMovieMode
-              : ""
-          }
-        `}
-      >
-
-        <span
-          className={
-            styles.label
-          }
-        >
+      <div className={styles.intro}>
+        <span className={styles.label}>
           Why Choose Greece
         </span>
 
@@ -822,429 +528,190 @@ export default function GreeceExperience() {
         </h2>
 
         <p>
-          More than residency. A lifestyle built around freedom,
-          security and the Mediterranean way of living.
+          More than residency. A lifestyle built
+          around freedom, security and the
+          Mediterranean way of living.
         </p>
-
       </div>
 
-
       {/* =====================================================
-          DESKTOP STORY
+          SLIDESHOW
       ===================================================== */}
 
       <div
-        ref={
-          sectionRef
-        }
         className={
-          styles.storyWrapper
+          styles.slideshowShell
         }
       >
-
         <div
-          className={
-            styles.stickyStage
+          className={`
+            ${styles.slideshow}
+            ${
+              isTransitioning
+                ? styles.transitioning
+                : ""
+            }
+            ${
+              direction === "next"
+                ? styles.directionNext
+                : styles.directionPrevious
+            }
+          `}
+          onTouchStart={
+            handleTouchStart
+          }
+          onTouchEnd={
+            handleTouchEnd
+          }
+          onTouchCancel={
+            handleTouchCancel
           }
         >
-
           {/* =================================================
-              DESKTOP IMAGES
+              IMAGE STAGE
           ================================================= */}
 
           <div
             className={
-              styles.imageWrapper
+              styles.imageStage
             }
           >
-
             {greeceScenes.map(
               (
-                scene,
+                sceneItem,
                 index
               ) => {
-
                 const isActive =
                   index ===
-                  calculatedScene;
-
-                return (
-
-                  <Image
-                    key={
-                      `desktop-${scene.id}`
-                    }
-                    src={
-                      scene.image
-                    }
-                    alt={
-                      isActive
-                        ? scene.title
-                        : ""
-                    }
-                    fill
-                    sizes="100vw"
-                    quality={100}
-                    className={
-                      styles.image
-                    }
-                    style={{
-
-                      objectPosition:
-                        scene.position,
-
-                      opacity:
-                        isActive
-                          ? 1
-                          : 0,
-
-                      zIndex:
-                        isActive
-                          ? 2
-                          : 1,
-
-                      transform:
-                        isActive
-                          ? `scale(${desktopCameraScale})`
-                          : "scale(1)"
-
-                    }}
-                  />
-
-                );
-
-              }
-            )}
-
-          </div>
-
-
-          {/* =================================================
-              DESKTOP OVERLAY
-          ================================================= */}
-
-          <div
-            className={
-              styles.overlay
-            }
-            style={{
-
-              background: `
-                linear-gradient(
-                  180deg,
-                  rgba(
-                    15,
-                    44,
-                    89,
-                    ${currentScene.overlay.top}
-                  ),
-                  rgba(
-                    0,
-                    0,
-                    0,
-                    ${currentScene.overlay.bottom}
-                  )
-                )
-              `
-
-            }}
-          />
-
-
-          {/* =================================================
-              DESKTOP TEXT
-          ================================================= */}
-
-          <div
-            className={
-              styles.sceneContent
-            }
-            style={{
-
-              "--text-top":
-                currentScene.text.top,
-
-              "--text-width":
-                currentScene.text.width,
-
-              "--text-align":
-                currentScene.text.align,
-
-              opacity:
-                textOpacity,
-
-              transform: `
-                translate(
-                  -50%,
-                  calc(
-                    -50% +
-                    ${textTranslate}px
-                  )
-                )
-              `
-
-            }}
-          >
-
-            <h3
-              className={
-                styles.sceneTitle
-              }
-            >
-              {
-                currentScene.title
-              }
-            </h3>
-
-            <p
-              className={
-                styles.sceneDescription
-              }
-            >
-              {
-                currentScene.description
-              }
-            </p>
-
-          </div>
-
-
-          {/* =================================================
-              DESKTOP INDICATOR
-          ================================================= */}
-
-          <div
-            className={`
-              ${styles.sceneIndicator}
-              ${
-                isMovieMode
-                  ? styles.indicatorVisible
-                  : ""
-              }
-            `}
-          >
-
-            {greeceScenes.map(
-              (
-                scene,
-                index
-              ) => (
-
-                <div
-                  key={
-                    scene.id
-                  }
-                  className={
-                    styles.indicatorItem
-                  }
-                >
-
-                  <div
-                    className={`
-                      ${styles.sceneDot}
-                      ${
-                        index ===
-                        calculatedScene
-                          ? styles.activeDot
-                          : ""
-                      }
-                    `}
-                  />
-
-                  {index !==
-                    greeceScenes.length - 1 && (
-
-                    <div
-                      className={
-                        styles.indicatorLine
-                      }
-                    />
-
-                  )}
-
-                </div>
-
-              )
-            )}
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      {/* =====================================================
-          MOBILE STORY
-      ===================================================== */}
-
-      <div
-        ref={
-          mobileSectionRef
-        }
-        className={
-          styles.mobileStoryWrapper
-        }
-        style={{
-          "--scene-count":
-            greeceScenes.length
-        }}
-      >
-
-        <div
-          className={
-            styles.mobileStickyStage
-          }
-        >
-
-          {/* =================================================
-              MOBILE IMAGES
-          ================================================= */}
-
-          <div
-            className={
-              styles.mobileImageWrapper
-            }
-          >
-
-            {greeceScenes.map(
-              (
-                scene,
-                index
-              ) => {
-
-                const isActive =
-                  index ===
-                  mobileScene;
+                  currentScene;
 
                 const isPrevious =
                   index ===
-                  mobileScene - 1;
+                  currentScene - 1;
 
                 const isNext =
                   index ===
-                  mobileScene + 1;
+                  currentScene + 1;
 
                 let imageClass =
-                  styles.mobileImageInactive;
-
-                /*
-                 * Normally only the active scene is visible.
-                 */
+                  styles.slideImageInactive;
 
                 if (isActive) {
-
                   imageClass =
-                    styles.mobileImageActive;
-
+                    styles.slideImageActive;
                 }
 
-                /*
-                 * During a NEXT transition,
-                 * the destination image gets the
-                 * upward entrance animation.
-                 */
-
                 if (
-                  isMobileTransitioning &&
+                  isTransitioning &&
                   isActive &&
-                  mobileDirection ===
-                    "next"
+                  direction === "next"
                 ) {
-
                   imageClass =
-                    styles.mobileImageNext;
-
+                    styles.slideImageEnterNext;
                 }
 
-                /*
-                 * During a PREVIOUS transition,
-                 * the destination image gets the
-                 * downward entrance animation.
-                 */
-
                 if (
-                  isMobileTransitioning &&
+                  isTransitioning &&
                   isActive &&
-                  mobileDirection ===
+                  direction ===
                     "previous"
                 ) {
-
                   imageClass =
-                    styles.mobileImagePrevious;
-
+                    styles.slideImageEnterPrevious;
                 }
 
-                /*
-                 * Keep the destination above the old
-                 * scene while its animation runs.
-                 */
+                const shouldStayMounted =
+                  isActive ||
+                  isPrevious ||
+                  isNext;
 
-                const isTransitionDestination =
-                  isMobileTransitioning &&
-                  isActive &&
-                  (
-                    isNext ||
-                    isPrevious ||
-                    true
-                  );
+                if (
+                  !shouldStayMounted
+                ) {
+                  return null;
+                }
 
                 return (
-
-                  <Image
+                  <div
                     key={
-                      `mobile-${scene.id}`
+                      sceneItem.id
                     }
-                    src={
-                      scene.mobileImage
-                    }
-                    alt={
-                      isActive
-                        ? scene.title
-                        : ""
-                    }
-                    fill
-                    sizes="100vw"
-                    quality={85}
-                    loading={
-                      index === 0
-                        ? "eager"
-                        : "lazy"
-                    }
-                    decoding="async"
                     className={`
-                      ${styles.mobileImage}
+                      ${styles.slideImageWrapper}
                       ${imageClass}
                     `}
-                    style={{
+                  >
+                    {/* =====================================
+                        DESKTOP IMAGE
+                    ===================================== */}
 
-                      objectPosition:
-                        "center center",
-
-                      zIndex:
+                    <Image
+                      src={
+                        sceneItem.image
+                      }
+                      alt={
                         isActive
-                          ? 2
-                          : 1
+                          ? sceneItem.title
+                          : ""
+                      }
+                      fill
+                      sizes="
+                        (min-width: 1800px) calc(100vw - 80px),
+                        (min-width: 1200px) calc(100vw - 64px),
+                        (min-width: 769px) calc(100vw - 32px),
+                        100vw
+                      "
+                      quality={92}
+                      priority={
+                        index === 0
+                      }
+                      className={
+                        styles.slideImageDesktop
+                      }
+                      style={{
+                        objectPosition:
+                          sceneItem.position,
+                      }}
+                    />
 
-                    }}
-                  />
+                    {/* =====================================
+                        MOBILE / TABLET IMAGE
+                    ===================================== */}
 
+                    <Image
+                      src={
+                        sceneItem.mobileImage ||
+                        sceneItem.image
+                      }
+                      alt=""
+                      fill
+                      sizes="100vw"
+                      quality={92}
+                      priority={
+                        index === 0
+                      }
+                      className={
+                        styles.slideImageMobile
+                      }
+                      style={{
+                        objectPosition:
+                          sceneItem.position,
+                      }}
+                    />
+                  </div>
                 );
-
               }
             )}
 
-
             {/* =================================================
-                MOBILE OVERLAY
+                OVERLAY
             ================================================= */}
 
             <div
               className={
-                styles.mobileOverlay
+                styles.overlay
               }
               style={{
-
                 background: `
                   linear-gradient(
                     180deg,
@@ -1252,204 +719,233 @@ export default function GreeceExperience() {
                       15,
                       44,
                       89,
-                      ${currentScene.overlay.top}
+                      ${scene.overlay.top}
                     ),
                     rgba(
                       0,
                       0,
                       0,
-                      ${currentScene.overlay.bottom}
+                      ${scene.overlay.bottom}
                     )
                   )
-                `
-
+                `,
               }}
             />
 
+            {/* =================================================
+                DESKTOP VIGNETTE
+            ================================================= */}
+
+            <div
+              className={
+                styles.vignette
+              }
+            />
+
+            {/* =================================================
+                MOBILE READABILITY
+            ================================================= */}
+
+            <div
+              className={
+                styles.mobileReadability
+              }
+            />
           </div>
 
-
           {/* =================================================
-              MOBILE CONTENT
+              TEXT
           ================================================= */}
 
           <div
             key={
-              `mobile-content-${mobileScene}`
+              `content-${currentScene}`
             }
             className={
-              styles.mobileContent
+              styles.sceneContent
             }
           >
+            <span
+              className={
+                styles.sceneEyebrow
+              }
+            >
+              Greece Experience
+            </span>
 
             <h3>
-              {
-                currentScene.title
-              }
+              {scene.title}
             </h3>
 
             <p>
-              {
-                currentScene.description
-              }
+              {scene.description}
             </p>
-
           </div>
 
-
           {/* =================================================
-              MOBILE INDICATOR
+              PREVIOUS
           ================================================= */}
 
-          <div
-            className={
-              styles.mobileIndicator
-            }
-            aria-hidden="true"
-          >
-
-            {greeceScenes.map(
-              (
-                scene,
-                index
-              ) => (
-
-                <span
-                  key={
-                    scene.id
-                  }
-                  className={`
-                    ${styles.mobileDot}
-                    ${
-                      index ===
-                      mobileScene
-                        ? styles.mobileDotActive
-                        : ""
-                    }
-                  `}
-                />
-
+          <button
+            type="button"
+            className={`
+              ${styles.navigationButton}
+              ${styles.previousButton}
+              ${
+                isFirstScene
+                  ? styles.disabledButton
+                  : ""
+              }
+            `}
+            onClick={() =>
+              changeScene(
+                "previous"
               )
-            )}
-
-          </div>
-
+            }
+            disabled={
+              isFirstScene ||
+              isTransitioning
+            }
+            aria-label="Previous scene"
+          >
+            <span aria-hidden="true">
+              ←
+            </span>
+          </button>
 
           {/* =================================================
-              MOBILE CONTROLS
+              NEXT
+          ================================================= */}
+
+          <button
+            type="button"
+            className={`
+              ${styles.navigationButton}
+              ${styles.nextButton}
+              ${
+                isLastScene
+                  ? styles.disabledButton
+                  : ""
+              }
+            `}
+            onClick={() =>
+              changeScene("next")
+            }
+            disabled={
+              isLastScene ||
+              isTransitioning
+            }
+            aria-label="Next scene"
+          >
+            <span aria-hidden="true">
+              →
+            </span>
+          </button>
+
+          {/* =================================================
+              BOTTOM NAVIGATION
           ================================================= */}
 
           <div
             className={
-              styles.mobileControls
+              styles.bottomNavigation
             }
           >
-
             {/* =================================================
-                PREVIOUS
+                COUNTER
             ================================================= */}
 
-            <button
-              type="button"
-              className={`
-                ${styles.mobileSceneButton}
-                ${
-                  isFirstMobileScene
-                    ? styles.mobileSceneButtonDisabled
-                    : ""
-                }
-              `}
-              onClick={() =>
-                changeMobileScene(
-                  "previous"
-                )
+            <div
+              className={
+                styles.counter
               }
-              disabled={
-                isFirstMobileScene ||
-                isMobileTransitioning
-              }
-              aria-label={
-                isFirstMobileScene
-                  ? "First scene"
-                  : `Go to scene ${
-                      mobileSceneNumber - 1
-                    }`
-              }
+              aria-live="polite"
             >
+              <span>
+                {sceneNumber}
+              </span>
 
               <span
                 className={
-                  styles.mobileButtonArrow
+                  styles.counterDivider
                 }
               >
-                ↑
+                /
               </span>
 
-            </button>
-
+              <span
+                className={
+                  styles.counterTotal
+                }
+              >
+                {totalSceneNumber}
+              </span>
+            </div>
 
             {/* =================================================
-                NEXT
+                DOTS
             ================================================= */}
 
-            <button
-              type="button"
-              className={`
-                ${styles.mobileSceneButton}
-                ${
-                  isLastMobileScene
-                    ? styles.mobileSceneButtonContinue
-                    : ""
-                }
-              `}
-              onClick={() =>
-                changeMobileScene(
-                  "next"
-                )
-              }
-              disabled={
-                isMobileTransitioning
-              }
-              aria-label={
-                isLastMobileScene
-                  ? "Continue to the next section"
-                  : `Go to scene ${
-                      mobileSceneNumber + 1
-                    }`
+            <div
+              className={
+                styles.progressDots
               }
             >
-
-              {isMobileTransitioning ? (
-
-                <span
-                  className={
-                    styles.mobileSpinner
-                  }
-                  aria-hidden="true"
-                />
-
-              ) : (
-
-                <span
-                  className={
-                    styles.mobileButtonArrow
-                  }
-                >
-                  ↓
-                </span>
-
+              {greeceScenes.map(
+                (
+                  sceneItem,
+                  index
+                ) => (
+                  <button
+                    key={
+                      sceneItem.id
+                    }
+                    type="button"
+                    className={`
+                      ${styles.progressDot}
+                      ${
+                        index ===
+                        currentScene
+                          ? styles.progressDotActive
+                          : ""
+                      }
+                    `}
+                    onClick={() =>
+                      goToScene(index)
+                    }
+                    disabled={
+                      index ===
+                        currentScene ||
+                      isTransitioning
+                    }
+                    aria-label={`Go to scene ${
+                      index + 1
+                    }`}
+                    aria-current={
+                      index ===
+                      currentScene
+                        ? "true"
+                        : undefined
+                    }
+                  />
+                )
               )}
+            </div>
 
-            </button>
+            {/* =================================================
+                SWIPE HINT
+            ================================================= */}
 
+            <span
+              className={
+                styles.swipeHint
+              }
+            >
+              Swipe to explore
+            </span>
           </div>
-
         </div>
-
       </div>
-
     </section>
-
   );
-
 }

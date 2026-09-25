@@ -1,302 +1,97 @@
 export const greeceScenes = [
+  {
+    id: "morning",
 
-{
-  id:"morning",
+    title:
+      "Imagine your mornings like this.",
 
-  duration:30,
+    description:
+      "Coffee by the sea. Sunshine every day.",
 
-  title:"Imagine your mornings like this.",
-  description:"Coffee by the sea. Sunshine every day.",
+    image:
+      "/morning_image.jpg",
 
-  image:"/morning_image.jpg",
-  mobileImage:"/morning_image_mobile.jpg",
-  position:"center center",
+    mobileImage:
+      "/morning_image_mobile.jpg",
 
-  overlay:{
-    top:0.35,
-    bottom:0.55
-  },
+    position:
+      "center center",
 
-
-  camera:{
-
-    scale:0.08,
-    moveY:-18,
-
-    enterBlur:12,
-
-    zoomSpeed:1,
-    easing:"smooth",
-    moveX:-18
-
-  },
-
-
-  transition:{
-
-    image:{
-      enterDuration:0.8,
-      exitDuration:0.8,
-      enterScale:1.05,
-      exitScale:1
+    overlay: {
+      top: 0.35,
+      bottom: 0.55,
     },
-
-    text:{
-
-      enter:{
-        start:0.02,
-        duration:0.10
-      },
-
-      exit:{
-        start:0.85,
-        duration:0.15
-      }
-
-    }
-
   },
 
+  {
+    id: "possibilities",
 
-  text:{
+    title:
+      "One home. Endless possibilities.",
 
-    top:"60%",
-    width:"750px",
-    align:"center",
+    description:
+      "From Greece, Europe becomes part of your everyday life.",
 
-    blur:10,
+    image:
+      "/second_scene.jpg",
 
-    enterOffset:15,
-    exitOffset:25
+    mobileImage:
+      "/second_scene_mobile.jpg",
 
-  }
+    position:
+      "center center",
 
-},
-
-
-
-{
-  id:"possibilities",
-
-  duration:20,
-
-  title:"One home. Endless possibilities.",
-  description:"From Greece, Europe becomes part of your everyday life.",
-
-  image:"/second_scene.jpg",
-  mobileImage:"/second_scene_mobile.jpg",
-
-  position:"center center",
-
-  overlay:{
-    top:0.35,
-    bottom:0.55
-  },
-
-
-  camera:{
-
-    scale:0.08,
-    moveY:-18,
-
-    enterBlur:12,
-
-    zoomSpeed:1,
-    easing:"smooth",
-    moveX:22
-
-  },
-
-
-  transition:{
-
-    image:{
-      enterDuration:0.8,
-      exitDuration:0.8,
-      enterScale:1.05,
-      exitScale:1
+    overlay: {
+      top: 0.35,
+      bottom: 0.55,
     },
-
-    text:{
-
-      enter:{
-        start:0.02,
-        duration:0.10
-      },
-
-      exit:{
-        start:0.85,
-        duration:0.15
-      }
-
-    }
-
   },
 
+  {
+    id: "investment",
 
-  text:{
+    title:
+      "Invest where people dream of living.",
 
-    top:"60%",
-    width:"750px",
-    align:"center",
+    description:
+      "A destination loved by investors worldwide.",
 
-    blur:10,
+    image:
+      "/third_scene.jpg",
 
-    enterOffset:15,
-    exitOffset:25
+    mobileImage:
+      "/third_scene_mobile.jpg",
 
-  }
+    position:
+      "center center",
 
-},
-
-
-
-{
-  id:"investment",
-
-  duration:20,
-
-  title:"Invest where people dream of living.",
-  description:"A destination loved by investors worldwide.",
-
-  image:"/third_scene.jpg",
-    mobileImage:"/third_scene_mobile.jpg",
-  position:"center center",
-
-  overlay:{
-    top:0.35,
-    bottom:0.55
-  },
-
-
-  camera:{
-
-    scale:0.08,
-    moveY:-18,
-
-    enterBlur:12,
-
-    zoomSpeed:1,
-    easing:"smooth",
-    moveX:10
-
-  },
-
-
-  transition:{
-
-    image:{
-      enterDuration:0.8,
-      exitDuration:0.8,
-      enterScale:1.05,
-      exitScale:1
+    overlay: {
+      top: 0.35,
+      bottom: 0.55,
     },
-
-    text:{
-
-      enter:{
-        start:0.02,
-        duration:0.10
-      },
-
-      exit:{
-        start:0.85,
-        duration:0.15
-      }
-
-    }
-
   },
 
+  {
+    id: "future",
 
-  text:{
+    title:
+      "A future your family can call home.",
 
-    top:"60%",
-    width:"750px",
-    align:"center",
+    description:
+      "Create memories in Greece for generations.",
 
-    blur:10,
+    image:
+      "/family_scene.jpg",
 
-    enterOffset:15,
-    exitOffset:25
+    mobileImage:
+      "/family_scene_mobile.jpg",
 
-  }
+    position:
+      "center center",
 
-},
-
-
-
-{
-  id:"future",
-
-  duration:30,
-
-  title:"A future your family can call home.",
-  description:"Create memories in Greece for generations.",
-
-  image:"/family_scene.jpg",
-  mobileImage:"/family_scene_mobile.jpg",
-  position:"center center",
-
-  overlay:{
-    top:0.15,
-    bottom:0.35
-  },
-
-
-  camera:{
-
-    scale:0.08,
-    moveY:-18,
-
-    enterBlur:12,
-
-    zoomSpeed:1,
-    easing:"smooth",
-    moveX:-25
-
-  },
-
-
-  transition:{
-
-    image:{
-      enterDuration:0.8,
-      exitDuration:0.8,
-      enterScale:1.05,
-      exitScale:1
+    overlay: {
+      top: 0.15,
+      bottom: 0.35,
     },
-
-    text:{
-
-      enter:{
-        start:0.02,
-        duration:0.10
-      },
-
-      exit:{
-        start:0.85,
-        duration:0.15
-      }
-
-    }
-
   },
-
-
-  text:{
-
-    top:"60%",
-    width:"750px",
-    align:"center",
-
-    blur:10,
-
-    enterOffset:15,
-    exitOffset:25
-
-  }
-
-}
-
 ];
