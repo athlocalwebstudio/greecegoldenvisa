@@ -425,7 +425,7 @@ export default function ConsultationModal({
                 <ArrowRight size={15} />
               </a>
 
-              <a href="mailto:higolgenvisa@gmail.com">
+              <a href="mailto:higoldenvisa@gmail.com">
                 Email directly
                 <ArrowRight size={15} />
               </a>

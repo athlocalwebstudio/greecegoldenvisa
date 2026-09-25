@@ -292,8 +292,8 @@ export default function CookiePolicyPage() {
                 <div className={styles.contactBox}>
                   <strong>Greece Golden Visa</strong>
 
-                  <a href="mailto:higolgenvisa@gmail.com">
-                    higolgenvisa@gmail.com
+                  <a href="mailto:higoldenvisa@gmail.com">
+                    higoldenvisa@gmail.com
                   </a>
                 </div>
               </section>

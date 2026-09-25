@@ -1,5 +1,5 @@
 const BASE_URL =
-  "https://greecegoldenvisa-mocha.vercel.app";
+  "https://goldenvisagreece.org";
 
 export default function sitemap() {
   return [

@@ -28,8 +28,8 @@ const footerColumns = [
 const contactDetails = [
   {
     label: "EMAIL",
-    value: "higolgenvisa@gmail.com",
-    href: "higolgenvisa@gmail.com",
+    value: "higoldenvisa@gmail.com",
+    href: "higoldenvisa@gmail.com",
   },
   {
     label: "PHONE",

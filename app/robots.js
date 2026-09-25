@@ -1,5 +1,4 @@
-const BASE_URL =
-  "https://greecegoldenvisa-mocha.vercel.app";
+const BASE_URL = "https://goldenvisagreece.org";
 
 export default function robots() {
   return {
