@@ -1,27 +1,20 @@
 import "./globals.css";
 
 import SiteShell from "./SiteShell";
+import { LanguageProvider } from "./LanguageContext";
 
 import {
   Playfair_Display,
   Inter,
 } from "next/font/google";
 
-
-
 const BASE_URL =
-  "https://greecegoldenvisa-mocha.vercel.app";
+  "https://goldenvisagreece.org";
 
 const SITE_NAME = "Greece Golden Visa";
 
 const SITE_DESCRIPTION =
   "Expert guidance for investors exploring the Greece Golden Visa through property investment, technical due diligence and a structured residency process.";
-
-/*
-|--------------------------------------------------------------------------
-| FONTS
-|--------------------------------------------------------------------------
-*/
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -34,14 +27,6 @@ const inter = Inter({
   variable: "--font-inter",
   display: "swap",
 });
-
-/*
-|--------------------------------------------------------------------------
-| STRUCTURED DATA
-|--------------------------------------------------------------------------
-| Helps search engines understand the website and its main subject.
-| This does not change anything visually on the website.
-*/
 
 const websiteStructuredData = {
   "@context": "https://schema.org",
@@ -203,9 +188,11 @@ export default function RootLayout({ children }) {
           }}
         />
 
-       <SiteShell>
-  {children}
-</SiteShell>
+        <LanguageProvider>
+          <SiteShell>
+            {children}
+          </SiteShell>
+        </LanguageProvider>
       </body>
     </html>
   );
