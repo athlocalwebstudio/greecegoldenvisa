@@ -18,6 +18,10 @@ import {
 } from "@/app/context/NavbarContext";
 
 import {
+  useLanguage,
+} from "@/app/LanguageContext";
+
+import {
   greeceScenes,
 } from "./GreeceExperienceData";
 
@@ -34,6 +38,8 @@ const playfair = Playfair_Display({
 });
 
 export default function GreeceExperience() {
+  const { t } = useLanguage();
+
   // =========================================================
   // REFS
   // =========================================================
@@ -274,11 +280,6 @@ export default function GreeceExperience() {
   // =========================================================
   // DIRECT SCENE NAVIGATION
   // =========================================================
-  //
-  // Dot navigation may jump from scene 1 → scene 4.
-  // We therefore calculate the actual direction and
-  // preload the actual destination before changing it.
-  //
 
   const goToScene = useCallback(
     async (targetIndex) => {
@@ -503,6 +504,18 @@ export default function GreeceExperience() {
     );
 
   // =========================================================
+  // TRANSLATED SCENE CONTENT
+  // =========================================================
+
+  const sceneTitle = t(
+    `greeceExperience.scenes.${scene.id}.title`
+  );
+
+  const sceneDescription = t(
+    `greeceExperience.scenes.${scene.id}.description`
+  );
+
+  // =========================================================
   // RENDER
   // =========================================================
 
@@ -520,17 +533,15 @@ export default function GreeceExperience() {
 
       <div className={styles.intro}>
         <span className={styles.label}>
-          Why Choose Greece
+          {t("greeceExperience.intro.label")}
         </span>
 
         <h2>
-          Imagine your mornings looked like this.
+          {t("greeceExperience.intro.title")}
         </h2>
 
         <p>
-          More than residency. A lifestyle built
-          around freedom, security and the
-          Mediterranean way of living.
+          {t("greeceExperience.intro.description")}
         </p>
       </div>
 
@@ -651,7 +662,7 @@ export default function GreeceExperience() {
                       }
                       alt={
                         isActive
-                          ? sceneItem.title
+                          ? sceneTitle
                           : ""
                       }
                       fill
@@ -770,15 +781,15 @@ export default function GreeceExperience() {
                 styles.sceneEyebrow
               }
             >
-              Greece Experience
+              {t("greeceExperience.sceneEyebrow")}
             </span>
 
             <h3>
-              {scene.title}
+              {sceneTitle}
             </h3>
 
             <p>
-              {scene.description}
+              {sceneDescription}
             </p>
           </div>
 
@@ -806,7 +817,9 @@ export default function GreeceExperience() {
               isFirstScene ||
               isTransitioning
             }
-            aria-label="Previous scene"
+            aria-label={t(
+              "greeceExperience.previous"
+            )}
           >
             <span aria-hidden="true">
               ←
@@ -835,7 +848,9 @@ export default function GreeceExperience() {
               isLastScene ||
               isTransitioning
             }
-            aria-label="Next scene"
+            aria-label={t(
+              "greeceExperience.next"
+            )}
           >
             <span aria-hidden="true">
               →
@@ -918,9 +933,12 @@ export default function GreeceExperience() {
                         currentScene ||
                       isTransitioning
                     }
-                    aria-label={`Go to scene ${
-                      index + 1
-                    }`}
+                    aria-label={t(
+                      "greeceExperience.goToScene"
+                    ).replace(
+                      "{number}",
+                      String(index + 1)
+                    )}
                     aria-current={
                       index ===
                       currentScene
@@ -941,7 +959,7 @@ export default function GreeceExperience() {
                 styles.swipeHint
               }
             >
-              Swipe to explore
+              {t("greeceExperience.swipe")}
             </span>
           </div>
         </div>

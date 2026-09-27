@@ -1,42 +1,27 @@
-
 .overlay {
   position: fixed;
-
   inset: 0;
-
   background: rgba(15, 44, 89, 0.38);
-
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-
   z-index: 15000;
-
   animation: fadeIn 0.3s ease;
 }
 
 .drawer {
   position: fixed;
-
   top: 0;
   right: 0;
-
   width: min(420px, 92vw);
   height: 100dvh;
-
   display: flex;
   flex-direction: column;
-
   padding: 1.5rem 1.4rem 1.25rem;
-
   background: #ffffff;
-
   z-index: 16000;
-
   box-shadow:
     -25px 0 70px rgba(15, 44, 89, 0.2);
-
   overflow: hidden;
-
   animation:
     slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -49,47 +34,84 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   min-height: 64px;
-
   margin-bottom: 1.25rem;
 }
 
 .logoLink {
   position: relative;
-
   display: block;
-
   width: 190px;
   height: 58px;
-
   flex-shrink: 0;
 }
 
 .logo {
   object-fit: contain;
   object-position: left center;
-
   width: 100%;
   height: 100%;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.languageToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.22rem;
+  padding: 0.48rem 0.62rem;
+  border: 1px solid rgba(15, 44, 89, 0.1);
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #64748b;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+.languageToggle:hover {
+  background: #ffffff;
+  border-color: rgba(59, 169, 239, 0.45);
+  transform: translateY(-1px);
+}
+
+.languageOption {
+  color: #94a3b8;
+}
+
+.languageActive {
+  color: #0f2c59;
+}
+
+.languageDivider {
+  color: #cbd5e1;
+  font-weight: 500;
 }
 
 .close {
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 44px;
   height: 44px;
-
   border: 1px solid rgba(15, 44, 89, 0.1);
   border-radius: 14px;
-
   background: #f8fafc;
   color: #0f2c59;
-
   cursor: pointer;
-
   transition:
     background 0.25s ease,
     color 0.25s ease,
@@ -99,7 +121,6 @@
 .close:hover {
   background: #0f2c59;
   color: #ffffff;
-
   transform: rotate(3deg);
 }
 
@@ -109,14 +130,10 @@
 
 .menuList {
   flex: 1;
-
   min-height: 0;
-
   display: flex;
   flex-direction: column;
-
   overflow-y: auto;
-
   scrollbar-width: thin;
   scrollbar-color:
     rgba(15, 44, 89, 0.15)
@@ -129,25 +146,17 @@
 
 .menuItem {
   width: 100%;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 1.15rem 0;
-
   border: none;
   background: transparent;
-
   color: #0f2c59;
-
   cursor: pointer;
-
   text-align: left;
-
   font-size: 0.98rem;
   font-weight: 650;
-
   transition:
     color 0.25s ease,
     padding 0.25s ease;
@@ -160,24 +169,19 @@
 .menuItemLeft {
   display: flex;
   align-items: center;
-
   gap: 0.9rem;
 }
 
 .number {
   min-width: 24px;
-
   color: #3ba9ef;
-
   font-size: 0.66rem;
   font-weight: 800;
-
   letter-spacing: 0.08em;
 }
 
 .chevron {
   color: #64748b;
-
   transition:
     transform 0.25s ease,
     color 0.25s ease;
@@ -185,9 +189,7 @@
 
 .chevronOpen {
   color: #3ba9ef;
-
   transform: rotate(180deg);
-
   transition:
     transform 0.25s ease,
     color 0.25s ease;
@@ -200,15 +202,12 @@
 .subMenu {
   display: flex;
   flex-direction: column;
-
   gap: 0.35rem;
-
   padding:
     0.25rem
     0
     1rem
     2.35rem;
-
   animation: expand 0.25s ease;
 }
 
@@ -216,20 +215,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   gap: 1rem;
-
   padding: 0.72rem 0.8rem;
-
   border-radius: 10px;
-
   color: #64748b;
-
   text-decoration: none;
-
   font-size: 0.87rem;
   line-height: 1.35;
-
   transition:
     color 0.2s ease,
     background 0.2s ease,
@@ -238,15 +230,12 @@
 
 .subLink:hover {
   background: #f8fafc;
-
   color: #0f2c59;
-
   transform: translateX(3px);
 }
 
 .subLink svg {
   flex-shrink: 0;
-
   color: #3ba9ef;
 }
 
@@ -256,35 +245,24 @@
 
 .bottom {
   flex-shrink: 0;
-
   padding-top: 1.25rem;
-
   border-top: 1px solid rgba(15, 44, 89, 0.08);
-
   margin-top: 0.75rem;
 }
 
 .cta {
   width: 100%;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   min-height: 54px;
-
   padding: 0 1.25rem;
-
   border-radius: 999px;
-
   background: #0f2c59;
   color: #ffffff;
-
   text-decoration: none;
-
   font-size: 0.92rem;
   font-weight: 700;
-
   transition:
     background 0.3s ease,
     transform 0.3s ease,
@@ -293,22 +271,16 @@
 
 .cta:hover {
   background: #3ba9ef;
-
   transform: translateY(-2px);
-
   box-shadow:
     0 12px 30px rgba(59, 169, 239, 0.2);
 }
 
 .note {
   margin: 0.75rem 0 0;
-
   color: #94a3b8;
-
   font-size: 0.72rem;
-
   line-height: 1.5;
-
   text-align: center;
 }
 
@@ -339,13 +311,11 @@
 @keyframes expand {
   from {
     opacity: 0;
-
     transform: translateY(-5px);
   }
 
   to {
     opacity: 1;
-
     transform: translateY(0);
   }
 }
@@ -357,7 +327,6 @@
 @media (max-width: 480px) {
   .drawer {
     width: 94vw;
-
     padding:
       1.25rem
       1.15rem
@@ -373,9 +342,17 @@
     margin-bottom: 0.75rem;
   }
 
+  .headerActions {
+    gap: 0.4rem;
+  }
+
+  .languageToggle {
+    padding: 0.45rem 0.55rem;
+    font-size: 0.64rem;
+  }
+
   .menuItem {
     padding: 1rem 0;
-
     font-size: 0.93rem;
   }
 
@@ -391,6 +368,12 @@
 @media (max-width: 360px) {
   .logoLink {
     width: 150px;
+  }
+
+  .languageToggle {
+    padding:
+      0.42rem
+      0.5rem;
   }
 
   .close {
@@ -411,7 +394,8 @@
   .chevron,
   .chevronOpen,
   .subLink,
-  .cta {
+  .cta,
+  .languageToggle {
     animation: none;
     transition: none;
   }

@@ -1,7 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./trustCompass.module.css";
+import { useLanguage } from "@/app/LanguageContext";
 
 export default function TrustCompass() {
+  const { language, t } = useLanguage();
+
   return (
     <section
       className={styles.trustCompass}
@@ -17,19 +22,17 @@ export default function TrustCompass() {
         <div className={styles.intro}>
 
           <span className={styles.eyebrow}>
-            WHY INVESTORS TRUST US
+            {t("trustCompass.intro.eyebrow")}
           </span>
 
           <h2 id="trust-heading">
-            Technical expertise.
+            {t("trustCompass.intro.title")}
             <br />
-            <span>Personal guidance.</span>
+            <span>{t("trustCompass.intro.highlight")}</span>
           </h2>
 
           <p className={styles.introText}>
-            When you are investing in a property in another country, you need
-            someone who understands more than the Golden Visa process. You need
-            someone who understands the property itself.
+            {t("trustCompass.intro.description")}
           </p>
 
         </div>
@@ -51,7 +54,7 @@ export default function TrustCompass() {
 
               <Image
                 src="/portait_image_for_website.jpg"
-                alt="Svetlana Novikova, Dipl. Civil Engineer and Golden Visa Advisor"
+                alt={t("trustCompass.profile.imageAlt")}
                 fill
                 sizes="(max-width: 900px) 100vw, 460px"
                 className={styles.profileImage}
@@ -61,7 +64,7 @@ export default function TrustCompass() {
 
               <div className={styles.profileBadge}>
                 <span className={styles.badgeDot} />
-                Golden Visa Advisor
+                {t("trustCompass.profile.badge")}
               </div>
 
             </div>
@@ -70,7 +73,7 @@ export default function TrustCompass() {
             <div className={styles.profileContent}>
 
               <span className={styles.profileEyebrow}>
-                YOUR ADVISOR
+                {t("trustCompass.profile.eyebrow")}
               </span>
 
               <h3>
@@ -80,16 +83,13 @@ export default function TrustCompass() {
               </h3>
 
               <p className={styles.profileRole}>
-                Dipl. Civil Engineer
+                {t("trustCompass.profile.role.engineer")}
                 <span>·</span>
-                Golden Visa Advisor
+                {t("trustCompass.profile.role.advisor")}
               </p>
 
               <p className={styles.profileDescription}>
-                Svetlana brings together technical knowledge, property
-                experience and Golden Visa guidance to help international
-                investors make informed decisions before committing to a
-                property in Greece.
+                {t("trustCompass.profile.description")}
               </p>
 
 
@@ -99,12 +99,16 @@ export default function TrustCompass() {
 
                 <div className={styles.credential}>
                   <strong>15+</strong>
-                  <span>YEARS EXPERIENCE</span>
+                  <span>
+                    {t("trustCompass.profile.credentials.experience")}
+                  </span>
                 </div>
 
                 <div className={styles.credential}>
                   <strong>1,000+</strong>
-                  <span>PROPERTIES REVIEWED</span>
+                  <span>
+                    {t("trustCompass.profile.credentials.properties")}
+                  </span>
                 </div>
 
               </div>
@@ -115,14 +119,33 @@ export default function TrustCompass() {
               <div className={styles.languages}>
 
                 <div className={styles.languageList}>
-                  <span className={styles.languageActive}>EN</span>
+
+                  <span
+                    className={
+                      language === "en"
+                        ? styles.languageActive
+                        : ""
+                    }
+                  >
+                    EN
+                  </span>
+
                   <span>GR</span>
-                  <span>RU</span>
+
+                  <span
+                    className={
+                      language === "ru"
+                        ? styles.languageActive
+                        : ""
+                    }
+                  >
+                    RU
+                  </span>
+
                 </div>
 
                 <p>
-                  Support available in English,
-                  Greek and Russian.
+                  {t("trustCompass.profile.languages")}
                 </p>
 
               </div>
@@ -143,13 +166,13 @@ export default function TrustCompass() {
               <div>
 
                 <span className={styles.sectionLabel}>
-                  THE DIFFERENCE
+                  {t("trustCompass.approach.eyebrow")}
                 </span>
 
                 <h3>
-                  A property decision
+                  {t("trustCompass.approach.title")}
                   <br />
-                  backed by expertise.
+                  {t("trustCompass.approach.highlight")}
                 </h3>
 
               </div>
@@ -172,12 +195,11 @@ export default function TrustCompass() {
               <div className={styles.approachContent}>
 
                 <h4>
-                  Engineer-led perspective
+                  {t("trustCompass.approach.items.engineer.title")}
                 </h4>
 
                 <p>
-                  Your property is considered from a technical perspective
-                  before you make a financial commitment.
+                  {t("trustCompass.approach.items.engineer.description")}
                 </p>
 
               </div>
@@ -200,12 +222,13 @@ export default function TrustCompass() {
               <div className={styles.approachContent}>
 
                 <h4>
-                  Independent assessment
+                  {t("trustCompass.approach.items.independent.title")}
                 </h4>
 
                 <p>
-                  The focus is on whether a property makes sense for your
-                  objectives, not simply on completing a transaction.
+                  {t(
+                    "trustCompass.approach.items.independent.description"
+                  )}
                 </p>
 
               </div>
@@ -228,12 +251,13 @@ export default function TrustCompass() {
               <div className={styles.approachContent}>
 
                 <h4>
-                  One coordinated process
+                  {t("trustCompass.approach.items.coordinated.title")}
                 </h4>
 
                 <p>
-                  Technical, legal and professional steps are coordinated so
-                  you always know what is happening and why.
+                  {t(
+                    "trustCompass.approach.items.coordinated.description"
+                  )}
                 </p>
 
               </div>
@@ -256,12 +280,13 @@ export default function TrustCompass() {
               <div className={styles.approachContent}>
 
                 <h4>
-                  International investor support
+                  {t("trustCompass.approach.items.international.title")}
                 </h4>
 
                 <p>
-                  Clear communication and guidance for investors navigating
-                  the Greek property market from abroad.
+                  {t(
+                    "trustCompass.approach.items.international.description"
+                  )}
                 </p>
 
               </div>
@@ -286,19 +311,17 @@ export default function TrustCompass() {
           <div className={styles.dueIntro}>
 
             <span className={styles.eyebrow}>
-              BEFORE YOU BUY
+              {t("trustCompass.dueDiligence.eyebrow")}
             </span>
 
             <h3>
-              Technical due diligence
+              {t("trustCompass.dueDiligence.title")}
               <br />
-              before you invest.
+              {t("trustCompass.dueDiligence.highlight")}
             </h3>
 
             <p>
-              A property can look perfect on paper and still contain issues
-              that affect its value, legality or Golden Visa eligibility.
-              Technical review helps identify them before you commit.
+              {t("trustCompass.dueDiligence.description")}
             </p>
 
           </div>
@@ -311,9 +334,16 @@ export default function TrustCompass() {
               <span>01</span>
 
               <div>
-                <strong>Planning & permits</strong>
+                <strong>
+                  {t(
+                    "trustCompass.dueDiligence.items.planning.title"
+                  )}
+                </strong>
+
                 <p>
-                  Review of building permits and planning compliance.
+                  {t(
+                    "trustCompass.dueDiligence.items.planning.description"
+                  )}
                 </p>
               </div>
 
@@ -325,9 +355,16 @@ export default function TrustCompass() {
               <span>02</span>
 
               <div>
-                <strong>Unauthorised works</strong>
+                <strong>
+                  {t(
+                    "trustCompass.dueDiligence.items.unauthorised.title"
+                  )}
+                </strong>
+
                 <p>
-                  Identification of unauthorised construction or alterations.
+                  {t(
+                    "trustCompass.dueDiligence.items.unauthorised.description"
+                  )}
                 </p>
               </div>
 
@@ -339,9 +376,16 @@ export default function TrustCompass() {
               <span>03</span>
 
               <div>
-                <strong>Technical documentation</strong>
+                <strong>
+                  {t(
+                    "trustCompass.dueDiligence.items.documentation.title"
+                  )}
+                </strong>
+
                 <p>
-                  Review of plans, records and relevant property documents.
+                  {t(
+                    "trustCompass.dueDiligence.items.documentation.description"
+                  )}
                 </p>
               </div>
 
@@ -353,9 +397,16 @@ export default function TrustCompass() {
               <span>04</span>
 
               <div>
-                <strong>Electronic Building Identity</strong>
+                <strong>
+                  {t(
+                    "trustCompass.dueDiligence.items.buildingIdentity.title"
+                  )}
+                </strong>
+
                 <p>
-                  Assessment of the property's technical documentation.
+                  {t(
+                    "trustCompass.dueDiligence.items.buildingIdentity.description"
+                  )}
                 </p>
               </div>
 
@@ -367,10 +418,16 @@ export default function TrustCompass() {
               <span>05</span>
 
               <div>
-                <strong>Golden Visa suitability</strong>
+                <strong>
+                  {t(
+                    "trustCompass.dueDiligence.items.goldenVisa.title"
+                  )}
+                </strong>
+
                 <p>
-                  Technical assessment of whether the property can support
-                  your intended investment route.
+                  {t(
+                    "trustCompass.dueDiligence.items.goldenVisa.description"
+                  )}
                 </p>
               </div>
 
@@ -392,20 +449,20 @@ export default function TrustCompass() {
           <div className={styles.statementContent}>
 
             <span>
-              OUR APPROACH
+              {t("trustCompass.statement.eyebrow")}
             </span>
 
             <p>
-              You are making a significant investment in a foreign market.
-              Our job is to help you understand the property, the process and
-              the decisions before you.
+              {t("trustCompass.statement.description")}
             </p>
 
           </div>
 
           <div className={styles.statementSignature}>
             <span>Svetlana Novikova</span>
-            <small>Dipl. Civil Engineer</small>
+            <small>
+              {t("trustCompass.statement.role")}
+            </small>
           </div>
 
         </div>

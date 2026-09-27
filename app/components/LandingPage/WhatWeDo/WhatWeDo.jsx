@@ -1,119 +1,97 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import LocalizedLink from "@/app/components/LocalizedLink";
 import {
   ArrowRight,
   ArrowUpRight,
 } from "lucide-react";
+
+import { useLanguage } from "@/app/LanguageContext";
 
 import styles from "./whatWeDo.module.css";
 
 const approaches = [
   {
     number: "01",
-    title: "PROPERTY SELECTION",
-    shortTitle: "Property Selection",
-    tabDescription: "Find the right property.",
-    description:
-      "We help identify properties that fit your investment goals, location preferences and Golden Visa requirements before you move forward.",
+    key: "propertySelection",
   },
   {
     number: "02",
-    title: "TECHNICAL DUE DILIGENCE",
-    shortTitle: "Technical Due Diligence",
-    tabDescription: "Know what you are buying.",
-    description:
-      "Before you commit, we examine the property's technical and planning status to help identify potential issues and confirm whether it can support your investment objectives.",
+    key: "technicalDueDiligence",
   },
   {
     number: "03",
-    title: "LEGAL & VISA COORDINATION",
-    shortTitle: "Legal & Visa Coordination",
-    tabDescription: "One coordinated process.",
-    description:
-      "We coordinate the legal and Golden Visa process with the relevant professionals, keeping the different stages connected and clearly structured.",
+    key: "legalVisaCoordination",
   },
   {
     number: "04",
-    title: "ONGOING SUPPORT",
-    shortTitle: "Ongoing Support",
-    tabDescription: "Support beyond the purchase.",
-    description:
-      "Our involvement does not end when the purchase is completed. We remain available to help coordinate the next steps and provide continued support when needed.",
+    key: "ongoingSupport",
   },
 ];
 
 export default function WhatWeDo() {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const { t } = useLanguage();
+
   const activeApproach = approaches[activeIndex];
 
   return (
-    <section className={styles.whatWeDo} id="what-we-do">
-
+    <section
+      className={styles.whatWeDo}
+      id="what-we-do"
+    >
       <div className={styles.container}>
-
         {/* =====================================================
             INTRO
         ===================================================== */}
 
         <header className={styles.intro}>
-
           <span className={styles.eyebrow}>
-            WHAT WE DO
+            {t("whatWeDo.intro.eyebrow")}
           </span>
 
           <h2>
-            More than Golden Visa.
+            {t("whatWeDo.intro.title")}
             <br />
-            One coordinated investment process.
+            {t("whatWeDo.intro.highlight")}
           </h2>
 
           <p className={styles.introDescription}>
-            From selecting the right property to completing your
-            Golden Visa journey, we bring the technical, legal and
-            investment sides together under one coordinated process.
+            {t("whatWeDo.intro.description")}
           </p>
-
         </header>
-
 
         {/* =====================================================
             APPROACH
         ===================================================== */}
 
         <div className={styles.approachSection}>
-
           <div className={styles.approachHeader}>
-
             <div>
               <span className={styles.sectionEyebrow}>
-                OUR APPROACH
+                {t("whatWeDo.approach.eyebrow")}
               </span>
 
               <h3>
-                One process.
+                {t("whatWeDo.approach.title")}
                 <br />
-                Every important detail.
+                {t("whatWeDo.approach.highlight")}
               </h3>
             </div>
 
             <span className={styles.approachCounter}>
               {activeApproach.number} / 04
             </span>
-
           </div>
-
 
           {/* =================================================
               TABS
           ================================================= */}
 
           <div className={styles.approachTabs}>
-
             {approaches.map((approach, index) => (
-
               <button
                 key={approach.number}
                 type="button"
@@ -124,21 +102,22 @@ export default function WhatWeDo() {
                     : ""
                 }`}
               >
-
                 <span className={styles.tabNumber}>
                   {approach.number}
                 </span>
 
                 <span className={styles.tabContent}>
-
                   <span className={styles.tabTitle}>
-                    {approach.title}
+                    {t(
+                      `whatWeDo.approaches.${approach.key}.title`
+                    )}
                   </span>
 
                   <span className={styles.tabDescription}>
-                    {approach.tabDescription}
+                    {t(
+                      `whatWeDo.approaches.${approach.key}.tabDescription`
+                    )}
                   </span>
-
                 </span>
 
                 <span className={styles.tabArrow}>
@@ -147,96 +126,89 @@ export default function WhatWeDo() {
                     strokeWidth={1.8}
                   />
                 </span>
-
               </button>
-
             ))}
-
           </div>
-
 
           {/* =================================================
               ACTIVE APPROACH
           ================================================= */}
 
           <div className={styles.approachDetail}>
-
             <div className={styles.detailNumber}>
               {activeApproach.number}
             </div>
 
             <div className={styles.detailContent}>
-
               <span className={styles.detailLabel}>
                 {activeApproach.number} / 04
               </span>
 
               <h4>
-                {activeApproach.shortTitle}
+                {t(
+                  `whatWeDo.approaches.${activeApproach.key}.shortTitle`
+                )}
               </h4>
 
               <p>
-                {activeApproach.description}
+                {t(
+                  `whatWeDo.approaches.${activeApproach.key}.description`
+                )}
               </p>
-
             </div>
-
           </div>
-
         </div>
-
 
         {/* =====================================================
             COORDINATED APPROACH
         ===================================================== */}
 
         <div className={styles.coordinated}>
-
           <div className={styles.coordinatedContent}>
-
             <span className={styles.coordinatedEyebrow}>
-              ONE COORDINATED APPROACH
+              {t("whatWeDo.coordinated.eyebrow")}
             </span>
 
             <h3>
-              Your investment is not passed
+              {t("whatWeDo.coordinated.title")}
               <br className={styles.desktopBreak} />
-              from one provider to another.
+              {t("whatWeDo.coordinated.highlight")}
             </h3>
 
             <p>
-              We coordinate the process around you.
+              {t("whatWeDo.coordinated.description")}
             </p>
-
           </div>
 
-
           <div className={styles.stats}>
-
             <div className={styles.stat}>
               <strong>15+</strong>
-              <span>Years of experience</span>
+              <span>
+                {t("whatWeDo.stats.experience")}
+              </span>
             </div>
 
             <div className={styles.stat}>
               <strong>1,000+</strong>
-              <span>Properties examined</span>
+              <span>
+                {t("whatWeDo.stats.properties")}
+              </span>
             </div>
 
             <div className={styles.stat}>
               <strong>3</strong>
-              <span>Languages supported</span>
+              <span>
+                {t("whatWeDo.stats.languages")}
+              </span>
             </div>
-
           </div>
 
-
-          <Link
+          <LocalizedLink
             href="/program/eligibility"
             className={styles.coordinatedButton}
           >
             <span>
-              Discuss your investment
+              {t("whatWeDo.coordinated.button")}
             </span>
 
             <span className={styles.buttonIcon}>
@@ -245,47 +217,39 @@ export default function WhatWeDo() {
                 strokeWidth={2}
               />
             </span>
-          </Link>
-
+          </LocalizedLink>
         </div>
-
 
         {/* =====================================================
             FINAL CTA
         ===================================================== */}
 
         <div className={styles.finalCta}>
-
           <div className={styles.finalCtaContent}>
-
             <span className={styles.finalCtaEyebrow}>
-              YOUR NEXT STEP
+              {t("whatWeDo.finalCta.eyebrow")}
             </span>
 
             <h3>
-              Ready to explore your options?
+              {t("whatWeDo.finalCta.title")}
             </h3>
-
           </div>
 
-          <Link
+          <LocalizedLink
             href="/program/eligibility"
             className={styles.finalCtaButton}
           >
             <span>
-              Check Your Eligibility
+              {t("whatWeDo.finalCta.button")}
             </span>
 
             <ArrowRight
               size={18}
               strokeWidth={2}
             />
-          </Link>
-
+          </LocalizedLink>
         </div>
-
       </div>
-
     </section>
   );
 }

@@ -1,12 +1,18 @@
 "use client";
 
-import styles from "@/app/styles/navbar.module.css";
-import { navigation } from "./navigationData";
 import Link from "next/link";
 
+import styles from "@/app/styles/navbar.module.css";
+import { getNavigation } from "./navigationData";
+
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/app/LanguageContext";
 
 export default function DropdownPanel({ activeMenu }) {
+  const { language, t } = useLanguage();
+
+  const navigation = getNavigation(language);
+
   const menuItem = navigation.find(
     (item) => item.id === activeMenu
   );
@@ -27,15 +33,14 @@ export default function DropdownPanel({ activeMenu }) {
       <div className={styles.dropdownHeader}>
 
         <h3>
-          {menu.title}
+          {t(menu.titleKey)}
         </h3>
 
         <p>
-          {menu.description}
+          {t(menu.descriptionKey)}
         </p>
 
       </div>
-
 
       {/* =========================================
           CARDS
@@ -50,7 +55,7 @@ export default function DropdownPanel({ activeMenu }) {
           return (
             <Link
               href={card.href}
-              key={card.title}
+              key={card.href}
               className={styles.dropdownCard}
             >
 
@@ -58,20 +63,18 @@ export default function DropdownPanel({ activeMenu }) {
                 <Icon size={24} />
               </div>
 
-
               <div className={styles.cardInfo}>
 
                 <h4>
-                  {card.title}
+                  {t(card.titleKey)}
                 </h4>
 
                 <p>
-                  {card.description}
+                  {t(card.descriptionKey)}
                 </p>
 
-
                 <span className={styles.cardAction}>
-                  Explore
+                  {t("nav.common.explore")}
                   <ArrowRight size={16} />
                 </span>
 
@@ -84,13 +87,12 @@ export default function DropdownPanel({ activeMenu }) {
 
       </div>
 
-
       {/* =========================================
           BOTTOM BUTTON
       ========================================= */}
 
       <button className={styles.dropdownButton}>
-        {menu.button}
+        {t(menu.buttonKey)}
       </button>
 
     </div>

@@ -1,59 +1,93 @@
 "use client";
 
-import Link from "next/link";
+import LocalizedLink from "@/app/components/LocalizedLink";
 import { urlFor } from "@/sanity/lib/image";
 import styles from "./hero.module.css";
+import { useLanguage } from "@/app/LanguageContext";
 
 export default function Hero({ homepage }) {
+  const { language, t } = useLanguage();
+
   const heroImage = homepage?.heroImage
     ? urlFor(homepage.heroImage).width(1600).quality(85).url()
     : "/greek_background.jpg";
 
+  const heroTitle =
+    language === "ru"
+      ? t("hero.title")
+      : homepage?.heroTitle || "Invest in Greece.";
+
+  const heroHighlight =
+    language === "ru"
+      ? t("hero.highlight")
+      : homepage?.heroHighlight ||
+        "Unlock European Residency.";
+
+  const heroDescription =
+    language === "ru"
+      ? t("hero.description")
+      : homepage?.heroDescription ||
+        "Explore the right investment path in Greece and receive expert guidance throughout your residency journey.";
+
+  const primaryCtaText =
+    language === "ru"
+      ? t("hero.primaryCta")
+      : homepage?.primaryCtaText ||
+        "Check Your Eligibility";
+
+  const secondaryCtaText =
+    language === "ru"
+      ? t("hero.secondaryCta")
+      : homepage?.secondaryCtaText ||
+        "Explore Investment Routes →";
+
   return (
     <section className={styles.hero}>
       <div className={styles.container}>
-        {/* HERO IMAGE */}
+
         {/* HERO CONTENT */}
+
         <div className={styles.content}>
+
           <h1 className={styles.title}>
-            {homepage?.heroTitle || "Invest in Greece."}
+            {heroTitle}
             <br />
-            {homepage?.heroHighlight ||
-              "Unlock European Residency."}
+            {heroHighlight}
           </h1>
 
           <p className={styles.description}>
-            {homepage?.heroDescription ||
-              "Explore the right investment path in Greece and receive expert guidance throughout your residency journey."}
+            {heroDescription}
           </p>
 
           <div className={styles.actions}>
-            <Link
+
+            <LocalizedLink
               href={
                 homepage?.primaryCtaLink ||
                 "/program/eligibility"
               }
               className={styles.primaryButton}
             >
-              {homepage?.primaryCtaText ||
-                "Check Your Eligibility"}
-            </Link>
+              {primaryCtaText}
+            </LocalizedLink>
 
-            <Link
+            <LocalizedLink
               href={
                 homepage?.secondaryCtaLink ||
                 "/investments/compare-options"
               }
               className={styles.secondaryButton}
             >
-              {homepage?.secondaryCtaText ||
-                "Explore Investment Routes →"}
-            </Link>
+              {secondaryCtaText}
+            </LocalizedLink>
+
           </div>
 
           {/* TRUST */}
+
           <div className={styles.trust}>
-            {homepage?.trustItems?.length > 0 ? (
+            {language === "en" &&
+            homepage?.trustItems?.length > 0 ? (
               homepage.trustItems.map((item) => (
                 <div
                   className={styles.trustItem}
@@ -63,6 +97,29 @@ export default function Hero({ homepage }) {
                   <span>{item.description}</span>
                 </div>
               ))
+            ) : language === "ru" ? (
+              <>
+                <div className={styles.trustItem}>
+                  <strong>{t("hero.trust.family.title")}</strong>
+                  <span>
+                    {t("hero.trust.family.description")}
+                  </span>
+                </div>
+
+                <div className={styles.trustItem}>
+                  <strong>{t("hero.trust.eu.title")}</strong>
+                  <span>
+                    {t("hero.trust.eu.description")}
+                  </span>
+                </div>
+
+                <div className={styles.trustItem}>
+                  <strong>{t("hero.trust.expert.title")}</strong>
+                  <span>
+                    {t("hero.trust.expert.description")}
+                  </span>
+                </div>
+              </>
             ) : (
               <>
                 <div className={styles.trustItem}>
@@ -82,10 +139,14 @@ export default function Hero({ homepage }) {
               </>
             )}
           </div>
+
         </div>
+
+        {/* HERO IMAGE */}
 
         <div className={styles.visual}>
           <div className={styles.imageWrapper}>
+
             <img
               src={heroImage}
               alt="Luxury Greek property overlooking the Aegean Sea"
@@ -93,8 +154,10 @@ export default function Hero({ homepage }) {
             />
 
             <div className={styles.imageOverlay}></div>
+
           </div>
         </div>
+
       </div>
     </section>
   );

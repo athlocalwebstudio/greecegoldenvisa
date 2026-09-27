@@ -1,49 +1,77 @@
-
 "use client";
 
+import LocalizedLink from "@/app/components/LocalizedLink";
 import Link from "next/link";
 import styles from "./Footer.module.css";
 
+import { useLanguage } from "@/app/LanguageContext";
+
 const footerColumns = [
   {
-    title: "Golden Visa",
+    id: "goldenVisa",
     links: [
-      { label: "Investment Routes", href: "/investments/compare-options" },
-      { label: "How It Works", href: "/program/journey" },
-      { label: "Technical Due Diligence", href: "#due-diligence" },
-      { label: "FAQ", href: "/investor-guide/faq" },
+      {
+        id: "investmentRoutes",
+        href: "/investments/compare-options",
+      },
+      {
+        id: "howItWorks",
+        href: "/program/journey",
+      },
+      {
+        id: "technicalDueDiligence",
+        href: "#due-diligence",
+      },
+      {
+        id: "faq",
+        href: "/investor-guide/faq",
+      },
     ],
   },
   {
-    title: "Explore",
+    id: "explore",
     links: [
-      { label: "About", href: "/team/who-we-are" },
-      { label: "Greece Experience", href: "/why-greece/mediterranean-lifestyle" },
-      { label: "Clients Trust", href: "/team/why-clients-trust-us" },
-      { label: "Contact", href: "/team/contact" },
+      {
+        id: "about",
+        href: "/team/who-we-are",
+      },
+      {
+        id: "greeceExperience",
+        href: "/why-greece/mediterranean-lifestyle",
+      },
+      {
+        id: "clientsTrust",
+        href: "/team/why-clients-trust-us",
+      },
+      {
+        id: "contact",
+        href: "/team/contact",
+      },
     ],
   },
 ];
 
 const contactDetails = [
   {
-    label: "EMAIL",
+    id: "email",
     value: "higoldenvisa@gmail.com",
     href: "higoldenvisa@gmail.com",
   },
   {
-    label: "PHONE",
+    id: "phone",
     value: "+306993229390",
     href: "tel:+306993229390",
   },
   {
-    label: "WHATSAPP",
+    id: "whatsapp",
     value: "+306993229390",
     href: "https://wa.me/306993229390",
   },
 ];
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -57,73 +85,198 @@ export default function Footer() {
           {/* BRAND */}
 
           <div className={styles.brandColumn}>
-            <Link href="/" className={styles.brand}>
-              <span className={styles.brandMark}>
+
+            <LocalizedLink
+              href="/"
+              className={styles.brand}
+            >
+              <span
+                className={styles.brandMark}
+              >
                 GV
               </span>
 
-              <span className={styles.brandText}>
-                <strong>GOLDEN VISA</strong>
-                <span>GREECE</span>
-              </span>
-            </Link>
+              <span
+                className={styles.brandText}
+              >
+                <strong>
+                  GOLDEN VISA
+                </strong>
 
-            <p className={styles.brandDescription}>
-              Independent technical coordination and guidance for international
-              investors exploring Greece and the Greek Golden Visa.
+                <span>
+                  GREECE
+                </span>
+              </span>
+            </LocalizedLink>
+
+            <p
+              className={
+                styles.brandDescription
+              }
+            >
+              {t(
+                "footer.brand.description"
+              )}
             </p>
 
-            <div className={styles.credentials}>
-              <span>TECHNICAL COORDINATION</span>
-              <span>GOLDEN VISA ADVISORY</span>
+            <div
+              className={
+                styles.credentials
+              }
+            >
+              <span>
+                {t(
+                  "footer.brand.credentialOne"
+                )}
+              </span>
+
+              <span>
+                {t(
+                  "footer.brand.credentialTwo"
+                )}
+              </span>
             </div>
+
           </div>
 
           {/* NAVIGATION */}
 
-          <div className={styles.navigationColumns}>
-            {footerColumns.map((column) => (
-              <div className={styles.footerColumn} key={column.title}>
-                <h3>{column.title}</h3>
+          <div
+            className={
+              styles.navigationColumns
+            }
+          >
 
-                <nav aria-label={column.title}>
-                  {column.links.map((link) => (
-                    <Link href={link.href} key={link.label}>
-                      {link.label}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-            ))}
+            {footerColumns.map(
+              (column) => (
+                <div
+                  className={
+                    styles.footerColumn
+                  }
+                  key={column.id}
+                >
+
+                  <h3>
+                    {t(
+                      `footer.columns.${column.id}.title`
+                    )}
+                  </h3>
+
+                  <nav
+                    aria-label={t(
+                      `footer.columns.${column.id}.title`
+                    )}
+                  >
+
+                    {column.links.map(
+                      (link) => {
+                        const isAnchor =
+                          link.href.startsWith("#");
+
+                        return isAnchor ? (
+                          <Link
+                            href={link.href}
+                            key={link.id}
+                          >
+                            {t(
+                              `footer.columns.${column.id}.links.${link.id}`
+                            )}
+                          </Link>
+                        ) : (
+                          <LocalizedLink
+                            href={link.href}
+                            key={link.id}
+                          >
+                            {t(
+                              `footer.columns.${column.id}.links.${link.id}`
+                            )}
+                          </LocalizedLink>
+                        );
+                      }
+                    )}
+
+                  </nav>
+
+                </div>
+              )
+            )}
+
           </div>
 
           {/* CONTACT */}
 
-          <div className={styles.contactColumn}>
-            <h3>Contact</h3>
+          <div
+            className={
+              styles.contactColumn
+            }
+          >
 
-            <div className={styles.contactList}>
-              {contactDetails.map((item) => (
-                <a href={item.href} key={item.label}>
-                  <span>{item.label}</span>
-                  <strong>{item.value}</strong>
-                </a>
-              ))}
+            <h3>
+              {t("footer.contact.title")}
+            </h3>
+
+            <div
+              className={
+                styles.contactList
+              }
+            >
+
+              {contactDetails.map(
+                (item) => (
+                  <a
+                    href={item.href}
+                    key={item.id}
+                  >
+                    <span>
+                      {t(
+                        `footer.contact.details.${item.id}`
+                      )}
+                    </span>
+
+                    <strong>
+                      {item.value}
+                    </strong>
+                  </a>
+                )
+              )}
+
             </div>
 
-            <div className={styles.location}>
-              <span>BASED IN</span>
-              <strong>Greece</strong>
+            <div
+              className={
+                styles.location
+              }
+            >
+              <span>
+                {t(
+                  "footer.contact.basedIn"
+                )}
+              </span>
+
+              <strong>
+                {t(
+                  "footer.contact.location"
+                )}
+              </strong>
             </div>
+
           </div>
+
         </div>
 
         {/* =========================================
             PROFESSIONAL NOTE
         ========================================= */}
 
-        <div className={styles.professionalNote}>
-          <div className={styles.noteMark}>
+        <div
+          className={
+            styles.professionalNote
+          }
+        >
+
+          <div
+            className={styles.noteMark}
+          >
             <svg
               width="16"
               height="16"
@@ -156,31 +309,55 @@ export default function Footer() {
           </div>
 
           <div>
-            <span>PLEASE NOTE</span>
+
+            <span>
+              {t(
+                "footer.professionalNote.label"
+              )}
+            </span>
 
             <p>
-              Information presented on this website is provided for general
-              informational purposes and should not be considered legal,
-              tax or investment advice.
+              {t(
+                "footer.professionalNote.description"
+              )}
             </p>
+
           </div>
+
         </div>
 
         {/* =========================================
             FOOTER BOTTOM
         ========================================= */}
 
-        <div className={styles.footerBottom}>
+        <div
+          className={styles.footerBottom}
+        >
 
-          <div className={styles.bottomLeft}>
+          <div
+            className={styles.bottomLeft}
+          >
 
-            <div className={styles.copyright}>
-              © {new Date().getFullYear()} Golden Visa Greece.
-              <span>All rights reserved.</span>
+            <div
+              className={styles.copyright}
+            >
+              © {new Date().getFullYear()}{" "}
+              Golden Visa Greece.
+
+              <span>
+                {t(
+                  "footer.bottom.allRightsReserved"
+                )}
+              </span>
             </div>
 
-            <div className={styles.madeBy}>
-              Website crafted by{" "}
+            <div
+              className={styles.madeBy}
+            >
+              {t(
+                "footer.bottom.websiteCraftedBy"
+              )}{" "}
+
               <a
                 href="https://athlocalwebstudio.com"
                 target="_blank"
@@ -192,19 +369,52 @@ export default function Footer() {
 
           </div>
 
-          <nav className={styles.legalLinks} aria-label="Legal">
-            <Link href="/privacy">Privacy Policy</Link>
-            <Link href="/terms">Terms & Conditions</Link>
-            <Link href="/cookies">Cookie Policy</Link>
+          <nav
+            className={styles.legalLinks}
+            aria-label={t(
+              "footer.legal.title"
+            )}
+          >
+            <LocalizedLink href="/privacy">
+              {t(
+                "footer.legal.privacy"
+              )}
+            </LocalizedLink>
+
+            <LocalizedLink href="/terms">
+              {t(
+                "footer.legal.terms"
+              )}
+            </LocalizedLink>
+
+            <LocalizedLink href="/cookies">
+              {t(
+                "footer.legal.cookies"
+              )}
+            </LocalizedLink>
           </nav>
 
           <div
             className={styles.languages}
-            aria-label="Available languages"
+            aria-label={t(
+              "footer.languages.available"
+            )}
           >
-            <span className={styles.languageActive}>EN</span>
-            <span>GR</span>
-            <span>RU</span>
+            <span
+              className={
+                styles.languageActive
+              }
+            >
+              EN
+            </span>
+
+            <span>
+              GR
+            </span>
+
+            <span>
+              RU
+            </span>
           </div>
 
         </div>

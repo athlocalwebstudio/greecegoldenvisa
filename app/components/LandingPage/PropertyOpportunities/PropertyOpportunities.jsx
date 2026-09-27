@@ -15,6 +15,8 @@ import styles from "./propertyOpportunities.module.css";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 
+import { useLanguage } from "@/app/LanguageContext";
+
 /*
 |--------------------------------------------------------------------------
 | SANITY QUERY
@@ -79,27 +81,35 @@ function formatBedrooms(bedrooms) {
   return bedrooms;
 }
 
-function getCategory(type) {
+function getCategory(type, t) {
   if (type === "Land") {
-    return "LAND";
+    return t("propertyOpportunities.categories.land");
   }
 
   if (type === "Commercial") {
-    return "COMMERCIAL";
+    return t(
+      "propertyOpportunities.categories.commercial"
+    );
   }
 
-  return "RESIDENTIAL";
+  return t(
+    "propertyOpportunities.categories.residential"
+  );
 }
 
-function getRouteLabel(route) {
+function getRouteLabel(route, t) {
   if (
     !route ||
     route === "Not Yet Verified"
   ) {
-    return "Route to be verified";
+    return t(
+      "propertyOpportunities.route.notVerified"
+    );
   }
 
-  return `${route} Investment Route`;
+  return `${route} ${t(
+    "propertyOpportunities.route.investmentRoute"
+  )}`;
 }
 
 /*
@@ -112,6 +122,8 @@ export default function PropertyOpportunities() {
   const [properties, setProperties] = useState([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+
+  const { t } = useLanguage();
 
   /*
   |--------------------------------------------------------------------------
@@ -245,7 +257,9 @@ export default function PropertyOpportunities() {
 
           title:
             property.title ||
-            "Property Opportunity",
+            t(
+              "propertyOpportunities.fallbacks.title"
+            ),
 
           location:
             property.city &&
@@ -253,17 +267,24 @@ export default function PropertyOpportunities() {
               ? `${property.city}, ${property.location}`
               : property.city ||
                 property.location ||
-                "Greece",
+                t(
+                  "propertyOpportunities.fallbacks.location"
+                ),
 
           category:
-            getCategory(property.type),
+            getCategory(
+              property.type,
+              t
+            ),
 
           price:
             formatPrice(property.price),
 
           type:
             property.type ||
-            "Property",
+            t(
+              "propertyOpportunities.fallbacks.type"
+            ),
 
           size:
             formatSize(property.size),
@@ -275,12 +296,15 @@ export default function PropertyOpportunities() {
 
           route:
             getRouteLabel(
-              property.route
+              property.route,
+              t
             ),
 
           description:
             property.description ||
-            "A selected property opportunity in Greece.",
+            t(
+              "propertyOpportunities.fallbacks.description"
+            ),
 
           image:
             property.mainImage
@@ -297,14 +321,16 @@ export default function PropertyOpportunities() {
 
           status:
             property.status ||
-            "Available",
+            t(
+              "propertyOpportunities.fallbacks.status"
+            ),
 
           featured:
             property.featured || false,
         };
       }
     );
-  }, [properties]);
+  }, [properties, t]);
 
   /*
   |--------------------------------------------------------------------------
@@ -397,7 +423,9 @@ export default function PropertyOpportunities() {
             />
 
             <span>
-              PROPERTY OPPORTUNITIES
+              {t(
+                "propertyOpportunities.intro.eyebrow"
+              )}
             </span>
           </div>
 
@@ -407,9 +435,13 @@ export default function PropertyOpportunities() {
             }
           >
             <h2>
-              Explore properties
+              {t(
+                "propertyOpportunities.intro.title"
+              )}
               <br />
-              selected for your investment.
+              {t(
+                "propertyOpportunities.intro.highlight"
+              )}
             </h2>
           </div>
 
@@ -419,10 +451,9 @@ export default function PropertyOpportunities() {
             }
           >
             <p>
-              Discover a selection of
-              properties across Greece
-              that may fit different
-              investment strategies.
+              {t(
+                "propertyOpportunities.intro.description"
+              )}
             </p>
 
             <span
@@ -430,10 +461,9 @@ export default function PropertyOpportunities() {
                 styles.introNote
               }
             >
-              Each opportunity is
-              considered around your
-              goals before you move
-              forward.
+              {t(
+                "propertyOpportunities.intro.note"
+              )}
             </span>
           </div>
 
@@ -453,7 +483,9 @@ export default function PropertyOpportunities() {
             type="button"
             className={`${styles.arrow} ${styles.arrowLeft}`}
             onClick={previousSlide}
-            aria-label="Previous property"
+            aria-label={t(
+              "propertyOpportunities.navigation.previous"
+            )}
           >
             <ArrowLeft
               size={19}
@@ -472,7 +504,13 @@ export default function PropertyOpportunities() {
             className={
               styles.propertyCardLink
             }
-            aria-label={`Explore ${activeProperty.title}`}
+            aria-label={t(
+              "propertyOpportunities.navigation.explore",
+              {
+                title:
+                  activeProperty.title,
+              }
+            )}
           >
 
             <article
@@ -548,6 +586,7 @@ export default function PropertyOpportunities() {
                   className={
                     styles.imageBottom
                   }
+
                 >
 
                   <div
@@ -574,7 +613,9 @@ export default function PropertyOpportunities() {
                       styles.illustrativeLabel
                     }
                   >
-                    SELECTED PROPERTY
+                    {t(
+                      "propertyOpportunities.image.selectedProperty"
+                    )}
                   </span>
 
                 </div>
@@ -608,7 +649,9 @@ export default function PropertyOpportunities() {
                         styles.contentEyebrow
                       }
                     >
-                      SELECTED OPPORTUNITY
+                      {t(
+                        "propertyOpportunities.card.selectedOpportunity"
+                      )}
                     </span>
 
                     <h3>
@@ -630,7 +673,9 @@ export default function PropertyOpportunities() {
                         styles.priceLabel
                       }
                     >
-                      INDICATIVE VALUE
+                      {t(
+                        "propertyOpportunities.card.indicativeValue"
+                      )}
                     </span>
 
                     <strong>
@@ -664,7 +709,9 @@ export default function PropertyOpportunities() {
                         styles.detailLabel
                       }
                     >
-                      TYPE
+                      {t(
+                        "propertyOpportunities.details.type"
+                      )}
                     </span>
 
                     <span
@@ -690,7 +737,9 @@ export default function PropertyOpportunities() {
                         styles.detailLabel
                       }
                     >
-                      SIZE
+                      {t(
+                        "propertyOpportunities.details.size"
+                      )}
                     </span>
 
                     <span
@@ -725,8 +774,12 @@ export default function PropertyOpportunities() {
                     >
                       {
                         activeProperty.bedrooms
-                          ? "BEDROOMS"
-                          : "STATUS"
+                          ? t(
+                              "propertyOpportunities.details.bedrooms"
+                            )
+                          : t(
+                              "propertyOpportunities.details.status"
+                            )
                       }
                     </span>
 
@@ -766,7 +819,9 @@ export default function PropertyOpportunities() {
                         styles.detailLabel
                       }
                     >
-                      INVESTMENT ROUTE
+                      {t(
+                        "propertyOpportunities.details.investmentRoute"
+                      )}
                     </span>
 
                     <span
@@ -820,15 +875,15 @@ export default function PropertyOpportunities() {
                   >
 
                     <span>
-                      OUR APPROACH
+                      {t(
+                        "propertyOpportunities.approach.label"
+                      )}
                     </span>
 
                     <p>
-                      Properties are
-                      considered around
-                      your investment
-                      objectives — not simply
-                      available inventory.
+                      {t(
+                        "propertyOpportunities.approach.description"
+                      )}
                     </p>
 
                   </div>
@@ -840,7 +895,9 @@ export default function PropertyOpportunities() {
                   >
 
                     <span>
-                      View property
+                      {t(
+                        "propertyOpportunities.card.viewProperty"
+                      )}
                     </span>
 
                     <span
@@ -872,7 +929,9 @@ export default function PropertyOpportunities() {
             type="button"
             className={`${styles.arrow} ${styles.arrowRight}`}
             onClick={nextSlide}
-            aria-label="Next property"
+            aria-label={t(
+              "propertyOpportunities.navigation.next"
+            )}
           >
             <ArrowRight
               size={19}
@@ -907,7 +966,13 @@ export default function PropertyOpportunities() {
                       ? styles.progressActive
                       : ""
                   }`}
-                  aria-label={`Go to ${property.title}`}
+                  aria-label={t(
+                    "propertyOpportunities.navigation.goTo",
+                    {
+                      title:
+                        property.title,
+                    }
+                  )}
                 />
               )
             )}
@@ -947,18 +1012,21 @@ export default function PropertyOpportunities() {
                 styles.ctaEyebrow
               }
             >
-              HAVE A SPECIFIC PROPERTY
-              IN MIND?
+              {t(
+                "propertyOpportunities.cta.eyebrow"
+              )}
             </span>
 
             <h3>
-              Let us review it with you.
+              {t(
+                "propertyOpportunities.cta.title"
+              )}
             </h3>
 
             <p>
-              Share a property or tell us
-              what you are looking for and
-              we can discuss the next step.
+              {t(
+                "propertyOpportunities.cta.description"
+              )}
             </p>
 
           </div>
@@ -971,7 +1039,9 @@ export default function PropertyOpportunities() {
           >
 
             <span>
-              Request a property review
+              {t(
+                "propertyOpportunities.cta.button"
+              )}
             </span>
 
             <ArrowRight

@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import LocalizedLink from "@/app/components/LocalizedLink";
 import {
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
 } from "lucide-react";
+
+import { useLanguage } from "@/app/LanguageContext";
 
 import styles from "./investmentRoutes.module.css";
 
@@ -14,11 +16,6 @@ const investmentRoutes = [
   {
     id: "ready-properties",
     number: "01",
-    title: "Ready-to-Move Properties",
-    description:
-      "Explore completed properties ready for purchase, designed for investors seeking a straightforward path to their Greek Golden Visa.",
-    bestFor:
-      "Investors looking for a simple, ready-to-use property investment.",
     image: "/ready-to-move.jpg",
     href: "/investments/ready-properties",
   },
@@ -26,11 +23,6 @@ const investmentRoutes = [
   {
     id: "strategic-properties",
     number: "02",
-    title: "Strategic Property Opportunities",
-    description:
-      "Discover properties with renovation or redevelopment potential, offering a more strategic approach to your investment in Greece.",
-    bestFor:
-      "Investors looking for flexibility and carefully selected opportunities.",
     image: "/strategic-option.jpg",
     href: "/investments/strategic-opportunities",
   },
@@ -38,11 +30,6 @@ const investmentRoutes = [
   {
     id: "commercial-hospitality",
     number: "03",
-    title: "Commercial & Hospitality",
-    description:
-      "Explore commercial and hospitality properties for investors seeking a more specialized investment opportunity in Greece.",
-    bestFor:
-      "Investors considering larger or more specialized property opportunities.",
     image: "/commercial-image.jpg",
     href: "/investments/compare-options",
   },
@@ -50,11 +37,6 @@ const investmentRoutes = [
   {
     id: "alternative",
     number: "04",
-    title: "Alternative Routes",
-    description:
-      "Explore alternative investment approaches beyond traditional property ownership, depending on your individual circumstances.",
-    bestFor:
-      "Investors looking beyond the conventional property investment route.",
     image: "/alternative-investments.jpg",
     href: "/investments/alternative-investments",
   },
@@ -62,6 +44,8 @@ const investmentRoutes = [
 
 export default function InvestmentRoutes() {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const { t } = useLanguage();
 
   const activeRoute = investmentRoutes[activeIndex];
 
@@ -88,45 +72,40 @@ export default function InvestmentRoutes() {
   return (
     <section className={styles.investmentRoutes}>
       <div className={styles.container}>
-
         {/* =========================================
             INTRO
         ========================================= */}
 
         <div className={styles.intro}>
-
           <span className={styles.eyebrow}>
-            INVESTMENT ROUTES
+            {t("investmentRoutes.intro.eyebrow")}
           </span>
 
           <h2>
-            Choose the route
+            {t("investmentRoutes.intro.title")}
             <br />
-            that fits your goals.
+            {t("investmentRoutes.intro.highlight")}
           </h2>
 
           <p>
-            Every investor has different priorities.
-            Explore the available investment approaches
-            and discover which strategy may be right for you.
+            {t("investmentRoutes.intro.description")}
           </p>
-
         </div>
-
 
         {/* =========================================
             CAROUSEL
         ========================================= */}
 
         <div className={styles.carousel}>
-
           {/* LEFT ARROW */}
 
           <button
             type="button"
             className={`${styles.arrow} ${styles.arrowLeft}`}
             onClick={previousSlide}
-            aria-label="Previous investment route"
+            aria-label={t(
+              "investmentRoutes.navigation.previous"
+            )}
           >
             <ArrowLeft
               size={20}
@@ -134,25 +113,28 @@ export default function InvestmentRoutes() {
             />
           </button>
 
-
           {/* =========================================
               CARD
           ========================================= */}
 
-          <Link
+          <LocalizedLink
             href={activeRoute.href}
             className={styles.card}
-            aria-label={`Explore ${activeRoute.title}`}
+            aria-label={`${t(
+              "investmentRoutes.navigation.explore"
+            )}: ${t(
+              `investmentRoutes.routes.${activeRoute.id}.title`
+            )}`}
           >
-
             {/* IMAGE */}
 
             <div className={styles.imageWrapper}>
-
               <img
                 key={activeRoute.image}
                 src={activeRoute.image}
-                alt={activeRoute.title}
+                alt={t(
+                  `investmentRoutes.routes.${activeRoute.id}.title`
+                )}
                 className={styles.image}
               />
 
@@ -161,78 +143,69 @@ export default function InvestmentRoutes() {
               <span className={styles.routeNumber}>
                 {activeRoute.number} / 04
               </span>
-
             </div>
-
 
             {/* =========================================
                 CONTENT
             ========================================= */}
 
             <div className={styles.cardContent}>
-
               {/* TOP */}
 
               <div className={styles.cardTop}>
-
                 <span className={styles.routeLabel}>
-                  INVESTMENT ROUTE
+                  {t("investmentRoutes.card.routeLabel")}
                 </span>
 
                 <span className={styles.routeIndex}>
                   {activeRoute.number}
                 </span>
-
               </div>
-
 
               {/* TITLE */}
 
               <div className={styles.titleArea}>
-
                 <h3>
-                  {activeRoute.title}
+                  {t(
+                    `investmentRoutes.routes.${activeRoute.id}.title`
+                  )}
                 </h3>
-
               </div>
-
 
               {/* DESCRIPTION */}
 
               <div className={styles.descriptionArea}>
-
                 <p className={styles.description}>
-                  {activeRoute.description}
+                  {t(
+                    `investmentRoutes.routes.${activeRoute.id}.description`
+                  )}
                 </p>
-
               </div>
-
 
               {/* BEST FOR */}
 
               <div className={styles.bestFor}>
-
                 <span>
-                  BEST FOR
+                  {t("investmentRoutes.card.bestFor")}
                 </span>
 
                 <p>
-                  {activeRoute.bestFor}
+                  {t(
+                    `investmentRoutes.routes.${activeRoute.id}.bestFor`
+                  )}
                 </p>
-
               </div>
-
 
               {/* =========================================
                   CTA
               ========================================= */}
 
               <div className={styles.exploreArea}>
-
                 <span className={styles.explore}>
-
                   <span className={styles.exploreText}>
-                    Explore this route
+                    {t(
+                      "investmentRoutes.card.explore"
+                    )}
                   </span>
 
                   <span className={styles.exploreIcon}>
@@ -241,15 +214,10 @@ export default function InvestmentRoutes() {
                       strokeWidth={2}
                     />
                   </span>
-
                 </span>
-
               </div>
-
             </div>
-
-          </Link>
-
+          </LocalizedLink>
 
           {/* RIGHT ARROW */}
 
@@ -257,27 +225,24 @@ export default function InvestmentRoutes() {
             type="button"
             className={`${styles.arrow} ${styles.arrowRight}`}
             onClick={nextSlide}
-            aria-label="Next investment route"
+            aria-label={t(
+              "investmentRoutes.navigation.next"
+            )}
           >
             <ArrowRight
               size={20}
               strokeWidth={1.8}
             />
           </button>
-
         </div>
-
 
         {/* =========================================
             CONTROLS
         ========================================= */}
 
         <div className={styles.controls}>
-
           <div className={styles.progress}>
-
             {investmentRoutes.map((route, index) => (
-
               <button
                 type="button"
                 key={route.id}
@@ -287,57 +252,57 @@ export default function InvestmentRoutes() {
                     ? styles.progressActive
                     : ""
                 }`}
-                aria-label={`Go to ${route.title}`}
+                aria-label={`${t(
+                  "investmentRoutes.navigation.goTo"
+                )}: ${t(
+                  `investmentRoutes.routes.${route.id}.title`
+                )}`}
               />
-
             ))}
-
           </div>
 
           <span className={styles.progressText}>
             {activeRoute.number} / 04
           </span>
-
         </div>
-
 
         {/* =========================================
             ASSESSMENT CTA
         ========================================= */}
 
         <div className={styles.assessment}>
-
           <div className={styles.assessmentText}>
-
             <span className={styles.assessmentLabel}>
-              NOT SURE WHERE TO START?
+              {t(
+                "investmentRoutes.assessment.label"
+              )}
             </span>
 
-            <span className={styles.assessmentDescription}>
-              Find the investment route that matches your goals.
+            <span
+              className={
+                styles.assessmentDescription
+              }
+            >
+              {t(
+                "investmentRoutes.assessment.description"
+              )}
             </span>
-
           </div>
 
-
-          <Link
+          <LocalizedLink
             href="/program/eligibility"
             className={styles.assessmentButton}
           >
-
             <span>
-              Find Your Route
+              {t("investmentRoutes.assessment.button")}
             </span>
 
             <ArrowRight
               size={17}
               strokeWidth={2}
             />
-
-          </Link>
-
+          </LocalizedLink>
         </div>
-
       </div>
     </section>
   );

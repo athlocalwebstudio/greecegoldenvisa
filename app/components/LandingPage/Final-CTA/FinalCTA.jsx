@@ -1,35 +1,51 @@
 "use client";
 
-import Link from "next/link";
+import LocalizedLink from "@/app/components/LocalizedLink";
+
 import styles from "../Final-CTA/finalCTA.module.css";
 
+import { useLanguage } from "@/app/LanguageContext";
+
 export default function FinalCTA() {
+  const { t } = useLanguage();
+
   return (
-    <section className={styles.finalCta} aria-labelledby="final-cta-heading">
+    <section
+      className={styles.finalCta}
+      aria-labelledby="final-cta-heading"
+    >
       <div className={styles.backgroundGlow} />
 
       <div className={styles.container}>
         <div className={styles.content}>
+
           <div className={styles.eyebrow}>
             <span className={styles.eyebrowLine} />
-            <span>START YOUR JOURNEY</span>
+
+            <span>
+              {t("finalCta.eyebrow")}
+            </span>
           </div>
 
           <h2 id="final-cta-heading">
-            Your journey to Greece
+            {t("finalCta.title")}
             <br />
-            starts with clarity.
+            {t("finalCta.highlight")}
           </h2>
 
           <p>
-            Tell us what you are looking for and receive an initial assessment
-            of the investment route, property requirements and next steps
-            relevant to your goals.
+            {t("finalCta.description")}
           </p>
 
           <div className={styles.actions}>
-            <Link href="/investor-guide/application-checklist" className={styles.primaryButton}>
-              <span>Start Your Free Assessment</span>
+
+            <LocalizedLink
+              href="/investor-guide/application-checklist"
+              className={styles.primaryButton}
+            >
+              <span>
+                {t("finalCta.primaryButton")}
+              </span>
 
               <svg
                 width="16"
@@ -46,23 +62,30 @@ export default function FinalCTA() {
                   strokeLinejoin="round"
                 />
               </svg>
-            </Link>
+            </LocalizedLink>
 
-            <Link href="/team/contact" className={styles.secondaryButton}>
-              Talk to Us
-            </Link>
+            <LocalizedLink
+              href="/team/contact"
+              className={styles.secondaryButton}
+            >
+              {t("finalCta.secondaryButton")}
+            </LocalizedLink>
+
           </div>
         </div>
 
         <div className={styles.sideNote}>
-          <span>INITIAL CONSULTATION</span>
+
+          <span>
+            {t("finalCta.sideNote.label")}
+          </span>
 
           <div className={styles.sideLine} />
 
           <p>
-            A clear first conversation about your objectives, preferred
-            location and investment route.
+            {t("finalCta.sideNote.description")}
           </p>
+
         </div>
       </div>
     </section>

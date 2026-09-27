@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -11,10 +10,19 @@ import {
 } from "lucide-react";
 
 import styles from "@/app/styles/mobileMenu.module.css";
-import { navigation } from "./navigationData";
+import { getNavigation } from "./navigationData";
+import { useLanguage } from "@/app/LanguageContext";
 
 export default function MobileMenu({ open, onClose }) {
   const [openSection, setOpenSection] = useState(null);
+
+  const {
+    language,
+    toggleLanguage,
+    t,
+  } = useLanguage();
+
+  const navigation = getNavigation(language);
 
   function handleSectionClick(id) {
     setOpenSection((current) =>
@@ -41,15 +49,16 @@ export default function MobileMenu({ open, onClose }) {
 
       <aside
         className={styles.drawer}
-        aria-label="Mobile navigation"
+        aria-label={t("nav.common.mobileNavigation")}
       >
         {/* HEADER */}
+
         <div className={styles.header}>
           <Link
-            href="/"
+            href={`/${language}`}
             className={styles.logoLink}
             onClick={handleNavigation}
-            aria-label="Greece Golden Visa — Home"
+            aria-label={t("nav.common.home")}
           >
             <Image
               src="/logo.jpg"
@@ -61,17 +70,62 @@ export default function MobileMenu({ open, onClose }) {
             />
           </Link>
 
-          <button
-            type="button"
-            className={styles.close}
-            onClick={onClose}
-            aria-label="Close navigation menu"
-          >
-            <X size={24} strokeWidth={1.8} />
-          </button>
+          <div className={styles.headerActions}>
+            <button
+              type="button"
+              className={styles.languageToggle}
+              onClick={toggleLanguage}
+              aria-label={
+                language === "en"
+                  ? t("nav.common.switchToRussian")
+                  : t("nav.common.switchToEnglish")
+              }
+            >
+              <span
+                className={
+                  language === "en"
+                    ? styles.languageActive
+                    : styles.languageOption
+                }
+              >
+                EN
+              </span>
+
+              <span
+                className={styles.languageDivider}
+              >
+                /
+              </span>
+
+              <span
+                className={
+                  language === "ru"
+                    ? styles.languageActive
+                    : styles.languageOption
+                }
+              >
+                RU
+              </span>
+            </button>
+
+            <button
+              type="button"
+              className={styles.close}
+              onClick={onClose}
+              aria-label={t(
+                "nav.common.closeNavigation"
+              )}
+            >
+              <X
+                size={24}
+                strokeWidth={1.8}
+              />
+            </button>
+          </div>
         </div>
 
         {/* NAVIGATION */}
+
         <div className={styles.menuList}>
           {navigation.map((item, index) => (
             <div
@@ -92,12 +146,16 @@ export default function MobileMenu({ open, onClose }) {
                     : undefined
                 }
               >
-                <span className={styles.menuItemLeft}>
+                <span
+                  className={styles.menuItemLeft}
+                >
                   <span className={styles.number}>
-                    0{index + 1}
+                    {String(index + 1).padStart(2, "0")}
                   </span>
 
-                  <span>{item.title}</span>
+                  <span>
+                    {t(item.titleKey)}
+                  </span>
                 </span>
 
                 {item.hasDropdown && (
@@ -116,21 +174,27 @@ export default function MobileMenu({ open, onClose }) {
               {item.hasDropdown &&
                 openSection === item.id && (
                   <div className={styles.subMenu}>
-                    {item.dropdown.cards.map((card) => (
-                      <Link
-                        key={card.title}
-                        href={card.href}
-                        className={styles.subLink}
-                        onClick={handleNavigation}
-                      >
-                        <span>{card.title}</span>
+                    {item.dropdown.cards.map(
+                      (card) => (
+                        <Link
+                          key={card.titleKey}
+                          href={card.href}
+                          className={styles.subLink}
+                          onClick={
+                            handleNavigation
+                          }
+                        >
+                          <span>
+                            {t(card.titleKey)}
+                          </span>
 
-                        <ArrowRight
-                          size={16}
-                          strokeWidth={1.7}
-                        />
-                      </Link>
-                    ))}
+                          <ArrowRight
+                            size={16}
+                            strokeWidth={1.7}
+                          />
+                        </Link>
+                      )
+                    )}
                   </div>
                 )}
             </div>
@@ -138,13 +202,18 @@ export default function MobileMenu({ open, onClose }) {
         </div>
 
         {/* CTA */}
+
         <div className={styles.bottom}>
           <Link
-            href="/team/contact"
+            href={`/${language}/team/contact`}
             className={styles.cta}
             onClick={handleNavigation}
           >
-            <span>Free Consultation</span>
+            <span>
+              {t(
+                "nav.common.freeConsultation"
+              )}
+            </span>
 
             <ArrowRight
               size={18}
@@ -153,7 +222,9 @@ export default function MobileMenu({ open, onClose }) {
           </Link>
 
           <p className={styles.note}>
-            Speak directly with a Golden Visa specialist.
+            {t(
+              "nav.common.specialistNote"
+            )}
           </p>
         </div>
       </aside>

@@ -21,249 +21,264 @@ import {
   Phone,
 } from "lucide-react";
 
-export const navigation = [
-  {
-    title: "The Program",
-    id: "the-program",
-    hasDropdown: true,
+export function getNavigation(language = "en") {
+  const prefix = `/${language}`;
 
-    dropdown: {
-      title: "Greek Golden Visa Program",
+  return [
+    {
+      titleKey: "nav.program.title",
+      id: "the-program",
+      hasDropdown: true,
 
-      description:
-        "Everything you need to understand before starting your residency journey in Greece.",
+      dropdown: {
+        titleKey: "nav.program.dropdownTitle",
 
-      button: "Explore the Program",
+        descriptionKey: "nav.program.description",
 
-      cards: [
-        {
-          title: "Residency Benefits",
-          description:
-            "Discover the rights and advantages of becoming a Greek Golden Visa holder.",
-          icon: FileText,
-          href: "/program/benefits",
-        },
+        buttonKey: "nav.program.button",
 
-        {
-          title: "Investment Requirements",
-          description:
-            "Learn the investment criteria and qualifying options available.",
-          icon: ShieldCheck,
-          href: "/program/requirements",
-        },
+        cards: [
+          {
+            titleKey: "nav.program.cards.benefits.title",
+            descriptionKey:
+              "nav.program.cards.benefits.description",
+            icon: FileText,
+            href: `${prefix}/program/benefits`,
+          },
 
-        {
-          title: "Your Eligibility",
-          description:
-            "Check whether you meet the requirements before applying.",
-          icon: CheckCircle2,
-          href: "/program/eligibility",
-        },
+          {
+            titleKey: "nav.program.cards.requirements.title",
+            descriptionKey:
+              "nav.program.cards.requirements.description",
+            icon: ShieldCheck,
+            href: `${prefix}/program/requirements`,
+          },
 
-        {
-          title: "Application Journey",
-          description:
-            "Follow every step from choosing your investment to receiving residency.",
-          icon: Workflow,
-          href: "/program/journey",
-        },
-      ],
+          {
+            titleKey: "nav.program.cards.eligibility.title",
+            descriptionKey:
+              "nav.program.cards.eligibility.description",
+            icon: CheckCircle2,
+            href: `${prefix}/program/eligibility`,
+          },
+
+          {
+            titleKey: "nav.program.cards.journey.title",
+            descriptionKey:
+              "nav.program.cards.journey.description",
+            icon: Workflow,
+            href: `${prefix}/program/journey`,
+          },
+        ],
+      },
     },
-  },
 
-  {
-    title: "Investment Routes",
-    id: "investment-routes",
-    hasDropdown: true,
+    {
+      titleKey: "nav.investments.title",
+      id: "investment-routes",
+      hasDropdown: true,
 
-    dropdown: {
-      title: "Investment Routes",
+      dropdown: {
+        titleKey: "nav.investments.dropdownTitle",
 
-      description:
-        "Choose the investment strategy that best matches your personal goals.",
+        descriptionKey: "nav.investments.description",
 
-      button: "Find Your Route",
+        buttonKey: "nav.investments.button",
 
-      cards: [
-        {
-          title: "Ready-to-Move Properties",
-          description:
-            "Browse completed homes that already qualify for the program.",
-          icon: Home,
-          href: "/investments/ready-properties",
-        },
+        cards: [
+          {
+            titleKey:
+              "nav.investments.cards.readyProperties.title",
+            descriptionKey:
+              "nav.investments.cards.readyProperties.description",
+            icon: Home,
+            href: `${prefix}/investments/ready-properties`,
+          },
 
-        {
-          title: "Strategic Property Opportunities",
-          description:
-            "Explore renovation and redevelopment investment opportunities.",
-          icon: Building2,
-          href: "/investments/strategic-opportunities",
-        },
+          {
+            titleKey:
+              "nav.investments.cards.strategic.title",
+            descriptionKey:
+              "nav.investments.cards.strategic.description",
+            icon: Building2,
+            href: `${prefix}/investments/strategic-opportunities`,
+          },
 
-        {
-          title: "Alternative Investments",
-          description:
-            "Discover investment options beyond traditional real estate.",
-          icon: Landmark,
-          href: "/investments/alternative-investments",
-        },
+          {
+            titleKey:
+              "nav.investments.cards.alternative.title",
+            descriptionKey:
+              "nav.investments.cards.alternative.description",
+            icon: Landmark,
+            href: `${prefix}/investments/alternative-investments`,
+          },
 
-        {
-          title: "Compare Your Options",
-          description:
-            "Compare every investment route side-by-side before deciding.",
-          icon: Scale,
-          href: "/investments/compare-options",
-        },
-      ],
+          {
+            titleKey:
+              "nav.investments.cards.compare.title",
+            descriptionKey:
+              "nav.investments.cards.compare.description",
+            icon: Scale,
+            href: `${prefix}/investments/compare-options`,
+          },
+        ],
+      },
     },
-  },
 
-  {
-    title: "Why Greece",
-    id: "why-greece",
-    hasDropdown: true,
+    {
+      titleKey: "nav.greece.title",
+      id: "why-greece",
+      hasDropdown: true,
 
-    dropdown: {
-      title: "Why Greece",
+      dropdown: {
+        titleKey: "nav.greece.dropdownTitle",
 
-      description:
-        "Discover why Greece continues to attract international investors from around the world.",
+        descriptionKey: "nav.greece.description",
 
-      button: "Discover Greece",
+        buttonKey: "nav.greece.button",
 
-      cards: [
-        {
-          title: "Mediterranean Lifestyle",
-          description:
-            "Enjoy exceptional quality of life, climate and culture.",
-          icon: Sun,
-          href: "/why-greece/mediterranean-lifestyle",
-        },
+        cards: [
+          {
+            titleKey:
+              "nav.greece.cards.lifestyle.title",
+            descriptionKey:
+              "nav.greece.cards.lifestyle.description",
+            icon: Sun,
+            href: `${prefix}/why-greece/mediterranean-lifestyle`,
+          },
 
-        {
-          title: "Gateway to Europe",
-          description:
-            "Visa-free access across the Schengen Area and Europe.",
-          icon: Globe2,
-          href: "/why-greece/gateway-to-europe",
-        },
+          {
+            titleKey:
+              "nav.greece.cards.europe.title",
+            descriptionKey:
+              "nav.greece.cards.europe.description",
+            icon: Globe2,
+            href: `${prefix}/why-greece/gateway-to-europe`,
+          },
 
-        {
-          title: "Real Estate Potential",
-          description:
-            "Explore one of Europe's fastest-growing property markets.",
-          icon: TrendingUp,
-          href: "/why-greece/real-estate-potential",
-        },
+          {
+            titleKey:
+              "nav.greece.cards.property.title",
+            descriptionKey:
+              "nav.greece.cards.property.description",
+            icon: TrendingUp,
+            href: `${prefix}/why-greece/real-estate-potential`,
+          },
 
-        {
-          title: "Family & Future",
-          description:
-            "Build long-term security for you and your family.",
-          icon: HeartHandshake,
-          href: "/why-greece/family-and-future",
-        },
-      ],
+          {
+            titleKey:
+              "nav.greece.cards.family.title",
+            descriptionKey:
+              "nav.greece.cards.family.description",
+            icon: HeartHandshake,
+            href: `${prefix}/why-greece/family-and-future`,
+          },
+        ],
+      },
     },
-  },
 
-  {
-    title: "Investor Guide",
-    id: "investor-guide",
-    hasDropdown: true,
+    {
+      titleKey: "nav.guide.title",
+      id: "investor-guide",
+      hasDropdown: true,
 
-    dropdown: {
-      title: "Investor Guide",
+      dropdown: {
+        titleKey: "nav.guide.dropdownTitle",
 
-      description:
-        "Useful tools and practical resources for every stage of your investment journey.",
+        descriptionKey: "nav.guide.description",
 
-      button: "Open Investor Guide",
+        buttonKey: "nav.guide.button",
 
-      cards: [
-        {
-          title: "Investor Handbook",
-          description:
-            "Read our complete guide before making your investment.",
-          icon: BookOpen,
-          href: "/investor-guide/investor-handbook",
-        },
+        cards: [
+          {
+            titleKey:
+              "nav.guide.cards.handbook.title",
+            descriptionKey:
+              "nav.guide.cards.handbook.description",
+            icon: BookOpen,
+            href: `${prefix}/investor-guide/investor-handbook`,
+          },
 
-        {
-          title: "Investment Calculator",
-          description:
-            "Estimate costs and understand your investment budget.",
-          icon: Calculator,
-          href: "/investor-guide/calculator",
-        },
+          {
+            titleKey:
+              "nav.guide.cards.calculator.title",
+            descriptionKey:
+              "nav.guide.cards.calculator.description",
+            icon: Calculator,
+            href: `${prefix}/investor-guide/calculator`,
+          },
 
-        {
-          title: "Application Checklist",
-          description:
-            "Track every document and requirement before applying.",
-          icon: ClipboardCheck,
-          href: "/investor-guide/application-checklist",
-        },
+          {
+            titleKey:
+              "nav.guide.cards.checklist.title",
+            descriptionKey:
+              "nav.guide.cards.checklist.description",
+            icon: ClipboardCheck,
+            href: `${prefix}/investor-guide/application-checklist`,
+          },
 
-        {
-          title: "Investor Questions",
-          description:
-            "Find answers to the most frequently asked questions.",
-          icon: CircleHelp,
-          href: "/investor-guide/faq",
-        },
-      ],
+          {
+            titleKey:
+              "nav.guide.cards.faq.title",
+            descriptionKey:
+              "nav.guide.cards.faq.description",
+            icon: CircleHelp,
+            href: `${prefix}/investor-guide/faq`,
+          },
+        ],
+      },
     },
-  },
 
-  {
-    title: "Our Team",
-    id: "our-team",
-    hasDropdown: true,
+    {
+      titleKey: "nav.team.title",
+      id: "our-team",
+      hasDropdown: true,
 
-    dropdown: {
-      title: "Meet Our Team",
+      dropdown: {
+        titleKey: "nav.team.dropdownTitle",
 
-      description:
-        "Get to know the professionals guiding investors throughout the entire Golden Visa process.",
+        descriptionKey: "nav.team.description",
 
-      button: "Meet the Team",
+        buttonKey: "nav.team.button",
 
-      cards: [
-        {
-          title: "Who We Are",
-          description:
-            "Learn about our company and our mission.",
-          icon: Users,
-          href: "/team/who-we-are",
-        },
+        cards: [
+          {
+            titleKey:
+              "nav.team.cards.whoWeAre.title",
+            descriptionKey:
+              "nav.team.cards.whoWeAre.description",
+            icon: Users,
+            href: `${prefix}/team/who-we-are`,
+          },
 
-        {
-          title: "Our Experience",
-          description:
-            "Discover our expertise in Greek real estate and residency.",
-          icon: Briefcase,
-          href: "/team/our-experience",
-        },
+          {
+            titleKey:
+              "nav.team.cards.experience.title",
+            descriptionKey:
+              "nav.team.cards.experience.description",
+            icon: Briefcase,
+            href: `${prefix}/team/our-experience`,
+          },
 
-        {
-          title: "Why Clients Trust Us",
-          description:
-            "See what makes investors choose our team.",
-          icon: Award,
-          href: "/team/why-clients-trust-us",
-        },
+          {
+            titleKey:
+              "nav.team.cards.trust.title",
+            descriptionKey:
+              "nav.team.cards.trust.description",
+            icon: Award,
+            href: `${prefix}/team/why-clients-trust-us`,
+          },
 
-        {
-          title: "Contact Our Advisors",
-          description:
-            "Speak directly with a Golden Visa specialist.",
-          icon: Phone,
-          href: "/team/contact",
-        },
-      ],
+          {
+            titleKey:
+              "nav.team.cards.contact.title",
+            descriptionKey:
+              "nav.team.cards.contact.description",
+            icon: Phone,
+            href: `${prefix}/team/contact`,
+          },
+        ],
+      },
     },
-  },
-];
+  ];
+}
