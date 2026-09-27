@@ -6,7 +6,6 @@
   --muted: #64748b;
   --line: rgba(15, 44, 89, 0.1);
   --line-strong: rgba(15, 44, 89, 0.16);
-
   background: #ffffff;
   color: var(--navy);
   overflow: hidden;
@@ -132,8 +131,8 @@
   font-weight: 750;
   text-decoration: none;
   transition:
-    transform 180ms ease,
     background 180ms ease,
+    transform 180ms ease,
     color 180ms ease,
     border-color 180ms ease;
 }
@@ -777,8 +776,8 @@
   font-weight: 750;
   text-decoration: none;
   transition:
-    transform 180ms ease,
     background 180ms ease,
+    transform 180ms ease,
     color 180ms ease,
     border-color 180ms ease;
 }
@@ -802,7 +801,6 @@
 .ctaSecondary:hover {
   color: var(--blue);
   border-color: var(--blue);
-  transform: translateY(-2px);
 }
 
 /* =========================================================
@@ -819,6 +817,1259 @@
   color: var(--muted);
   font-size: 0.72rem;
   line-height: 1.7;
+}
+
+/* =========================================================
+   LARGE DESKTOP — 1440+
+========================================================= */
+
+@media (min-width: 1440px) {
+  .container {
+    width: min(1380px, 92%);
+  }
+
+  .sectionLabel {
+    margin-bottom: 1.5rem;
+    font-size: 0.76rem;
+  }
+
+  /* HERO */
+
+  .hero {
+    min-height: 84vh;
+  }
+
+  .hero .container {
+    min-height: 84vh;
+  }
+
+  .heroContent {
+    max-width: 1000px;
+    padding: 10rem 0 5.5rem;
+  }
+
+  .hero h1 {
+    max-width: 950px;
+    font-size: clamp(4.2rem, 5.4vw, 6.8rem);
+  }
+
+  .hero p {
+    max-width: 740px;
+    margin-top: 2.2rem;
+    font-size: 1.12rem;
+  }
+
+  .heroActions {
+    margin-top: 2.6rem;
+    gap: 1rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-height: 56px;
+    padding: 1rem 1.6rem;
+    font-size: 0.94rem;
+  }
+
+  .heroMeta {
+    min-height: 84px;
+    padding: 1.6rem 0;
+  }
+
+  .heroMeta span {
+    font-size: 0.68rem;
+  }
+
+  .heroMeta strong {
+    font-size: 0.78rem;
+  }
+
+  /* STORY */
+
+  .story {
+    padding: 10rem 0;
+  }
+
+  .storyGrid {
+    gap: 8rem;
+  }
+
+  .photoFrame,
+  .svetlanaImage {
+    min-height: 760px;
+  }
+
+  .photoBadge {
+    left: 1.8rem;
+    right: 1.8rem;
+    bottom: 1.8rem;
+    padding: 1.4rem 1.5rem;
+  }
+
+  .photoBadge span {
+    font-size: 0.84rem;
+  }
+
+  .photoBadge strong {
+    font-size: 0.69rem;
+  }
+
+  .storyContent {
+    max-width: 720px;
+  }
+
+  .storyContent h2 {
+    font-size: clamp(3.5rem, 5vw, 5.6rem);
+  }
+
+  .storyContent p {
+    font-size: 1rem;
+  }
+
+  .storyContent .lead {
+    font-size: 1.16rem;
+  }
+
+  /* CREDIBILITY */
+
+  .credibility {
+    padding: 9rem 0;
+  }
+
+  .credibilityHeader {
+    gap: 8rem;
+  }
+
+  .credibilityHeader h2,
+  .expertiseIntro h2,
+  .teamHeading h2,
+  .philosophy h2,
+  .cta h2 {
+    font-size: clamp(3.4rem, 5vw, 5.6rem);
+  }
+
+  .credibilityHeader > p {
+    font-size: 1rem;
+  }
+
+  .statsGrid {
+    margin-top: 5.5rem;
+  }
+
+  .statCard {
+    min-height: 380px;
+    padding: 2.8rem;
+  }
+
+  .statValue {
+    font-size: clamp(4.5rem, 5vw, 6.8rem);
+  }
+
+  .statLine {
+    width: 48px;
+    margin: 2.3rem 0 1.4rem;
+  }
+
+  .statCard h3 {
+    font-size: 1.2rem;
+  }
+
+  .statCard p {
+    max-width: 300px;
+    font-size: 0.92rem;
+  }
+
+  .credentialStrip {
+    padding: 1.8rem 2.4rem;
+  }
+
+  .credentialIcon {
+    width: 44px;
+    height: 44px;
+    font-size: 0.82rem;
+  }
+
+  .credentialMain strong {
+    font-size: 0.96rem;
+  }
+
+  .credentialMain span {
+    font-size: 0.8rem;
+  }
+
+  .credentialLanguages span {
+    padding: 0.58rem 0.82rem;
+    font-size: 0.67rem;
+  }
+
+  /* EXPERTISE */
+
+  .expertise {
+    padding: 10rem 0;
+  }
+
+  .expertiseIntro {
+    max-width: 950px;
+  }
+
+  .expertiseIntro h2 {
+    max-width: 900px;
+  }
+
+  .expertiseIntro > p {
+    max-width: 750px;
+    margin-top: 2rem;
+    font-size: 1rem;
+  }
+
+  .expertiseGrid {
+    margin-top: 5.5rem;
+  }
+
+  .expertiseCard {
+    min-height: 430px;
+    padding: 2.7rem;
+  }
+
+  .expertiseTop > span:first-child {
+    font-size: 0.76rem;
+  }
+
+  .expertiseArrow {
+    font-size: 1.5rem;
+  }
+
+  .expertiseBottom h3 {
+    font-size: 1.8rem;
+  }
+
+  .expertiseBottom p {
+    max-width: 540px;
+    font-size: 0.96rem;
+  }
+
+  /* TEAM */
+
+  .team {
+    padding-bottom: 10rem;
+  }
+
+  .teamCard {
+    padding: 5.8rem;
+    gap: 7rem;
+  }
+
+  .teamHeading h2 {
+    max-width: 760px;
+  }
+
+  .teamHeading > p {
+    max-width: 680px;
+    font-size: 1rem;
+  }
+
+  .professional {
+    padding: 1.7rem 0;
+    grid-template-columns: 65px 1fr;
+  }
+
+  .professionalNumber {
+    font-size: 0.76rem;
+  }
+
+  .professional h3 {
+    font-size: 1.15rem;
+  }
+
+  .professional p {
+    font-size: 0.88rem;
+  }
+
+  /* PHILOSOPHY */
+
+  .philosophy {
+    padding: 10rem 0;
+  }
+
+  .philosophyGrid {
+    gap: 8rem;
+  }
+
+  .philosophy h2 {
+    max-width: 800px;
+  }
+
+  .philosophyContent {
+    padding-top: 2.5rem;
+  }
+
+  .philosophyQuote {
+    grid-template-columns: 52px 1fr;
+    gap: 1.2rem;
+  }
+
+  .philosophyQuote > span {
+    font-size: 0.76rem;
+  }
+
+  .philosophyQuote blockquote {
+    font-size: clamp(1.55rem, 2vw, 2rem);
+  }
+
+  .philosophyContent > p {
+    font-size: 1rem;
+  }
+
+  /* CTA */
+
+  .cta {
+    padding: 9rem 0 5.5rem;
+  }
+
+  .ctaCard {
+    padding: 5.8rem;
+    gap: 5rem;
+    border-radius: 30px;
+  }
+
+  .ctaLabel {
+    font-size: 0.76rem;
+  }
+
+  .cta h2 {
+    max-width: 850px;
+  }
+
+  .ctaContent p {
+    max-width: 720px;
+    font-size: 1rem;
+  }
+
+  .ctaActions {
+    min-width: 280px;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    min-height: 56px;
+    padding: 1rem 1.6rem;
+    font-size: 0.94rem;
+  }
+
+  .disclaimer p {
+    max-width: 1050px;
+    font-size: 0.75rem;
+  }
+}
+
+/* =========================================================
+   LARGE DESKTOP — 1920+
+========================================================= */
+
+@media (min-width: 1920px) {
+  .container {
+    width: min(1880px, 88%);
+  }
+
+  .sectionLabel {
+    margin-bottom: 1.7rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+  }
+
+  /* HERO */
+
+  .hero {
+    min-height: 86vh;
+  }
+
+  .hero .container {
+    min-height: 86vh;
+  }
+
+  .heroContent {
+    max-width: 1100px;
+    padding: 11rem 0 6rem;
+  }
+
+  .hero h1 {
+    max-width: 1050px;
+    font-size: clamp(5rem, 5vw, 6.8rem);
+  }
+
+  .hero p {
+    max-width: 820px;
+    margin-top: 2.6rem;
+    font-size: 1.2rem;
+    line-height: 1.85;
+  }
+
+  .heroActions {
+    margin-top: 3rem;
+    gap: 1.1rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-height: 60px;
+    padding: 1.05rem 1.8rem;
+    font-size: 1rem;
+  }
+
+  .heroMeta {
+    min-height: 94px;
+    padding: 1.8rem 0;
+  }
+
+  .heroMeta span {
+    font-size: 0.72rem;
+  }
+
+  .heroMeta strong {
+    font-size: 0.82rem;
+  }
+
+  /* STORY */
+
+  .story {
+    padding: 11rem 0;
+  }
+
+  .storyGrid {
+    gap: 9rem;
+  }
+
+  .photoFrame,
+  .svetlanaImage {
+    min-height: 820px;
+  }
+
+  .photoFrame {
+    border-radius: 30px;
+  }
+
+  .photoBadge {
+    left: 2rem;
+    right: 2rem;
+    bottom: 2rem;
+    padding: 1.6rem 1.7rem;
+    border-radius: 18px;
+  }
+
+  .photoBadge span {
+    font-size: 0.9rem;
+  }
+
+  .photoBadge strong {
+    font-size: 0.74rem;
+  }
+
+  .photoCaption {
+    margin-top: 1.2rem;
+  }
+
+  .photoCaption span {
+    font-size: 0.68rem;
+  }
+
+  .storyContent {
+    max-width: 800px;
+  }
+
+  .storyContent h2 {
+    font-size: clamp(4rem, 5vw, 6rem);
+  }
+
+  .storyContent p {
+    font-size: 1.04rem;
+  }
+
+  .storyContent .lead {
+    font-size: 1.22rem;
+  }
+
+  .signature {
+    margin-top: 3.5rem;
+    padding-top: 1.7rem;
+  }
+
+  .signature strong {
+    font-size: 1.08rem;
+  }
+
+  .signature span {
+    font-size: 0.76rem;
+  }
+
+  /* CREDIBILITY */
+
+  .credibility {
+    padding: 10rem 0;
+  }
+
+  .credibilityHeader {
+    gap: 9rem;
+  }
+
+  .credibilityHeader h2,
+  .expertiseIntro h2,
+  .teamHeading h2,
+  .philosophy h2,
+  .cta h2 {
+    font-size: clamp(4rem, 4.8vw, 6rem);
+  }
+
+  .credibilityHeader > p {
+    font-size: 1.04rem;
+  }
+
+  .statsGrid {
+    margin-top: 6rem;
+  }
+
+  .statCard {
+    min-height: 430px;
+    padding: 3.3rem;
+  }
+
+  .statValue {
+    font-size: clamp(5.2rem, 5vw, 7.4rem);
+  }
+
+  .statLine {
+    width: 56px;
+    margin: 2.6rem 0 1.6rem;
+  }
+
+  .statCard h3 {
+    font-size: 1.3rem;
+  }
+
+  .statCard p {
+    max-width: 330px;
+    margin-top: 0.9rem;
+    font-size: 0.96rem;
+  }
+
+  .credentialStrip {
+    padding: 2rem 2.8rem;
+  }
+
+  .credentialIcon {
+    width: 48px;
+    height: 48px;
+    font-size: 0.86rem;
+  }
+
+  .credentialMain {
+    gap: 1.2rem;
+  }
+
+  .credentialMain strong {
+    font-size: 1rem;
+  }
+
+  .credentialMain span {
+    font-size: 0.82rem;
+  }
+
+  .credentialLanguages {
+    gap: 0.65rem;
+  }
+
+  .credentialLanguages span {
+    padding: 0.65rem 0.9rem;
+    font-size: 0.7rem;
+  }
+
+  /* EXPERTISE */
+
+  .expertise {
+    padding: 11rem 0;
+  }
+
+  .expertiseIntro {
+    max-width: 1050px;
+  }
+
+  .expertiseIntro h2 {
+    max-width: 1000px;
+  }
+
+  .expertiseIntro > p {
+    max-width: 820px;
+    margin-top: 2.2rem;
+    font-size: 1.04rem;
+  }
+
+  .expertiseGrid {
+    margin-top: 6rem;
+  }
+
+  .expertiseCard {
+    min-height: 500px;
+    padding: 3.3rem;
+  }
+
+  .expertiseTop > span:first-child {
+    font-size: 0.82rem;
+  }
+
+  .expertiseArrow {
+    font-size: 1.7rem;
+  }
+
+  .expertiseBottom h3 {
+    font-size: 2.05rem;
+  }
+
+  .expertiseBottom p {
+    max-width: 620px;
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+
+  /* TEAM */
+
+  .team {
+    padding-bottom: 11rem;
+  }
+
+  .teamCard {
+    padding: 6.5rem;
+    gap: 8rem;
+    border-radius: 30px;
+  }
+
+  .teamHeading h2 {
+    max-width: 850px;
+  }
+
+  .teamHeading > p {
+    max-width: 760px;
+    margin-top: 2rem;
+    font-size: 1.04rem;
+  }
+
+  .professional {
+    padding: 1.9rem 0;
+    grid-template-columns: 75px 1fr;
+    gap: 1.2rem;
+  }
+
+  .professionalNumber {
+    font-size: 0.82rem;
+  }
+
+  .professional h3 {
+    font-size: 1.22rem;
+  }
+
+  .professional p {
+    margin-top: 0.45rem;
+    font-size: 0.92rem;
+  }
+
+  /* PHILOSOPHY */
+
+  .philosophy {
+    padding: 11rem 0;
+  }
+
+  .philosophyGrid {
+    gap: 9rem;
+  }
+
+  .philosophy h2 {
+    max-width: 900px;
+  }
+
+  .philosophyContent {
+    padding-top: 3rem;
+  }
+
+  .philosophyQuote {
+    padding-bottom: 2.5rem;
+    grid-template-columns: 60px 1fr;
+    gap: 1.4rem;
+  }
+
+  .philosophyQuote > span {
+    font-size: 0.82rem;
+  }
+
+  .philosophyQuote blockquote {
+    font-size: clamp(1.7rem, 2vw, 2.2rem);
+  }
+
+  .philosophyContent > p {
+    margin-top: 1.7rem;
+    font-size: 1.04rem;
+  }
+
+  /* CTA */
+
+  .cta {
+    padding: 10rem 0 6rem;
+  }
+
+  .ctaCard {
+    padding: 6.5rem;
+    gap: 6rem;
+    border-radius: 32px;
+  }
+
+  .ctaLabel {
+    font-size: 0.8rem;
+  }
+
+  .cta h2 {
+    max-width: 950px;
+  }
+
+  .ctaContent p {
+    max-width: 800px;
+    margin-top: 1.8rem;
+    font-size: 1.04rem;
+  }
+
+  .ctaActions {
+    min-width: 300px;
+    gap: 0.8rem;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    min-height: 60px;
+    padding: 1.05rem 1.8rem;
+    font-size: 1rem;
+  }
+
+  .disclaimer {
+    padding-bottom: 5rem;
+  }
+
+  .disclaimer p {
+    max-width: 1150px;
+    font-size: 0.78rem;
+  }
+}
+
+/* =========================================================
+   TALL LARGE DESKTOP — 1920+ / TALL VIEWPORTS
+========================================================= */
+
+@media (min-width: 1920px) and (min-height: 1600px) {
+  .container {
+    width: min(2050px, 86%);
+  }
+
+  /* HERO */
+
+  .hero {
+    min-height: 900px;
+  }
+
+  .hero .container {
+    min-height: 900px;
+  }
+
+  .heroContent {
+    max-width: 1180px;
+    padding: 12rem 0 6.5rem;
+  }
+
+  .hero h1 {
+    max-width: 1150px;
+    font-size: clamp(5.4rem, 5vw, 7.1rem);
+  }
+
+  .hero p {
+    max-width: 850px;
+    font-size: 1.24rem;
+  }
+
+  .heroMeta {
+    min-height: 104px;
+  }
+
+  /* STORY */
+
+  .story {
+    padding: 12rem 0;
+  }
+
+  .storyGrid {
+    gap: 10rem;
+  }
+
+  .photoFrame,
+  .svetlanaImage {
+    min-height: 900px;
+  }
+
+  .storyContent {
+    max-width: 850px;
+  }
+
+  .storyContent h2 {
+    font-size: clamp(4.3rem, 5vw, 6.4rem);
+  }
+
+  /* CREDIBILITY */
+
+  .credibility {
+    padding: 11rem 0;
+  }
+
+  .statsGrid {
+    margin-top: 6.5rem;
+  }
+
+  .statCard {
+    min-height: 470px;
+    padding: 3.7rem;
+  }
+
+  .statValue {
+    font-size: clamp(5.8rem, 5vw, 8rem);
+  }
+
+  /* EXPERTISE */
+
+  .expertise {
+    padding: 12rem 0;
+  }
+
+  .expertiseGrid {
+    margin-top: 6.5rem;
+  }
+
+  .expertiseCard {
+    min-height: 560px;
+    padding: 3.7rem;
+  }
+
+  .expertiseBottom h3 {
+    font-size: 2.2rem;
+  }
+
+  /* TEAM */
+
+  .team {
+    padding-bottom: 12rem;
+  }
+
+  .teamCard {
+    padding: 7rem;
+    gap: 9rem;
+  }
+
+  /* PHILOSOPHY */
+
+  .philosophy {
+    padding: 12rem 0;
+  }
+
+  .philosophyGrid {
+    gap: 10rem;
+  }
+
+  /* CTA */
+
+  .cta {
+    padding: 11rem 0 7rem;
+  }
+
+  .ctaCard {
+    padding: 7rem;
+    gap: 7rem;
+  }
+
+  .cta h2 {
+    max-width: 1050px;
+  }
+}
+
+/* =========================================================
+   4K / ULTRA-WIDE — 3000+
+========================================================= */
+
+@media (min-width: 3000px) {
+  .container {
+    width: min(2300px, 84%);
+  }
+
+  .sectionLabel {
+    margin-bottom: 2rem;
+    font-size: 0.86rem;
+  }
+
+  /* HERO */
+
+  .hero {
+    min-height: 950px;
+  }
+
+  .hero .container {
+    min-height: 950px;
+  }
+
+  .heroContent {
+    max-width: 1300px;
+    padding: 13rem 0 7rem;
+  }
+
+  .hero h1 {
+    max-width: 1250px;
+    font-size: clamp(6rem, 4.8vw, 7.6rem);
+  }
+
+  .hero p {
+    max-width: 950px;
+    margin-top: 3rem;
+    font-size: 1.32rem;
+  }
+
+  .heroActions {
+    margin-top: 3.4rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-height: 64px;
+    padding: 1.15rem 2rem;
+    font-size: 1.05rem;
+  }
+
+  .heroMeta {
+    min-height: 112px;
+    padding: 2rem 0;
+  }
+
+  .heroMeta span {
+    font-size: 0.78rem;
+  }
+
+  .heroMeta strong {
+    font-size: 0.9rem;
+  }
+
+  /* STORY */
+
+  .story {
+    padding: 13rem 0;
+  }
+
+  .storyGrid {
+    gap: 12rem;
+  }
+
+  .photoFrame,
+  .svetlanaImage {
+    min-height: 1050px;
+  }
+
+  .photoFrame {
+    border-radius: 34px;
+  }
+
+  .photoBadge {
+    left: 2.5rem;
+    right: 2.5rem;
+    bottom: 2.5rem;
+    padding: 1.9rem 2rem;
+    border-radius: 22px;
+  }
+
+  .photoBadge span {
+    font-size: 1rem;
+  }
+
+  .photoBadge strong {
+    font-size: 0.82rem;
+  }
+
+  .photoCaption {
+    margin-top: 1.5rem;
+  }
+
+  .photoCaption span {
+    font-size: 0.74rem;
+  }
+
+  .storyContent {
+    max-width: 950px;
+  }
+
+  .storyContent h2 {
+    font-size: clamp(5rem, 5vw, 7rem);
+  }
+
+  .storyContent p {
+    font-size: 1.12rem;
+  }
+
+  .storyContent .lead {
+    font-size: 1.3rem;
+  }
+
+  .signature {
+    margin-top: 4rem;
+    padding-top: 2rem;
+  }
+
+  .signature strong {
+    font-size: 1.18rem;
+  }
+
+  .signature span {
+    font-size: 0.82rem;
+  }
+
+  /* CREDIBILITY */
+
+  .credibility {
+    padding: 13rem 0;
+  }
+
+  .credibilityHeader {
+    gap: 11rem;
+  }
+
+  .credibilityHeader h2,
+  .expertiseIntro h2,
+  .teamHeading h2,
+  .philosophy h2,
+  .cta h2 {
+    font-size: clamp(5rem, 4.5vw, 7.2rem);
+  }
+
+  .credibilityHeader > p {
+    font-size: 1.12rem;
+  }
+
+  .statsGrid {
+    margin-top: 8rem;
+  }
+
+  .statCard {
+    min-height: 540px;
+    padding: 4.3rem;
+  }
+
+  .statValue {
+    font-size: clamp(6.5rem, 5vw, 8.8rem);
+  }
+
+  .statLine {
+    width: 64px;
+    margin: 3rem 0 1.9rem;
+  }
+
+  .statCard h3 {
+    font-size: 1.45rem;
+  }
+
+  .statCard p {
+    max-width: 380px;
+    font-size: 1rem;
+  }
+
+  .credentialStrip {
+    padding: 2.4rem 3.2rem;
+  }
+
+  .credentialIcon {
+    width: 54px;
+    height: 54px;
+    font-size: 0.92rem;
+  }
+
+  .credentialMain strong {
+    font-size: 1.08rem;
+  }
+
+  .credentialMain span {
+    font-size: 0.88rem;
+  }
+
+  .credentialLanguages span {
+    padding: 0.75rem 1rem;
+    font-size: 0.76rem;
+  }
+
+  /* EXPERTISE */
+
+  .expertise {
+    padding: 14rem 0;
+  }
+
+  .expertiseIntro {
+    max-width: 1200px;
+  }
+
+  .expertiseIntro h2 {
+    max-width: 1150px;
+  }
+
+  .expertiseIntro > p {
+    max-width: 950px;
+    margin-top: 2.5rem;
+    font-size: 1.12rem;
+  }
+
+  .expertiseGrid {
+    margin-top: 8rem;
+  }
+
+  .expertiseCard {
+    min-height: 650px;
+    padding: 4.3rem;
+  }
+
+  .expertiseTop > span:first-child {
+    font-size: 0.9rem;
+  }
+
+  .expertiseArrow {
+    font-size: 1.9rem;
+  }
+
+  .expertiseBottom h3 {
+    font-size: 2.5rem;
+  }
+
+  .expertiseBottom p {
+    max-width: 720px;
+    margin-top: 1.2rem;
+    font-size: 1.08rem;
+  }
+
+  /* TEAM */
+
+  .team {
+    padding-bottom: 14rem;
+  }
+
+  .teamCard {
+    padding: 8rem;
+    gap: 11rem;
+    border-radius: 36px;
+  }
+
+  .teamHeading h2 {
+    max-width: 1050px;
+  }
+
+  .teamHeading > p {
+    max-width: 900px;
+    margin-top: 2.5rem;
+    font-size: 1.12rem;
+  }
+
+  .professional {
+    padding: 2.2rem 0;
+    grid-template-columns: 90px 1fr;
+    gap: 1.5rem;
+  }
+
+  .professionalNumber {
+    font-size: 0.9rem;
+  }
+
+  .professional h3 {
+    font-size: 1.4rem;
+  }
+
+  .professional p {
+    margin-top: 0.55rem;
+    font-size: 1rem;
+  }
+
+  /* PHILOSOPHY */
+
+  .philosophy {
+    padding: 14rem 0;
+  }
+
+  .philosophyGrid {
+    gap: 12rem;
+  }
+
+  .philosophy h2 {
+    max-width: 1100px;
+  }
+
+  .philosophyContent {
+    padding-top: 4rem;
+  }
+
+  .philosophyQuote {
+    padding-bottom: 3rem;
+    grid-template-columns: 70px 1fr;
+    gap: 1.7rem;
+  }
+
+  .philosophyQuote > span {
+    font-size: 0.9rem;
+  }
+
+  .philosophyQuote blockquote {
+    font-size: clamp(2rem, 2vw, 2.6rem);
+  }
+
+  .philosophyContent > p {
+    margin-top: 2rem;
+    font-size: 1.12rem;
+  }
+
+  /* CTA */
+
+  .cta {
+    padding: 13rem 0 8rem;
+  }
+
+  .ctaCard {
+    padding: 8rem;
+    gap: 9rem;
+    border-radius: 38px;
+  }
+
+  .ctaLabel {
+    font-size: 0.86rem;
+  }
+
+  .cta h2 {
+    max-width: 1200px;
+  }
+
+  .ctaContent p {
+    max-width: 950px;
+    margin-top: 2.2rem;
+    font-size: 1.12rem;
+  }
+
+  .ctaActions {
+    min-width: 350px;
+    gap: 1rem;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    min-height: 66px;
+    padding: 1.2rem 2rem;
+    font-size: 1.06rem;
+  }
+
+  .disclaimer {
+    padding-bottom: 6rem;
+  }
+
+  .disclaimer p {
+    max-width: 1350px;
+    font-size: 0.84rem;
+  }
 }
 
 /* =========================================================

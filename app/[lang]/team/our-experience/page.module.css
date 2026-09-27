@@ -1331,6 +1331,2148 @@
 }
 
 /* =========================================
+   LARGE DESKTOP
+   ========================================= */
+
+@media (min-width: 1440px) {
+  .container {
+    width: min(1380px, 90%);
+  }
+
+  .hero {
+    padding-top: 9rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .heroTop {
+    margin-bottom: 5rem;
+  }
+
+  .heroGrid {
+    gap: 6rem;
+  }
+
+  .heroContent h1 {
+    max-width: 900px;
+    font-size: clamp(4.8rem, 6vw, 6.8rem);
+  }
+
+  .heroDescription {
+    max-width: 700px;
+    font-size: 1.1rem;
+    line-height: 1.75;
+  }
+
+  .heroNumberMain {
+    padding: 3.25rem;
+  }
+
+  .heroNumberMain strong {
+    font-size: clamp(6rem, 8vw, 8.8rem);
+  }
+
+  .heroNumberMain p {
+    max-width: 340px;
+    font-size: 0.96rem;
+  }
+
+  .heroNumberGrid > div {
+    padding: 1.8rem;
+  }
+
+  .heroNumberGrid strong {
+    font-size: clamp(3rem, 4.5vw, 5rem);
+  }
+
+  .heroNumberGrid span {
+    font-size: 0.68rem;
+  }
+
+  .heroBottom {
+    padding-top: 6rem;
+    gap: 2rem;
+  }
+
+  .heroBottom span {
+    font-size: 0.7rem;
+  }
+
+  .business,
+  .trackRecord,
+  .portfolio,
+  .engineering,
+  .market,
+  .proofWall,
+  .cta {
+    padding-top: 8.5rem;
+    padding-bottom: 8.5rem;
+  }
+
+  .experience,
+  .benefits,
+  .coordination,
+  .svetlana {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+  }
+
+  .businessCard,
+  .engineeringCard,
+  .ctaCard {
+    padding: 5rem;
+  }
+
+  .businessContent h2,
+  .engineeringIntro h2 {
+    font-size: clamp(4rem, 4.8vw, 5.5rem);
+  }
+
+  .businessContent p,
+  .engineeringIntro p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .businessDetail {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 1.2rem;
+    padding: 1.7rem 0;
+  }
+
+  .businessDetail > span,
+  .businessDetail small {
+    font-size: 0.7rem;
+  }
+
+  .businessDetail strong {
+    font-size: 1.05rem;
+  }
+
+  .trackGrid {
+    gap: 7rem;
+  }
+
+  .trackGrid h2,
+  .portfolioHeader h2,
+  .sectionHeader h2,
+  .marketContent h2,
+  .svetlanaContent h2,
+  .proofWallHeader h2 {
+    font-size: clamp(4rem, 4.8vw, 5.6rem);
+  }
+
+  .trackText {
+    padding-top: 3rem;
+  }
+
+  .trackText p,
+  .sectionHeader p,
+  .marketContent p,
+  .svetlanaContent p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .stats {
+    padding: 7rem 0;
+  }
+
+  .stat {
+    padding-top: 3rem;
+  }
+
+  .statNumber {
+    font-size: clamp(4.5rem, 5vw, 6.8rem);
+  }
+
+  .stat > span {
+    margin-top: 1.8rem;
+    font-size: 0.7rem;
+  }
+
+  .stat p {
+    max-width: 280px;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .portfolioHeader {
+    gap: 6rem;
+    margin-bottom: 4rem;
+  }
+
+  .portfolioSummary strong {
+    font-size: clamp(4rem, 5vw, 6rem);
+  }
+
+  .portfolioSummary > span {
+    font-size: 0.7rem;
+  }
+
+  .portfolioSummary p {
+    max-width: 400px;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .portfolioCard {
+    padding: 3.75rem;
+    border-radius: 34px;
+  }
+
+  .portfolioTop > div:first-child > strong {
+    font-size: clamp(5.5rem, 7vw, 8rem);
+  }
+
+  .portfolioTop > div:first-child > span {
+    font-size: 0.7rem;
+  }
+
+  .portfolioTop small {
+    font-size: 0.65rem;
+  }
+
+  .saleRental {
+    gap: 3rem;
+  }
+
+  .saleRental strong {
+    font-size: 2.5rem;
+  }
+
+  .saleRental span {
+    font-size: 0.65rem;
+  }
+
+  .portfolioBar {
+    height: 10px;
+    margin: 3rem 0;
+  }
+
+  .breakdownItem {
+    gap: 1.25rem;
+    padding-top: 1.8rem;
+    padding-bottom: 1.8rem;
+  }
+
+  .breakdownNumber {
+    font-size: 2.5rem;
+  }
+
+  .breakdownTitle strong {
+    font-size: 0.9rem;
+  }
+
+  .breakdownTitle span {
+    font-size: 0.7rem;
+  }
+
+  .breakdownItem p {
+    font-size: 0.8rem;
+    line-height: 1.55;
+  }
+
+  .breakdownItem small {
+    font-size: 0.62rem;
+  }
+
+  .portfolioNote {
+    grid-template-columns: 42px minmax(0, 1fr);
+    margin-top: 1.4rem;
+    padding-top: 1.8rem;
+  }
+
+  .portfolioNote > span {
+    font-size: 0.7rem;
+  }
+
+  .portfolioNote p {
+    font-size: 0.74rem;
+  }
+
+  .sectionHeader {
+    max-width: 980px;
+    margin-bottom: 4rem;
+  }
+
+  .sectionHeader p {
+    max-width: 760px;
+  }
+
+  .experienceGrid {
+    gap: 1.25rem;
+  }
+
+  .experienceCard {
+    min-height: 620px;
+    padding: 2rem;
+    border-radius: 32px;
+  }
+
+  .cardTop,
+  .cardEyebrow {
+    font-size: 0.72rem;
+  }
+
+  .cardContent h3 {
+    font-size: clamp(2.3rem, 2.8vw, 3.4rem);
+  }
+
+  .cardContent p {
+    font-size: 0.94rem;
+    line-height: 1.7;
+  }
+
+  .cardPoints {
+    gap: 0.8rem;
+    margin-top: 2.25rem;
+    padding-top: 1.75rem;
+  }
+
+  .cardPoints strong {
+    font-size: 0.82rem;
+  }
+
+  .engineeringCard {
+    gap: 5rem;
+  }
+
+  .engineeringServices {
+    padding: 1.9rem;
+    border-radius: 28px;
+  }
+
+  .servicesHeader {
+    padding-bottom: 1.5rem;
+  }
+
+  .servicesHeader span {
+    font-size: 0.7rem;
+  }
+
+  .servicesHeader strong {
+    font-size: 3rem;
+  }
+
+  .serviceItem {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 1.2rem 0;
+  }
+
+  .serviceItem > span {
+    font-size: 0.68rem;
+  }
+
+  .serviceItem strong {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .benefitGrid {
+    gap: 0;
+  }
+
+  .benefitCard {
+    grid-template-columns: 52px minmax(0, 1fr);
+    gap: 1.75rem;
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
+  }
+
+  .benefitCard > span {
+    font-size: 0.7rem;
+  }
+
+  .benefitCard h3 {
+    font-size: 2rem;
+  }
+
+  .benefitCard p {
+    max-width: 560px;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .marketGrid {
+    gap: 7rem;
+  }
+
+  .marketContent p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .marketProof {
+    border-radius: 32px;
+  }
+
+  .marketProof > div {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 1.25rem;
+    padding: 1.8rem;
+  }
+
+  .marketProof > div > span,
+  .marketProof small {
+    font-size: 0.68rem;
+  }
+
+  .marketProof strong {
+    font-size: 1rem;
+  }
+
+  .marketProof p {
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  .coordinationGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .coordinationCard {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .coordinationCard > span {
+    font-size: 0.7rem;
+  }
+
+  .coordinationCard h3 {
+    margin-top: 3rem;
+    font-size: 2rem;
+  }
+
+  .coordinationCard p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  .proofWallCard {
+    padding: 5rem;
+    border-radius: 38px;
+  }
+
+  .proofWallGrid {
+    margin-top: 5rem;
+  }
+
+  .proofWallGrid article {
+    grid-template-columns: minmax(160px, 0.7fr) minmax(0, 1fr);
+    gap: 2rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .proofValue {
+    font-size: clamp(4rem, 5vw, 6rem);
+  }
+
+  .proofWallGrid h3 {
+    font-size: 1.7rem;
+  }
+
+  .proofWallGrid p {
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+
+  .svetlanaGrid {
+    gap: 7rem;
+  }
+
+  .svetlanaCaption {
+    right: 1.5rem;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    padding: 1.2rem;
+  }
+
+  .svetlanaCaption span {
+    font-size: 0.72rem;
+  }
+
+  .svetlanaCaption strong {
+    font-size: 0.64rem;
+  }
+
+  .svetlanaContent p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .roles {
+    gap: 0.7rem;
+  }
+
+  .roles span {
+    padding: 0.75rem 1rem;
+    font-size: 0.72rem;
+  }
+
+  .textLink {
+    font-size: 0.9rem;
+  }
+
+  .ctaCard {
+    gap: 5rem;
+  }
+
+  .ctaContent > span {
+    font-size: 0.7rem;
+  }
+
+  .ctaContent h2 {
+    max-width: 980px;
+    font-size: clamp(4rem, 5.2vw, 6.2rem);
+  }
+
+  .ctaContent p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .ctaActions {
+    min-width: 280px;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .ctaPrimary,
+  .ctaSecondary {
+    min-height: 56px;
+    padding: 1rem 1.55rem;
+    font-size: 0.94rem;
+  }
+
+  .disclaimer {
+    padding-bottom: 5rem;
+  }
+
+  .disclaimer p {
+    max-width: 1100px;
+    font-size: 0.7rem;
+    line-height: 1.6;
+  }
+}
+
+/* =========================================
+   1920+ LARGE DESKTOP
+   ========================================= */
+
+@media (min-width: 1920px) {
+  .container {
+    width: min(1880px, 88%);
+  }
+
+  .sectionLabel {
+    margin-bottom: 1.6rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+  }
+
+  .hero {
+    min-height: 760px;
+    padding: 10rem 0 4rem;
+  }
+
+  .heroGlow {
+    width: 700px;
+    height: 700px;
+    top: -380px;
+    right: -260px;
+  }
+
+  .heroTop {
+    margin-bottom: 6rem;
+  }
+
+  .heroIndex {
+    font-size: 0.78rem;
+  }
+
+  .heroGrid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(520px, 0.9fr);
+    gap: 7rem;
+  }
+
+  .heroKicker {
+    margin-bottom: 1.5rem;
+    font-size: 0.78rem;
+  }
+
+  .heroContent h1 {
+    max-width: 1050px;
+    font-size: clamp(5.2rem, 5.8vw, 7.4rem);
+  }
+
+  .heroDescription {
+    max-width: 760px;
+    margin-top: 2.5rem;
+    font-size: 1.18rem;
+    line-height: 1.8;
+  }
+
+  .heroActions {
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-height: 58px;
+    padding: 1rem 1.7rem;
+    font-size: 0.96rem;
+  }
+
+  .heroNumberMain {
+    padding: 3.75rem;
+    border-radius: 36px;
+  }
+
+  .numberLabel {
+    margin-bottom: 1.8rem;
+    font-size: 0.76rem;
+  }
+
+  .heroNumberMain strong {
+    font-size: clamp(7rem, 8vw, 10rem);
+  }
+
+  .heroNumberMain p {
+    max-width: 390px;
+    margin-top: 2rem;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .heroNumberGrid {
+    margin-top: 1rem;
+    border-radius: 28px;
+  }
+
+  .heroNumberGrid > div {
+    padding: 2rem;
+  }
+
+  .heroNumberGrid strong {
+    font-size: clamp(3.5rem, 4.2vw, 5.5rem);
+  }
+
+  .heroNumberGrid span {
+    margin-top: 1.1rem;
+    font-size: 0.7rem;
+  }
+
+  .heroBottom {
+    gap: 2.5rem;
+    padding-top: 7rem;
+  }
+
+  .heroBottom span {
+    font-size: 0.74rem;
+  }
+
+  .business,
+  .trackRecord,
+  .portfolio,
+  .engineering,
+  .market,
+  .proofWall,
+  .cta {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+
+  .experience,
+  .benefits,
+  .coordination,
+  .svetlana {
+    padding-top: 10.5rem;
+    padding-bottom: 10.5rem;
+  }
+
+  .businessCard,
+  .engineeringCard,
+  .ctaCard {
+    padding: 6rem;
+    border-radius: 42px;
+  }
+
+  .businessCard {
+    grid-template-columns: minmax(0, 1.2fr) minmax(420px, 0.8fr);
+    gap: 6rem;
+  }
+
+  .businessContent h2,
+  .engineeringIntro h2 {
+    font-size: clamp(4.5rem, 4.6vw, 6.3rem);
+  }
+
+  .businessContent p,
+  .engineeringIntro p {
+    max-width: 850px;
+    font-size: 1.08rem;
+    line-height: 1.8;
+  }
+
+  .businessDetails {
+    padding-left: 3.5rem;
+  }
+
+  .businessDetail {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 1.4rem;
+    padding: 2rem 0;
+  }
+
+  .businessDetail > span,
+  .businessDetail small {
+    font-size: 0.76rem;
+  }
+
+  .businessDetail strong {
+    font-size: 1.15rem;
+  }
+
+  .trackGrid {
+    gap: 9rem;
+  }
+
+  .trackGrid h2,
+  .portfolioHeader h2,
+  .sectionHeader h2,
+  .marketContent h2,
+  .svetlanaContent h2,
+  .proofWallHeader h2 {
+    font-size: clamp(4.8rem, 4.8vw, 6.5rem);
+  }
+
+  .trackText {
+    padding-top: 3.5rem;
+  }
+
+  .trackText p,
+  .sectionHeader p,
+  .marketContent p,
+  .svetlanaContent p {
+    max-width: 820px;
+    font-size: 1.08rem;
+    line-height: 1.85;
+  }
+
+  .stats {
+    padding: 8rem 0;
+  }
+
+  .stat {
+    padding-top: 3.5rem;
+    padding-right: 2rem;
+  }
+
+  .stat + .stat {
+    padding-left: 2rem;
+  }
+
+  .statNumber {
+    font-size: clamp(5.5rem, 5vw, 7.8rem);
+  }
+
+  .stat > span {
+    margin-top: 2rem;
+    font-size: 0.74rem;
+  }
+
+  .stat p {
+    max-width: 330px;
+    margin-top: 1rem;
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .portfolioHeader {
+    gap: 8rem;
+    margin-bottom: 5rem;
+  }
+
+  .portfolioSummary strong {
+    font-size: clamp(4.8rem, 5vw, 7rem);
+  }
+
+  .portfolioSummary > span {
+    margin-top: 1.2rem;
+    font-size: 0.74rem;
+  }
+
+  .portfolioSummary p {
+    max-width: 470px;
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .portfolioCard {
+    padding: 4.5rem;
+    border-radius: 40px;
+  }
+
+  .portfolioTop {
+    gap: 4rem;
+  }
+
+  .portfolioTop > div:first-child > span {
+    font-size: 0.74rem;
+  }
+
+  .portfolioTop > div:first-child > strong {
+    font-size: clamp(6rem, 7vw, 9rem);
+  }
+
+  .portfolioTop small {
+    font-size: 0.68rem;
+  }
+
+  .saleRental {
+    gap: 4rem;
+  }
+
+  .saleRental strong {
+    font-size: 3rem;
+  }
+
+  .saleRental span {
+    font-size: 0.68rem;
+  }
+
+  .portfolioBar {
+    height: 12px;
+    margin: 3.5rem 0;
+  }
+
+  .breakdownItem {
+    gap: 1.5rem;
+    padding: 2.2rem 1.5rem 2.2rem 0;
+  }
+
+  .breakdownItem + .breakdownItem {
+    padding-left: 1.5rem;
+  }
+
+  .breakdownNumber {
+    font-size: 2.9rem;
+  }
+
+  .breakdownTitle strong {
+    font-size: 0.96rem;
+  }
+
+  .breakdownTitle span {
+    font-size: 0.74rem;
+  }
+
+  .breakdownItem p {
+    margin-top: 0.5rem;
+    font-size: 0.86rem;
+    line-height: 1.6;
+  }
+
+  .breakdownItem small {
+    font-size: 0.66rem;
+  }
+
+  .portfolioNote {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 1.4rem;
+    margin-top: 1.6rem;
+    padding-top: 2rem;
+  }
+
+  .portfolioNote > span {
+    font-size: 0.74rem;
+  }
+
+  .portfolioNote p {
+    font-size: 0.78rem;
+    line-height: 1.6;
+  }
+
+  .sectionHeader {
+    max-width: 1100px;
+    margin-bottom: 5rem;
+  }
+
+  .experienceGrid {
+    gap: 1.5rem;
+  }
+
+  .experienceCard {
+    min-height: 720px;
+    padding: 2.25rem;
+    border-radius: 36px;
+  }
+
+  .cardTop,
+  .cardEyebrow {
+    font-size: 0.76rem;
+  }
+
+  .cardContent h3 {
+    font-size: clamp(2.7rem, 2.8vw, 3.8rem);
+  }
+
+  .cardContent p {
+    max-width: 560px;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .cardPoints {
+    gap: 0.9rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+  }
+
+  .cardPoints strong {
+    font-size: 0.88rem;
+  }
+
+  .engineeringCard {
+    gap: 7rem;
+  }
+
+  .engineeringServices {
+    padding: 2.25rem;
+    border-radius: 32px;
+  }
+
+  .servicesHeader {
+    padding-bottom: 1.7rem;
+  }
+
+  .servicesHeader span {
+    font-size: 0.74rem;
+  }
+
+  .servicesHeader strong {
+    font-size: 3.4rem;
+  }
+
+  .serviceItem {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 0.9rem;
+    padding: 1.35rem 0;
+  }
+
+  .serviceItem:nth-child(even) {
+    padding-left: 1.25rem;
+  }
+
+  .serviceItem > span {
+    font-size: 0.7rem;
+  }
+
+  .serviceItem strong {
+    font-size: 0.84rem;
+    line-height: 1.55;
+  }
+
+  .benefitCard {
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 2rem;
+    padding: 2.75rem 2rem 2.75rem 0;
+  }
+
+  .benefitCard:nth-child(even) {
+    padding-left: 2rem;
+  }
+
+  .benefitCard > span {
+    font-size: 0.74rem;
+  }
+
+  .benefitCard h3 {
+    font-size: 2.3rem;
+  }
+
+  .benefitCard p {
+    max-width: 650px;
+    margin-top: 0.9rem;
+    font-size: 0.94rem;
+    line-height: 1.7;
+  }
+
+  .marketGrid {
+    gap: 9rem;
+  }
+
+  .marketContent p {
+    font-size: 1.08rem;
+  }
+
+  .marketProof {
+    border-radius: 36px;
+  }
+
+  .marketProof > div {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 1.4rem;
+    padding: 2rem;
+  }
+
+  .marketProof > div > span,
+  .marketProof small {
+    font-size: 0.72rem;
+  }
+
+  .marketProof strong {
+    font-size: 1.08rem;
+  }
+
+  .marketProof p {
+    font-size: 0.86rem;
+    line-height: 1.7;
+  }
+
+  .coordinationCard {
+    padding: 2.75rem 2rem 2.75rem 0;
+  }
+
+  .coordinationCard + .coordinationCard {
+    padding-left: 2rem;
+  }
+
+  .coordinationCard > span {
+    font-size: 0.74rem;
+  }
+
+  .coordinationCard h3 {
+    margin-top: 3.5rem;
+    font-size: 2.25rem;
+  }
+
+  .coordinationCard p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .proofWallCard {
+    padding: 6rem;
+    border-radius: 42px;
+  }
+
+  .proofWallGrid {
+    margin-top: 6rem;
+  }
+
+  .proofWallGrid article {
+    grid-template-columns: minmax(190px, 0.7fr) minmax(0, 1fr);
+    gap: 2.5rem;
+    padding: 3rem 2rem 3rem 0;
+  }
+
+  .proofWallGrid article:nth-child(even) {
+    padding-left: 2rem;
+  }
+
+  .proofValue {
+    font-size: clamp(5rem, 5vw, 7rem);
+  }
+
+  .proofWallGrid h3 {
+    font-size: 1.9rem;
+  }
+
+  .proofWallGrid p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .svetlanaGrid {
+    gap: 9rem;
+  }
+
+  .svetlanaCaption {
+    right: 1.75rem;
+    bottom: 1.75rem;
+    left: 1.75rem;
+    padding: 1.35rem;
+    border-radius: 18px;
+  }
+
+  .svetlanaCaption span {
+    font-size: 0.76rem;
+  }
+
+  .svetlanaCaption strong {
+    font-size: 0.68rem;
+  }
+
+  .svetlanaContent p {
+    font-size: 1.08rem;
+  }
+
+  .roles {
+    gap: 0.8rem;
+    margin-top: 2.5rem;
+  }
+
+  .roles span {
+    padding: 0.8rem 1.1rem;
+    font-size: 0.74rem;
+  }
+
+  .textLink {
+    margin-top: 2.5rem;
+    font-size: 0.94rem;
+  }
+
+  .ctaCard {
+    gap: 7rem;
+  }
+
+  .ctaContent > span {
+    font-size: 0.74rem;
+  }
+
+  .ctaContent h2 {
+    max-width: 1100px;
+    font-size: clamp(4.8rem, 5vw, 7rem);
+  }
+
+  .ctaContent p {
+    font-size: 1.04rem;
+    line-height: 1.8;
+  }
+
+  .ctaActions {
+    min-width: 310px;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .ctaPrimary,
+  .ctaSecondary {
+    min-height: 62px;
+    padding: 1.1rem 1.8rem;
+    font-size: 1rem;
+  }
+
+  .disclaimer {
+    padding-bottom: 6rem;
+  }
+
+  .disclaimer p {
+    max-width: 1200px;
+    font-size: 0.74rem;
+    line-height: 1.7;
+  }
+}
+
+/* =========================================
+   TALL LARGE DESKTOP / 2560 × LARGE
+   ========================================= */
+
+@media (min-width: 1920px) and (min-height: 1600px) {
+  .container {
+    width: min(2050px, 86%);
+  }
+
+  .hero {
+    min-height: 850px;
+    padding-top: 12rem;
+    padding-bottom: 5rem;
+  }
+
+  .heroTop {
+    margin-bottom: 7rem;
+  }
+
+  .heroGrid {
+    gap: 8rem;
+  }
+
+  .heroContent h1 {
+    max-width: 1150px;
+    font-size: clamp(5.8rem, 5.7vw, 7.8rem);
+  }
+
+  .heroDescription {
+    max-width: 820px;
+    font-size: 1.24rem;
+  }
+
+  .heroNumberMain {
+    padding: 4.25rem;
+  }
+
+  .heroNumberMain strong {
+    font-size: clamp(8rem, 8vw, 11rem);
+  }
+
+  .heroNumberMain p {
+    max-width: 430px;
+    font-size: 1.06rem;
+  }
+
+  .heroNumberGrid > div {
+    padding: 2.25rem;
+  }
+
+  .heroNumberGrid strong {
+    font-size: clamp(4rem, 4vw, 6rem);
+  }
+
+  .heroBottom {
+    padding-top: 8rem;
+    gap: 3rem;
+  }
+
+  .heroBottom span {
+    font-size: 0.78rem;
+  }
+
+  .business,
+  .trackRecord,
+  .portfolio,
+  .engineering,
+  .market,
+  .proofWall,
+  .cta {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
+
+  .experience,
+  .benefits,
+  .coordination,
+  .svetlana {
+    padding-top: 12.5rem;
+    padding-bottom: 12.5rem;
+  }
+
+  .businessCard,
+  .engineeringCard,
+  .ctaCard {
+    padding: 7rem;
+    border-radius: 48px;
+  }
+
+  .businessCard,
+  .engineeringCard {
+    gap: 8rem;
+  }
+
+  .businessContent h2,
+  .engineeringIntro h2 {
+    font-size: clamp(5rem, 4.6vw, 7rem);
+  }
+
+  .businessContent p,
+  .engineeringIntro p {
+    font-size: 1.16rem;
+  }
+
+  .businessDetails {
+    padding-left: 4rem;
+  }
+
+  .businessDetail {
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 1.6rem;
+    padding: 2.3rem 0;
+  }
+
+  .businessDetail > span,
+  .businessDetail small {
+    font-size: 0.8rem;
+  }
+
+  .businessDetail strong {
+    font-size: 1.25rem;
+  }
+
+  .trackGrid {
+    gap: 11rem;
+  }
+
+  .trackGrid h2,
+  .portfolioHeader h2,
+  .sectionHeader h2,
+  .marketContent h2,
+  .svetlanaContent h2,
+  .proofWallHeader h2 {
+    font-size: clamp(5.2rem, 4.8vw, 7.2rem);
+  }
+
+  .trackText p,
+  .sectionHeader p,
+  .marketContent p,
+  .svetlanaContent p {
+    font-size: 1.16rem;
+    line-height: 1.9;
+  }
+
+  .stats {
+    padding: 9rem 0;
+  }
+
+  .stat {
+    padding-top: 4rem;
+  }
+
+  .statNumber {
+    font-size: clamp(6rem, 5vw, 8.5rem);
+  }
+
+  .stat > span {
+    font-size: 0.78rem;
+  }
+
+  .stat p {
+    max-width: 360px;
+    font-size: 1rem;
+  }
+
+  .portfolioHeader {
+    margin-bottom: 6rem;
+  }
+
+  .portfolioSummary strong {
+    font-size: clamp(5.5rem, 5vw, 7.8rem);
+  }
+
+  .portfolioCard {
+    padding: 5.5rem;
+    border-radius: 46px;
+  }
+
+  .portfolioTop > div:first-child > strong {
+    font-size: clamp(7rem, 7vw, 10rem);
+  }
+
+  .saleRental strong {
+    font-size: 3.4rem;
+  }
+
+  .portfolioBar {
+    height: 14px;
+    margin: 4rem 0;
+  }
+
+  .breakdownItem {
+    padding-top: 2.6rem;
+    padding-bottom: 2.6rem;
+  }
+
+  .breakdownNumber {
+    font-size: 3.2rem;
+  }
+
+  .breakdownTitle strong {
+    font-size: 1rem;
+  }
+
+  .breakdownItem p {
+    font-size: 0.9rem;
+  }
+
+  .sectionHeader {
+    max-width: 1200px;
+    margin-bottom: 6rem;
+  }
+
+  .experienceGrid {
+    gap: 1.75rem;
+  }
+
+  .experienceCard {
+    min-height: 820px;
+    padding: 2.75rem;
+    border-radius: 40px;
+  }
+
+  .cardTop,
+  .cardEyebrow {
+    font-size: 0.8rem;
+  }
+
+  .cardContent h3 {
+    font-size: clamp(3rem, 2.8vw, 4.2rem);
+  }
+
+  .cardContent p {
+    font-size: 1.06rem;
+    line-height: 1.8;
+  }
+
+  .cardPoints {
+    margin-top: 3rem;
+    padding-top: 2.25rem;
+  }
+
+  .cardPoints strong {
+    font-size: 0.94rem;
+  }
+
+  .engineeringServices {
+    padding: 2.75rem;
+    border-radius: 36px;
+  }
+
+  .servicesHeader {
+    padding-bottom: 2rem;
+  }
+
+  .servicesHeader span {
+    font-size: 0.78rem;
+  }
+
+  .servicesHeader strong {
+    font-size: 3.8rem;
+  }
+
+  .serviceItem {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1.55rem 0;
+  }
+
+  .serviceItem > span {
+    font-size: 0.74rem;
+  }
+
+  .serviceItem strong {
+    font-size: 0.9rem;
+  }
+
+  .benefitCard {
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 2.25rem;
+    padding-top: 3.1rem;
+    padding-bottom: 3.1rem;
+  }
+
+  .benefitCard h3 {
+    font-size: 2.6rem;
+  }
+
+  .benefitCard p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .marketGrid {
+    gap: 11rem;
+  }
+
+  .marketProof {
+    border-radius: 40px;
+  }
+
+  .marketProof > div {
+    grid-template-columns: 54px minmax(0, 1fr);
+    padding: 2.3rem;
+  }
+
+  .marketProof strong {
+    font-size: 1.16rem;
+  }
+
+  .marketProof p {
+    font-size: 0.92rem;
+  }
+
+  .coordinationCard {
+    padding-top: 3.1rem;
+    padding-bottom: 3.1rem;
+  }
+
+  .coordinationCard h3 {
+    margin-top: 4rem;
+    font-size: 2.5rem;
+  }
+
+  .coordinationCard p {
+    font-size: 0.96rem;
+  }
+
+  .proofWallCard {
+    padding: 7rem;
+    border-radius: 48px;
+  }
+
+  .proofWallGrid {
+    margin-top: 7rem;
+  }
+
+  .proofWallGrid article {
+    grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1fr);
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .proofValue {
+    font-size: clamp(5.8rem, 5vw, 8rem);
+  }
+
+  .proofWallGrid h3 {
+    font-size: 2.1rem;
+  }
+
+  .proofWallGrid p {
+    font-size: 0.96rem;
+  }
+
+  .svetlanaGrid {
+    gap: 11rem;
+  }
+
+  .svetlanaCaption {
+    right: 2rem;
+    bottom: 2rem;
+    left: 2rem;
+    padding: 1.5rem;
+  }
+
+  .svetlanaCaption span {
+    font-size: 0.8rem;
+  }
+
+  .svetlanaCaption strong {
+    font-size: 0.72rem;
+  }
+
+  .svetlanaContent p {
+    font-size: 1.16rem;
+  }
+
+  .roles span {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.78rem;
+  }
+
+  .textLink {
+    font-size: 1rem;
+  }
+
+  .ctaCard {
+    gap: 9rem;
+  }
+
+  .ctaContent h2 {
+    max-width: 1250px;
+    font-size: clamp(5.5rem, 5vw, 7.8rem);
+  }
+
+  .ctaContent p {
+    font-size: 1.12rem;
+  }
+
+  .ctaActions {
+    min-width: 340px;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .ctaPrimary,
+  .ctaSecondary {
+    min-height: 68px;
+    padding: 1.2rem 2rem;
+    font-size: 1.06rem;
+  }
+
+  .disclaimer p {
+    font-size: 0.78rem;
+  }
+}
+
+/* =========================================
+   3000+ / TRUE 4K+ DESKTOP
+   ========================================= */
+
+@media (min-width: 3000px) {
+  .container {
+    width: min(2250px, 84%);
+  }
+
+  .sectionLabel {
+    font-size: 0.86rem;
+    letter-spacing: 0.17em;
+  }
+
+  .hero {
+    min-height: 950px;
+    padding-top: 14rem;
+    padding-bottom: 6rem;
+  }
+
+  .heroGlow {
+    width: 900px;
+    height: 900px;
+    top: -500px;
+    right: -320px;
+  }
+
+  .heroTop {
+    margin-bottom: 8rem;
+  }
+
+  .heroIndex {
+    font-size: 0.84rem;
+  }
+
+  .heroGrid {
+    grid-template-columns: minmax(0, 1.08fr) minmax(650px, 0.92fr);
+    gap: 10rem;
+  }
+
+  .heroKicker {
+    font-size: 0.84rem;
+  }
+
+  .heroContent h1 {
+    max-width: 1350px;
+    font-size: clamp(6.5rem, 5.5vw, 8.8rem);
+  }
+
+  .heroDescription {
+    max-width: 950px;
+    font-size: 1.34rem;
+    line-height: 1.85;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-height: 64px;
+    padding: 1.15rem 2rem;
+    font-size: 1.04rem;
+  }
+
+  .heroNumberMain {
+    padding: 5rem;
+    border-radius: 44px;
+  }
+
+  .numberLabel {
+    font-size: 0.84rem;
+  }
+
+  .heroNumberMain strong {
+    font-size: clamp(9rem, 8vw, 12.5rem);
+  }
+
+  .heroNumberMain p {
+    max-width: 500px;
+    font-size: 1.14rem;
+  }
+
+  .heroNumberGrid {
+    border-radius: 34px;
+  }
+
+  .heroNumberGrid > div {
+    padding: 2.75rem;
+  }
+
+  .heroNumberGrid strong {
+    font-size: clamp(4.8rem, 4vw, 7rem);
+  }
+
+  .heroNumberGrid span {
+    font-size: 0.76rem;
+  }
+
+  .heroBottom {
+    padding-top: 9rem;
+    gap: 4rem;
+  }
+
+  .heroBottom span {
+    font-size: 0.84rem;
+  }
+
+  .business,
+  .trackRecord,
+  .portfolio,
+  .engineering,
+  .market,
+  .proofWall,
+  .cta {
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+  }
+
+  .experience,
+  .benefits,
+  .coordination,
+  .svetlana {
+    padding-top: 15rem;
+    padding-bottom: 15rem;
+  }
+
+  .businessCard,
+  .engineeringCard,
+  .ctaCard {
+    padding: 8rem;
+    border-radius: 54px;
+  }
+
+  .businessCard,
+  .engineeringCard {
+    gap: 10rem;
+  }
+
+  .businessContent h2,
+  .engineeringIntro h2 {
+    font-size: clamp(6rem, 4.5vw, 8rem);
+  }
+
+  .businessContent p,
+  .engineeringIntro p {
+    font-size: 1.28rem;
+    line-height: 1.9;
+  }
+
+  .businessDetails {
+    padding-left: 5rem;
+  }
+
+  .businessDetail {
+    grid-template-columns: 62px minmax(0, 1fr);
+    gap: 2rem;
+    padding: 2.8rem 0;
+  }
+
+  .businessDetail > span,
+  .businessDetail small {
+    font-size: 0.86rem;
+  }
+
+  .businessDetail strong {
+    font-size: 1.4rem;
+  }
+
+  .trackGrid {
+    gap: 14rem;
+  }
+
+  .trackGrid h2,
+  .portfolioHeader h2,
+  .sectionHeader h2,
+  .marketContent h2,
+  .svetlanaContent h2,
+  .proofWallHeader h2 {
+    font-size: clamp(6rem, 4.8vw, 8.2rem);
+  }
+
+  .trackText {
+    padding-top: 4rem;
+  }
+
+  .trackText p,
+  .sectionHeader p,
+  .marketContent p,
+  .svetlanaContent p {
+    max-width: 950px;
+    font-size: 1.28rem;
+    line-height: 1.95;
+  }
+
+  .stats {
+    padding: 10rem 0;
+  }
+
+  .stat {
+    padding-top: 4.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .stat + .stat {
+    padding-left: 2.5rem;
+  }
+
+  .statNumber {
+    font-size: clamp(7rem, 5vw, 10rem);
+  }
+
+  .stat > span {
+    margin-top: 2.5rem;
+    font-size: 0.84rem;
+  }
+
+  .stat p {
+    max-width: 420px;
+    font-size: 1.08rem;
+    line-height: 1.8;
+  }
+
+  .portfolioHeader {
+    gap: 10rem;
+    margin-bottom: 7rem;
+  }
+
+  .portfolioSummary strong {
+    font-size: clamp(6.5rem, 5vw, 9rem);
+  }
+
+  .portfolioSummary > span {
+    font-size: 0.84rem;
+  }
+
+  .portfolioSummary p {
+    max-width: 560px;
+    font-size: 1.08rem;
+    line-height: 1.8;
+  }
+
+  .portfolioCard {
+    padding: 6.5rem;
+    border-radius: 54px;
+  }
+
+  .portfolioTop > div:first-child > span {
+    font-size: 0.84rem;
+  }
+
+  .portfolioTop > div:first-child > strong {
+    font-size: clamp(8rem, 7vw, 11.5rem);
+  }
+
+  .portfolioTop small {
+    font-size: 0.76rem;
+  }
+
+  .saleRental {
+    gap: 5rem;
+  }
+
+  .saleRental strong {
+    font-size: 4rem;
+  }
+
+  .saleRental span {
+    font-size: 0.76rem;
+  }
+
+  .portfolioBar {
+    height: 16px;
+    margin: 5rem 0;
+  }
+
+  .breakdownItem {
+    gap: 1.8rem;
+    padding: 3rem 2rem 3rem 0;
+  }
+
+  .breakdownItem + .breakdownItem {
+    padding-left: 2rem;
+  }
+
+  .breakdownNumber {
+    font-size: 3.7rem;
+  }
+
+  .breakdownTitle strong {
+    font-size: 1.08rem;
+  }
+
+  .breakdownTitle span {
+    font-size: 0.8rem;
+  }
+
+  .breakdownItem p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .breakdownItem small {
+    font-size: 0.72rem;
+  }
+
+  .portfolioNote {
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 1.6rem;
+    margin-top: 2rem;
+    padding-top: 2.5rem;
+  }
+
+  .portfolioNote > span {
+    font-size: 0.8rem;
+  }
+
+  .portfolioNote p {
+    font-size: 0.84rem;
+    line-height: 1.7;
+  }
+
+  .sectionHeader {
+    max-width: 1400px;
+    margin-bottom: 7rem;
+  }
+
+  .experienceGrid {
+    gap: 2rem;
+  }
+
+  .experienceCard {
+    min-height: 950px;
+    padding: 3.25rem;
+    border-radius: 48px;
+  }
+
+  .cardTop,
+  .cardEyebrow {
+    font-size: 0.86rem;
+  }
+
+  .cardContent h3 {
+    font-size: clamp(3.4rem, 2.8vw, 4.8rem);
+  }
+
+  .cardContent p {
+    max-width: 700px;
+    font-size: 1.18rem;
+    line-height: 1.85;
+  }
+
+  .cardPoints {
+    gap: 1rem;
+    margin-top: 3.5rem;
+    padding-top: 2.75rem;
+  }
+
+  .cardPoints strong {
+    font-size: 1rem;
+  }
+
+  .engineeringServices {
+    padding: 3.25rem;
+    border-radius: 42px;
+  }
+
+  .servicesHeader {
+    padding-bottom: 2.4rem;
+  }
+
+  .servicesHeader span {
+    font-size: 0.84rem;
+  }
+
+  .servicesHeader strong {
+    font-size: 4.4rem;
+  }
+
+  .serviceItem {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 1.2rem;
+    padding: 1.8rem 0;
+  }
+
+  .serviceItem > span {
+    font-size: 0.8rem;
+  }
+
+  .serviceItem strong {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .benefitCard {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 2.5rem;
+    padding-top: 3.7rem;
+    padding-bottom: 3.7rem;
+  }
+
+  .benefitCard:nth-child(even) {
+    padding-left: 2.5rem;
+  }
+
+  .benefitCard > span {
+    font-size: 0.8rem;
+  }
+
+  .benefitCard h3 {
+    font-size: 3rem;
+  }
+
+  .benefitCard p {
+    max-width: 800px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .marketGrid {
+    gap: 14rem;
+  }
+
+  .marketContent p {
+    font-size: 1.28rem;
+  }
+
+  .marketProof {
+    border-radius: 46px;
+  }
+
+  .marketProof > div {
+    grid-template-columns: 62px minmax(0, 1fr);
+    gap: 1.7rem;
+    padding: 2.8rem;
+  }
+
+  .marketProof > div > span,
+  .marketProof small {
+    font-size: 0.8rem;
+  }
+
+  .marketProof strong {
+    font-size: 1.3rem;
+  }
+
+  .marketProof p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .coordinationCard {
+    padding: 3.7rem 2.5rem 3.7rem 0;
+  }
+
+  .coordinationCard + .coordinationCard {
+    padding-left: 2.5rem;
+  }
+
+  .coordinationCard > span {
+    font-size: 0.8rem;
+  }
+
+  .coordinationCard h3 {
+    margin-top: 4.5rem;
+    font-size: 2.9rem;
+  }
+
+  .coordinationCard p {
+    font-size: 1.02rem;
+    line-height: 1.8;
+  }
+
+  .proofWallCard {
+    padding: 8rem;
+    border-radius: 56px;
+  }
+
+  .proofWallGrid {
+    margin-top: 8rem;
+  }
+
+  .proofWallGrid article {
+    grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1fr);
+    gap: 3rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .proofWallGrid article:nth-child(even) {
+    padding-left: 3rem;
+  }
+
+  .proofValue {
+    font-size: clamp(6.5rem, 5vw, 9rem);
+  }
+
+  .proofWallGrid h3 {
+    font-size: 2.4rem;
+  }
+
+  .proofWallGrid p {
+    font-size: 1.04rem;
+    line-height: 1.8;
+  }
+
+  .svetlanaGrid {
+    gap: 14rem;
+  }
+
+  .svetlanaCaption {
+    right: 2.5rem;
+    bottom: 2.5rem;
+    left: 2.5rem;
+    padding: 1.8rem;
+    border-radius: 22px;
+  }
+
+  .svetlanaCaption span {
+    font-size: 0.86rem;
+  }
+
+  .svetlanaCaption strong {
+    font-size: 0.78rem;
+  }
+
+  .svetlanaContent p {
+    font-size: 1.28rem;
+  }
+
+  .roles {
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .roles span {
+    padding: 1rem 1.35rem;
+    font-size: 0.84rem;
+  }
+
+  .textLink {
+    margin-top: 3rem;
+    font-size: 1.08rem;
+  }
+
+  .ctaCard {
+    gap: 11rem;
+  }
+
+  .ctaContent > span {
+    font-size: 0.84rem;
+  }
+
+  .ctaContent h2 {
+    max-width: 1450px;
+    font-size: clamp(6rem, 5vw, 8.8rem);
+  }
+
+  .ctaContent p {
+    max-width: 1000px;
+    font-size: 1.24rem;
+    line-height: 1.9;
+  }
+
+  .ctaActions {
+    min-width: 390px;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .ctaPrimary,
+  .ctaSecondary {
+    min-height: 74px;
+    padding: 1.3rem 2.2rem;
+    font-size: 1.14rem;
+  }
+
+  .disclaimer {
+    padding-bottom: 7rem;
+  }
+
+  .disclaimer p {
+    max-width: 1450px;
+    font-size: 0.84rem;
+    line-height: 1.8;
+  }
+}
+
+/* =========================================
    TABLET
    ========================================= */
 

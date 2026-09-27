@@ -1,4 +1,3 @@
-
 /* =========================================
    PAGE
 ========================================= */
@@ -862,16 +861,890 @@
 }
 
 /* =========================================
-   LARGE DESKTOP
+   LARGE DESKTOP — 1440+
 ========================================= */
 
-@media (min-width: 1600px) {
+@media (min-width: 1440px) {
   .container {
-    width: min(1280px, 88%);
+    width: min(1380px, 90%);
   }
 
   .hero {
-    min-height: 600px;
+    min-height: 620px;
+
+    padding: 165px 0 105px;
+  }
+
+  .hero .container {
+    grid-template-columns: 1fr 215px;
+    gap: 120px;
+  }
+
+  .heroContent {
+    max-width: 960px;
+  }
+
+  .hero h1 {
+    font-size: clamp(4.2rem, 5.7vw, 6.5rem);
+  }
+
+  .heroContent > p {
+    max-width: 690px;
+    font-size: 0.98rem;
+  }
+
+  .heroMeta {
+    gap: 10px;
+    padding-left: 28px;
+    font-size: 0.58rem;
+  }
+
+  .heroMeta strong {
+    font-size: 0.74rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-height: 48px;
+    padding: 13px 21px;
+    font-size: 0.73rem;
+  }
+
+  .eyebrow,
+  .sectionLabel {
+    font-size: 0.7rem;
+  }
+
+  .conditionsSection {
+    padding: 150px 0 160px;
+  }
+
+  .sectionIntro,
+  .investmentHeader {
+    gap: 110px;
+    margin-bottom: 80px;
+  }
+
+  .sectionIntro h2,
+  .investmentHeader h2,
+  .faqIntro h2 {
+    font-size: clamp(3.3rem, 4.1vw, 5rem);
+  }
+
+  .sectionIntro > p,
+  .investmentHeader > p {
+    max-width: 510px;
+    font-size: 0.88rem;
+  }
+
+  .conditionCard {
+    min-height: 410px;
+    padding: 38px;
+  }
+
+  .conditionTop > span {
+    font-size: 0.68rem;
+  }
+
+  .conditionIcon {
+    width: 51px;
+    height: 51px;
+  }
+
+  .conditionCard h3 {
+    margin-top: 78px;
+    font-size: 1.18rem;
+  }
+
+  .conditionCard > p {
+    max-width: 330px;
+    font-size: 0.76rem;
+  }
+
+  .conditionBottom {
+    gap: 9px;
+    padding-top: 30px;
+    font-size: 0.53rem;
+  }
+
+  .investmentSection {
+    padding: 155px 0;
+  }
+
+  .routePreviewItem {
+    min-height: 310px;
+    padding: 38px;
+  }
+
+  .routePreviewItem > span {
+    font-size: 0.64rem;
+  }
+
+  .routePreviewItem strong {
+    margin-top: 65px;
+    font-size: clamp(3rem, 3.8vw, 4.5rem);
+  }
+
+  .routePreviewItem p {
+    max-width: 320px;
+    font-size: 0.73rem;
+  }
+
+  .textLink {
+    margin-top: 34px;
+    font-size: 0.74rem;
+  }
+
+  .familySection {
+    padding-bottom: 135px;
+  }
+
+  .familyCard,
+  .ctaCard {
+    gap: 45px;
+    padding: 70px;
+  }
+
+  .familyIcon,
+  .ctaIcon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .familyContent h2,
+  .ctaContent h2 {
+    font-size: clamp(2.8rem, 3.4vw, 4.3rem);
+  }
+
+  .familyContent p,
+  .ctaContent p {
+    max-width: 650px;
+    font-size: 0.78rem;
+  }
+
+  .familyButton,
+  .ctaButton {
+    padding: 16px 25px;
+    font-size: 0.75rem;
+  }
+
+  .faqSection {
+    padding: 155px 0;
+  }
+
+  .faqGrid {
+    gap: 120px;
+  }
+
+  .faqIntro > p {
+    max-width: 390px;
+    font-size: 0.82rem;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 52px 1fr 28px;
+    gap: 20px;
+    padding: 28px 0;
+    font-size: 0.88rem;
+  }
+
+  .faqNumber {
+    font-size: 0.62rem;
+  }
+
+  .answer {
+    padding: 0 50px 28px 72px;
+  }
+
+  .answer p {
+    max-width: 760px;
+    font-size: 0.75rem;
+  }
+
+  .ctaSection {
+    padding-bottom: 125px;
+  }
+
+  .legalSection {
+    padding: 42px 0;
+  }
+
+  .legalInner {
+    max-width: 1050px;
+    gap: 17px;
+  }
+
+  .legalInner p {
+    font-size: 0.62rem;
+  }
+}
+
+/* =========================================
+   LARGE DESKTOP — 1920+
+========================================= */
+
+@media (min-width: 1920px) {
+  .container {
+    width: min(1850px, 88%);
+  }
+
+  .hero {
+    min-height: 700px;
+    padding: 185px 0 125px;
+  }
+
+  .hero .container {
+    grid-template-columns: 1fr 245px;
+    gap: 145px;
+  }
+
+  .heroContent {
+    max-width: 1080px;
+  }
+
+  .hero h1 {
+    font-size: clamp(5rem, 5.3vw, 7.2rem);
+  }
+
+  .heroContent > p {
+    max-width: 760px;
+    margin-top: 38px;
+    font-size: 1.1rem;
+  }
+
+  .heroActions {
+    gap: 18px;
+    margin-top: 40px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-height: 54px;
+    padding: 15px 25px;
+    font-size: 0.8rem;
+  }
+
+  .heroMeta {
+    gap: 12px;
+    padding-left: 32px;
+    font-size: 0.67rem;
+  }
+
+  .heroMeta strong {
+    font-size: 0.84rem;
+  }
+
+  .eyebrow,
+  .sectionLabel {
+    gap: 12px;
+    font-size: 0.78rem;
+  }
+
+  .eyebrow span {
+    width: 38px;
+  }
+
+  .conditionsSection {
+    padding: 180px 0 190px;
+  }
+
+  .sectionIntro,
+  .investmentHeader {
+    gap: 140px;
+    margin-bottom: 95px;
+  }
+
+  .sectionIntro h2,
+  .investmentHeader h2,
+  .faqIntro h2 {
+    font-size: clamp(4rem, 4vw, 5.8rem);
+  }
+
+  .sectionIntro > p,
+  .investmentHeader > p {
+    max-width: 590px;
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+
+  .conditionCard {
+    min-height: 465px;
+    padding: 48px;
+  }
+
+  .conditionTop > span {
+    font-size: 0.78rem;
+  }
+
+  .conditionIcon {
+    width: 59px;
+    height: 59px;
+  }
+
+  .conditionCard h3 {
+    margin-top: 95px;
+    font-size: 1.35rem;
+  }
+
+  .conditionCard > p {
+    max-width: 390px;
+    margin-top: 17px;
+    font-size: 0.84rem;
+    line-height: 1.8;
+  }
+
+  .conditionBottom {
+    gap: 11px;
+    padding-top: 35px;
+    font-size: 0.6rem;
+  }
+
+  .conditionBottom svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .investmentSection {
+    padding: 190px 0;
+  }
+
+  .routePreviewItem {
+    min-height: 365px;
+    padding: 48px;
+  }
+
+  .routePreviewItem > span {
+    font-size: 0.72rem;
+  }
+
+  .routePreviewItem strong {
+    margin-top: 80px;
+    font-size: clamp(3.5rem, 4vw, 5.2rem);
+  }
+
+  .routePreviewItem p {
+    max-width: 390px;
+    margin-top: 20px;
+    font-size: 0.82rem;
+  }
+
+  .textLink {
+    margin-top: 40px;
+    font-size: 0.82rem;
+  }
+
+  .familySection {
+    padding-bottom: 165px;
+  }
+
+  .familyCard,
+  .ctaCard {
+    grid-template-columns: 68px 1fr auto;
+    gap: 55px;
+    padding: 85px;
+  }
+
+  .familyIcon,
+  .ctaIcon {
+    width: 66px;
+    height: 66px;
+  }
+
+  .familyContent h2,
+  .ctaContent h2 {
+    font-size: clamp(3.2rem, 3.5vw, 5rem);
+  }
+
+  .familyContent p,
+  .ctaContent p {
+    max-width: 760px;
+    margin-top: 24px;
+    font-size: 0.86rem;
+  }
+
+  .familyButton,
+  .ctaButton {
+    padding: 18px 29px;
+    font-size: 0.82rem;
+  }
+
+  .faqSection {
+    padding: 190px 0;
+  }
+
+  .faqGrid {
+    gap: 150px;
+  }
+
+  .faqIntro > p {
+    max-width: 440px;
+    font-size: 0.88rem;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 62px 1fr 32px;
+    gap: 24px;
+    padding: 34px 0;
+    font-size: 1rem;
+  }
+
+  .faqNumber {
+    font-size: 0.68rem;
+  }
+
+  .answer {
+    padding: 0 58px 34px 86px;
+  }
+
+  .answer p {
+    max-width: 850px;
+    font-size: 0.82rem;
+  }
+
+  .ctaSection {
+    padding-bottom: 155px;
+  }
+
+  .legalSection {
+    padding: 50px 0;
+  }
+
+  .legalInner {
+    max-width: 1250px;
+    gap: 20px;
+  }
+
+  .legalInner svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .legalInner p {
+    font-size: 0.68rem;
+  }
+}
+
+/* =========================================
+   TALL LARGE DESKTOP / 4K
+========================================= */
+
+@media (min-width: 1920px) and (min-height: 1600px) {
+  .container {
+    width: min(2050px, 86%);
+  }
+
+  .hero {
+    min-height: 790px;
+    padding: 205px 0 145px;
+  }
+
+  .hero .container {
+    grid-template-columns: 1fr 270px;
+    gap: 170px;
+  }
+
+  .heroContent {
+    max-width: 1180px;
+  }
+
+  .hero h1 {
+    font-size: clamp(5.3rem, 5vw, 7.6rem);
+  }
+
+  .heroContent > p {
+    max-width: 820px;
+    font-size: 1.16rem;
+  }
+
+  .heroMeta {
+    font-size: 0.72rem;
+  }
+
+  .heroMeta strong {
+    font-size: 0.9rem;
+  }
+
+  .conditionsSection {
+    padding: 205px 0 215px;
+  }
+
+  .sectionIntro,
+  .investmentHeader {
+    margin-bottom: 110px;
+  }
+
+  .sectionIntro h2,
+  .investmentHeader h2,
+  .faqIntro h2 {
+    font-size: clamp(4.3rem, 3.9vw, 6.1rem);
+  }
+
+  .sectionIntro > p,
+  .investmentHeader > p {
+    max-width: 650px;
+    font-size: 1.05rem;
+  }
+
+  .conditionCard {
+    min-height: 520px;
+    padding: 55px;
+  }
+
+  .conditionTop > span {
+    font-size: 0.84rem;
+  }
+
+  .conditionIcon {
+    width: 65px;
+    height: 65px;
+  }
+
+  .conditionCard h3 {
+    margin-top: 110px;
+    font-size: 1.48rem;
+  }
+
+  .conditionCard > p {
+    max-width: 430px;
+    font-size: 0.9rem;
+  }
+
+  .conditionBottom {
+    font-size: 0.65rem;
+  }
+
+  .investmentSection {
+    padding: 215px 0;
+  }
+
+  .routePreviewItem {
+    min-height: 410px;
+    padding: 55px;
+  }
+
+  .routePreviewItem > span {
+    font-size: 0.78rem;
+  }
+
+  .routePreviewItem strong {
+    margin-top: 90px;
+    font-size: clamp(4rem, 4vw, 5.6rem);
+  }
+
+  .routePreviewItem p {
+    max-width: 440px;
+    font-size: 0.88rem;
+  }
+
+  .familySection {
+    padding-bottom: 190px;
+  }
+
+  .familyCard,
+  .ctaCard {
+    padding: 100px;
+    gap: 65px;
+  }
+
+  .familyIcon,
+  .ctaIcon {
+    width: 74px;
+    height: 74px;
+  }
+
+  .familyContent h2,
+  .ctaContent h2 {
+    font-size: clamp(3.5rem, 3.3vw, 5.4rem);
+  }
+
+  .familyContent p,
+  .ctaContent p {
+    max-width: 850px;
+    font-size: 0.92rem;
+  }
+
+  .familyButton,
+  .ctaButton {
+    padding: 20px 32px;
+    font-size: 0.88rem;
+  }
+
+  .faqSection {
+    padding: 215px 0;
+  }
+
+  .faqGrid {
+    gap: 170px;
+  }
+
+  .faqIntro > p {
+    max-width: 480px;
+    font-size: 0.94rem;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 68px 1fr 36px;
+    gap: 27px;
+    padding: 38px 0;
+    font-size: 1.06rem;
+  }
+
+  .faqNumber {
+    font-size: 0.72rem;
+  }
+
+  .answer {
+    padding: 0 65px 38px 95px;
+  }
+
+  .answer p {
+    max-width: 950px;
+    font-size: 0.88rem;
+  }
+
+  .ctaSection {
+    padding-bottom: 175px;
+  }
+
+  .legalSection {
+    padding: 55px 0;
+  }
+
+  .legalInner {
+    max-width: 1400px;
+  }
+
+  .legalInner p {
+    font-size: 0.72rem;
+  }
+}
+
+/* =========================================
+   ULTRA LARGE — 3000+
+========================================= */
+
+@media (min-width: 3000px) {
+  .container {
+    width: min(2250px, 84%);
+  }
+
+  .hero {
+    min-height: 900px;
+    padding: 235px 0 170px;
+  }
+
+  .hero .container {
+    grid-template-columns: 1fr 300px;
+    gap: 200px;
+  }
+
+  .heroContent {
+    max-width: 1350px;
+  }
+
+  .hero h1 {
+    font-size: clamp(6rem, 5vw, 8.4rem);
+  }
+
+  .heroContent > p {
+    max-width: 950px;
+    font-size: 1.3rem;
+  }
+
+  .heroActions {
+    margin-top: 48px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-height: 62px;
+    padding: 17px 30px;
+    font-size: 0.9rem;
+  }
+
+  .eyebrow,
+  .sectionLabel {
+    font-size: 0.88rem;
+  }
+
+  .eyebrow span {
+    width: 46px;
+  }
+
+  .conditionsSection {
+    padding: 245px 0 255px;
+  }
+
+  .sectionIntro,
+  .investmentHeader {
+    gap: 170px;
+    margin-bottom: 125px;
+  }
+
+  .sectionIntro h2,
+  .investmentHeader h2,
+  .faqIntro h2 {
+    font-size: clamp(5rem, 3.9vw, 6.8rem);
+  }
+
+  .sectionIntro > p,
+  .investmentHeader > p {
+    max-width: 750px;
+    font-size: 1.18rem;
+  }
+
+  .conditionCard {
+    min-height: 610px;
+    padding: 65px;
+  }
+
+  .conditionTop > span {
+    font-size: 0.92rem;
+  }
+
+  .conditionIcon {
+    width: 74px;
+    height: 74px;
+  }
+
+  .conditionCard h3 {
+    margin-top: 135px;
+    font-size: 1.65rem;
+  }
+
+  .conditionCard > p {
+    max-width: 500px;
+    margin-top: 21px;
+    font-size: 1rem;
+  }
+
+  .conditionBottom {
+    gap: 13px;
+    padding-top: 42px;
+    font-size: 0.72rem;
+  }
+
+  .conditionBottom svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .investmentSection {
+    padding: 255px 0;
+  }
+
+  .routePreviewItem {
+    min-height: 480px;
+    padding: 65px;
+  }
+
+  .routePreviewItem > span {
+    font-size: 0.86rem;
+  }
+
+  .routePreviewItem strong {
+    margin-top: 110px;
+    font-size: clamp(4.5rem, 4vw, 6.3rem);
+  }
+
+  .routePreviewItem p {
+    max-width: 520px;
+    font-size: 0.98rem;
+  }
+
+  .textLink {
+    margin-top: 48px;
+    font-size: 0.9rem;
+  }
+
+  .familySection {
+    padding-bottom: 220px;
+  }
+
+  .familyCard,
+  .ctaCard {
+    grid-template-columns: 82px 1fr auto;
+    gap: 80px;
+    padding: 120px;
+  }
+
+  .familyIcon,
+  .ctaIcon {
+    width: 86px;
+    height: 86px;
+  }
+
+  .familyContent h2,
+  .ctaContent h2 {
+    font-size: clamp(4rem, 3.4vw, 6rem);
+  }
+
+  .familyContent p,
+  .ctaContent p {
+    max-width: 1000px;
+    margin-top: 28px;
+    font-size: 1rem;
+  }
+
+  .familyButton,
+  .ctaButton {
+    padding: 22px 36px;
+    font-size: 0.96rem;
+  }
+
+  .faqSection {
+    padding: 255px 0;
+  }
+
+  .faqGrid {
+    gap: 200px;
+  }
+
+  .faqIntro > p {
+    max-width: 550px;
+    font-size: 1.02rem;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 78px 1fr 42px;
+    gap: 32px;
+    padding: 45px 0;
+    font-size: 1.18rem;
+  }
+
+  .faqNumber {
+    font-size: 0.78rem;
+  }
+
+  .answer {
+    padding: 0 75px 45px 110px;
+  }
+
+  .answer p {
+    max-width: 1100px;
+    font-size: 0.98rem;
+  }
+
+  .ctaSection {
+    padding-bottom: 205px;
+  }
+
+  .legalSection {
+    padding: 65px 0;
+  }
+
+  .legalInner {
+    max-width: 1650px;
+    gap: 24px;
+  }
+
+  .legalInner svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .legalInner p {
+    font-size: 0.78rem;
   }
 }
 
@@ -1196,4 +2069,3 @@
     transform: none;
   }
 }
-

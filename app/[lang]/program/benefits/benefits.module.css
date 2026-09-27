@@ -1157,19 +1157,1375 @@
 
 
 /* =========================================
-   LARGE DESKTOP
+   LARGE DESKTOP — 1600+
 ========================================= */
 
 @media (min-width: 1600px) {
 
   .container {
-    width: min(1280px, 88%);
+    width: min(1480px, 88%);
   }
 
   .hero {
-    min-height: 620px;
+    min-height: 680px;
+    padding: 175px 0 125px;
   }
 
+  .heroContent {
+    max-width: 1050px;
+  }
+
+  .eyebrow,
+  .sectionLabel {
+    gap: 13px;
+    font-size: 0.72rem;
+  }
+
+  .eyebrow span {
+    width: 38px;
+  }
+
+  .hero h1 {
+    margin-top: 30px;
+    font-size: clamp(5rem, 5.6vw, 7rem);
+  }
+
+  .heroText {
+    max-width: 760px;
+    margin-top: 38px;
+    font-size: 1.12rem;
+    line-height: 1.82;
+  }
+
+  .intro {
+    padding: 155px 0 165px;
+  }
+
+  .sectionHeader {
+    column-gap: 110px;
+    margin-bottom: 90px;
+  }
+
+  .sectionHeader .sectionLabel {
+    margin-bottom: 28px;
+  }
+
+  .sectionHeader h2 {
+    font-size: clamp(4rem, 4.3vw, 5.5rem);
+  }
+
+  .sectionHeader > p {
+    max-width: 600px;
+    font-size: 0.98rem;
+    line-height: 1.85;
+  }
+
+  .benefitCard {
+    min-height: 350px;
+    padding: 38px 42px 42px;
+  }
+
+  .cardNumber {
+    font-size: 0.68rem;
+  }
+
+  .cardIcon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .cardBody {
+    margin-top: 92px;
+  }
+
+  .cardBody h3 {
+    font-size: 1.55rem;
+  }
+
+  .cardBody p {
+    max-width: 520px;
+    margin-top: 16px;
+    font-size: 0.86rem;
+    line-height: 1.8;
+  }
+
+  .cardArrow {
+    right: 40px;
+    bottom: 40px;
+  }
+
+  .familySection {
+    padding: 145px 0;
+  }
+
+  .familyGrid {
+    gap: 115px;
+  }
+
+  .familyVisual {
+    min-height: 680px;
+  }
+
+  .familyVisualTop {
+    top: 38px;
+    left: 38px;
+    right: 38px;
+    font-size: 0.62rem;
+  }
+
+  .familyVisualOrb {
+    width: 230px;
+    height: 230px;
+  }
+
+  .familyOrbInner {
+    width: 98px;
+    height: 98px;
+  }
+
+  .familyVisualText {
+    left: 38px;
+    bottom: 105px;
+    font-size: 2.8rem;
+  }
+
+  .familyVisualBottom {
+    right: 38px;
+    bottom: 38px;
+    font-size: 0.5rem;
+  }
+
+  .familyContent {
+    padding: 30px 0;
+  }
+
+  .familyContent h2 {
+    font-size: clamp(4rem, 4vw, 5.2rem);
+  }
+
+  .familyLead {
+    max-width: 680px;
+    margin-top: 32px;
+    font-size: 0.98rem;
+    line-height: 1.85;
+  }
+
+  .familyList {
+    margin-top: 55px;
+  }
+
+  .familyItem {
+    grid-template-columns: 52px 1fr 24px;
+    gap: 18px;
+    padding: 23px 0;
+    font-size: 0.86rem;
+  }
+
+  .familyIndex {
+    font-size: 0.62rem;
+  }
+
+  .smallNote {
+    max-width: 650px;
+    margin-top: 25px;
+    font-size: 0.7rem;
+  }
+
+  .travelSection {
+    padding: 155px 0;
+  }
+
+  .travelCard {
+    min-height: 510px;
+  }
+
+  .travelLeft {
+    padding: 78px;
+  }
+
+  .travelLeft h2 {
+    font-size: clamp(4rem, 3.8vw, 5.1rem);
+  }
+
+  .travelLeft p {
+    max-width: 650px;
+    margin-top: 30px;
+    font-size: 0.92rem;
+    line-height: 1.85;
+  }
+
+  .travelWarning {
+    max-width: 660px;
+    margin-top: 35px;
+    padding-top: 24px;
+    font-size: 0.7rem;
+  }
+
+  .travelRight {
+    gap: 38px;
+    padding: 60px;
+  }
+
+  .travelCircle {
+    width: 135px;
+    height: 135px;
+  }
+
+  .travelKicker {
+    font-size: 0.58rem;
+  }
+
+  .travelRight strong {
+    font-size: 1.95rem;
+  }
+
+  .travelRight p {
+    max-width: 250px;
+    font-size: 0.68rem;
+  }
+
+  .factsSection {
+    padding: 155px 0;
+  }
+
+  .factsHeader {
+    gap: 110px;
+  }
+
+  .factsHeader h2 {
+    font-size: clamp(4rem, 4.2vw, 5.3rem);
+  }
+
+  .factsHeader > p {
+    max-width: 430px;
+    font-size: 0.88rem;
+    line-height: 1.85;
+  }
+
+  .factsGrid {
+    margin-top: 95px;
+  }
+
+  .fact {
+    grid-template-columns: 48px 1fr;
+    gap: 24px;
+    padding: 38px 38px 15px 0;
+  }
+
+  .fact:not(:first-child) {
+    padding-left: 38px;
+  }
+
+  .fact > span {
+    font-size: 0.64rem;
+  }
+
+  .fact h3 {
+    font-size: 1.08rem;
+  }
+
+  .fact p {
+    margin-top: 13px;
+    font-size: 0.76rem;
+    line-height: 1.8;
+  }
+
+  .faqSection {
+    padding: 165px 0;
+  }
+
+  .faqGrid {
+    gap: 130px;
+  }
+
+  .faqIntro h2 {
+    font-size: clamp(4rem, 3.9vw, 5rem);
+  }
+
+  .faqIntro > p {
+    max-width: 430px;
+    margin-top: 30px;
+    font-size: 0.88rem;
+    line-height: 1.85;
+  }
+
+  .outlineButton {
+    margin-top: 38px;
+    padding: 14px 21px;
+    font-size: 0.76rem;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 55px 1fr 30px;
+    gap: 22px;
+    padding: 29px 0;
+    font-size: 0.94rem;
+  }
+
+  .faqNumber {
+    font-size: 0.6rem;
+  }
+
+  .answer {
+    padding: 0 55px 30px 77px;
+  }
+
+  .answer p {
+    max-width: 760px;
+    font-size: 0.78rem;
+    line-height: 1.85;
+  }
+
+  .ctaSection {
+    padding-bottom: 125px;
+  }
+
+  .ctaCard {
+    gap: 90px;
+    padding: 82px;
+  }
+
+  .ctaCard h2 {
+    font-size: clamp(3.3rem, 3.7vw, 4.8rem);
+  }
+
+  .ctaCard p {
+    max-width: 680px;
+    margin-top: 25px;
+    font-size: 0.84rem;
+    line-height: 1.8;
+  }
+
+  .ctaButton {
+    padding: 17px 28px;
+    font-size: 0.86rem;
+  }
+
+  .legalSection {
+    padding: 42px 0;
+  }
+
+  .legalInner {
+    max-width: 1050px;
+    gap: 18px;
+  }
+
+  .legalInner p {
+    font-size: 0.65rem;
+    line-height: 1.8;
+  }
+}
+
+
+/* =========================================
+   1920+ — LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1920px) {
+
+  .container {
+    width: min(1780px, 87%);
+  }
+
+  .hero {
+    min-height: 760px;
+    padding: 195px 0 145px;
+  }
+
+  .heroContent {
+    max-width: 1250px;
+  }
+
+  .eyebrow,
+  .sectionLabel {
+    gap: 15px;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+  }
+
+  .eyebrow span {
+    width: 44px;
+  }
+
+  .hero h1 {
+    margin-top: 35px;
+    font-size: clamp(5.5rem, 5.4vw, 8rem);
+  }
+
+  .heroText {
+    max-width: 850px;
+    margin-top: 45px;
+    font-size: 1.24rem;
+  }
+
+  .intro {
+    padding: 185px 0 195px;
+  }
+
+  .sectionHeader {
+    column-gap: 145px;
+    margin-bottom: 110px;
+  }
+
+  .sectionHeader .sectionLabel {
+    margin-bottom: 32px;
+  }
+
+  .sectionHeader h2 {
+    font-size: clamp(4.8rem, 4.2vw, 6.4rem);
+  }
+
+  .sectionHeader > p {
+    max-width: 700px;
+    font-size: 1.08rem;
+  }
+
+  .benefitGrid {
+    border-width: 1px;
+  }
+
+  .benefitCard {
+    min-height: 420px;
+    padding: 46px 52px 52px;
+  }
+
+  .cardNumber {
+    font-size: 0.76rem;
+    letter-spacing: 0.17em;
+  }
+
+  .cardIcon {
+    width: 62px;
+    height: 62px;
+  }
+
+  .cardBody {
+    margin-top: 112px;
+  }
+
+  .cardBody h3 {
+    font-size: 1.8rem;
+  }
+
+  .cardBody p {
+    max-width: 620px;
+    margin-top: 19px;
+    font-size: 0.98rem;
+    line-height: 1.85;
+  }
+
+  .cardArrow {
+    right: 50px;
+    bottom: 48px;
+  }
+
+  .familySection {
+    padding: 180px 0;
+  }
+
+  .familyGrid {
+    gap: 145px;
+  }
+
+  .familyVisual {
+    min-height: 790px;
+  }
+
+  .familyVisualTop {
+    top: 45px;
+    left: 45px;
+    right: 45px;
+    font-size: 0.68rem;
+  }
+
+  .familyVisualOrb {
+    width: 270px;
+    height: 270px;
+  }
+
+  .familyVisualOrb::before {
+    inset: 27px;
+  }
+
+  .familyVisualOrb::after {
+    inset: -30px;
+  }
+
+  .familyOrbInner {
+    width: 112px;
+    height: 112px;
+  }
+
+  .familyVisualText {
+    left: 45px;
+    bottom: 120px;
+    font-size: 3.3rem;
+  }
+
+  .familyVisualBottom {
+    right: 45px;
+    bottom: 45px;
+    font-size: 0.55rem;
+  }
+
+  .familyContent {
+    padding: 40px 0;
+  }
+
+  .familyContent h2 {
+    font-size: clamp(4.8rem, 4vw, 6.2rem);
+  }
+
+  .familyLead {
+    max-width: 800px;
+    margin-top: 38px;
+    font-size: 1.08rem;
+  }
+
+  .familyList {
+    margin-top: 65px;
+  }
+
+  .familyItem {
+    grid-template-columns: 62px 1fr 28px;
+    gap: 22px;
+    padding: 27px 0;
+    font-size: 0.96rem;
+  }
+
+  .familyIndex {
+    font-size: 0.68rem;
+  }
+
+  .smallNote {
+    max-width: 760px;
+    margin-top: 30px;
+    font-size: 0.76rem;
+  }
+
+  .travelSection {
+    padding: 190px 0;
+  }
+
+  .travelCard {
+    min-height: 590px;
+  }
+
+  .travelLeft {
+    padding: 95px;
+  }
+
+  .travelLeft h2 {
+    font-size: clamp(4.7rem, 3.7vw, 6rem);
+  }
+
+  .travelLeft p {
+    max-width: 760px;
+    margin-top: 36px;
+    font-size: 1rem;
+  }
+
+  .travelWarning {
+    max-width: 760px;
+    margin-top: 42px;
+    padding-top: 28px;
+    font-size: 0.76rem;
+  }
+
+  .travelRight {
+    gap: 45px;
+    padding: 75px;
+  }
+
+  .travelCircle {
+    width: 160px;
+    height: 160px;
+  }
+
+  .travelKicker {
+    font-size: 0.64rem;
+  }
+
+  .travelRight strong {
+    font-size: 2.25rem;
+  }
+
+  .travelRight p {
+    max-width: 300px;
+    font-size: 0.74rem;
+  }
+
+  .factsSection {
+    padding: 190px 0;
+  }
+
+  .factsHeader {
+    gap: 145px;
+  }
+
+  .factsHeader h2 {
+    font-size: clamp(4.8rem, 4vw, 6rem);
+  }
+
+  .factsHeader > p {
+    max-width: 500px;
+    font-size: 0.96rem;
+  }
+
+  .factsGrid {
+    margin-top: 115px;
+  }
+
+  .fact {
+    grid-template-columns: 60px 1fr;
+    gap: 28px;
+    padding: 45px 45px 20px 0;
+  }
+
+  .fact:not(:first-child) {
+    padding-left: 45px;
+  }
+
+  .fact > span {
+    font-size: 0.7rem;
+  }
+
+  .fact h3 {
+    font-size: 1.2rem;
+  }
+
+  .fact p {
+    margin-top: 15px;
+    font-size: 0.84rem;
+  }
+
+  .faqSection {
+    padding: 200px 0;
+  }
+
+  .faqGrid {
+    gap: 160px;
+  }
+
+  .faqIntro h2 {
+    font-size: clamp(4.8rem, 3.8vw, 5.8rem);
+  }
+
+  .faqIntro > p {
+    max-width: 500px;
+    margin-top: 35px;
+    font-size: 0.96rem;
+  }
+
+  .outlineButton {
+    margin-top: 42px;
+    padding: 16px 24px;
+    font-size: 0.82rem;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 65px 1fr 34px;
+    gap: 25px;
+    padding: 34px 0;
+    font-size: 1.02rem;
+  }
+
+  .faqNumber {
+    font-size: 0.66rem;
+  }
+
+  .answer {
+    padding: 0 65px 35px 90px;
+  }
+
+  .answer p {
+    max-width: 900px;
+    font-size: 0.84rem;
+  }
+
+  .ctaSection {
+    padding-bottom: 150px;
+  }
+
+  .ctaCard {
+    gap: 120px;
+    padding: 100px;
+  }
+
+  .ctaCard h2 {
+    font-size: clamp(3.8rem, 3.5vw, 5.4rem);
+  }
+
+  .ctaCard p {
+    max-width: 800px;
+    margin-top: 30px;
+    font-size: 0.92rem;
+  }
+
+  .ctaButton {
+    padding: 19px 31px;
+    font-size: 0.94rem;
+  }
+
+  .legalSection {
+    padding: 48px 0;
+  }
+
+  .legalInner {
+    max-width: 1200px;
+    gap: 20px;
+  }
+
+  .legalInner p {
+    font-size: 0.7rem;
+  }
+}
+
+
+/* =========================================
+   TALL 2560×2593 / LARGE 4K DESKTOP
+========================================= */
+
+@media (min-width: 1920px) and (min-height: 1600px) {
+
+  .container {
+    width: min(1980px, 85%);
+  }
+
+  .hero {
+    min-height: 820px;
+    padding: 215px 0 165px;
+  }
+
+  .heroContent {
+    max-width: 1380px;
+  }
+
+  .hero h1 {
+    font-size: clamp(6rem, 5vw, 8.6rem);
+  }
+
+  .heroText {
+    max-width: 950px;
+    font-size: 1.32rem;
+    line-height: 1.85;
+  }
+
+  .intro {
+    padding: 210px 0 220px;
+  }
+
+  .sectionHeader {
+    column-gap: 170px;
+    margin-bottom: 125px;
+  }
+
+  .sectionHeader h2 {
+    font-size: clamp(5.2rem, 4.1vw, 6.8rem);
+  }
+
+  .sectionHeader > p {
+    max-width: 760px;
+    font-size: 1.14rem;
+  }
+
+  .benefitCard {
+    min-height: 470px;
+    padding: 52px 60px 60px;
+  }
+
+  .cardNumber {
+    font-size: 0.82rem;
+  }
+
+  .cardIcon {
+    width: 68px;
+    height: 68px;
+  }
+
+  .cardBody {
+    margin-top: 125px;
+  }
+
+  .cardBody h3 {
+    font-size: 2rem;
+  }
+
+  .cardBody p {
+    max-width: 680px;
+    font-size: 1.04rem;
+  }
+
+  .cardArrow {
+    right: 58px;
+    bottom: 55px;
+  }
+
+  .familySection {
+    padding: 210px 0;
+  }
+
+  .familyGrid {
+    gap: 170px;
+  }
+
+  .familyVisual {
+    min-height: 860px;
+  }
+
+  .familyVisualTop {
+    top: 50px;
+    left: 50px;
+    right: 50px;
+    font-size: 0.72rem;
+  }
+
+  .familyVisualOrb {
+    width: 300px;
+    height: 300px;
+  }
+
+  .familyOrbInner {
+    width: 125px;
+    height: 125px;
+  }
+
+  .familyVisualText {
+    left: 50px;
+    bottom: 135px;
+    font-size: 3.7rem;
+  }
+
+  .familyVisualBottom {
+    right: 50px;
+    bottom: 50px;
+    font-size: 0.58rem;
+  }
+
+  .familyContent {
+    padding: 50px 0;
+  }
+
+  .familyContent h2 {
+    font-size: clamp(5.2rem, 4vw, 6.8rem);
+  }
+
+  .familyLead {
+    max-width: 900px;
+    font-size: 1.16rem;
+    line-height: 1.88;
+  }
+
+  .familyList {
+    margin-top: 72px;
+  }
+
+  .familyItem {
+    grid-template-columns: 70px 1fr 30px;
+    gap: 25px;
+    padding: 30px 0;
+    font-size: 1rem;
+  }
+
+  .familyIndex {
+    font-size: 0.72rem;
+  }
+
+  .smallNote {
+    max-width: 850px;
+    font-size: 0.8rem;
+  }
+
+  .travelSection {
+    padding: 220px 0;
+  }
+
+  .travelCard {
+    min-height: 650px;
+  }
+
+  .travelLeft {
+    padding: 110px;
+  }
+
+  .travelLeft h2 {
+    font-size: clamp(5.1rem, 3.6vw, 6.5rem);
+  }
+
+  .travelLeft p {
+    max-width: 850px;
+    font-size: 1.08rem;
+    line-height: 1.88;
+  }
+
+  .travelWarning {
+    max-width: 850px;
+    font-size: 0.8rem;
+  }
+
+  .travelRight {
+    gap: 50px;
+    padding: 90px;
+  }
+
+  .travelCircle {
+    width: 180px;
+    height: 180px;
+  }
+
+  .travelKicker {
+    font-size: 0.68rem;
+  }
+
+  .travelRight strong {
+    font-size: 2.5rem;
+  }
+
+  .travelRight p {
+    max-width: 340px;
+    font-size: 0.78rem;
+  }
+
+  .factsSection {
+    padding: 220px 0;
+  }
+
+  .factsHeader {
+    gap: 170px;
+  }
+
+  .factsHeader h2 {
+    font-size: clamp(5.2rem, 4vw, 6.6rem);
+  }
+
+  .factsHeader > p {
+    max-width: 560px;
+    font-size: 1rem;
+  }
+
+  .factsGrid {
+    margin-top: 130px;
+  }
+
+  .fact {
+    grid-template-columns: 70px 1fr;
+    gap: 32px;
+    padding: 52px 52px 22px 0;
+  }
+
+  .fact:not(:first-child) {
+    padding-left: 52px;
+  }
+
+  .fact > span {
+    font-size: 0.74rem;
+  }
+
+  .fact h3 {
+    font-size: 1.28rem;
+  }
+
+  .fact p {
+    font-size: 0.88rem;
+    line-height: 1.82;
+  }
+
+  .faqSection {
+    padding: 225px 0;
+  }
+
+  .faqGrid {
+    gap: 180px;
+  }
+
+  .faqIntro h2 {
+    font-size: clamp(5.2rem, 3.8vw, 6.3rem);
+  }
+
+  .faqIntro > p {
+    max-width: 560px;
+    font-size: 1rem;
+  }
+
+  .outlineButton {
+    padding: 17px 26px;
+    font-size: 0.86rem;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 75px 1fr 38px;
+    gap: 28px;
+    padding: 38px 0;
+    font-size: 1.08rem;
+  }
+
+  .faqNumber {
+    font-size: 0.7rem;
+  }
+
+  .answer {
+    padding: 0 75px 40px 103px;
+  }
+
+  .answer p {
+    max-width: 1000px;
+    font-size: 0.88rem;
+    line-height: 1.88;
+  }
+
+  .ctaSection {
+    padding-bottom: 175px;
+  }
+
+  .ctaCard {
+    gap: 140px;
+    padding: 115px;
+  }
+
+  .ctaCard h2 {
+    font-size: clamp(4rem, 3.5vw, 5.8rem);
+  }
+
+  .ctaCard p {
+    max-width: 900px;
+    font-size: 0.98rem;
+  }
+
+  .ctaButton {
+    padding: 21px 34px;
+    font-size: 1rem;
+  }
+
+  .legalSection {
+    padding: 52px 0;
+  }
+
+  .legalInner {
+    max-width: 1350px;
+  }
+
+  .legalInner p {
+    font-size: 0.74rem;
+  }
+}
+
+
+/* =========================================
+   3000+ — TRUE 4K / ULTRA-WIDE
+========================================= */
+
+@media (min-width: 3000px) {
+
+  .container {
+    width: min(2200px, 83%);
+  }
+
+  .hero {
+    min-height: 900px;
+    padding: 245px 0 185px;
+  }
+
+  .heroContent {
+    max-width: 1550px;
+  }
+
+  .hero h1 {
+    font-size: clamp(6.5rem, 4.9vw, 9.5rem);
+  }
+
+  .heroText {
+    max-width: 1050px;
+    font-size: 1.42rem;
+  }
+
+  .intro {
+    padding: 245px 0 255px;
+  }
+
+  .sectionHeader {
+    column-gap: 200px;
+    margin-bottom: 145px;
+  }
+
+  .sectionHeader h2 {
+    font-size: clamp(5.8rem, 4vw, 7.5rem);
+  }
+
+  .sectionHeader > p {
+    max-width: 850px;
+    font-size: 1.22rem;
+  }
+
+  .benefitCard {
+    min-height: 540px;
+    padding: 60px 70px 70px;
+  }
+
+  .cardNumber {
+    font-size: 0.9rem;
+  }
+
+  .cardIcon {
+    width: 76px;
+    height: 76px;
+  }
+
+  .cardBody {
+    margin-top: 145px;
+  }
+
+  .cardBody h3 {
+    font-size: 2.2rem;
+  }
+
+  .cardBody p {
+    max-width: 780px;
+    font-size: 1.14rem;
+  }
+
+  .cardArrow {
+    right: 68px;
+    bottom: 65px;
+  }
+
+  .familySection {
+    padding: 250px 0;
+  }
+
+  .familyGrid {
+    gap: 200px;
+  }
+
+  .familyVisual {
+    min-height: 980px;
+  }
+
+  .familyVisualTop {
+    top: 58px;
+    left: 58px;
+    right: 58px;
+    font-size: 0.8rem;
+  }
+
+  .familyVisualOrb {
+    width: 340px;
+    height: 340px;
+  }
+
+  .familyOrbInner {
+    width: 140px;
+    height: 140px;
+  }
+
+  .familyVisualText {
+    left: 58px;
+    bottom: 155px;
+    font-size: 4.2rem;
+  }
+
+  .familyVisualBottom {
+    right: 58px;
+    bottom: 58px;
+    font-size: 0.64rem;
+  }
+
+  .familyContent h2 {
+    font-size: clamp(5.8rem, 3.9vw, 7.5rem);
+  }
+
+  .familyLead {
+    max-width: 1050px;
+    font-size: 1.25rem;
+  }
+
+  .familyList {
+    margin-top: 82px;
+  }
+
+  .familyItem {
+    grid-template-columns: 82px 1fr 34px;
+    gap: 30px;
+    padding: 34px 0;
+    font-size: 1.08rem;
+  }
+
+  .familyIndex {
+    font-size: 0.78rem;
+  }
+
+  .smallNote {
+    max-width: 1000px;
+    font-size: 0.86rem;
+  }
+
+  .travelSection {
+    padding: 260px 0;
+  }
+
+  .travelCard {
+    min-height: 740px;
+  }
+
+  .travelLeft {
+    padding: 125px;
+  }
+
+  .travelLeft h2 {
+    font-size: clamp(5.7rem, 3.5vw, 7.2rem);
+  }
+
+  .travelLeft p {
+    max-width: 1000px;
+    font-size: 1.16rem;
+  }
+
+  .travelWarning {
+    max-width: 1000px;
+    font-size: 0.86rem;
+  }
+
+  .travelRight {
+    gap: 60px;
+    padding: 110px;
+  }
+
+  .travelCircle {
+    width: 210px;
+    height: 210px;
+  }
+
+  .travelKicker {
+    font-size: 0.74rem;
+  }
+
+  .travelRight strong {
+    font-size: 2.8rem;
+  }
+
+  .travelRight p {
+    max-width: 390px;
+    font-size: 0.84rem;
+  }
+
+  .factsSection {
+    padding: 260px 0;
+  }
+
+  .factsHeader {
+    gap: 200px;
+  }
+
+  .factsHeader h2 {
+    font-size: clamp(5.8rem, 3.9vw, 7.3rem);
+  }
+
+  .factsHeader > p {
+    max-width: 620px;
+    font-size: 1.08rem;
+  }
+
+  .factsGrid {
+    margin-top: 150px;
+  }
+
+  .fact {
+    grid-template-columns: 82px 1fr;
+    gap: 38px;
+    padding: 60px 60px 25px 0;
+  }
+
+  .fact:not(:first-child) {
+    padding-left: 60px;
+  }
+
+  .fact > span {
+    font-size: 0.8rem;
+  }
+
+  .fact h3 {
+    font-size: 1.4rem;
+  }
+
+  .fact p {
+    font-size: 0.94rem;
+  }
+
+  .faqSection {
+    padding: 270px 0;
+  }
+
+  .faqGrid {
+    gap: 210px;
+  }
+
+  .faqIntro h2 {
+    font-size: clamp(5.8rem, 3.7vw, 7rem);
+  }
+
+  .faqIntro > p {
+    max-width: 620px;
+    font-size: 1.08rem;
+  }
+
+  .outlineButton {
+    padding: 19px 29px;
+    font-size: 0.92rem;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 88px 1fr 42px;
+    gap: 32px;
+    padding: 43px 0;
+    font-size: 1.16rem;
+  }
+
+  .faqNumber {
+    font-size: 0.76rem;
+  }
+
+  .answer {
+    padding: 0 88px 45px 120px;
+  }
+
+  .answer p {
+    max-width: 1150px;
+    font-size: 0.94rem;
+  }
+
+  .ctaSection {
+    padding-bottom: 200px;
+  }
+
+  .ctaCard {
+    gap: 170px;
+    padding: 135px;
+  }
+
+  .ctaCard h2 {
+    font-size: clamp(4.5rem, 3.4vw, 6.4rem);
+  }
+
+  .ctaCard p {
+    max-width: 1050px;
+    font-size: 1.04rem;
+  }
+
+  .ctaButton {
+    padding: 23px 38px;
+    font-size: 1.06rem;
+  }
+
+  .legalSection {
+    padding: 58px 0;
+  }
+
+  .legalInner {
+    max-width: 1500px;
+  }
+
+  .legalInner p {
+    font-size: 0.78rem;
+  }
 }
 
 

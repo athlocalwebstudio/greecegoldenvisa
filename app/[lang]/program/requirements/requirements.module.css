@@ -1132,16 +1132,1396 @@
 }
 
 /* =========================================
-   LARGE DESKTOP
+   LARGE DESKTOP — 1440+
 ========================================= */
 
-@media (min-width: 1600px) {
+@media (min-width: 1440px) {
   .container {
-    width: min(1280px, 88%);
+    width: min(1380px, 90%);
   }
 
+  .eyebrow,
+  .sectionLabel {
+    gap: 12px;
+    font-size: 0.7rem;
+  }
+
+  .eyebrow span {
+    width: 36px;
+  }
+
+  /* HERO */
+
   .hero {
-    min-height: 540px;
+    min-height: 600px;
+    padding: 165px 0 105px;
+  }
+
+  .hero .container {
+    grid-template-columns: 1fr 220px;
+    gap: 120px;
+  }
+
+  .heroContent {
+    max-width: 950px;
+  }
+
+  .hero h1 {
+    font-size: clamp(4.4rem, 5.8vw, 6.8rem);
+  }
+
+  .heroContent > p {
+    max-width: 700px;
+    margin-top: 35px;
+    font-size: 1rem;
+  }
+
+  .heroMeta {
+    gap: 10px;
+    padding-left: 28px;
+    font-size: 0.58rem;
+  }
+
+  .heroMeta strong {
+    font-size: 0.76rem;
+  }
+
+  /* ROUTES */
+
+  .routesSection {
+    padding: 145px 0 155px;
+  }
+
+  .sectionIntro {
+    gap: 110px;
+    margin-bottom: 80px;
+  }
+
+  .sectionIntro h2,
+  .propertyHeader h2,
+  .checkIntro h2,
+  .faqIntro h2,
+  .specialHeader h2 {
+    font-size: clamp(3.4rem, 4.1vw, 5.1rem);
+  }
+
+  .sectionIntro > p,
+  .propertyHeader > p,
+  .checkIntro > p,
+  .faqIntro > p,
+  .specialHeader > p {
+    font-size: 0.88rem;
+  }
+
+  .routeCard {
+    min-height: 420px;
+    padding: 38px;
+  }
+
+  .routeTop > span,
+  .specialTop > span,
+  .requirementNumber,
+  .checkItem > span,
+  .faqNumber {
+    font-size: 0.65rem;
+  }
+
+  .routeIcon,
+  .specialIcon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .routeAmount {
+    margin-top: 75px;
+    font-size: clamp(4rem, 4.7vw, 5.7rem);
+  }
+
+  .routeCard h3 {
+    margin-top: 28px;
+    font-size: 1.15rem;
+  }
+
+  .routeCard > p {
+    max-width: 390px;
+    font-size: 0.76rem;
+  }
+
+  .routeBottom {
+    padding-top: 30px;
+    font-size: 0.56rem;
+  }
+
+  /* LOCATION */
+
+  .locationSection {
+    padding: 130px 0;
+  }
+
+  .locationCard {
+    min-height: 570px;
+  }
+
+  .locationMain {
+    padding: 75px;
+  }
+
+  .locationMain h2 {
+    font-size: clamp(3.3rem, 3.8vw, 4.8rem);
+  }
+
+  .locationMain p {
+    max-width: 470px;
+    margin-top: 32px;
+    font-size: 0.84rem;
+  }
+
+  .locationList {
+    padding: 55px;
+  }
+
+  .locationItem {
+    grid-template-columns: 45px 1fr;
+    gap: 18px;
+    padding: 22px 0;
+  }
+
+  .locationItem > span {
+    font-size: 0.62rem;
+  }
+
+  .locationItem > div {
+    gap: 13px;
+  }
+
+  .locationItem strong {
+    font-size: 0.82rem;
+  }
+
+  .locationAmount {
+    margin-top: 38px;
+    padding-top: 30px;
+  }
+
+  .locationAmount span {
+    font-size: 0.58rem;
+  }
+
+  .locationAmount strong {
+    font-size: 2.9rem;
+  }
+
+  .locationNote {
+    max-width: 950px;
+    margin-top: 26px;
+  }
+
+  .locationNote p {
+    font-size: 0.66rem;
+  }
+
+  /* PROPERTY */
+
+  .propertySection {
+    padding: 155px 0;
+  }
+
+  .propertyHeader {
+    gap: 110px;
+    margin-bottom: 85px;
+  }
+
+  .requirementItem {
+    grid-template-columns: 60px 1fr 28px;
+    gap: 30px;
+    padding: 36px 0;
+  }
+
+  .requirementContent h3 {
+    font-size: 1.12rem;
+  }
+
+  .requirementContent p {
+    max-width: 820px;
+    margin-top: 12px;
+    font-size: 0.78rem;
+  }
+
+  /* SPECIAL */
+
+  .specialSection {
+    padding: 145px 0 155px;
+  }
+
+  .specialHeader {
+    max-width: 1000px;
+  }
+
+  .specialHeader > p {
+    max-width: 650px;
+  }
+
+  .specialGrid {
+    margin-top: 80px;
+  }
+
+  .specialCard {
+    min-height: 370px;
+    padding: 38px;
+  }
+
+  .specialCard h3 {
+    margin-top: 85px;
+    font-size: 1.4rem;
+  }
+
+  .specialCard p {
+    max-width: 620px;
+    font-size: 0.76rem;
+  }
+
+  .specialTag {
+    right: 38px;
+    bottom: 38px;
+    font-size: 0.56rem;
+  }
+
+  /* CHECKLIST */
+
+  .checkSection {
+    padding: 155px 0;
+  }
+
+  .checkGrid {
+    gap: 120px;
+  }
+
+  .checkItem {
+    grid-template-columns: 50px 1fr 24px;
+    gap: 25px;
+    padding: 32px 0;
+  }
+
+  .checkItem h3 {
+    font-size: 1.05rem;
+  }
+
+  .checkItem p {
+    max-width: 680px;
+    font-size: 0.74rem;
+  }
+
+  /* FAQ */
+
+  .faqSection {
+    padding: 155px 0;
+  }
+
+  .faqGrid {
+    gap: 120px;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 55px 1fr 28px;
+    gap: 22px;
+    padding: 28px 0;
+    font-size: 0.9rem;
+  }
+
+  .faqNumber {
+    font-size: 0.62rem;
+  }
+
+  .answer {
+    padding: 0 50px 30px 77px;
+  }
+
+  .answer p {
+    max-width: 750px;
+    font-size: 0.76rem;
+  }
+
+  .outlineButton {
+    padding: 14px 21px;
+    font-size: 0.74rem;
+  }
+
+  /* CTA */
+
+  .ctaSection {
+    padding-bottom: 125px;
+  }
+
+  .ctaCard {
+    grid-template-columns: 62px 1fr auto;
+    gap: 42px;
+    padding: 72px;
+  }
+
+  .ctaIcon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .ctaContent h2 {
+    font-size: clamp(3rem, 3.5vw, 4.4rem);
+  }
+
+  .ctaContent p {
+    max-width: 650px;
+    font-size: 0.78rem;
+  }
+
+  .ctaButton {
+    padding: 16px 25px;
+    font-size: 0.76rem;
+  }
+
+  /* LEGAL */
+
+  .legalSection {
+    padding: 42px 0;
+  }
+
+  .legalInner {
+    max-width: 1050px;
+    gap: 17px;
+  }
+
+  .legalInner p {
+    font-size: 0.62rem;
+  }
+}
+
+/* =========================================
+   LARGE DESKTOP — 1920+
+========================================= */
+
+@media (min-width: 1920px) {
+  .container {
+    width: min(1900px, 88%);
+  }
+
+  .eyebrow,
+  .sectionLabel {
+    gap: 14px;
+    font-size: 0.78rem;
+  }
+
+  .eyebrow span {
+    width: 42px;
+  }
+
+  /* HERO */
+
+  .hero {
+    min-height: 680px;
+    padding: 185px 0 125px;
+  }
+
+  .hero .container {
+    grid-template-columns: 1fr 260px;
+    gap: 150px;
+  }
+
+  .heroContent {
+    max-width: 1120px;
+  }
+
+  .hero h1 {
+    font-size: clamp(5rem, 5.6vw, 7.6rem);
+  }
+
+  .heroContent > p {
+    max-width: 780px;
+    margin-top: 42px;
+    font-size: 1.15rem;
+  }
+
+  .heroMeta {
+    gap: 12px;
+    padding-left: 34px;
+    font-size: 0.68rem;
+  }
+
+  .heroMeta strong {
+    font-size: 0.86rem;
+  }
+
+  /* ROUTES */
+
+  .routesSection {
+    padding: 175px 0 185px;
+  }
+
+  .sectionIntro {
+    gap: 140px;
+    margin-bottom: 95px;
+  }
+
+  .sectionIntro h2,
+  .propertyHeader h2,
+  .checkIntro h2,
+  .faqIntro h2,
+  .specialHeader h2 {
+    font-size: clamp(4rem, 4vw, 5.8rem);
+  }
+
+  .sectionIntro > p,
+  .propertyHeader > p,
+  .checkIntro > p,
+  .faqIntro > p,
+  .specialHeader > p {
+    max-width: 560px;
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+
+  .routeCard {
+    min-height: 480px;
+    padding: 48px;
+  }
+
+  .routeTop > span,
+  .specialTop > span,
+  .requirementNumber,
+  .checkItem > span,
+  .faqNumber {
+    font-size: 0.75rem;
+  }
+
+  .routeIcon,
+  .specialIcon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .routeAmount {
+    margin-top: 90px;
+    font-size: clamp(4.8rem, 4.5vw, 6.4rem);
+  }
+
+  .routeCard h3 {
+    margin-top: 32px;
+    font-size: 1.3rem;
+  }
+
+  .routeCard > p {
+    max-width: 460px;
+    margin-top: 15px;
+    font-size: 0.86rem;
+  }
+
+  .routeBottom {
+    padding-top: 35px;
+    font-size: 0.64rem;
+  }
+
+  /* LOCATION */
+
+  .locationSection {
+    padding: 160px 0;
+  }
+
+  .locationCard {
+    min-height: 650px;
+  }
+
+  .locationMain {
+    padding: 90px;
+  }
+
+  .locationMain h2 {
+    font-size: clamp(4rem, 3.8vw, 5.5rem);
+  }
+
+  .locationMain p {
+    max-width: 560px;
+    margin-top: 38px;
+    font-size: 0.98rem;
+  }
+
+  .locationList {
+    padding: 70px;
+  }
+
+  .locationItem {
+    grid-template-columns: 55px 1fr;
+    gap: 22px;
+    padding: 27px 0;
+  }
+
+  .locationItem > span {
+    font-size: 0.72rem;
+  }
+
+  .locationItem > div {
+    gap: 16px;
+  }
+
+  .locationItem strong {
+    font-size: 0.96rem;
+  }
+
+  .locationAmount {
+    margin-top: 48px;
+    padding-top: 36px;
+  }
+
+  .locationAmount span {
+    font-size: 0.68rem;
+  }
+
+  .locationAmount strong {
+    font-size: 3.5rem;
+  }
+
+  .locationNote {
+    max-width: 1150px;
+    margin-top: 30px;
+  }
+
+  .locationNote p {
+    font-size: 0.74rem;
+  }
+
+  /* PROPERTY */
+
+  .propertySection {
+    padding: 185px 0;
+  }
+
+  .propertyHeader {
+    gap: 140px;
+    margin-bottom: 100px;
+  }
+
+  .requirementItem {
+    grid-template-columns: 70px 1fr 32px;
+    gap: 35px;
+    padding: 42px 0;
+  }
+
+  .requirementContent h3 {
+    font-size: 1.25rem;
+  }
+
+  .requirementContent p {
+    max-width: 1000px;
+    margin-top: 14px;
+    font-size: 0.86rem;
+    line-height: 1.8;
+  }
+
+  /* SPECIAL */
+
+  .specialSection {
+    padding: 175px 0 185px;
+  }
+
+  .specialHeader {
+    max-width: 1150px;
+  }
+
+  .specialHeader > p {
+    max-width: 760px;
+  }
+
+  .specialGrid {
+    margin-top: 100px;
+  }
+
+  .specialCard {
+    min-height: 440px;
+    padding: 48px;
+  }
+
+  .specialCard h3 {
+    margin-top: 105px;
+    font-size: 1.6rem;
+  }
+
+  .specialCard p {
+    max-width: 760px;
+    margin-top: 17px;
+    font-size: 0.84rem;
+    line-height: 1.8;
+  }
+
+  .specialTag {
+    right: 48px;
+    bottom: 48px;
+    font-size: 0.64rem;
+  }
+
+  /* CHECKLIST */
+
+  .checkSection {
+    padding: 185px 0;
+  }
+
+  .checkGrid {
+    gap: 150px;
+  }
+
+  .checkItem {
+    grid-template-columns: 60px 1fr 28px;
+    gap: 30px;
+    padding: 38px 0;
+  }
+
+  .checkItem h3 {
+    font-size: 1.18rem;
+  }
+
+  .checkItem p {
+    max-width: 820px;
+    margin-top: 10px;
+    font-size: 0.8rem;
+  }
+
+  /* FAQ */
+
+  .faqSection {
+    padding: 185px 0;
+  }
+
+  .faqGrid {
+    gap: 150px;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 65px 1fr 32px;
+    gap: 26px;
+    padding: 34px 0;
+    font-size: 1rem;
+  }
+
+  .faqNumber {
+    font-size: 0.72rem;
+  }
+
+  .answer {
+    padding: 0 60px 36px 91px;
+  }
+
+  .answer p {
+    max-width: 900px;
+    font-size: 0.84rem;
+  }
+
+  .outlineButton {
+    padding: 16px 24px;
+    font-size: 0.8rem;
+  }
+
+  /* CTA */
+
+  .ctaSection {
+    padding-bottom: 150px;
+  }
+
+  .ctaCard {
+    grid-template-columns: 70px 1fr auto;
+    gap: 50px;
+    padding: 90px;
+  }
+
+  .ctaIcon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .ctaContent h2 {
+    font-size: clamp(3.5rem, 3.4vw, 5rem);
+  }
+
+  .ctaContent p {
+    max-width: 760px;
+    margin-top: 22px;
+    font-size: 0.86rem;
+  }
+
+  .ctaButton {
+    padding: 18px 29px;
+    font-size: 0.84rem;
+  }
+
+  /* LEGAL */
+
+  .legalSection {
+    padding: 50px 0;
+  }
+
+  .legalInner {
+    max-width: 1250px;
+    gap: 20px;
+  }
+
+  .legalInner p {
+    font-size: 0.68rem;
+  }
+}
+
+/* =========================================
+   TALL LARGE DESKTOP — 1920+ / HIGH VIEWPORT
+========================================= */
+
+@media (min-width: 1920px) and (min-height: 1600px) {
+  .container {
+    width: min(2050px, 86%);
+  }
+
+  /* HERO */
+
+  .hero {
+    min-height: 760px;
+    padding: 205px 0 145px;
+  }
+
+  .hero .container {
+    grid-template-columns: 1fr 280px;
+    gap: 170px;
+  }
+
+  .hero h1 {
+    font-size: clamp(5.4rem, 5.4vw, 8rem);
+  }
+
+  .heroContent > p {
+    max-width: 850px;
+    font-size: 1.22rem;
+  }
+
+  .heroMeta {
+    font-size: 0.72rem;
+  }
+
+  .heroMeta strong {
+    font-size: 0.92rem;
+  }
+
+  /* ROUTES */
+
+  .routesSection {
+    padding: 205px 0 215px;
+  }
+
+  .sectionIntro {
+    margin-bottom: 110px;
+  }
+
+  .sectionIntro h2,
+  .propertyHeader h2,
+  .checkIntro h2,
+  .faqIntro h2,
+  .specialHeader h2 {
+    font-size: clamp(4.4rem, 3.9vw, 6.2rem);
+  }
+
+  .routeCard {
+    min-height: 520px;
+    padding: 54px;
+  }
+
+  .routeTop > span,
+  .specialTop > span,
+  .requirementNumber,
+  .checkItem > span,
+  .faqNumber {
+    font-size: 0.82rem;
+  }
+
+  .routeIcon,
+  .specialIcon {
+    width: 66px;
+    height: 66px;
+  }
+
+  .routeAmount {
+    margin-top: 105px;
+    font-size: clamp(5.2rem, 4.4vw, 6.8rem);
+  }
+
+  .routeCard h3 {
+    font-size: 1.38rem;
+  }
+
+  .routeCard > p {
+    max-width: 500px;
+    font-size: 0.9rem;
+  }
+
+  .routeBottom {
+    font-size: 0.68rem;
+  }
+
+  /* LOCATION */
+
+  .locationSection {
+    padding: 185px 0;
+  }
+
+  .locationCard {
+    min-height: 720px;
+  }
+
+  .locationMain {
+    padding: 105px;
+  }
+
+  .locationMain h2 {
+    font-size: clamp(4.4rem, 3.7vw, 5.9rem);
+  }
+
+  .locationMain p {
+    max-width: 620px;
+    font-size: 1.02rem;
+  }
+
+  .locationList {
+    padding: 85px;
+  }
+
+  .locationItem {
+    grid-template-columns: 65px 1fr;
+    padding: 31px 0;
+  }
+
+  .locationItem > span {
+    font-size: 0.78rem;
+  }
+
+  .locationItem strong {
+    font-size: 1.02rem;
+  }
+
+  .locationAmount strong {
+    font-size: 3.8rem;
+  }
+
+  .locationNote p {
+    font-size: 0.78rem;
+  }
+
+  /* PROPERTY */
+
+  .propertySection {
+    padding: 215px 0;
+  }
+
+  .propertyHeader {
+    margin-bottom: 115px;
+  }
+
+  .requirementItem {
+    grid-template-columns: 80px 1fr 35px;
+    gap: 40px;
+    padding: 48px 0;
+  }
+
+  .requirementContent h3 {
+    font-size: 1.32rem;
+  }
+
+  .requirementContent p {
+    max-width: 1100px;
+    font-size: 0.9rem;
+  }
+
+  /* SPECIAL */
+
+  .specialSection {
+    padding: 205px 0 215px;
+  }
+
+  .specialGrid {
+    margin-top: 115px;
+  }
+
+  .specialCard {
+    min-height: 500px;
+    padding: 54px;
+  }
+
+  .specialCard h3 {
+    margin-top: 120px;
+    font-size: 1.7rem;
+  }
+
+  .specialCard p {
+    max-width: 820px;
+    font-size: 0.9rem;
+  }
+
+  .specialTag {
+    right: 54px;
+    bottom: 54px;
+    font-size: 0.68rem;
+  }
+
+  /* CHECKLIST */
+
+  .checkSection {
+    padding: 215px 0;
+  }
+
+  .checkGrid {
+    gap: 175px;
+  }
+
+  .checkItem {
+    grid-template-columns: 70px 1fr 32px;
+    gap: 35px;
+    padding: 44px 0;
+  }
+
+  .checkItem h3 {
+    font-size: 1.25rem;
+  }
+
+  .checkItem p {
+    max-width: 900px;
+    font-size: 0.84rem;
+  }
+
+  /* FAQ */
+
+  .faqSection {
+    padding: 215px 0;
+  }
+
+  .faqGrid {
+    gap: 175px;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 72px 1fr 35px;
+    gap: 28px;
+    padding: 38px 0;
+    font-size: 1.08rem;
+  }
+
+  .faqNumber {
+    font-size: 0.78rem;
+  }
+
+  .answer {
+    padding: 0 70px 40px 100px;
+  }
+
+  .answer p {
+    max-width: 1000px;
+    font-size: 0.9rem;
+  }
+
+  /* CTA */
+
+  .ctaSection {
+    padding-bottom: 175px;
+  }
+
+  .ctaCard {
+    grid-template-columns: 76px 1fr auto;
+    gap: 58px;
+    padding: 105px;
+  }
+
+  .ctaIcon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .ctaContent h2 {
+    font-size: clamp(3.8rem, 3.3vw, 5.4rem);
+  }
+
+  .ctaContent p {
+    max-width: 850px;
+    font-size: 0.92rem;
+  }
+
+  .ctaButton {
+    padding: 20px 32px;
+    font-size: 0.88rem;
+  }
+
+  /* LEGAL */
+
+  .legalSection {
+    padding: 56px 0;
+  }
+
+  .legalInner {
+    max-width: 1400px;
+    gap: 22px;
+  }
+
+  .legalInner p {
+    font-size: 0.72rem;
+  }
+}
+
+/* =========================================
+   VERY LARGE DESKTOP — 3000+
+========================================= */
+
+@media (min-width: 3000px) {
+  .container {
+    width: min(2250px, 84%);
+  }
+
+  .eyebrow,
+  .sectionLabel {
+    gap: 16px;
+    font-size: 0.9rem;
+  }
+
+  .eyebrow span {
+    width: 50px;
+  }
+
+  /* HERO */
+
+  .hero {
+    min-height: 850px;
+    padding: 235px 0 165px;
+  }
+
+  .hero .container {
+    grid-template-columns: 1fr 320px;
+    gap: 200px;
+  }
+
+  .heroContent {
+    max-width: 1350px;
+  }
+
+  .hero h1 {
+    font-size: clamp(6rem, 5.2vw, 9rem);
+  }
+
+  .heroContent > p {
+    max-width: 1000px;
+    margin-top: 50px;
+    font-size: 1.35rem;
+  }
+
+  .heroMeta {
+    gap: 14px;
+    padding-left: 40px;
+    font-size: 0.82rem;
+  }
+
+  .heroMeta strong {
+    font-size: 1rem;
+  }
+
+  /* ROUTES */
+
+  .routesSection {
+    padding: 240px 0 250px;
+  }
+
+  .sectionIntro {
+    gap: 170px;
+    margin-bottom: 125px;
+  }
+
+  .sectionIntro h2,
+  .propertyHeader h2,
+  .checkIntro h2,
+  .faqIntro h2,
+  .specialHeader h2 {
+    font-size: clamp(5rem, 3.8vw, 7rem);
+  }
+
+  .sectionIntro > p,
+  .propertyHeader > p,
+  .checkIntro > p,
+  .faqIntro > p,
+  .specialHeader > p {
+    max-width: 680px;
+    font-size: 1.12rem;
+  }
+
+  .routeCard {
+    min-height: 600px;
+    padding: 62px;
+  }
+
+  .routeTop > span,
+  .specialTop > span,
+  .requirementNumber,
+  .checkItem > span,
+  .faqNumber {
+    font-size: 0.92rem;
+  }
+
+  .routeIcon,
+  .specialIcon {
+    width: 76px;
+    height: 76px;
+  }
+
+  .routeAmount {
+    margin-top: 125px;
+    font-size: clamp(6rem, 4.3vw, 7.8rem);
+  }
+
+  .routeCard h3 {
+    margin-top: 38px;
+    font-size: 1.52rem;
+  }
+
+  .routeCard > p {
+    max-width: 600px;
+    margin-top: 18px;
+    font-size: 0.98rem;
+  }
+
+  .routeBottom {
+    padding-top: 42px;
+    font-size: 0.76rem;
+  }
+
+  /* LOCATION */
+
+  .locationSection {
+    padding: 215px 0;
+  }
+
+  .locationCard {
+    min-height: 820px;
+  }
+
+  .locationMain {
+    padding: 125px;
+  }
+
+  .locationMain h2 {
+    font-size: clamp(5rem, 3.6vw, 6.7rem);
+  }
+
+  .locationMain p {
+    max-width: 750px;
+    margin-top: 45px;
+    font-size: 1.12rem;
+  }
+
+  .locationList {
+    padding: 105px;
+  }
+
+  .locationItem {
+    grid-template-columns: 75px 1fr;
+    gap: 28px;
+    padding: 38px 0;
+  }
+
+  .locationItem > span {
+    font-size: 0.88rem;
+  }
+
+  .locationItem > div {
+    gap: 20px;
+  }
+
+  .locationItem strong {
+    font-size: 1.14rem;
+  }
+
+  .locationAmount {
+    margin-top: 58px;
+    padding-top: 44px;
+  }
+
+  .locationAmount span {
+    font-size: 0.76rem;
+  }
+
+  .locationAmount strong {
+    font-size: 4.4rem;
+  }
+
+  .locationNote {
+    max-width: 1500px;
+    margin-top: 36px;
+  }
+
+  .locationNote p {
+    font-size: 0.86rem;
+  }
+
+  /* PROPERTY */
+
+  .propertySection {
+    padding: 250px 0;
+  }
+
+  .propertyHeader {
+    gap: 175px;
+    margin-bottom: 135px;
+  }
+
+  .requirementItem {
+    grid-template-columns: 95px 1fr 40px;
+    gap: 48px;
+    padding: 58px 0;
+  }
+
+  .requirementContent h3 {
+    font-size: 1.45rem;
+  }
+
+  .requirementContent p {
+    max-width: 1350px;
+    margin-top: 16px;
+    font-size: 0.98rem;
+  }
+
+  /* SPECIAL */
+
+  .specialSection {
+    padding: 240px 0 250px;
+  }
+
+  .specialHeader {
+    max-width: 1350px;
+  }
+
+  .specialGrid {
+    margin-top: 135px;
+  }
+
+  .specialCard {
+    min-height: 580px;
+    padding: 62px;
+  }
+
+  .specialCard h3 {
+    margin-top: 145px;
+    font-size: 1.9rem;
+  }
+
+  .specialCard p {
+    max-width: 1000px;
+    margin-top: 20px;
+    font-size: 1rem;
+  }
+
+  .specialTag {
+    right: 62px;
+    bottom: 62px;
+    font-size: 0.76rem;
+  }
+
+  /* CHECKLIST */
+
+  .checkSection {
+    padding: 250px 0;
+  }
+
+  .checkGrid {
+    gap: 210px;
+  }
+
+  .checkItem {
+    grid-template-columns: 85px 1fr 38px;
+    gap: 42px;
+    padding: 54px 0;
+  }
+
+  .checkItem h3 {
+    font-size: 1.35rem;
+  }
+
+  .checkItem p {
+    max-width: 1100px;
+    margin-top: 12px;
+    font-size: 0.92rem;
+  }
+
+  /* FAQ */
+
+  .faqSection {
+    padding: 250px 0;
+  }
+
+  .faqGrid {
+    gap: 210px;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 85px 1fr 40px;
+    gap: 34px;
+    padding: 46px 0;
+    font-size: 1.18rem;
+  }
+
+  .faqNumber {
+    font-size: 0.88rem;
+  }
+
+  .answer {
+    padding: 0 85px 48px 119px;
+  }
+
+  .answer p {
+    max-width: 1250px;
+    font-size: 0.98rem;
+  }
+
+  .outlineButton {
+    padding: 18px 28px;
+    font-size: 0.88rem;
+  }
+
+  /* CTA */
+
+  .ctaSection {
+    padding-bottom: 205px;
+  }
+
+  .ctaCard {
+    grid-template-columns: 90px 1fr auto;
+    gap: 70px;
+    padding: 125px;
+  }
+
+  .ctaIcon {
+    width: 82px;
+    height: 82px;
+  }
+
+  .ctaContent h2 {
+    font-size: clamp(4.2rem, 3.2vw, 6.2rem);
+  }
+
+  .ctaContent p {
+    max-width: 1050px;
+    margin-top: 28px;
+    font-size: 1rem;
+  }
+
+  .ctaButton {
+    padding: 22px 36px;
+    font-size: 0.96rem;
+  }
+
+  /* LEGAL */
+
+  .legalSection {
+    padding: 66px 0;
+  }
+
+  .legalInner {
+    max-width: 1700px;
+    gap: 26px;
+  }
+
+  .legalInner p {
+    font-size: 0.78rem;
   }
 }
 

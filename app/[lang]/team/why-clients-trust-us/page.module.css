@@ -5,7 +5,6 @@
   --soft: #f7fbff;
   --muted: #64748b;
   --line: rgba(15, 44, 89, 0.1);
-
   min-height: 100vh;
   background: #ffffff;
   color: var(--navy);
@@ -37,9 +36,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-
   color: var(--blue);
-
   font-size: 0.63rem;
   font-weight: 800;
   letter-spacing: 0.18em;
@@ -50,9 +47,7 @@
 .sectionLabel span {
   width: 30px;
   height: 1px;
-
   flex-shrink: 0;
-
   background: var(--blue);
 }
 
@@ -63,14 +58,10 @@
 .hero {
   position: relative;
   min-height: 650px;
-
   display: flex;
   align-items: center;
-
   padding: 145px 0 90px;
-
   overflow: hidden;
-
   background:
     radial-gradient(
       circle at 75% 42%,
@@ -86,26 +77,19 @@
 
 .heroGlow {
   position: absolute;
-
   width: 560px;
   height: 560px;
-
   right: -250px;
   top: 25px;
-
   border: 1px solid rgba(59, 169, 239, 0.13);
-
   border-radius: 50%;
 }
 
 .heroGlow::before,
 .heroGlow::after {
   content: "";
-
   position: absolute;
-
   border: 1px solid rgba(59, 169, 239, 0.1);
-
   border-radius: 50%;
 }
 
@@ -120,9 +104,7 @@
 .heroGrid {
   position: absolute;
   inset: 0;
-
   opacity: 0.55;
-
   background-image:
     linear-gradient(
       to right,
@@ -134,9 +116,7 @@
       rgba(15, 44, 89, 0.035) 1px,
       transparent 1px
     );
-
   background-size: 110px 110px;
-
   mask-image: linear-gradient(
     to right,
     black,
@@ -146,15 +126,11 @@
 
 .hero::after {
   content: "";
-
   position: absolute;
-
   right: 8%;
   top: 0;
-
   width: 1px;
   height: 100%;
-
   background: linear-gradient(
     to bottom,
     transparent,
@@ -166,13 +142,9 @@
 .heroInner {
   position: relative;
   z-index: 2;
-
   display: grid;
-
   grid-template-columns: minmax(0, 1fr) 300px;
-
   gap: 100px;
-
   align-items: center;
 }
 
@@ -182,9 +154,7 @@
 
 .hero h1 {
   margin-top: 25px;
-
   color: var(--navy);
-
   font-size: clamp(3.7rem, 6.2vw, 6.4rem);
   line-height: 0.91;
   letter-spacing: -0.068em;
@@ -198,11 +168,8 @@
 
 .heroContent > p {
   max-width: 650px;
-
   margin-top: 31px;
-
   color: var(--muted);
-
   font-size: 0.88rem;
   line-height: 1.85;
 }
@@ -212,7 +179,6 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 14px;
-
   margin-top: 33px;
 }
 
@@ -222,18 +188,12 @@
   align-items: center;
   justify-content: center;
   gap: 9px;
-
   min-height: 45px;
-
   padding: 12px 19px;
-
   border-radius: 999px;
-
   font-size: 0.68rem;
   font-weight: 700;
-
   text-decoration: none;
-
   transition:
     transform 0.25s ease,
     background 0.25s ease,
@@ -253,15 +213,12 @@
 
 .secondaryButton {
   border: 1px solid rgba(15, 44, 89, 0.14);
-
   color: var(--navy);
 }
 
 .secondaryButton:hover {
   transform: translateY(-2px);
-
   border-color: var(--blue);
-
   color: var(--blue);
 }
 
@@ -272,11 +229,8 @@
 .heroSide {
   display: flex;
   flex-direction: column;
-
   min-width: 0;
-
   border-left: 1px solid var(--line);
-
   padding-left: 30px;
 }
 
@@ -284,9 +238,7 @@
   display: flex;
   align-items: center;
   gap: 9px;
-
   color: var(--navy);
-
   font-size: 0.52rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -298,62 +250,46 @@
 
 .heroCompass {
   position: relative;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   min-height: 290px;
-
   margin: 25px 0;
 }
 
 .compassCircle {
   position: relative;
-
   width: 225px;
   height: 225px;
-
   border: 1px solid rgba(15, 44, 89, 0.14);
-
   border-radius: 50%;
 }
 
 .compassCircle::before {
   content: "";
-
   position: absolute;
-
   inset: 18px;
-
   border: 1px solid rgba(59, 169, 239, 0.25);
-
   border-radius: 50%;
 }
 
 .compassCircle::after {
   content: "";
-
   position: absolute;
-
   inset: 68px;
-
   border: 1px solid rgba(15, 44, 89, 0.1);
-
   border-radius: 50%;
 }
 
 .compassLineHorizontal,
 .compassLineVertical {
   position: absolute;
-
   background: rgba(15, 44, 89, 0.08);
 }
 
 .compassLineHorizontal {
   width: 100%;
   height: 1px;
-
   top: 50%;
   left: 0;
 }
@@ -361,40 +297,30 @@
 .compassLineVertical {
   width: 1px;
   height: 100%;
-
   top: 0;
   left: 50%;
 }
 
 .compassCenter {
   position: absolute;
-
   top: 50%;
   left: 50%;
-
   z-index: 2;
-
   transform: translate(-50%, -50%);
-
   width: 76px;
   height: 76px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   border-radius: 50%;
-
   background: var(--navy);
-
   box-shadow:
     0 15px 35px rgba(15, 44, 89, 0.18);
 }
 
 .compassCenter span {
   color: rgba(255, 255, 255, 0.55);
-
   font-size: 0.39rem;
   font-weight: 800;
   letter-spacing: 0.13em;
@@ -402,9 +328,7 @@
 
 .compassCenter strong {
   margin-top: 3px;
-
   color: #ffffff;
-
   font-size: 0.47rem;
   font-weight: 800;
   letter-spacing: 0.09em;
@@ -412,11 +336,8 @@
 
 .compassPoint {
   position: absolute;
-
   z-index: 3;
-
   color: var(--blue);
-
   font-size: 0.43rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -425,28 +346,24 @@
 .north {
   top: 8px;
   left: 50%;
-
   transform: translateX(-50%);
 }
 
 .east {
   right: -3px;
   top: 50%;
-
   transform: translateY(-50%);
 }
 
 .south {
   bottom: 8px;
   left: 50%;
-
   transform: translateX(-50%);
 }
 
 .west {
   left: -18px;
   top: 50%;
-
   transform: translateY(-50%);
 }
 
@@ -454,22 +371,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding-top: 17px;
-
   border-top: 1px solid var(--line);
 }
 
 .heroSideBottom strong {
   color: var(--blue);
-
   font-size: 0.62rem;
   letter-spacing: 0.1em;
 }
 
 .heroSideBottom span {
   color: #94a3b8;
-
   font-size: 0.47rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -481,21 +394,16 @@
 
 .introSection {
   padding: 120px 0 125px;
-
   background: #ffffff;
 }
 
 .sectionIntro {
   display: grid;
-
   grid-template-columns:
     minmax(0, 1fr)
     minmax(300px, 0.72fr);
-
   gap: 90px;
-
   align-items: end;
-
   margin-bottom: 60px;
 }
 
@@ -504,9 +412,7 @@
 .processHeader h2,
 .faqIntro h2 {
   margin-top: 20px;
-
   color: var(--navy);
-
   font-size: clamp(2.9rem, 4.5vw, 4.5rem);
   line-height: 0.98;
   letter-spacing: -0.055em;
@@ -522,30 +428,20 @@
 
 .sectionIntro > p {
   max-width: 440px;
-
   margin-bottom: 3px;
-
   color: var(--muted);
-
   font-size: 0.78rem;
   line-height: 1.8;
 }
 
 .trustStatement {
   position: relative;
-
   display: grid;
-
   grid-template-columns: 80px minmax(0, 1fr) 110px;
-
   gap: 35px;
-
   align-items: center;
-
   padding: 48px 45px;
-
   border: 1px solid var(--line);
-
   background:
     radial-gradient(
       circle at 15% 50%,
@@ -557,18 +453,14 @@
 
 .statementMark {
   color: var(--blue);
-
   font-family: Georgia, serif;
-
   font-size: 6rem;
   line-height: 0.65;
 }
 
 .statementBody > p {
   max-width: 720px;
-
   color: var(--navy);
-
   font-size: 1.35rem;
   line-height: 1.45;
   letter-spacing: -0.025em;
@@ -579,22 +471,18 @@
   display: flex;
   align-items: center;
   gap: 12px;
-
   margin-top: 25px;
 }
 
 .statementAuthor > span {
   width: 25px;
   height: 1px;
-
   background: var(--blue);
 }
 
 .statementAuthor strong {
   display: block;
-
   color: var(--navy);
-
   font-size: 0.58rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -603,11 +491,8 @@
 
 .statementAuthor small {
   display: block;
-
   margin-top: 3px;
-
   color: #94a3b8;
-
   font-size: 0.5rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -615,9 +500,7 @@
 
 .statementIndex {
   align-self: start;
-
   color: #94a3b8;
-
   font-size: 0.47rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -630,55 +513,41 @@
 
 .pillarsSection {
   padding: 125px 0;
-
   background: var(--soft);
 }
 
 .pillarsHeader {
   display: grid;
-
   grid-template-columns:
     minmax(0, 1fr)
     minmax(300px, 0.72fr);
-
   gap: 90px;
-
   align-items: end;
-
   margin-bottom: 55px;
 }
 
 .pillarsHeader > p {
   max-width: 440px;
-
   color: var(--muted);
-
   font-size: 0.78rem;
   line-height: 1.8;
 }
 
 .pillarGrid {
   display: grid;
-
   grid-template-columns: repeat(2, minmax(0, 1fr));
-
   border-top: 1px solid var(--line);
   border-left: 1px solid var(--line);
 }
 
 .pillarCard {
   min-height: 440px;
-
   display: flex;
   flex-direction: column;
-
   padding: 31px;
-
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-
   background: #ffffff;
-
   transition:
     transform 0.3s ease,
     background 0.3s ease,
@@ -688,11 +557,8 @@
 .pillarCard:hover {
   position: relative;
   z-index: 2;
-
   transform: translateY(-5px);
-
   background: #fbfdff;
-
   box-shadow:
     0 25px 65px rgba(15, 44, 89, 0.09);
 }
@@ -707,14 +573,10 @@
 
 .pillarTop {
   display: flex;
-
   align-items: center;
   justify-content: space-between;
-
   padding-bottom: 20px;
-
   border-bottom: 1px solid var(--line);
-
   color: var(--blue);
 }
 
@@ -730,15 +592,12 @@
 
 .pillarContent {
   flex: 1;
-
   padding-top: 27px;
 }
 
 .pillarContent > strong {
   display: block;
-
   color: var(--blue);
-
   font-size: 0.48rem;
   font-weight: 800;
   letter-spacing: 0.15em;
@@ -746,11 +605,8 @@
 
 .pillarContent h3 {
   max-width: 440px;
-
   margin-top: 10px;
-
   color: var(--navy);
-
   font-size: clamp(1.65rem, 2.3vw, 2.15rem);
   line-height: 1.02;
   letter-spacing: -0.04em;
@@ -762,11 +618,8 @@
 
 .pillarContent > p {
   max-width: 460px;
-
   margin-top: 17px;
-
   color: var(--muted);
-
   font-size: 0.68rem;
   line-height: 1.78;
 }
@@ -777,15 +630,10 @@
 
 .pillarContent ul {
   display: grid;
-
   grid-template-columns: repeat(2, minmax(0, 1fr));
-
   gap: 9px 18px;
-
   margin-top: 22px;
-
   padding: 0;
-
   list-style: none;
 }
 
@@ -793,9 +641,7 @@
   display: flex;
   align-items: flex-start;
   gap: 7px;
-
   color: var(--muted);
-
   font-size: 0.55rem;
   line-height: 1.5;
   font-weight: 700;
@@ -803,9 +649,7 @@
 
 .pillarContent li svg {
   flex-shrink: 0;
-
   margin-top: 1px;
-
   color: var(--blue);
 }
 
@@ -815,17 +659,12 @@
 
 .pillarBottom {
   display: flex;
-
   align-items: center;
   justify-content: space-between;
-
   margin-top: 30px;
   padding-top: 17px;
-
   border-top: 1px solid var(--line);
-
   color: #94a3b8;
-
   font-size: 0.46rem;
   font-weight: 800;
   letter-spacing: 0.13em;
@@ -833,7 +672,6 @@
 
 .pillarCardBlue .pillarBottom {
   border-color: rgba(255, 255, 255, 0.1);
-
   color: rgba(255, 255, 255, 0.42);
 }
 
@@ -847,17 +685,14 @@
 
 .standardsSection {
   padding: 125px 0;
-
   background: #ffffff;
 }
 
 .standardsGrid {
   display: grid;
-
   grid-template-columns:
     minmax(0, 0.82fr)
     minmax(0, 1.18fr);
-
   gap: 100px;
 }
 
@@ -867,9 +702,7 @@
 
 .standardsIntro h2 {
   margin-top: 20px;
-
   color: var(--navy);
-
   font-size: clamp(2.7rem, 4.2vw, 4.1rem);
   line-height: 0.98;
   letter-spacing: -0.055em;
@@ -882,11 +715,8 @@
 
 .standardsIntro > p {
   max-width: 430px;
-
   margin-top: 24px;
-
   color: var(--muted);
-
   font-size: 0.72rem;
   line-height: 1.8;
 }
@@ -895,17 +725,12 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-
   margin-top: 28px;
-
   color: var(--navy);
-
   font-size: 0.6rem;
   font-weight: 800;
   letter-spacing: 0.06em;
-
   text-decoration: none;
-
   transition:
     color 0.25s ease,
     gap 0.25s ease;
@@ -913,7 +738,6 @@
 
 .textLink:hover {
   gap: 12px;
-
   color: var(--blue);
 }
 
@@ -923,25 +747,17 @@
 
 .standardItem {
   display: grid;
-
   grid-template-columns: 40px 46px minmax(0, 1fr);
-
   gap: 18px;
-
   align-items: center;
-
   min-height: 125px;
-
   border-bottom: 1px solid var(--line);
 }
 
 .standardNumber {
   align-self: start;
-
   padding-top: 25px;
-
   color: var(--blue);
-
   font-size: 0.51rem;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -950,21 +766,16 @@
 .standardIcon {
   width: 42px;
   height: 42px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 50%;
-
   background: var(--light-blue);
-
   color: var(--navy);
 }
 
 .standardText h3 {
   color: var(--navy);
-
   font-size: 1rem;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -972,11 +783,8 @@
 
 .standardText p {
   max-width: 480px;
-
   margin-top: 7px;
-
   color: var(--muted);
-
   font-size: 0.63rem;
   line-height: 1.7;
 }
@@ -987,13 +795,11 @@
 
 .promiseSection {
   padding: 125px 0;
-
   background: var(--soft);
 }
 
 .promiseCard {
   padding: 48px;
-
   background:
     radial-gradient(
       circle at 85% 25%,
@@ -1007,9 +813,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding-bottom: 20px;
-
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -1017,9 +821,7 @@
   display: flex;
   align-items: center;
   gap: 9px;
-
   color: #7dc7f4;
-
   font-size: 0.53rem;
   font-weight: 800;
   letter-spacing: 0.15em;
@@ -1027,7 +829,6 @@
 
 .promiseIndex {
   color: rgba(255, 255, 255, 0.38);
-
   font-size: 0.48rem;
   font-weight: 800;
   letter-spacing: 0.13em;
@@ -1035,19 +836,15 @@
 
 .promiseGrid {
   display: grid;
-
   grid-template-columns:
     minmax(0, 0.9fr)
     minmax(0, 1.1fr);
-
   gap: 90px;
-
   padding-top: 55px;
 }
 
 .promiseHeading h2 {
   color: #ffffff;
-
   font-size: clamp(3rem, 4.7vw, 4.7rem);
   line-height: 0.94;
   letter-spacing: -0.06em;
@@ -1060,11 +857,8 @@
 
 .promiseHeading > p {
   max-width: 470px;
-
   margin-top: 23px;
-
   color: rgba(255, 255, 255, 0.58);
-
   font-size: 0.7rem;
   line-height: 1.8;
 }
@@ -1075,19 +869,14 @@
 
 .promiseItem {
   display: grid;
-
   grid-template-columns: 35px minmax(0, 1fr);
-
   gap: 18px;
-
   padding: 19px 0;
-
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .promiseItem > span {
   color: var(--blue);
-
   font-size: 0.5rem;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -1095,7 +884,6 @@
 
 .promiseItem p {
   color: rgba(255, 255, 255, 0.72);
-
   font-size: 0.65rem;
   line-height: 1.7;
 }
@@ -1106,48 +894,36 @@
 
 .processSection {
   padding: 125px 0;
-
   background: #ffffff;
 }
 
 .processHeader {
   display: grid;
-
   grid-template-columns:
     minmax(0, 1fr)
     minmax(300px, 0.72fr);
-
   gap: 90px;
-
   align-items: end;
-
   margin-bottom: 70px;
 }
 
 .processHeader > p {
   max-width: 440px;
-
   color: var(--muted);
-
   font-size: 0.78rem;
   line-height: 1.8;
 }
 
 .processTrack {
   display: grid;
-
   grid-template-columns: repeat(4, minmax(0, 1fr));
-
   border-top: 1px solid var(--line);
 }
 
 .processStep {
   position: relative;
-
   min-height: 250px;
-
   padding: 27px 25px 25px;
-
   border-right: 1px solid var(--line);
 }
 
@@ -1157,51 +933,38 @@
 
 .processTop {
   position: relative;
-
   display: flex;
   align-items: center;
-
   min-height: 28px;
 }
 
 .processTop > span {
   width: 29px;
   height: 29px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border: 1px solid rgba(59, 169, 239, 0.35);
   border-radius: 50%;
-
   background: #ffffff;
-
   color: var(--blue);
-
   font-size: 0.48rem;
   font-weight: 800;
-
   position: relative;
   z-index: 2;
 }
 
 .processLine {
   position: absolute;
-
   left: 29px;
   right: -25px;
-
   height: 1px;
-
   background: var(--line);
 }
 
 .processStep h3 {
   margin-top: 35px;
-
   color: var(--navy);
-
   font-size: 1.15rem;
   line-height: 1.05;
   letter-spacing: -0.025em;
@@ -1209,11 +972,8 @@
 
 .processStep p {
   max-width: 220px;
-
   margin-top: 13px;
-
   color: var(--muted);
-
   font-size: 0.62rem;
   line-height: 1.75;
 }
@@ -1224,61 +984,43 @@
 
 .svetlanaSection {
   padding: 125px 0;
-
   background: var(--soft);
 }
 
 .svetlanaCard {
   display: grid;
-
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-
   gap: 80px;
-
   align-items: center;
 }
 
 .svetlanaImageWrap {
   position: relative;
-
   min-width: 0;
-
   aspect-ratio: 4 / 5;
-
   max-height: 680px;
 }
 
 .svetlanaImageFrame {
   position: absolute;
-
   inset: 22px -18px -22px 18px;
-
   border: 1px solid rgba(59, 169, 239, 0.38);
-
   pointer-events: none;
 }
 
 .svetlanaImageWrap::before {
   content: "01";
-
   position: absolute;
-
   z-index: 3;
-
   top: 25px;
   left: -17px;
-
   width: 47px;
   height: 47px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: var(--blue);
-
   color: #ffffff;
-
   font-size: 0.58rem;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -1286,15 +1028,11 @@
 
 .svetlanaImageWrap::after {
   content: "";
-
   position: absolute;
-
   right: -17px;
   bottom: -17px;
-
   width: 85px;
   height: 85px;
-
   background:
     linear-gradient(
       90deg,
@@ -1305,49 +1043,34 @@
       rgba(59, 169, 239, 0.45) 1px,
       transparent 1px
     );
-
   background-size: 13px 13px;
-
   opacity: 0.55;
-
   pointer-events: none;
 }
 
 .svetlanaImage {
   position: relative;
   z-index: 2;
-
   width: 100%;
   height: 100%;
-
   display: block;
-
   object-fit: cover;
-
   object-position: center;
-
   filter: saturate(0.94);
-
   box-shadow:
     0 30px 80px rgba(15, 44, 89, 0.17);
 }
 
 .imageCaption {
   position: absolute;
-
   z-index: 4;
-
   left: 20px;
   bottom: 20px;
-
   display: flex;
   align-items: center;
   gap: 9px;
-
   padding: 11px 14px;
-
   background: rgba(15, 44, 89, 0.92);
-
   color: #ffffff;
 }
 
@@ -1359,11 +1082,8 @@
 
 .imageCaption strong {
   padding-left: 9px;
-
   border-left: 1px solid rgba(255, 255, 255, 0.25);
-
   color: #7dc7f4;
-
   font-size: 0.46rem;
   letter-spacing: 0.12em;
 }
@@ -1374,9 +1094,7 @@
 
 .svetlanaContent h2 {
   margin-top: 20px;
-
   color: var(--navy);
-
   font-size: clamp(2.7rem, 4.1vw, 4.2rem);
   line-height: 0.98;
   letter-spacing: -0.055em;
@@ -1389,35 +1107,26 @@
 
 .svetlanaContent > p {
   max-width: 590px;
-
   margin-top: 23px;
-
   color: var(--muted);
-
   font-size: 0.72rem;
   line-height: 1.82;
 }
 
 .credentials {
   display: grid;
-
   grid-template-columns: repeat(3, minmax(0, 1fr));
-
   margin-top: 32px;
-
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
 .credentials > div {
   min-height: 105px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   padding: 15px 17px;
-
   border-right: 1px solid var(--line);
 }
 
@@ -1431,7 +1140,6 @@
 
 .credentials strong {
   color: var(--blue);
-
   font-size: 0.5rem;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -1439,11 +1147,8 @@
 
 .credentials span {
   max-width: 130px;
-
   margin-top: 8px;
-
   color: var(--navy);
-
   font-size: 0.56rem;
   line-height: 1.5;
   font-weight: 800;
@@ -1453,17 +1158,12 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-
   margin-top: 27px;
-
   color: var(--navy);
-
   font-size: 0.61rem;
   font-weight: 800;
   letter-spacing: 0.05em;
-
   text-decoration: none;
-
   transition:
     color 0.25s ease,
     gap 0.25s ease;
@@ -1471,7 +1171,6 @@
 
 .svetlanaLink:hover {
   gap: 12px;
-
   color: var(--blue);
 }
 
@@ -1481,25 +1180,19 @@
 
 .faqSection {
   padding: 125px 0;
-
   background: #ffffff;
 }
 
 .faqGrid {
   display: grid;
-
   grid-template-columns: 0.7fr 1.3fr;
-
   gap: 100px;
 }
 
 .faqIntro > p {
   max-width: 370px;
-
   margin-top: 25px;
-
   color: var(--muted);
-
   font-size: 0.76rem;
   line-height: 1.8;
 }
@@ -1514,24 +1207,15 @@
 
 .faqItem summary {
   display: grid;
-
   grid-template-columns: 45px minmax(0, 1fr) 25px;
-
   align-items: center;
-
   gap: 18px;
-
   padding: 23px 0;
-
   cursor: pointer;
-
   list-style: none;
-
   color: var(--navy);
-
   font-size: 0.8rem;
   font-weight: 700;
-
   transition: color 0.25s ease;
 }
 
@@ -1545,14 +1229,12 @@
 
 .faqNumber {
   color: var(--blue);
-
   font-size: 0.5rem;
   font-weight: 800;
 }
 
 .faqIcon {
   color: #94a3b8;
-
   transition:
     transform 0.3s ease,
     color 0.3s ease;
@@ -1560,7 +1242,6 @@
 
 .faqItem[open] .faqIcon {
   transform: rotate(180deg);
-
   color: var(--blue);
 }
 
@@ -1570,9 +1251,7 @@
 
 .answer p {
   max-width: 650px;
-
   color: var(--muted);
-
   font-size: 0.68rem;
   line-height: 1.8;
 }
@@ -1583,21 +1262,15 @@
 
 .ctaSection {
   padding: 0 0 100px;
-
   background: #ffffff;
 }
 
 .ctaCard {
   display: grid;
-
   grid-template-columns: 55px minmax(0, 1fr) auto;
-
   gap: 35px;
-
   align-items: center;
-
   padding: 55px;
-
   background:
     radial-gradient(
       circle at 82% 30%,
@@ -1610,15 +1283,11 @@
 .ctaIcon {
   width: 48px;
   height: 48px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 50%;
-
   background: rgba(255, 255, 255, 0.1);
-
   color: var(--blue);
 }
 
@@ -1628,9 +1297,7 @@
 
 .ctaContent h2 {
   margin-top: 18px;
-
   color: #ffffff;
-
   font-size: clamp(2.5rem, 3.7vw, 3.8rem);
   line-height: 0.98;
   letter-spacing: -0.05em;
@@ -1642,11 +1309,8 @@
 
 .ctaContent p {
   max-width: 560px;
-
   margin-top: 18px;
-
   color: rgba(255, 255, 255, 0.62);
-
   font-size: 0.7rem;
   line-height: 1.75;
 }
@@ -1656,22 +1320,14 @@
   align-items: center;
   justify-content: center;
   gap: 9px;
-
   padding: 14px 21px;
-
   border-radius: 999px;
-
   background: #ffffff;
-
   color: var(--navy);
-
   font-size: 0.7rem;
   font-weight: 700;
-
   text-decoration: none;
-
   white-space: nowrap;
-
   transition:
     transform 0.3s ease,
     background 0.3s ease,
@@ -1680,9 +1336,7 @@
 
 .ctaButton:hover {
   transform: translateY(-3px);
-
   background: var(--blue);
-
   color: #ffffff;
 }
 
@@ -1692,9 +1346,7 @@
 
 .legalSection {
   padding: 35px 0;
-
   border-top: 1px solid var(--line);
-
   background: #fbfdff;
 }
 
@@ -1702,21 +1354,17 @@
   display: flex;
   align-items: flex-start;
   gap: 14px;
-
   max-width: 900px;
 }
 
 .legalIcon {
   flex-shrink: 0;
-
   margin-top: 3px;
-
   color: var(--blue);
 }
 
 .legalInner p {
   color: #94a3b8;
-
   font-size: 0.56rem;
   line-height: 1.7;
 }
@@ -1725,22 +1373,1618 @@
    LARGE DESKTOP
 ========================================================= */
 
-@media (min-width: 1600px) {
+@media (min-width: 1440px) {
+
   .container {
-    width: min(1280px, calc(100% - 120px));
+    width: min(1380px, 92%);
   }
 
   .hero {
-    min-height: 680px;
+    min-height: 740px;
+    padding: 165px 0 105px;
   }
 
   .heroInner {
-    grid-template-columns: minmax(0, 1fr) 330px;
+    grid-template-columns: minmax(0, 1fr) 370px;
+    gap: 115px;
+  }
+
+  .heroContent {
+    max-width: 980px;
+  }
+
+  .hero h1 {
+    font-size: clamp(4.4rem, 5.6vw, 7rem);
+  }
+
+  .heroContent > p {
+    max-width: 710px;
+    font-size: 0.98rem;
+  }
+
+  .heroActions {
+    gap: 16px;
+    margin-top: 38px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-height: 51px;
+    padding: 14px 23px;
+    font-size: 0.74rem;
+  }
+
+  .heroSide {
+    padding-left: 38px;
+  }
+
+  .heroSideTop {
+    font-size: 0.59rem;
+  }
+
+  .heroCompass {
+    min-height: 340px;
+    margin: 30px 0;
   }
 
   .compassCircle {
-    width: 245px;
-    height: 245px;
+    width: 275px;
+    height: 275px;
+  }
+
+  .compassCircle::before {
+    inset: 22px;
+  }
+
+  .compassCircle::after {
+    inset: 82px;
+  }
+
+  .compassCenter {
+    width: 90px;
+    height: 90px;
+  }
+
+  .compassCenter span {
+    font-size: 0.46rem;
+  }
+
+  .compassCenter strong {
+    font-size: 0.54rem;
+  }
+
+  .compassPoint {
+    font-size: 0.5rem;
+  }
+
+  .north {
+    top: 10px;
+  }
+
+  .south {
+    bottom: 10px;
+  }
+
+  .west {
+    left: -23px;
+  }
+
+  .heroSideBottom {
+    padding-top: 21px;
+  }
+
+  .heroSideBottom strong {
+    font-size: 0.7rem;
+  }
+
+  .heroSideBottom span {
+    font-size: 0.53rem;
+  }
+
+  .introSection,
+  .pillarsSection,
+  .standardsSection,
+  .promiseSection,
+  .processSection,
+  .svetlanaSection,
+  .faqSection {
+    padding: 145px 0;
+  }
+
+  .sectionIntro,
+  .pillarsHeader,
+  .processHeader {
+    gap: 110px;
+    margin-bottom: 68px;
+  }
+
+  .sectionIntro h2,
+  .pillarsHeader h2,
+  .processHeader h2,
+  .faqIntro h2 {
+    font-size: clamp(3.5rem, 4.2vw, 5.2rem);
+  }
+
+  .sectionIntro > p,
+  .pillarsHeader > p,
+  .processHeader > p {
+    max-width: 510px;
+    font-size: 0.88rem;
+  }
+
+  .trustStatement {
+    grid-template-columns: 105px minmax(0, 1fr) 140px;
+    gap: 45px;
+    padding: 60px 58px;
+  }
+
+  .statementMark {
+    font-size: 7.2rem;
+  }
+
+  .statementBody > p {
+    max-width: 850px;
+    font-size: 1.58rem;
+  }
+
+  .statementAuthor {
+    margin-top: 30px;
+  }
+
+  .statementAuthor strong {
+    font-size: 0.66rem;
+  }
+
+  .statementAuthor small {
+    font-size: 0.56rem;
+  }
+
+  .statementIndex {
+    font-size: 0.54rem;
+  }
+
+  .pillarGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pillarCard {
+    min-height: 535px;
+    padding: 40px;
+  }
+
+  .pillarTop {
+    padding-bottom: 25px;
+  }
+
+  .pillarTop > span {
+    font-size: 0.72rem;
+  }
+
+  .pillarContent {
+    padding-top: 34px;
+  }
+
+  .pillarContent > strong {
+    font-size: 0.55rem;
+  }
+
+  .pillarContent h3 {
+    max-width: 520px;
+    font-size: clamp(2rem, 2.25vw, 2.65rem);
+  }
+
+  .pillarContent > p {
+    max-width: 550px;
+    margin-top: 21px;
+    font-size: 0.77rem;
+  }
+
+  .pillarContent ul {
+    gap: 12px 25px;
+    margin-top: 27px;
+  }
+
+  .pillarContent li {
+    gap: 9px;
+    font-size: 0.63rem;
+  }
+
+  .pillarBottom {
+    margin-top: 36px;
+    padding-top: 20px;
+    font-size: 0.52rem;
+  }
+
+  .standardsGrid {
+    gap: 120px;
+  }
+
+  .standardsIntro h2 {
+    font-size: clamp(3.4rem, 4vw, 5rem);
+  }
+
+  .standardsIntro > p {
+    max-width: 510px;
+    margin-top: 30px;
+    font-size: 0.8rem;
+  }
+
+  .textLink {
+    margin-top: 34px;
+    font-size: 0.67rem;
+  }
+
+  .standardItem {
+    grid-template-columns: 50px 54px minmax(0, 1fr);
+    gap: 23px;
+    min-height: 150px;
+  }
+
+  .standardNumber {
+    padding-top: 30px;
+    font-size: 0.58rem;
+  }
+
+  .standardIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .standardText h3 {
+    font-size: 1.15rem;
+  }
+
+  .standardText p {
+    max-width: 560px;
+    margin-top: 9px;
+    font-size: 0.7rem;
+  }
+
+  .promiseCard {
+    padding: 60px;
+  }
+
+  .promiseTop {
+    padding-bottom: 25px;
+  }
+
+  .promiseLabel {
+    font-size: 0.6rem;
+  }
+
+  .promiseIndex {
+    font-size: 0.55rem;
+  }
+
+  .promiseGrid {
+    gap: 115px;
+    padding-top: 68px;
+  }
+
+  .promiseHeading h2 {
+    font-size: clamp(3.6rem, 4.5vw, 5.4rem);
+  }
+
+  .promiseHeading > p {
+    max-width: 560px;
+    margin-top: 28px;
+    font-size: 0.78rem;
+  }
+
+  .promiseItem {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 22px;
+    padding: 23px 0;
+  }
+
+  .promiseItem > span {
+    font-size: 0.57rem;
+  }
+
+  .promiseItem p {
+    font-size: 0.72rem;
+  }
+
+  .processHeader {
+    margin-bottom: 82px;
+  }
+
+  .processTrack {
+    min-width: 0;
+  }
+
+  .processStep {
+    min-height: 300px;
+    padding: 32px 30px 30px;
+  }
+
+  .processTop {
+    min-height: 34px;
+  }
+
+  .processTop > span {
+    width: 34px;
+    height: 34px;
+    font-size: 0.54rem;
+  }
+
+  .processLine {
+    left: 34px;
+    right: -30px;
+  }
+
+  .processStep h3 {
+    margin-top: 42px;
+    font-size: 1.35rem;
+  }
+
+  .processStep p {
+    max-width: 280px;
+    margin-top: 16px;
+    font-size: 0.7rem;
+  }
+
+  .svetlanaCard {
+    gap: 105px;
+  }
+
+  .svetlanaImageWrap {
+    max-height: 760px;
+  }
+
+  .svetlanaImageFrame {
+    inset: 28px -23px -28px 23px;
+  }
+
+  .svetlanaImageWrap::before {
+    top: 31px;
+    left: -22px;
+    width: 56px;
+    height: 56px;
+    font-size: 0.66rem;
+  }
+
+  .svetlanaImageWrap::after {
+    right: -22px;
+    bottom: -22px;
+    width: 105px;
+    height: 105px;
+    background-size: 15px 15px;
+  }
+
+  .imageCaption {
+    left: 25px;
+    bottom: 25px;
+    padding: 13px 17px;
+  }
+
+  .imageCaption span {
+    font-size: 0.56rem;
+  }
+
+  .imageCaption strong {
+    font-size: 0.51rem;
+  }
+
+  .svetlanaContent h2 {
+    font-size: clamp(3.4rem, 4vw, 5rem);
+  }
+
+  .svetlanaContent > p {
+    max-width: 680px;
+    margin-top: 28px;
+    font-size: 0.8rem;
+  }
+
+  .credentials {
+    margin-top: 40px;
+  }
+
+  .credentials > div {
+    min-height: 125px;
+    padding: 18px 21px;
+  }
+
+  .credentials strong {
+    font-size: 0.57rem;
+  }
+
+  .credentials span {
+    max-width: 170px;
+    margin-top: 10px;
+    font-size: 0.63rem;
+  }
+
+  .svetlanaLink {
+    margin-top: 33px;
+    font-size: 0.68rem;
+  }
+
+  .faqGrid {
+    gap: 120px;
+  }
+
+  .faqIntro > p {
+    max-width: 440px;
+    margin-top: 30px;
+    font-size: 0.82rem;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 55px minmax(0, 1fr) 30px;
+    gap: 22px;
+    padding: 29px 0;
+    font-size: 0.9rem;
+  }
+
+  .faqNumber {
+    font-size: 0.57rem;
+  }
+
+  .answer {
+    padding: 0 52px 30px 77px;
+  }
+
+  .answer p {
+    max-width: 780px;
+    font-size: 0.75rem;
+  }
+
+  .ctaSection {
+    padding-bottom: 120px;
+  }
+
+  .ctaCard {
+    grid-template-columns: 65px minmax(0, 1fr) auto;
+    gap: 45px;
+    padding: 68px;
+  }
+
+  .ctaIcon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .ctaContent h2 {
+    font-size: clamp(3.2rem, 3.6vw, 4.8rem);
+  }
+
+  .ctaContent p {
+    max-width: 700px;
+    margin-top: 23px;
+    font-size: 0.77rem;
+  }
+
+  .ctaButton {
+    padding: 17px 27px;
+    font-size: 0.76rem;
+  }
+
+  .legalSection {
+    padding: 42px 0;
+  }
+
+  .legalInner {
+    max-width: 1100px;
+  }
+
+  .legalInner p {
+    font-size: 0.62rem;
+  }
+}
+
+/* =========================================================
+   LARGE DESKTOP / 1920+
+========================================================= */
+
+@media (min-width: 1920px) {
+
+  .container {
+    width: min(1880px, 88%);
+  }
+
+  .hero {
+    min-height: 820px;
+    padding: 185px 0 125px;
+  }
+
+  .heroInner {
+    grid-template-columns: minmax(0, 1fr) 430px;
+    gap: 145px;
+  }
+
+  .heroContent {
+    max-width: 1100px;
+  }
+
+  .hero h1 {
+    font-size: clamp(5rem, 5vw, 7.4rem);
+  }
+
+  .heroContent > p {
+    max-width: 780px;
+    margin-top: 38px;
+    font-size: 1.08rem;
+  }
+
+  .heroActions {
+    margin-top: 42px;
+    gap: 18px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-height: 56px;
+    padding: 15px 27px;
+    font-size: 0.8rem;
+  }
+
+  .heroSide {
+    padding-left: 45px;
+  }
+
+  .heroSideTop {
+    gap: 11px;
+    font-size: 0.65rem;
+  }
+
+  .heroCompass {
+    min-height: 390px;
+    margin: 35px 0;
+  }
+
+  .compassCircle {
+    width: 315px;
+    height: 315px;
+  }
+
+  .compassCircle::before {
+    inset: 25px;
+  }
+
+  .compassCircle::after {
+    inset: 94px;
+  }
+
+  .compassCenter {
+    width: 102px;
+    height: 102px;
+  }
+
+  .compassCenter span {
+    font-size: 0.52rem;
+  }
+
+  .compassCenter strong {
+    font-size: 0.61rem;
+  }
+
+  .compassPoint {
+    font-size: 0.56rem;
+  }
+
+  .north {
+    top: 12px;
+  }
+
+  .south {
+    bottom: 12px;
+  }
+
+  .east {
+    right: -5px;
+  }
+
+  .west {
+    left: -27px;
+  }
+
+  .heroSideBottom {
+    padding-top: 24px;
+  }
+
+  .heroSideBottom strong {
+    font-size: 0.76rem;
+  }
+
+  .heroSideBottom span {
+    font-size: 0.58rem;
+  }
+
+  .introSection,
+  .pillarsSection,
+  .standardsSection,
+  .promiseSection,
+  .processSection,
+  .svetlanaSection,
+  .faqSection {
+    padding: 175px 0;
+  }
+
+  .sectionIntro,
+  .pillarsHeader,
+  .processHeader {
+    gap: 140px;
+    margin-bottom: 80px;
+  }
+
+  .sectionIntro h2,
+  .pillarsHeader h2,
+  .processHeader h2,
+  .faqIntro h2 {
+    font-size: clamp(4.1rem, 4vw, 5.8rem);
+  }
+
+  .sectionIntro > p,
+  .pillarsHeader > p,
+  .processHeader > p {
+    max-width: 570px;
+    font-size: 0.98rem;
+  }
+
+  .trustStatement {
+    grid-template-columns: 125px minmax(0, 1fr) 170px;
+    gap: 55px;
+    padding: 75px 75px;
+  }
+
+  .statementMark {
+    font-size: 8.5rem;
+  }
+
+  .statementBody > p {
+    max-width: 1000px;
+    font-size: 1.8rem;
+  }
+
+  .statementAuthor {
+    margin-top: 34px;
+  }
+
+  .statementAuthor > span {
+    width: 34px;
+  }
+
+  .statementAuthor strong {
+    font-size: 0.72rem;
+  }
+
+  .statementAuthor small {
+    font-size: 0.61rem;
+  }
+
+  .statementIndex {
+    font-size: 0.6rem;
+  }
+
+  .pillarsHeader {
+    margin-bottom: 75px;
+  }
+
+  .pillarCard {
+    min-height: 650px;
+    padding: 48px;
+  }
+
+  .pillarTop {
+    padding-bottom: 30px;
+  }
+
+  .pillarTop > span {
+    font-size: 0.8rem;
+  }
+
+  .pillarContent {
+    padding-top: 40px;
+  }
+
+  .pillarContent > strong {
+    font-size: 0.61rem;
+  }
+
+  .pillarContent h3 {
+    max-width: 650px;
+    margin-top: 13px;
+    font-size: clamp(2.3rem, 2.3vw, 3rem);
+  }
+
+  .pillarContent > p {
+    max-width: 650px;
+    margin-top: 25px;
+    font-size: 0.86rem;
+    line-height: 1.82;
+  }
+
+  .pillarContent ul {
+    gap: 15px 32px;
+    margin-top: 32px;
+  }
+
+  .pillarContent li {
+    gap: 10px;
+    font-size: 0.69rem;
+  }
+
+  .pillarBottom {
+    margin-top: 42px;
+    padding-top: 22px;
+    font-size: 0.58rem;
+  }
+
+  .standardsGrid {
+    gap: 145px;
+  }
+
+  .standardsIntro h2 {
+    font-size: clamp(4rem, 3.9vw, 5.5rem);
+  }
+
+  .standardsIntro > p {
+    max-width: 570px;
+    font-size: 0.88rem;
+  }
+
+  .textLink {
+    font-size: 0.73rem;
+  }
+
+  .standardItem {
+    grid-template-columns: 58px 62px minmax(0, 1fr);
+    gap: 28px;
+    min-height: 175px;
+  }
+
+  .standardNumber {
+    padding-top: 35px;
+    font-size: 0.64rem;
+  }
+
+  .standardIcon {
+    width: 58px;
+    height: 58px;
+  }
+
+  .standardText h3 {
+    font-size: 1.32rem;
+  }
+
+  .standardText p {
+    max-width: 680px;
+    margin-top: 11px;
+    font-size: 0.78rem;
+  }
+
+  .promiseCard {
+    padding: 78px;
+  }
+
+  .promiseLabel {
+    font-size: 0.67rem;
+  }
+
+  .promiseIndex {
+    font-size: 0.61rem;
+  }
+
+  .promiseGrid {
+    gap: 145px;
+    padding-top: 82px;
+  }
+
+  .promiseHeading h2 {
+    font-size: clamp(4.2rem, 4.3vw, 6rem);
+  }
+
+  .promiseHeading > p {
+    max-width: 650px;
+    font-size: 0.86rem;
+  }
+
+  .promiseItem {
+    grid-template-columns: 50px minmax(0, 1fr);
+    gap: 25px;
+    padding: 27px 0;
+  }
+
+  .promiseItem > span {
+    font-size: 0.64rem;
+  }
+
+  .promiseItem p {
+    font-size: 0.78rem;
+  }
+
+  .processHeader {
+    margin-bottom: 95px;
+  }
+
+  .processStep {
+    min-height: 350px;
+    padding: 38px 36px 34px;
+  }
+
+  .processTop > span {
+    width: 40px;
+    height: 40px;
+    font-size: 0.61rem;
+  }
+
+  .processLine {
+    left: 40px;
+    right: -36px;
+  }
+
+  .processStep h3 {
+    margin-top: 50px;
+    font-size: 1.55rem;
+  }
+
+  .processStep p {
+    max-width: 320px;
+    margin-top: 18px;
+    font-size: 0.76rem;
+  }
+
+  .svetlanaCard {
+    gap: 130px;
+  }
+
+  .svetlanaImageWrap {
+    max-height: 850px;
+  }
+
+  .svetlanaImageFrame {
+    inset: 32px -27px -32px 27px;
+  }
+
+  .svetlanaImageWrap::before {
+    top: 36px;
+    left: -27px;
+    width: 64px;
+    height: 64px;
+    font-size: 0.72rem;
+  }
+
+  .svetlanaImageWrap::after {
+    right: -27px;
+    bottom: -27px;
+    width: 120px;
+    height: 120px;
+    background-size: 17px 17px;
+  }
+
+  .imageCaption {
+    left: 30px;
+    bottom: 30px;
+    padding: 15px 20px;
+  }
+
+  .imageCaption span {
+    font-size: 0.61rem;
+  }
+
+  .imageCaption strong {
+    font-size: 0.56rem;
+  }
+
+  .svetlanaContent h2 {
+    font-size: clamp(4rem, 3.9vw, 5.6rem);
+  }
+
+  .svetlanaContent > p {
+    max-width: 760px;
+    font-size: 0.88rem;
+  }
+
+  .credentials {
+    margin-top: 46px;
+  }
+
+  .credentials > div {
+    min-height: 145px;
+    padding: 22px 25px;
+  }
+
+  .credentials strong {
+    font-size: 0.64rem;
+  }
+
+  .credentials span {
+    max-width: 200px;
+    font-size: 0.7rem;
+  }
+
+  .svetlanaLink {
+    margin-top: 38px;
+    font-size: 0.74rem;
+  }
+
+  .faqGrid {
+    gap: 150px;
+  }
+
+  .faqIntro > p {
+    max-width: 500px;
+    font-size: 0.88rem;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 62px minmax(0, 1fr) 34px;
+    gap: 25px;
+    padding: 34px 0;
+    font-size: 1rem;
+  }
+
+  .faqNumber {
+    font-size: 0.63rem;
+  }
+
+  .answer {
+    padding: 0 60px 35px 87px;
+  }
+
+  .answer p {
+    max-width: 900px;
+    font-size: 0.82rem;
+  }
+
+  .ctaSection {
+    padding-bottom: 140px;
+  }
+
+  .ctaCard {
+    grid-template-columns: 72px minmax(0, 1fr) auto;
+    gap: 55px;
+    padding: 82px;
+  }
+
+  .ctaIcon {
+    width: 62px;
+    height: 62px;
+  }
+
+  .ctaContent h2 {
+    font-size: clamp(3.7rem, 3.5vw, 5.5rem);
+  }
+
+  .ctaContent p {
+    max-width: 800px;
+    font-size: 0.84rem;
+  }
+
+  .ctaButton {
+    padding: 19px 30px;
+    font-size: 0.82rem;
+  }
+
+  .legalSection {
+    padding: 50px 0;
+  }
+
+  .legalInner {
+    max-width: 1300px;
+  }
+
+  .legalInner p {
+    font-size: 0.67rem;
+  }
+}
+
+/* =========================================================
+   TALL LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1920px) and (min-height: 1600px) {
+
+  .container {
+    width: min(2050px, 86%);
+  }
+
+  .hero {
+    min-height: 900px;
+    padding: 205px 0 145px;
+  }
+
+  .heroInner {
+    grid-template-columns: minmax(0, 1fr) 470px;
+    gap: 165px;
+  }
+
+  .hero h1 {
+    font-size: clamp(5.2rem, 4.8vw, 7.8rem);
+  }
+
+  .heroContent > p {
+    max-width: 840px;
+    font-size: 1.14rem;
+  }
+
+  .heroCompass {
+    min-height: 430px;
+  }
+
+  .compassCircle {
+    width: 350px;
+    height: 350px;
+  }
+
+  .compassCenter {
+    width: 112px;
+    height: 112px;
+  }
+
+  .compassCenter span {
+    font-size: 0.57rem;
+  }
+
+  .compassCenter strong {
+    font-size: 0.66rem;
+  }
+
+  .compassPoint {
+    font-size: 0.61rem;
+  }
+
+  .introSection,
+  .pillarsSection,
+  .standardsSection,
+  .promiseSection,
+  .processSection,
+  .svetlanaSection,
+  .faqSection {
+    padding: 190px 0;
+  }
+
+  .sectionIntro,
+  .pillarsHeader,
+  .processHeader {
+    gap: 160px;
+    margin-bottom: 90px;
+  }
+
+  .sectionIntro h2,
+  .pillarsHeader h2,
+  .processHeader h2,
+  .faqIntro h2 {
+    font-size: clamp(4.4rem, 3.8vw, 6.3rem);
+  }
+
+  .trustStatement {
+    padding: 88px 88px;
+  }
+
+  .statementBody > p {
+    font-size: 1.95rem;
+    max-width: 1100px;
+  }
+
+  .pillarCard {
+    min-height: 720px;
+    padding: 55px;
+  }
+
+  .pillarContent h3 {
+    font-size: clamp(2.5rem, 2.2vw, 3.25rem);
+  }
+
+  .pillarContent > p {
+    font-size: 0.92rem;
+  }
+
+  .pillarContent li {
+    font-size: 0.74rem;
+  }
+
+  .standardsIntro h2 {
+    font-size: clamp(4.3rem, 3.7vw, 6rem);
+  }
+
+  .standardItem {
+    min-height: 195px;
+  }
+
+  .standardText h3 {
+    font-size: 1.42rem;
+  }
+
+  .standardText p {
+    font-size: 0.83rem;
+  }
+
+  .promiseCard {
+    padding: 90px;
+  }
+
+  .promiseHeading h2 {
+    font-size: clamp(4.5rem, 4.1vw, 6.5rem);
+  }
+
+  .promiseItem p {
+    font-size: 0.84rem;
+  }
+
+  .processStep {
+    min-height: 390px;
+  }
+
+  .processStep h3 {
+    font-size: 1.68rem;
+  }
+
+  .processStep p {
+    font-size: 0.8rem;
+  }
+
+  .svetlanaImageWrap {
+    max-height: 930px;
+  }
+
+  .svetlanaContent h2 {
+    font-size: clamp(4.4rem, 3.7vw, 6.1rem);
+  }
+
+  .svetlanaContent > p {
+    font-size: 0.93rem;
+  }
+
+  .credentials > div {
+    min-height: 160px;
+  }
+
+  .credentials span {
+    font-size: 0.74rem;
+  }
+
+  .faqItem summary {
+    padding: 38px 0;
+    font-size: 1.06rem;
+  }
+
+  .answer p {
+    font-size: 0.87rem;
+  }
+
+  .ctaCard {
+    padding: 95px;
+  }
+
+  .ctaContent h2 {
+    font-size: clamp(4rem, 3.4vw, 6rem);
+  }
+
+  .ctaContent p {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================================================
+   4K / ULTRA-WIDE
+========================================================= */
+
+@media (min-width: 3000px) {
+
+  .container {
+    width: min(2300px, 84%);
+  }
+
+  .hero {
+    min-height: 1000px;
+    padding: 235px 0 170px;
+  }
+
+  .heroInner {
+    grid-template-columns: minmax(0, 1fr) 540px;
+    gap: 190px;
+  }
+
+  .hero h1 {
+    font-size: clamp(6rem, 4.6vw, 8.4rem);
+  }
+
+  .heroContent > p {
+    max-width: 950px;
+    font-size: 1.25rem;
+  }
+
+  .heroActions {
+    margin-top: 50px;
+    gap: 22px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-height: 62px;
+    padding: 17px 32px;
+    font-size: 0.87rem;
+  }
+
+  .heroSide {
+    padding-left: 55px;
+  }
+
+  .heroCompass {
+    min-height: 500px;
+  }
+
+  .compassCircle {
+    width: 405px;
+    height: 405px;
+  }
+
+  .compassCircle::before {
+    inset: 30px;
+  }
+
+  .compassCircle::after {
+    inset: 110px;
+  }
+
+  .compassCenter {
+    width: 128px;
+    height: 128px;
+  }
+
+  .compassCenter span {
+    font-size: 0.63rem;
+  }
+
+  .compassCenter strong {
+    font-size: 0.73rem;
+  }
+
+  .compassPoint {
+    font-size: 0.67rem;
+  }
+
+  .heroSideBottom strong {
+    font-size: 0.85rem;
+  }
+
+  .heroSideBottom span {
+    font-size: 0.64rem;
+  }
+
+  .introSection,
+  .pillarsSection,
+  .standardsSection,
+  .promiseSection,
+  .processSection,
+  .svetlanaSection,
+  .faqSection {
+    padding: 215px 0;
+  }
+
+  .sectionIntro,
+  .pillarsHeader,
+  .processHeader {
+    gap: 190px;
+    margin-bottom: 105px;
+  }
+
+  .sectionIntro h2,
+  .pillarsHeader h2,
+  .processHeader h2,
+  .faqIntro h2 {
+    font-size: clamp(5rem, 3.6vw, 7rem);
+  }
+
+  .sectionIntro > p,
+  .pillarsHeader > p,
+  .processHeader > p {
+    max-width: 680px;
+    font-size: 1.08rem;
+  }
+
+  .trustStatement {
+    grid-template-columns: 150px minmax(0, 1fr) 210px;
+    gap: 70px;
+    padding: 105px;
+  }
+
+  .statementMark {
+    font-size: 10rem;
+  }
+
+  .statementBody > p {
+    max-width: 1250px;
+    font-size: 2.25rem;
+  }
+
+  .statementAuthor strong {
+    font-size: 0.8rem;
+  }
+
+  .statementAuthor small {
+    font-size: 0.68rem;
+  }
+
+  .statementIndex {
+    font-size: 0.67rem;
+  }
+
+  .pillarCard {
+    min-height: 800px;
+    padding: 65px;
+  }
+
+  .pillarContent {
+    padding-top: 48px;
+  }
+
+  .pillarContent > strong {
+    font-size: 0.68rem;
+  }
+
+  .pillarContent h3 {
+    max-width: 800px;
+    font-size: clamp(2.8rem, 2.1vw, 3.7rem);
+  }
+
+  .pillarContent > p {
+    max-width: 780px;
+    font-size: 1rem;
+  }
+
+  .pillarContent li {
+    font-size: 0.8rem;
+  }
+
+  .pillarBottom {
+    font-size: 0.63rem;
+  }
+
+  .standardsGrid {
+    gap: 180px;
+  }
+
+  .standardsIntro h2 {
+    font-size: clamp(4.8rem, 3.5vw, 6.7rem);
+  }
+
+  .standardsIntro > p {
+    max-width: 700px;
+    font-size: 0.98rem;
+  }
+
+  .standardItem {
+    grid-template-columns: 68px 72px minmax(0, 1fr);
+    gap: 34px;
+    min-height: 220px;
+  }
+
+  .standardNumber {
+    padding-top: 42px;
+    font-size: 0.71rem;
+  }
+
+  .standardIcon {
+    width: 68px;
+    height: 68px;
+  }
+
+  .standardText h3 {
+    font-size: 1.6rem;
+  }
+
+  .standardText p {
+    max-width: 850px;
+    font-size: 0.91rem;
+  }
+
+  .promiseCard {
+    padding: 110px;
+  }
+
+  .promiseLabel {
+    font-size: 0.74rem;
+  }
+
+  .promiseIndex {
+    font-size: 0.68rem;
+  }
+
+  .promiseGrid {
+    gap: 180px;
+    padding-top: 105px;
+  }
+
+  .promiseHeading h2 {
+    font-size: clamp(5rem, 4vw, 7.2rem);
+  }
+
+  .promiseHeading > p {
+    max-width: 780px;
+    font-size: 0.98rem;
+  }
+
+  .promiseItem {
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 30px;
+    padding: 32px 0;
+  }
+
+  .promiseItem > span {
+    font-size: 0.71rem;
+  }
+
+  .promiseItem p {
+    font-size: 0.91rem;
+  }
+
+  .processHeader {
+    margin-bottom: 115px;
+  }
+
+  .processStep {
+    min-height: 440px;
+    padding: 45px 42px 40px;
+  }
+
+  .processTop > span {
+    width: 46px;
+    height: 46px;
+    font-size: 0.68rem;
+  }
+
+  .processLine {
+    left: 46px;
+    right: -42px;
+  }
+
+  .processStep h3 {
+    margin-top: 58px;
+    font-size: 1.9rem;
+  }
+
+  .processStep p {
+    max-width: 380px;
+    margin-top: 21px;
+    font-size: 0.88rem;
+  }
+
+  .svetlanaCard {
+    gap: 165px;
+  }
+
+  .svetlanaImageWrap {
+    max-height: 1050px;
+  }
+
+  .svetlanaImageFrame {
+    inset: 38px -32px -38px 32px;
+  }
+
+  .svetlanaImageWrap::before {
+    top: 43px;
+    left: -32px;
+    width: 74px;
+    height: 74px;
+    font-size: 0.8rem;
+  }
+
+  .svetlanaImageWrap::after {
+    right: -32px;
+    bottom: -32px;
+    width: 145px;
+    height: 145px;
+    background-size: 20px 20px;
+  }
+
+  .imageCaption {
+    left: 38px;
+    bottom: 38px;
+    padding: 18px 24px;
+  }
+
+  .imageCaption span {
+    font-size: 0.68rem;
+  }
+
+  .imageCaption strong {
+    font-size: 0.62rem;
+  }
+
+  .svetlanaContent h2 {
+    font-size: clamp(4.9rem, 3.5vw, 6.8rem);
+  }
+
+  .svetlanaContent > p {
+    max-width: 900px;
+    font-size: 1rem;
+  }
+
+  .credentials {
+    margin-top: 55px;
+  }
+
+  .credentials > div {
+    min-height: 185px;
+    padding: 25px 30px;
+  }
+
+  .credentials strong {
+    font-size: 0.71rem;
+  }
+
+  .credentials span {
+    max-width: 250px;
+    margin-top: 12px;
+    font-size: 0.81rem;
+  }
+
+  .svetlanaLink {
+    margin-top: 45px;
+    font-size: 0.82rem;
+  }
+
+  .faqGrid {
+    gap: 190px;
+  }
+
+  .faqIntro > p {
+    max-width: 600px;
+    font-size: 0.98rem;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 72px minmax(0, 1fr) 40px;
+    gap: 30px;
+    padding: 42px 0;
+    font-size: 1.18rem;
+  }
+
+  .faqNumber {
+    font-size: 0.7rem;
+  }
+
+  .answer {
+    padding: 0 70px 40px 102px;
+  }
+
+  .answer p {
+    max-width: 1100px;
+    font-size: 0.95rem;
+  }
+
+  .ctaSection {
+    padding-bottom: 165px;
+  }
+
+  .ctaCard {
+    grid-template-columns: 82px minmax(0, 1fr) auto;
+    gap: 70px;
+    padding: 115px;
+  }
+
+  .ctaIcon {
+    width: 72px;
+    height: 72px;
+  }
+
+  .ctaContent h2 {
+    font-size: clamp(4.5rem, 3.3vw, 7rem);
+  }
+
+  .ctaContent p {
+    max-width: 1000px;
+    font-size: 0.98rem;
+  }
+
+  .ctaButton {
+    padding: 21px 34px;
+    font-size: 0.88rem;
+  }
+
+  .legalSection {
+    padding: 58px 0;
+  }
+
+  .legalInner {
+    max-width: 1550px;
+  }
+
+  .legalInner p {
+    font-size: 0.73rem;
   }
 }
 
@@ -1749,6 +2993,7 @@
 ========================================================= */
 
 @media (max-width: 1150px) {
+
   .container {
     width: min(1100px, calc(100% - 60px));
   }
@@ -1789,24 +3034,21 @@
 ========================================================= */
 
 @media (max-width: 1000px) {
+
   .hero {
     min-height: auto;
-
     padding: 130px 0 85px;
   }
 
   .heroInner {
     grid-template-columns: 1fr;
-
     gap: 50px;
   }
 
   .heroSide {
     max-width: 520px;
-
     border-left: 0;
     border-top: 1px solid var(--line);
-
     padding-left: 0;
     padding-top: 25px;
   }
@@ -1823,19 +3065,16 @@
   .pillarsHeader,
   .processHeader {
     grid-template-columns: 1fr;
-
     gap: 25px;
   }
 
   .standardsGrid {
     grid-template-columns: 1fr;
-
     gap: 60px;
   }
 
   .promiseGrid {
     grid-template-columns: 1fr;
-
     gap: 55px;
   }
 
@@ -1861,19 +3100,16 @@
 
   .svetlanaCard {
     grid-template-columns: 1fr;
-
     gap: 70px;
   }
 
   .svetlanaImageWrap {
     width: min(100%, 620px);
-
     margin: 0 auto;
   }
 
   .faqGrid {
     grid-template-columns: 1fr;
-
     gap: 60px;
   }
 
@@ -1883,7 +3119,6 @@
 
   .ctaButton {
     grid-column: 2;
-
     justify-self: start;
   }
 }
@@ -1893,6 +3128,7 @@
 ========================================================= */
 
 @media (max-width: 700px) {
+
   .container {
     width: calc(100% - 40px);
   }
@@ -1904,7 +3140,6 @@
   .heroGlow {
     width: 360px;
     height: 360px;
-
     right: -190px;
     top: 70px;
   }
@@ -1919,7 +3154,6 @@
 
   .heroContent > p {
     margin-top: 24px;
-
     font-size: 0.77rem;
     line-height: 1.75;
   }
@@ -1979,9 +3213,7 @@
 
   .trustStatement {
     grid-template-columns: 1fr;
-
     gap: 18px;
-
     padding: 35px 25px;
   }
 
@@ -2003,7 +3235,6 @@
 
   .pillarCard {
     min-height: 0;
-
     padding: 25px;
   }
 
@@ -2017,7 +3248,6 @@
 
   .standardItem {
     grid-template-columns: 32px 42px minmax(0, 1fr);
-
     gap: 12px;
   }
 
@@ -2052,9 +3282,7 @@
 
   .processStep {
     min-height: 0;
-
     padding: 25px 0;
-
     border-left: 0 !important;
     border-right: 0 !important;
   }
@@ -2086,10 +3314,8 @@
   .svetlanaImageWrap::after {
     right: -10px;
     bottom: -10px;
-
     width: 65px;
     height: 65px;
-
     background-size: 10px 10px;
   }
 
@@ -2109,11 +3335,8 @@
   .credentials > div,
   .credentials > div:first-child {
     min-height: 75px;
-
     padding: 13px 0;
-
     border-right: 0;
-
     border-bottom: 1px solid var(--line);
   }
 
@@ -2123,11 +3346,8 @@
 
   .faqItem summary {
     grid-template-columns: 30px minmax(0, 1fr) 20px;
-
     gap: 10px;
-
     padding: 20px 0;
-
     font-size: 0.7rem;
   }
 
@@ -2145,15 +3365,12 @@
 
   .ctaCard {
     grid-template-columns: 1fr;
-
     gap: 22px;
-
     padding: 35px 25px;
   }
 
   .ctaButton {
     grid-column: auto;
-
     width: 100%;
   }
 
@@ -2179,6 +3396,7 @@
 ========================================================= */
 
 @media (max-width: 480px) {
+
   .container {
     width: calc(100% - 32px);
   }
@@ -2279,6 +3497,7 @@
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   .primaryButton,
   .secondaryButton,
   .pillarCard,
