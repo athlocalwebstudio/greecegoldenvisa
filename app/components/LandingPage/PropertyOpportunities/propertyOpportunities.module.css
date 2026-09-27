@@ -5,13 +5,9 @@
 .propertyOpportunities {
   position: relative;
   width: 100%;
-
   padding: 135px 24px;
-
   background: #ffffff;
-
   overflow: hidden;
-
   box-sizing: border-box;
 }
 
@@ -21,7 +17,6 @@
   box-sizing: border-box;
 }
 
-
 /* =========================================
    CONTAINER
 ========================================= */
@@ -29,10 +24,8 @@
 .container {
   width: min(1200px, 90%);
   max-width: 100%;
-
   margin: 0 auto;
 }
-
 
 /* =========================================
    INTRO
@@ -40,26 +33,18 @@
 
 .intro {
   width: 100%;
-
   margin-bottom: 62px;
 }
 
 .introEyebrow {
   display: flex;
-
   align-items: center;
-
   gap: 12px;
-
   margin-bottom: 24px;
-
   color: #3ba9ef;
-
   font-size: 0.72rem;
   font-weight: 800;
-
   letter-spacing: 0.19em;
-
   line-height: 1.2;
 }
 
@@ -67,14 +52,8 @@
   width: 34px;
   min-width: 34px;
   height: 1px;
-
   background: #3ba9ef;
 }
-
-
-/* =========================================
-   INTRO HEADING
-========================================= */
 
 .introHeading {
   max-width: 900px;
@@ -82,59 +61,40 @@
 
 .introHeading h2 {
   margin: 0;
-
   color: #0f2c59;
-
   font-size: clamp(2.8rem, 5vw, 4.25rem);
-
   line-height: 1.02;
-
   letter-spacing: -0.055em;
-
   font-weight: 800;
-
   overflow-wrap: break-word;
 }
 
-
-/* =========================================
-   INTRO DESCRIPTION
-========================================= */
+.introHeading h2 span {
+  color: #3ba9ef;
+}
 
 .introDescription {
   max-width: 570px;
-
   margin-top: 24px;
 }
 
 .introDescription p {
   margin: 0;
-
   color: #64748b;
-
   font-size: 0.96rem;
-
   line-height: 1.7;
 }
 
 .introNote {
   display: block;
-
   margin-top: 15px;
-
   padding-left: 14px;
-
   border-left: 2px solid #3ba9ef;
-
   color: #0f2c59;
-
   font-size: 0.75rem;
-
   line-height: 1.55;
-
   font-weight: 600;
 }
-
 
 /* =========================================
    CAROUSEL
@@ -142,42 +102,43 @@
 
 .carousel {
   position: relative;
-
   width: 100%;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
 }
 
+.cardsViewport {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.cardsTrack {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
 
 /* =========================================
-   CLICKABLE CARD LINK
+   CARD LINK
 ========================================= */
 
 .propertyCardLink {
   display: block;
-
-  width: min(100%, 1080px);
-
+  width: 100%;
   min-width: 0;
-
   color: inherit;
-
   text-decoration: none;
-
   border-radius: 28px;
-
   outline: none;
 }
 
 .propertyCardLink:focus-visible {
   outline: 3px solid rgba(59, 169, 239, 0.45);
-
   outline-offset: 6px;
 }
-
 
 /* =========================================
    PROPERTY CARD
@@ -185,24 +146,15 @@
 
 .propertyCard {
   width: 100%;
-
+  min-width: 0;
   min-height: 610px;
-
-  display: grid;
-
-  grid-template-columns: 1.02fr 0.98fr;
-
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-
   background: #ffffff;
-
   border: 1px solid rgba(15, 44, 89, 0.1);
-
   border-radius: 28px;
-
-  box-shadow:
-    0 30px 80px rgba(15, 44, 89, 0.11);
-
+  box-shadow: 0 30px 80px rgba(15, 44, 89, 0.11);
   transition:
     transform 0.4s ease,
     box-shadow 0.4s ease;
@@ -210,11 +162,8 @@
 
 .propertyCardLink:hover .propertyCard {
   transform: translateY(-5px);
-
-  box-shadow:
-    0 40px 95px rgba(15, 44, 89, 0.16);
+  box-shadow: 0 40px 95px rgba(15, 44, 89, 0.16);
 }
-
 
 /* =========================================
    IMAGE
@@ -222,48 +171,38 @@
 
 .imageWrapper {
   position: relative;
-
   width: 100%;
-  height: 610px;
-
+  height: 280px;
   min-width: 0;
-
+  flex-shrink: 0;
   overflow: hidden;
-
   background: #e8f2f8;
 }
 
 .image {
   width: 100%;
   height: 100%;
-
   display: block;
-
   object-fit: cover;
   object-position: center;
-
   animation: propertyReveal 0.55s ease;
 }
 
 @keyframes propertyReveal {
   from {
     opacity: 0;
-
     transform: scale(1.035);
   }
 
   to {
     opacity: 1;
-
     transform: scale(1);
   }
 }
 
 .imageOverlay {
   position: absolute;
-
   inset: 0;
-
   background:
     linear-gradient(
       180deg,
@@ -271,10 +210,8 @@
       rgba(5, 20, 40, 0.01) 42%,
       rgba(5, 20, 40, 0.62) 100%
     );
-
   pointer-events: none;
 }
-
 
 /* =========================================
    IMAGE TOP
@@ -282,53 +219,35 @@
 
 .imageTop {
   position: absolute;
-
-  top: 27px;
-  left: 28px;
-  right: 28px;
-
+  top: 22px;
+  left: 22px;
+  right: 22px;
   display: flex;
-
   align-items: center;
   justify-content: space-between;
-
   gap: 15px;
 }
 
 .propertyNumber {
   color: #ffffff;
-
-  font-size: 0.75rem;
-
+  font-size: 0.7rem;
   font-weight: 700;
-
   letter-spacing: 0.16em;
-
   white-space: nowrap;
 }
 
 .propertyCategory {
   padding: 7px 11px;
-
   border: 1px solid rgba(255, 255, 255, 0.35);
-
   border-radius: 999px;
-
   background: rgba(255, 255, 255, 0.12);
-
   backdrop-filter: blur(10px);
-
   color: #ffffff;
-
-  font-size: 0.63rem;
-
+  font-size: 0.6rem;
   font-weight: 700;
-
   letter-spacing: 0.13em;
-
   white-space: nowrap;
 }
-
 
 /* =========================================
    IMAGE BOTTOM
@@ -336,86 +255,58 @@
 
 .imageBottom {
   position: absolute;
-
-  left: 28px;
-  right: 28px;
-  bottom: 27px;
-
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
   display: flex;
-
   align-items: flex-end;
   justify-content: space-between;
-
-  gap: 20px;
+  gap: 16px;
 }
 
 .location {
   display: flex;
-
   align-items: center;
-
   gap: 7px;
-
   min-width: 0;
-
   color: #ffffff;
-
-  font-size: 0.82rem;
-
+  font-size: 0.76rem;
   font-weight: 600;
 }
 
 .location span {
   overflow: hidden;
-
   text-overflow: ellipsis;
-
   white-space: nowrap;
 }
 
 .illustrativeLabel {
   color: rgba(255, 255, 255, 0.72);
-
-  font-size: 0.59rem;
-
+  font-size: 0.54rem;
   font-weight: 700;
-
   letter-spacing: 0.13em;
-
   text-transform: uppercase;
-
   text-align: right;
-
   flex-shrink: 0;
 }
 
-
 /* =========================================
-   PROPERTY CONTENT
+   CONTENT
 ========================================= */
 
 .propertyContent {
   min-width: 0;
-
+  flex: 1;
   display: flex;
-
   flex-direction: column;
-
-  padding: 3.7rem 3.6rem;
+  padding: 2rem 2rem 2.1rem;
 }
-
-
-/* =========================================
-   CONTENT TOP
-========================================= */
 
 .contentTop {
   display: flex;
-
   align-items: flex-start;
   justify-content: space-between;
-
-  gap: 25px;
+  gap: 18px;
 }
 
 .titleArea {
@@ -424,36 +315,23 @@
 
 .contentEyebrow {
   display: block;
-
-  margin-bottom: 19px;
-
+  margin-bottom: 13px;
   color: #3ba9ef;
-
-  font-size: 0.65rem;
-
+  font-size: 0.59rem;
   font-weight: 800;
-
   letter-spacing: 0.17em;
-
   line-height: 1.3;
 }
 
 .propertyContent h3 {
   margin: 0;
-
   color: #0f2c59;
-
-  font-size: clamp(1.9rem, 3vw, 2.55rem);
-
-  line-height: 1.07;
-
+  font-size: clamp(1.45rem, 2.2vw, 2rem);
+  line-height: 1.08;
   letter-spacing: -0.045em;
-
   font-weight: 800;
-
   overflow-wrap: break-word;
 }
-
 
 /* =========================================
    PRICE
@@ -461,75 +339,54 @@
 
 .priceArea {
   flex-shrink: 0;
-
   text-align: right;
 }
 
 .priceLabel {
   display: block;
-
   margin-bottom: 5px;
-
   color: #94a3b8;
-
-  font-size: 0.56rem;
-
+  font-size: 0.52rem;
   font-weight: 800;
-
   letter-spacing: 0.13em;
-
   white-space: nowrap;
 }
 
 .priceArea strong {
   display: block;
-
   color: #0f2c59;
-
-  font-size: 1.28rem;
-
+  font-size: 1.05rem;
   line-height: 1;
-
   font-weight: 800;
-
   letter-spacing: -0.03em;
-
   white-space: nowrap;
 }
 
-
 /* =========================================
-   PROPERTY DETAILS
+   DETAILS
 ========================================= */
 
 .propertyDetails {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
-  margin-top: 34px;
-
+  margin-top: 25px;
   border-top: 1px solid rgba(15, 44, 89, 0.1);
-
   border-bottom: 1px solid rgba(15, 44, 89, 0.1);
 }
 
 .detailItem {
   min-width: 0;
-
-  padding: 17px 15px 17px 0;
-
+  padding: 14px 12px 14px 0;
   border-bottom: 1px solid rgba(15, 44, 89, 0.07);
 }
 
 .detailItem:nth-child(odd) {
-  padding-right: 18px;
-
+  padding-right: 14px;
   border-right: 1px solid rgba(15, 44, 89, 0.07);
 }
 
 .detailItem:nth-child(even) {
-  padding-left: 18px;
+  padding-left: 14px;
 }
 
 .detailItem:nth-child(3),
@@ -539,37 +396,23 @@
 
 .detailLabel {
   display: block;
-
-  margin-bottom: 7px;
-
+  margin-bottom: 6px;
   color: #94a3b8;
-
-  font-size: 0.56rem;
-
+  font-size: 0.51rem;
   font-weight: 800;
-
   letter-spacing: 0.13em;
-
   line-height: 1.25;
 }
 
 .detailValue {
   display: flex;
-
   align-items: center;
-
   gap: 6px;
-
   min-width: 0;
-
   color: #0f2c59;
-
-  font-size: 0.75rem;
-
+  font-size: 0.68rem;
   line-height: 1.35;
-
   font-weight: 700;
-
   overflow-wrap: anywhere;
 }
 
@@ -577,115 +420,58 @@
   flex-shrink: 0;
 }
 
-
-/* =========================================
-   DESCRIPTION
-========================================= */
-
-.description {
-  max-width: 430px;
-
-  margin: 25px 0 0;
-
-  color: #64748b;
-
-  font-size: 0.87rem;
-
-  line-height: 1.68;
-}
-
-
-/* =========================================
-   DIVIDER
-========================================= */
-
-.propertyDivider {
-  width: 100%;
-  height: 1px;
-
-  margin-top: 26px;
-
-  background: rgba(15, 44, 89, 0.1);
-}
-
-
 /* =========================================
    BOTTOM CONTENT
 ========================================= */
 
 .bottomContent {
   display: flex;
-
   align-items: flex-end;
   justify-content: space-between;
-
-  gap: 25px;
-
+  gap: 18px;
   margin-top: auto;
+  padding-top: 25px;
 }
 
 .selectionNote {
   min-width: 0;
-
-  max-width: 220px;
+  max-width: 180px;
 }
 
 .selectionNote > span {
   display: block;
-
-  margin-bottom: 7px;
-
+  margin-bottom: 6px;
   color: #3ba9ef;
-
-  font-size: 0.6rem;
-
+  font-size: 0.53rem;
   font-weight: 800;
-
   letter-spacing: 0.15em;
 }
 
 .selectionNote p {
   margin: 0;
-
   color: #0f2c59;
-
-  font-size: 0.73rem;
-
+  font-size: 0.65rem;
   line-height: 1.5;
-
   font-weight: 600;
 }
 
-
 /* =========================================
-   EXPLORE BUTTON
+   EXPLORE
 ========================================= */
 
 .exploreButton {
   display: inline-flex;
-
   align-items: center;
-
-  gap: 10px;
-
+  gap: 8px;
   flex-shrink: 0;
-
-  padding: 7px 7px 7px 16px;
-
+  padding: 6px 6px 6px 13px;
   border: 1px solid rgba(15, 44, 89, 0.12);
-
   border-radius: 999px;
-
   background: #ffffff;
-
   color: #0f2c59;
-
-  font-size: 0.77rem;
-
+  font-size: 0.68rem;
   font-weight: 700;
-
   white-space: nowrap;
-
   transition:
     background 0.3s ease,
     color 0.3s ease,
@@ -694,20 +480,14 @@
 }
 
 .exploreIcon {
-  width: 31px;
-  height: 31px;
-
+  width: 28px;
+  height: 28px;
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   border-radius: 50%;
-
   background: #0f2c59;
-
   color: #ffffff;
-
   transition:
     transform 0.3s ease,
     background 0.3s ease;
@@ -715,65 +495,50 @@
 
 .propertyCardLink:hover .exploreButton {
   background: #0f2c59;
-
   border-color: #0f2c59;
-
   color: #ffffff;
 }
 
 .propertyCardLink:hover .exploreIcon {
   background: #3ba9ef;
-
   transform: translate(2px, -2px);
 }
 
-
 /* =========================================
-   NAVIGATION ARROWS
+   ARROWS
 ========================================= */
 
 .arrow {
   position: absolute;
-
   z-index: 5;
-
   width: 52px;
   height: 52px;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
-
-  flex-shrink: 0;
-
   padding: 0;
-
   border: 1px solid rgba(15, 44, 89, 0.12);
-
   border-radius: 50%;
-
   background: #ffffff;
-
   color: #0f2c59;
-
   cursor: pointer;
-
-  box-shadow:
-    0 12px 35px rgba(15, 44, 89, 0.12);
-
+  box-shadow: 0 12px 35px rgba(15, 44, 89, 0.12);
   transition:
     background 0.3s ease,
     color 0.3s ease,
-    transform 0.3s ease;
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
-.arrow:hover {
+.arrow:hover:not(:disabled) {
   background: #0f2c59;
-
   color: #ffffff;
-
   transform: translateY(-2px);
+}
+
+.arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
 .arrowLeft {
@@ -784,44 +549,40 @@
   right: -26px;
 }
 
-
 /* =========================================
    CONTROLS
 ========================================= */
 
 .controls {
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   gap: 18px;
-
-  margin-top: 25px;
+  margin-top: 27px;
 }
 
 .progress {
   display: flex;
-
   align-items: center;
-
   gap: 7px;
+  max-width: 70%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.progress::-webkit-scrollbar {
+  display: none;
 }
 
 .progressItem {
   width: 24px;
   height: 3px;
-
+  flex: 0 0 auto;
   padding: 0;
-
   border: none;
-
   border-radius: 999px;
-
   background: rgba(15, 44, 89, 0.14);
-
   cursor: pointer;
-
   transition:
     width 0.3s ease,
     background 0.3s ease;
@@ -833,45 +594,31 @@
 
 .progressActive {
   width: 44px;
-
   background: #3ba9ef;
 }
 
 .progressText {
   color: #64748b;
-
   font-size: 0.7rem;
-
   font-weight: 700;
-
   letter-spacing: 0.12em;
-
   white-space: nowrap;
 }
-
 
 /* =========================================
    BOTTOM CTA
 ========================================= */
 
 .bottomCta {
-  width: min(100%, 1080px);
-
+  width: 100%;
   margin: 62px auto 0;
-
   padding: 27px 29px 27px 31px;
-
   display: flex;
-
   align-items: center;
   justify-content: space-between;
-
   gap: 30px;
-
   border: 1px solid rgba(15, 44, 89, 0.1);
-
   border-radius: 24px;
-
   background: #f8fafc;
 }
 
@@ -881,75 +628,44 @@
 
 .ctaEyebrow {
   display: block;
-
   margin-bottom: 6px;
-
   color: #3ba9ef;
-
   font-size: 0.6rem;
-
   font-weight: 800;
-
   letter-spacing: 0.15em;
 }
 
 .ctaCopy h3 {
   margin: 0;
-
   color: #0f2c59;
-
   font-size: 1.18rem;
-
   line-height: 1.25;
-
   letter-spacing: -0.025em;
 }
 
 .ctaCopy p {
   max-width: 500px;
-
   margin: 7px 0 0;
-
   color: #64748b;
-
   font-size: 0.77rem;
-
   line-height: 1.55;
 }
 
-
-/* =========================================
-   CTA BUTTON
-========================================= */
-
 .ctaButton {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
-
   gap: 10px;
-
   flex-shrink: 0;
-
   padding: 13px 17px;
-
   border: 1px solid #0f2c59;
-
   border-radius: 13px;
-
   background: #0f2c59;
-
   color: #ffffff;
-
   text-decoration: none;
-
   font-size: 0.77rem;
-
   font-weight: 700;
-
   white-space: nowrap;
-
   transition:
     background 0.3s ease,
     border-color 0.3s ease,
@@ -958,33 +674,63 @@
 
 .ctaButton:hover {
   background: #3ba9ef;
-
   border-color: #3ba9ef;
-
   transform: translateY(-2px);
 }
 
-
 /* =========================================
-   LARGE DESKTOP / 4K
+   1201–1599
 ========================================= */
 
-@media (min-width: 1600px) {
+@media (min-width: 1201px) and (max-width: 1599px) {
+  .container {
+    width: min(1200px, 92%);
+  }
 
+  .cardsTrack {
+    gap: 26px;
+  }
+
+  .propertyCard {
+    min-height: 650px;
+  }
+
+  .imageWrapper {
+    height: 295px;
+  }
+
+  .propertyContent {
+    padding: 2.25rem 2.2rem 2.4rem;
+  }
+
+  .propertyContent h3 {
+    font-size: clamp(1.55rem, 2vw, 2.15rem);
+  }
+
+  .bottomCta {
+    margin-top: 70px;
+  }
+}
+
+/* =========================================
+   1440+
+========================================= */
+
+@media (min-width: 1440px) {
   .propertyOpportunities {
-    padding-top: 165px;
-    padding-bottom: 165px;
+    padding: 150px 24px 165px;
   }
 
   .container {
-    width: min(1400px, 90%);
+    width: min(1380px, 90%);
   }
 
   .intro {
-    margin-bottom: 75px;
+    margin-bottom: 88px;
   }
 
   .introEyebrow {
+    margin-bottom: 26px;
     font-size: 0.76rem;
   }
 
@@ -993,164 +739,777 @@
   }
 
   .introHeading h2 {
-    font-size: clamp(4rem, 4.2vw, 5.4rem);
+    font-size: clamp(4rem, 4.4vw, 5.3rem);
   }
 
   .introDescription {
-    max-width: 620px;
+    max-width: 780px;
+    margin-top: 28px;
   }
 
   .introDescription p {
-    font-size: 1.02rem;
+    font-size: 1.08rem;
+    line-height: 1.78;
   }
 
-  .propertyCardLink,
-  .bottomCta {
-    width: min(100%, 1200px);
+  .introNote {
+    font-size: 0.78rem;
+  }
+
+  .cardsTrack {
+    gap: 28px;
   }
 
   .propertyCard {
-    min-height: 670px;
+    min-height: 700px;
+    border-radius: 30px;
   }
 
   .imageWrapper {
-    height: 670px;
+    height: 310px;
+  }
+
+  .imageTop {
+    top: 27px;
+    left: 28px;
+    right: 28px;
+  }
+
+  .imageBottom {
+    left: 28px;
+    right: 28px;
+    bottom: 27px;
   }
 
   .propertyContent {
-    padding: 4.4rem 4.4rem;
+    padding: 2.6rem 2.7rem 2.75rem;
+  }
+
+  .contentEyebrow {
+    margin-bottom: 16px;
+    font-size: 0.63rem;
   }
 
   .propertyContent h3 {
-    font-size: clamp(2.4rem, 2.5vw, 3.1rem);
+    font-size: clamp(1.8rem, 2.1vw, 2.55rem);
   }
 
-  .description {
-    font-size: 0.94rem;
-    line-height: 1.75;
+  .priceArea strong {
+    font-size: 1.3rem;
+  }
+
+  .propertyDetails {
+    margin-top: 31px;
+  }
+
+  .detailItem {
+    padding-top: 17px;
+    padding-bottom: 17px;
+  }
+
+  .detailValue {
+    font-size: 0.75rem;
+  }
+
+  .bottomContent {
+    padding-top: 28px;
+  }
+
+  .selectionNote {
+    max-width: 220px;
+  }
+
+  .selectionNote p {
+    font-size: 0.72rem;
+  }
+
+  .exploreButton {
+    padding: 7px 7px 7px 16px;
+    font-size: 0.76rem;
+  }
+
+  .exploreIcon {
+    width: 31px;
+    height: 31px;
+  }
+
+  .arrow {
+    width: 56px;
+    height: 56px;
+  }
+
+  .arrowLeft {
+    left: -28px;
+  }
+
+  .arrowRight {
+    right: -28px;
+  }
+
+  .controls {
+    margin-top: 30px;
+  }
+
+  .progressItem {
+    width: 27px;
+  }
+
+  .progressActive {
+    width: 48px;
+  }
+
+  .bottomCta {
+    margin-top: 82px;
+    padding: 32px 36px;
+    border-radius: 28px;
+  }
+
+  .ctaCopy h3 {
+    font-size: 1.35rem;
+  }
+
+  .ctaCopy p {
+    font-size: 0.84rem;
+  }
+
+  .ctaButton {
+    padding: 14px 19px;
+    font-size: 0.82rem;
+  }
+}
+
+/* =========================================
+   1920+
+========================================= */
+
+@media (min-width: 1920px) {
+  .propertyOpportunities {
+    padding: 180px 24px 195px;
+  }
+
+  .container {
+    width: min(1900px, 88%);
+  }
+
+  .intro {
+    margin-bottom: 110px;
+  }
+
+  .introEyebrow {
+    gap: 14px;
+    margin-bottom: 29px;
+    font-size: 0.82rem;
+  }
+
+  .eyebrowLine {
+    width: 40px;
+    min-width: 40px;
+  }
+
+  .introHeading {
+    max-width: 1250px;
+  }
+
+  .introHeading h2 {
+    font-size: clamp(4.9rem, 4.8vw, 6.4rem);
+  }
+
+  .introDescription {
+    max-width: 900px;
+    margin-top: 32px;
+  }
+
+  .introDescription p {
+    font-size: 1.22rem;
+    line-height: 1.82;
+  }
+
+  .introNote {
+    margin-top: 18px;
+    padding-left: 17px;
+    font-size: 0.82rem;
+  }
+
+  .cardsTrack {
+    gap: 34px;
+  }
+
+  .propertyCard {
+    min-height: 770px;
+    border-radius: 34px;
+  }
+
+  .imageWrapper {
+    height: 345px;
+  }
+
+  .imageTop {
+    top: 31px;
+    left: 32px;
+    right: 32px;
+  }
+
+  .imageBottom {
+    left: 32px;
+    right: 32px;
+    bottom: 31px;
+  }
+
+  .propertyNumber {
+    font-size: 0.78rem;
+  }
+
+  .propertyCategory {
+    padding: 8px 13px;
+    font-size: 0.65rem;
+  }
+
+  .location {
+    font-size: 0.84rem;
+  }
+
+  .propertyContent {
+    padding: 3.1rem 3.25rem 3.35rem;
+  }
+
+  .contentEyebrow {
+    margin-bottom: 19px;
+    font-size: 0.68rem;
+  }
+
+  .propertyContent h3 {
+    font-size: clamp(2.1rem, 2.2vw, 3.15rem);
+  }
+
+  .priceLabel {
+    font-size: 0.6rem;
+  }
+
+  .priceArea strong {
+    font-size: 1.55rem;
   }
 
   .propertyDetails {
     margin-top: 38px;
   }
 
+  .detailItem {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .detailLabel {
+    font-size: 0.58rem;
+  }
+
   .detailValue {
-    font-size: 0.8rem;
-  }
-
-  .selectionNote {
-    max-width: 260px;
-  }
-
-  .bottomCta {
-    margin-top: 75px;
-
-    padding: 31px 34px;
-  }
-
-  .ctaCopy h3 {
-    font-size: 1.3rem;
-  }
-
-  .ctaCopy p {
     font-size: 0.82rem;
   }
 
-  .ctaButton {
-    padding: 14px 19px;
-
-    font-size: 0.8rem;
-  }
-}
-
-
-/* =========================================
-   1440px — LARGE LAPTOP
-========================================= */
-
-@media (min-width: 1201px) and (max-width: 1599px) {
-
-  .container {
-    width: min(1200px, 92%);
+  .bottomContent {
+    padding-top: 31px;
   }
 
-  .propertyCardLink,
-  .bottomCta {
-    width: min(100%, 1080px);
-  }
-}
-
-
-/* =========================================
-   1200px — LAPTOP
-========================================= */
-
-@media (max-width: 1200px) {
-
-  .container {
-    width: min(100%, 1080px);
+  .selectionNote {
+    max-width: 270px;
   }
 
-  .propertyCardLink {
-    width: min(100%, 980px);
+  .selectionNote > span {
+    font-size: 0.62rem;
   }
 
-  .propertyContent {
-    padding: 3.3rem 3.1rem;
+  .selectionNote p {
+    font-size: 0.78rem;
   }
 
-  .arrowLeft {
-    left: -22px;
-  }
-
-  .arrowRight {
-    right: -22px;
-  }
-}
-
-
-/* =========================================
-   1100px — SMALL LAPTOP
-========================================= */
-
-@media (max-width: 1100px) {
-
-  .propertyOpportunities {
-    padding-left: 28px;
-    padding-right: 28px;
-  }
-
-  .container {
-    width: min(100%, 920px);
-  }
-
-  .propertyCardLink {
-    width: min(100%, 850px);
-  }
-
-  .propertyContent {
-    padding: 3rem;
-  }
-
-  .propertyContent h3 {
-    font-size: clamp(1.8rem, 3vw, 2.3rem);
-  }
-
-  .propertyDetails {
-    margin-top: 30px;
-  }
-
-  .detailValue {
-    font-size: 0.7rem;
-  }
-
-  .description {
+  .exploreButton {
+    padding: 8px 8px 8px 18px;
     font-size: 0.84rem;
   }
 
+  .exploreIcon {
+    width: 35px;
+    height: 35px;
+  }
+
   .arrow {
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .arrowLeft {
+    left: -30px;
+  }
+
+  .arrowRight {
+    right: -30px;
+  }
+
+  .controls {
+    margin-top: 34px;
+    gap: 21px;
+  }
+
+  .progress {
+    gap: 8px;
+  }
+
+  .progressItem {
+    width: 30px;
+  }
+
+  .progressActive {
+    width: 54px;
+  }
+
+  .progressText {
+    font-size: 0.74rem;
+  }
+
+  .bottomCta {
+    margin-top: 105px;
+    padding: 38px 44px;
+    border-radius: 32px;
+  }
+
+  .ctaEyebrow {
+    font-size: 0.65rem;
+  }
+
+  .ctaCopy h3 {
+    font-size: 1.5rem;
+  }
+
+  .ctaCopy p {
+    font-size: 0.9rem;
+  }
+
+  .ctaButton {
+    padding: 16px 22px;
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================================
+   TALL LARGE DESKTOP
+   2560 × 2593 STYLE SCREENS
+========================================= */
+
+@media (min-width: 1920px) and (min-height: 1600px) {
+  .propertyOpportunities {
+    padding: 195px 24px 215px;
+  }
+
+  .container {
+    width: min(2050px, 86%);
+  }
+
+  .intro {
+    margin-bottom: 128px;
+  }
+
+  .introHeading {
+    max-width: 1380px;
+  }
+
+  .introHeading h2 {
+    font-size: clamp(5.1rem, 4.7vw, 6.9rem);
+  }
+
+  .introDescription {
+    max-width: 980px;
+    margin-top: 35px;
+  }
+
+  .introDescription p {
+    font-size: 1.28rem;
+    line-height: 1.84;
+  }
+
+  .introNote {
+    font-size: 0.84rem;
+  }
+
+  .cardsTrack {
+    gap: 38px;
+  }
+
+  .propertyCard {
+    min-height: 830px;
+    border-radius: 36px;
+  }
+
+  .imageWrapper {
+    height: 385px;
+  }
+
+  .imageTop {
+    top: 34px;
+    left: 36px;
+    right: 36px;
+  }
+
+  .imageBottom {
+    left: 36px;
+    right: 36px;
+    bottom: 34px;
+  }
+
+  .propertyNumber {
+    font-size: 0.82rem;
+  }
+
+  .propertyCategory {
+    padding: 9px 14px;
+    font-size: 0.68rem;
+  }
+
+  .location {
+    font-size: 0.9rem;
+  }
+
+  .propertyContent {
+    padding: 3.65rem 3.85rem 3.9rem;
+  }
+
+  .contentEyebrow {
+    margin-bottom: 22px;
+    font-size: 0.72rem;
+  }
+
+  .propertyContent h3 {
+    font-size: clamp(2.3rem, 2.25vw, 3.5rem);
+  }
+
+  .priceArea strong {
+    font-size: 1.75rem;
+  }
+
+  .propertyDetails {
+    margin-top: 43px;
+  }
+
+  .detailItem {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  .detailLabel {
+    font-size: 0.61rem;
+  }
+
+  .detailValue {
+    font-size: 0.88rem;
+  }
+
+  .bottomContent {
+    padding-top: 32px;
+  }
+
+  .selectionNote {
+    max-width: 310px;
+  }
+
+  .selectionNote > span {
+    font-size: 0.64rem;
+  }
+
+  .selectionNote p {
+    font-size: 0.82rem;
+  }
+
+  .exploreButton {
+    padding: 9px 9px 9px 19px;
+    font-size: 0.88rem;
+  }
+
+  .exploreIcon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .arrow {
+    width: 64px;
+    height: 64px;
+  }
+
+  .arrowLeft {
+    left: -32px;
+  }
+
+  .arrowRight {
+    right: -32px;
+  }
+
+  .controls {
+    margin-top: 38px;
+  }
+
+  .progressItem {
+    width: 32px;
+  }
+
+  .progressActive {
+    width: 58px;
+  }
+
+  .bottomCta {
+    margin-top: 118px;
+    padding: 43px 50px;
+    border-radius: 34px;
+  }
+
+  .ctaCopy h3 {
+    font-size: 1.58rem;
+  }
+
+  .ctaCopy p {
+    font-size: 0.94rem;
+  }
+
+  .ctaButton {
+    padding: 17px 24px;
+    font-size: 0.94rem;
+  }
+}
+
+/* =========================================
+   3000+
+========================================= */
+
+@media (min-width: 3000px) {
+  .propertyOpportunities {
+    padding: 220px 24px 240px;
+  }
+
+  .container {
+    width: min(2250px, 84%);
+  }
+
+  .intro {
+    margin-bottom: 145px;
+  }
+
+  .introEyebrow {
+    font-size: 0.9rem;
+    gap: 16px;
+  }
+
+  .eyebrowLine {
+    width: 46px;
+    min-width: 46px;
+  }
+
+  .introHeading {
+    max-width: 1500px;
+  }
+
+  .introHeading h2 {
+    font-size: clamp(5.5rem, 4.6vw, 7.5rem);
+  }
+
+  .introDescription {
+    max-width: 1100px;
+    margin-top: 40px;
+  }
+
+  .introDescription p {
+    font-size: 1.35rem;
+    line-height: 1.86;
+  }
+
+  .introNote {
+    margin-top: 20px;
+    font-size: 0.88rem;
+  }
+
+  .cardsTrack {
+    gap: 46px;
+  }
+
+  .propertyCard {
+    min-height: 920px;
+    border-radius: 40px;
+  }
+
+  .imageWrapper {
+    height: 425px;
+  }
+
+  .imageTop {
+    top: 40px;
+    left: 42px;
+    right: 42px;
+  }
+
+  .imageBottom {
+    left: 42px;
+    right: 42px;
+    bottom: 40px;
+  }
+
+  .propertyNumber {
+    font-size: 0.9rem;
+  }
+
+  .propertyCategory {
+    padding: 10px 16px;
+    font-size: 0.72rem;
+  }
+
+  .location {
+    font-size: 0.96rem;
+  }
+
+  .propertyContent {
+    padding: 4.5rem 4.7rem 4.8rem;
+  }
+
+  .contentEyebrow {
+    margin-bottom: 25px;
+    font-size: 0.78rem;
+  }
+
+  .propertyContent h3 {
+    font-size: clamp(2.7rem, 2.25vw, 4rem);
+  }
+
+  .priceLabel {
+    font-size: 0.66rem;
+  }
+
+  .priceArea strong {
+    font-size: 1.95rem;
+  }
+
+  .propertyDetails {
+    margin-top: 52px;
+  }
+
+  .detailItem {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  .detailLabel {
+    font-size: 0.66rem;
+  }
+
+  .detailValue {
+    font-size: 0.96rem;
+  }
+
+  .bottomContent {
+    padding-top: 38px;
+  }
+
+  .selectionNote {
+    max-width: 360px;
+  }
+
+  .selectionNote > span {
+    font-size: 0.69rem;
+  }
+
+  .selectionNote p {
+    font-size: 0.88rem;
+  }
+
+  .exploreButton {
+    padding: 10px 10px 10px 21px;
+    font-size: 0.95rem;
+  }
+
+  .exploreIcon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .arrow {
+    width: 68px;
+    height: 68px;
+  }
+
+  .arrowLeft {
+    left: -34px;
+  }
+
+  .arrowRight {
+    right: -34px;
+  }
+
+  .controls {
+    margin-top: 43px;
+    gap: 24px;
+  }
+
+  .progress {
+    gap: 9px;
+  }
+
+  .progressItem {
+    width: 36px;
+  }
+
+  .progressActive {
+    width: 64px;
+  }
+
+  .progressText {
+    font-size: 0.8rem;
+  }
+
+  .bottomCta {
+    margin-top: 140px;
+    padding: 50px 58px;
+    border-radius: 38px;
+  }
+
+  .ctaEyebrow {
+    font-size: 0.7rem;
+  }
+
+  .ctaCopy h3 {
+    font-size: 1.75rem;
+  }
+
+  .ctaCopy p {
+    font-size: 1rem;
+  }
+
+  .ctaButton {
+    padding: 18px 25px;
+    font-size: 1rem;
+  }
+}
+
+/* =========================================
+   1200px
+========================================= */
+
+@media (max-width: 1200px) {
+  .container {
+    width: min(1080px, 92%);
+  }
+
+  .cardsTrack {
+    gap: 22px;
+  }
+
+  .propertyCard {
+    min-height: 640px;
+  }
+
+  .imageWrapper {
+    height: 270px;
+  }
+
+  .propertyContent {
+    padding: 1.8rem 1.75rem 2rem;
+  }
+
+  .propertyContent h3 {
+    font-size: clamp(1.4rem, 2.3vw, 1.9rem);
   }
 
   .arrowLeft {
@@ -1162,102 +1521,47 @@
   }
 }
 
-
 /* =========================================
-   1000px — TABLET LANDSCAPE
+   1100px — 2 CARDS
 ========================================= */
 
-@media (max-width: 1000px) {
-
-  .propertyOpportunities {
-    padding-top: 120px;
-    padding-bottom: 120px;
-  }
-
-  .introHeading h2 {
-    font-size: clamp(2.6rem, 5.5vw, 3.8rem);
-  }
-
-  .propertyCardLink {
-    width: min(100%, 800px);
+@media (max-width: 1100px) {
+  .cardsTrack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .propertyCard {
-    grid-template-columns: 1fr 1fr;
+    min-height: 660px;
+  }
+
+  .imageWrapper {
+    height: 285px;
   }
 
   .propertyContent {
-    padding: 2.7rem 2.5rem;
+    padding: 2rem 2rem 2.15rem;
   }
 
-  .contentTop {
-    gap: 15px;
+  .propertyContent h3 {
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
   }
 
-  .priceArea strong {
-    font-size: 1.15rem;
+  .arrowLeft {
+    left: -12px;
   }
 
-  .propertyDetails {
-    margin-top: 27px;
-  }
-
-  .detailItem {
-    padding-top: 14px;
-    padding-bottom: 14px;
-  }
-
-  .detailItem:nth-child(odd) {
-    padding-right: 12px;
-  }
-
-  .detailItem:nth-child(even) {
-    padding-left: 12px;
-  }
-
-  .detailValue {
-    font-size: 0.66rem;
-  }
-
-  .description {
-    margin-top: 21px;
-
-    font-size: 0.8rem;
-  }
-
-  .selectionNote {
-    max-width: 170px;
-  }
-
-  .selectionNote p {
-    font-size: 0.68rem;
-  }
-
-  .exploreButton {
-    font-size: 0.7rem;
-
-    padding-left: 12px;
-  }
-
-  .exploreIcon {
-    width: 28px;
-    height: 28px;
+  .arrowRight {
+    right: -12px;
   }
 }
 
-
 /* =========================================
-   900px — TABLET
+   1000px
 ========================================= */
 
-@media (max-width: 900px) {
-
+@media (max-width: 1000px) {
   .propertyOpportunities {
-    padding: 110px 24px;
-  }
-
-  .container {
-    width: min(100%, 720px);
+    padding: 110px 22px;
   }
 
   .intro {
@@ -1265,45 +1569,212 @@
   }
 
   .introHeading h2 {
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-size: clamp(2.7rem, 6vw, 4rem);
   }
 
   .introDescription {
-    max-width: 600px;
+    max-width: 650px;
   }
 
-  .propertyCardLink {
-    width: 100%;
+  .cardsTrack {
+    gap: 18px;
   }
 
   .propertyCard {
-    grid-template-columns: 1fr;
-
-    min-height: 0;
-
-    border-radius: 25px;
+    min-height: 640px;
+    border-radius: 24px;
   }
 
   .imageWrapper {
-    height: 390px;
+    height: 265px;
   }
 
   .propertyContent {
-    min-height: 520px;
-
-    padding: 3rem;
+    padding: 1.7rem 1.65rem 1.8rem;
   }
 
-  .propertyContent h3 {
-    font-size: clamp(2rem, 5vw, 2.6rem);
-  }
-
-  .description {
-    max-width: 600px;
+  .propertyDetails {
+    margin-top: 24px;
   }
 
   .bottomCta {
-    width: 100%;
+    margin-top: 55px;
+  }
+}
+
+/* =========================================
+   900px
+========================================= */
+
+@media (max-width: 900px) {
+  .cardsTrack {
+    gap: 18px;
+  }
+
+  .propertyCard {
+    min-height: 620px;
+  }
+
+  .imageWrapper {
+    height: 245px;
+  }
+
+  .propertyContent h3 {
+    font-size: clamp(1.35rem, 2.7vw, 1.75rem);
+  }
+
+  .priceArea strong {
+    font-size: 1rem;
+  }
+
+  .detailValue {
+    font-size: 0.65rem;
+  }
+
+  .selectionNote p {
+    font-size: 0.62rem;
+  }
+
+  .exploreButton {
+    font-size: 0.64rem;
+  }
+
+  .bottomCta {
+    gap: 20px;
+  }
+}
+
+/* =========================================
+   820px — 1 CARD
+========================================= */
+
+@media (max-width: 820px) {
+  .cardsTrack {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .propertyCard {
+    min-height: 0;
+  }
+
+  .imageWrapper {
+    height: 340px;
+  }
+
+  .propertyContent {
+    padding: 2.4rem 2.4rem 2.5rem;
+  }
+
+  .propertyContent h3 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+  }
+
+  .priceArea strong {
+    font-size: 1.25rem;
+  }
+
+  .detailValue {
+    font-size: 0.74rem;
+  }
+
+  .selectionNote {
+    max-width: 240px;
+  }
+
+  .selectionNote p {
+    font-size: 0.7rem;
+  }
+
+  .exploreButton {
+    font-size: 0.72rem;
+  }
+
+  .arrowLeft {
+    left: -18px;
+  }
+
+  .arrowRight {
+    right: -18px;
+  }
+
+  .bottomCta {
+    margin-top: 60px;
+  }
+}
+
+/* =========================================
+   768px
+========================================= */
+
+@media (max-width: 768px) {
+  .propertyOpportunities {
+    padding: 95px 20px;
+  }
+
+  .container {
+    width: min(100%, 650px);
+  }
+
+  .intro {
+    margin-bottom: 46px;
+  }
+
+  .introEyebrow {
+    margin-bottom: 19px;
+    font-size: 0.67rem;
+  }
+
+  .introHeading h2 {
+    font-size: clamp(2.6rem, 8vw, 4rem);
+  }
+
+  .introDescription {
+    margin-top: 21px;
+  }
+
+  .introDescription p {
+    font-size: 0.9rem;
+  }
+
+  .introNote {
+    font-size: 0.7rem;
+  }
+
+  .propertyCard {
+    border-radius: 24px;
+  }
+
+  .imageWrapper {
+    height: 330px;
+  }
+
+  .propertyContent {
+    padding: 2.2rem 2.2rem 2.35rem;
+  }
+
+  .propertyDetails {
+    margin-top: 28px;
+  }
+
+  .detailItem {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .bottomContent {
+    padding-top: 25px;
+  }
+
+  .selectionNote {
+    max-width: 280px;
+  }
+
+  .selectionNote p {
+    font-size: 0.71rem;
+  }
+
+  .exploreButton {
+    font-size: 0.72rem;
   }
 
   .arrow {
@@ -1312,101 +1783,129 @@
   }
 
   .arrowLeft {
-    left: -16px;
+    left: -14px;
   }
 
   .arrowRight {
-    right: -16px;
+    right: -14px;
+  }
+
+  .bottomCta {
+    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ctaCopy p {
+    max-width: 100%;
+  }
+
+  .ctaButton {
+    width: 100%;
   }
 }
 
-
 /* =========================================
-   820px — SMALL TABLET
+   640px
 ========================================= */
 
-@media (max-width: 820px) {
-
+@media (max-width: 640px) {
   .propertyOpportunities {
-    padding-left: 22px;
-    padding-right: 22px;
-  }
-
-  .introHeading h2 {
-    font-size: clamp(2.4rem, 7vw, 3.2rem);
-  }
-
-  .imageWrapper {
-    height: 370px;
-  }
-
-  .propertyContent {
-    padding: 2.7rem 2.5rem;
-  }
-
-  .bottomContent {
-    gap: 18px;
-  }
-
-  .selectionNote {
-    max-width: 230px;
-  }
-}
-
-
-/* =========================================
-   768px — MOBILE
-========================================= */
-
-@media (max-width: 768px) {
-
-  .propertyOpportunities {
-    padding: 90px 20px;
+    padding: 82px 18px;
   }
 
   .container {
     width: 100%;
   }
 
-  .intro {
-    margin-bottom: 48px;
+  .introHeading h2 {
+    font-size: clamp(2.45rem, 10vw, 3.5rem);
+  }
+
+  .cardsViewport {
+    overflow: visible;
+  }
+
+  .cardsTrack {
+    width: 100%;
+  }
+
+  .imageWrapper {
+    height: 300px;
+  }
+
+  .imageTop {
+    top: 22px;
+    left: 22px;
+    right: 22px;
+  }
+
+  .imageBottom {
+    left: 22px;
+    right: 22px;
+    bottom: 22px;
+  }
+
+  .propertyContent {
+    padding: 2rem;
+  }
+
+  .propertyContent h3 {
+    font-size: clamp(1.7rem, 7vw, 2.25rem);
+  }
+
+  .propertyDetails {
+    margin-top: 25px;
+  }
+
+  .bottomContent {
+    padding-top: 23px;
+  }
+
+  .controls {
+    margin-top: 22px;
+  }
+
+  .progressItem {
+    width: 21px;
+  }
+
+  .progressActive {
+    width: 38px;
+  }
+
+  .bottomCta {
+    margin-top: 48px;
+    padding: 22px;
+    border-radius: 20px;
+  }
+}
+
+/* =========================================
+   540px
+========================================= */
+
+@media (max-width: 540px) {
+  .propertyOpportunities {
+    padding: 72px 16px;
   }
 
   .introEyebrow {
-    margin-bottom: 20px;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+  }
 
-    font-size: 0.65rem;
+  .eyebrowLine {
+    width: 28px;
+    min-width: 28px;
   }
 
   .introHeading h2 {
-    font-size: 2.35rem;
-
-    line-height: 1.05;
-  }
-
-  .introDescription {
-    max-width: 520px;
-
-    margin-top: 20px;
+    font-size: clamp(2.25rem, 10vw, 3.1rem);
   }
 
   .introDescription p {
-    font-size: 0.9rem;
-
-    line-height: 1.65;
-  }
-
-  .introNote {
-    font-size: 0.71rem;
-  }
-
-
-  /* CARD */
-
-  .propertyCardLink {
-    width: 100%;
-
-    border-radius: 22px;
+    font-size: 0.84rem;
   }
 
   .propertyCard {
@@ -1414,79 +1913,44 @@
   }
 
   .imageWrapper {
-    height: 285px;
+    height: 270px;
   }
 
   .imageTop {
-    top: 20px;
-
-    left: 20px;
-    right: 20px;
-  }
-
-  .propertyCategory {
-    padding: 6px 9px;
-
-    font-size: 0.57rem;
+    top: 19px;
+    left: 19px;
+    right: 19px;
   }
 
   .imageBottom {
-    left: 20px;
-    right: 20px;
-
-    bottom: 20px;
+    left: 19px;
+    right: 19px;
+    bottom: 19px;
   }
-
-  .location {
-    font-size: 0.74rem;
-  }
-
-  .illustrativeLabel {
-    max-width: 130px;
-
-    font-size: 0.54rem;
-
-    line-height: 1.35;
-  }
-
-
-  /* CONTENT */
 
   .propertyContent {
-    min-height: 545px;
-
-    padding: 2rem 1.5rem;
+    padding: 1.75rem;
   }
 
   .contentTop {
-    gap: 15px;
+    gap: 12px;
   }
 
   .contentEyebrow {
-    margin-bottom: 15px;
-
-    font-size: 0.59rem;
+    margin-bottom: 11px;
+    font-size: 0.55rem;
   }
 
   .propertyContent h3 {
-    font-size: 1.75rem;
-
-    line-height: 1.08;
+    font-size: clamp(1.5rem, 7.5vw, 2rem);
   }
 
   .priceArea strong {
-    font-size: 1.08rem;
+    font-size: 1.05rem;
   }
-
-  .priceLabel {
-    font-size: 0.51rem;
-  }
-
-
-  /* DETAILS */
 
   .propertyDetails {
-    margin-top: 27px;
+    margin-top: 22px;
   }
 
   .detailItem {
@@ -1495,62 +1959,34 @@
   }
 
   .detailLabel {
-    font-size: 0.51rem;
+    font-size: 0.48rem;
   }
 
   .detailValue {
-    font-size: 0.68rem;
-  }
-
-
-  /* DESCRIPTION */
-
-  .description {
-    margin-top: 20px;
-
-    font-size: 0.84rem;
-
-    line-height: 1.62;
-  }
-
-
-  /* BOTTOM */
-
-  .propertyDivider {
-    margin-top: 22px;
+    font-size: 0.67rem;
   }
 
   .bottomContent {
-    align-items: flex-end;
-
-    gap: 18px;
+    gap: 12px;
   }
 
   .selectionNote {
-    max-width: 180px;
-  }
-
-  .selectionNote > span {
-    font-size: 0.56rem;
+    max-width: 190px;
   }
 
   .selectionNote p {
-    font-size: 0.69rem;
+    font-size: 0.64rem;
   }
 
   .exploreButton {
-    font-size: 0.7rem;
-
     padding-left: 12px;
+    font-size: 0.65rem;
   }
 
   .exploreIcon {
-    width: 28px;
-    height: 28px;
+    width: 27px;
+    height: 27px;
   }
-
-
-  /* ARROWS */
 
   .arrow {
     width: 44px;
@@ -1558,35 +1994,15 @@
   }
 
   .arrowLeft {
-    left: -10px;
+    left: -11px;
   }
 
   .arrowRight {
-    right: -10px;
+    right: -11px;
   }
-
-
-  /* CONTROLS */
-
-  .controls {
-    margin-top: 19px;
-  }
-
-
-  /* CTA */
 
   .bottomCta {
-    margin-top: 45px;
-
-    flex-direction: column;
-
-    align-items: stretch;
-
-    gap: 20px;
-
-    padding: 23px;
-
-    border-radius: 22px;
+    padding: 20px;
   }
 
   .ctaCopy h3 {
@@ -1598,186 +2014,18 @@
   }
 
   .ctaButton {
-    width: 100%;
+    padding: 12px 15px;
+    font-size: 0.7rem;
   }
 }
 
-
 /* =========================================
-   640px — LARGE PHONE / SMALL TABLET
-========================================= */
-
-@media (max-width: 640px) {
-
-  .propertyOpportunities {
-    padding-top: 82px;
-    padding-bottom: 82px;
-  }
-
-  .intro {
-    margin-bottom: 42px;
-  }
-
-  .introHeading h2 {
-    font-size: 2.2rem;
-  }
-
-  .introDescription {
-    margin-top: 18px;
-  }
-
-  .propertyContent {
-    min-height: 555px;
-  }
-
-  .propertyDetails {
-    margin-top: 25px;
-  }
-
-  .detailValue {
-    font-size: 0.66rem;
-  }
-
-  .bottomCta {
-    margin-top: 40px;
-  }
-}
-
-
-/* =========================================
-   540px — PHONE
-========================================= */
-
-@media (max-width: 540px) {
-
-  .propertyOpportunities {
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-
-  .introEyebrow {
-    gap: 9px;
-
-    font-size: 0.61rem;
-
-    letter-spacing: 0.16em;
-  }
-
-  .eyebrowLine {
-    width: 27px;
-    min-width: 27px;
-  }
-
-  .introHeading h2 {
-    font-size: 2.08rem;
-
-    letter-spacing: -0.045em;
-  }
-
-  .introDescription p {
-    font-size: 0.86rem;
-  }
-
-  .introNote {
-    font-size: 0.68rem;
-  }
-
-  .imageWrapper {
-    height: 260px;
-  }
-
-  .propertyContent {
-    min-height: 565px;
-
-    padding: 1.8rem 1.4rem;
-  }
-
-  .contentTop {
-    gap: 13px;
-  }
-
-  .propertyContent h3 {
-    font-size: 1.68rem;
-  }
-
-  .priceArea strong {
-    font-size: 1.02rem;
-  }
-
-  .propertyDetails {
-    margin-top: 24px;
-  }
-
-  .detailItem {
-    padding-top: 13px;
-    padding-bottom: 13px;
-  }
-
-  .detailLabel {
-    font-size: 0.48rem;
-  }
-
-  .detailValue {
-    font-size: 0.63rem;
-
-    line-height: 1.3;
-  }
-
-  .description {
-    margin-top: 18px;
-
-    font-size: 0.81rem;
-
-    line-height: 1.58;
-  }
-
-  .selectionNote {
-    max-width: 170px;
-  }
-
-  .selectionNote p {
-    font-size: 0.67rem;
-  }
-
-  .exploreButton {
-    font-size: 0.68rem;
-  }
-
-  .exploreIcon {
-    width: 27px;
-    height: 27px;
-  }
-
-  .arrow {
-    width: 40px;
-    height: 40px;
-  }
-
-  .arrowLeft {
-    left: -8px;
-  }
-
-  .arrowRight {
-    right: -8px;
-  }
-
-  .bottomCta {
-    padding: 21px;
-
-    border-radius: 20px;
-  }
-}
-
-
-/* =========================================
-   480px — SMALL MOBILE
+   480px
 ========================================= */
 
 @media (max-width: 480px) {
-
   .propertyOpportunities {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 64px 14px;
   }
 
   .intro {
@@ -1785,119 +2033,81 @@
   }
 
   .introHeading h2 {
-    font-size: 2.05rem;
+    font-size: clamp(2.1rem, 10.5vw, 2.8rem);
+  }
+
+  .introDescription {
+    margin-top: 18px;
   }
 
   .introDescription p {
-    font-size: 0.84rem;
+    font-size: 0.8rem;
+    line-height: 1.65;
   }
 
   .introNote {
+    margin-top: 13px;
     font-size: 0.66rem;
   }
 
+  .propertyCard {
+    border-radius: 20px;
+  }
+
   .imageWrapper {
-    height: 235px;
-  }
-
-  .imageTop {
-    top: 18px;
-
-    left: 18px;
-    right: 18px;
-  }
-
-  .propertyNumber {
-    font-size: 0.68rem;
-  }
-
-  .propertyCategory {
-    padding: 5px 8px;
-
-    font-size: 0.53rem;
-  }
-
-  .imageBottom {
-    left: 18px;
-    right: 18px;
-
-    bottom: 18px;
-
-    gap: 12px;
-  }
-
-  .location {
-    font-size: 0.69rem;
-  }
-
-  .illustrativeLabel {
-    max-width: 105px;
-
-    font-size: 0.49rem;
+    height: 245px;
   }
 
   .propertyContent {
-    min-height: 565px;
-
-    padding: 1.7rem 1.3rem 1.8rem;
-  }
-
-  .contentTop {
-    flex-direction: column;
-
-    gap: 14px;
-  }
-
-  .priceArea {
-    text-align: left;
+    padding: 1.55rem;
   }
 
   .propertyContent h3 {
-    font-size: 1.62rem;
+    font-size: clamp(1.35rem, 7.8vw, 1.8rem);
   }
 
-  .priceLabel {
-    margin-bottom: 4px;
+  .priceArea strong {
+    font-size: 0.95rem;
   }
 
   .propertyDetails {
-    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
   }
 
-  .detailItem:nth-child(odd) {
-    padding-right: 12px;
-  }
-
-  .detailItem:nth-child(even) {
-    padding-left: 12px;
+  .detailItem {
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
 
   .detailValue {
-    font-size: 0.65rem;
+    font-size: 0.62rem;
   }
 
-  .description {
-    font-size: 0.82rem;
-
-    line-height: 1.58;
+  .propertyDivider {
+    margin-top: 18px;
   }
 
   .bottomContent {
-    flex-direction: column;
-
-    align-items: stretch;
-
-    gap: 17px;
+    padding-top: 18px;
   }
 
   .selectionNote {
-    max-width: 100%;
+    max-width: 160px;
+  }
+
+  .selectionNote p {
+    font-size: 0.59rem;
   }
 
   .exploreButton {
-    width: 100%;
+    gap: 6px;
+    padding: 5px 5px 5px 10px;
+    font-size: 0.59rem;
+  }
 
-    justify-content: space-between;
+  .exploreIcon {
+    width: 25px;
+    height: 25px;
   }
 
   .arrow {
@@ -1913,116 +2123,94 @@
     right: -8px;
   }
 
+  .controls {
+    gap: 12px;
+  }
+
+  .progress {
+    gap: 5px;
+  }
+
   .progressItem {
-    width: 20px;
+    width: 17px;
   }
 
   .progressActive {
-    width: 37px;
+    width: 32px;
   }
 
-  .bottomCta {
-    margin-top: 38px;
-
-    padding: 20px;
-
-    border-radius: 20px;
-  }
-
-  .ctaEyebrow {
-    font-size: 0.56rem;
-  }
-
-  .ctaCopy h3 {
-    font-size: 1rem;
-  }
-
-  .ctaCopy p {
-    font-size: 0.69rem;
-  }
-
-  .ctaButton {
-    padding: 12px 14px;
-
-    font-size: 0.7rem;
+  .progressText {
+    font-size: 0.62rem;
   }
 }
 
-
 /* =========================================
-   400px — VERY SMALL MOBILE
+   400px
 ========================================= */
 
 @media (max-width: 400px) {
-
   .propertyOpportunities {
-    padding-left: 14px;
-    padding-right: 14px;
+    padding: 56px 12px;
   }
 
   .introHeading h2 {
-    font-size: 1.92rem;
-  }
-
-  .introDescription p {
-    font-size: 0.81rem;
-  }
-
-  .introNote {
-    font-size: 0.63rem;
+    font-size: clamp(1.95rem, 10.5vw, 2.5rem);
   }
 
   .imageWrapper {
     height: 220px;
   }
 
-  .propertyContent {
-    min-height: 575px;
-
-    padding: 1.6rem 1.2rem 1.7rem;
+  .imageTop {
+    top: 16px;
+    left: 16px;
+    right: 16px;
   }
 
-  .propertyContent h3 {
-    font-size: 1.55rem;
+  .imageBottom {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .propertyCategory {
+    padding: 6px 9px;
+    font-size: 0.52rem;
+  }
+
+  .propertyContent {
+    padding: 1.35rem;
+  }
+
+  .contentTop {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .priceArea {
+    text-align: left;
   }
 
   .propertyDetails {
-    margin-top: 22px;
+    margin-top: 18px;
   }
 
-  .detailItem {
-    padding-top: 12px;
-    padding-bottom: 12px;
+  .bottomContent {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .detailLabel {
-    font-size: 0.45rem;
-  }
-
-  .detailValue {
-    font-size: 0.61rem;
-  }
-
-  .description {
-    font-size: 0.79rem;
-  }
-
-  .selectionNote p {
-    font-size: 0.64rem;
+  .selectionNote {
+    max-width: 100%;
   }
 
   .exploreButton {
-    font-size: 0.66rem;
-  }
-
-  .exploreIcon {
-    width: 26px;
-    height: 26px;
+    align-self: flex-end;
   }
 
   .arrow {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
   }
 
   .arrowLeft {
@@ -2034,302 +2222,130 @@
   }
 }
 
-
 /* =========================================
-   360px — VERY SMALL DEVICES
+   360px
 ========================================= */
 
 @media (max-width: 360px) {
-
   .propertyOpportunities {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .introEyebrow {
-    font-size: 0.57rem;
-
-    letter-spacing: 0.13em;
-  }
-
-  .eyebrowLine {
-    width: 23px;
-    min-width: 23px;
+    padding: 50px 10px;
   }
 
   .introHeading h2 {
-    font-size: 1.82rem;
+    font-size: clamp(1.8rem, 10.5vw, 2.3rem);
   }
 
   .introDescription p {
-    font-size: 0.78rem;
-  }
-
-  .introNote {
-    font-size: 0.6rem;
-
-    padding-left: 11px;
+    font-size: 0.76rem;
   }
 
   .imageWrapper {
-    height: 210px;
-  }
-
-  .imageTop {
-    top: 15px;
-
-    left: 15px;
-    right: 15px;
-  }
-
-  .imageBottom {
-    left: 15px;
-    right: 15px;
-
-    bottom: 15px;
-  }
-
-  .propertyNumber {
-    font-size: 0.63rem;
-  }
-
-  .propertyCategory {
-    padding: 5px 7px;
-
-    font-size: 0.48rem;
-  }
-
-  .location {
-    font-size: 0.63rem;
-  }
-
-  .illustrativeLabel {
-    max-width: 90px;
-
-    font-size: 0.45rem;
+    height: 200px;
   }
 
   .propertyContent {
-    min-height: 580px;
-
-    padding: 1.5rem 1.15rem 1.6rem;
-  }
-
-  .contentEyebrow {
-    font-size: 0.54rem;
+    padding: 1.2rem;
   }
 
   .propertyContent h3 {
-    font-size: 1.48rem;
+    font-size: 1.45rem;
   }
 
-  .priceArea strong {
-    font-size: 0.98rem;
+  .detailItem:nth-child(odd) {
+    padding-right: 8px;
   }
 
-  .propertyDetails {
-    margin-top: 20px;
+  .detailItem:nth-child(even) {
+    padding-left: 8px;
   }
 
   .detailValue {
-    font-size: 0.59rem;
-  }
-
-  .description {
-    font-size: 0.77rem;
-
-    line-height: 1.55;
+    font-size: 0.58rem;
   }
 
   .selectionNote p {
-    font-size: 0.62rem;
-  }
-
-  .exploreButton {
-    font-size: 0.64rem;
-  }
-
-  .exploreIcon {
-    width: 25px;
-    height: 25px;
-  }
-
-  .arrow {
-    width: 36px;
-    height: 36px;
-  }
-
-  .arrowLeft {
-    left: -6px;
-  }
-
-  .arrowRight {
-    right: -6px;
-  }
-
-  .progress {
-    gap: 5px;
-  }
-
-  .progressItem {
-    width: 18px;
-  }
-
-  .progressActive {
-    width: 33px;
-  }
-
-  .progressText {
-    font-size: 0.62rem;
+    font-size: 0.56rem;
   }
 
   .bottomCta {
     padding: 18px;
-
-    border-radius: 18px;
-  }
-
-  .ctaEyebrow {
-    font-size: 0.52rem;
-  }
-
-  .ctaCopy h3 {
-    font-size: 0.95rem;
-  }
-
-  .ctaCopy p {
-    font-size: 0.66rem;
-  }
-
-  .ctaButton {
-    padding: 11px 13px;
-
-    font-size: 0.66rem;
   }
 }
 
-
 /* =========================================
-   320px — EXTREMELY SMALL DEVICES
+   320px
 ========================================= */
 
 @media (max-width: 320px) {
-
   .propertyOpportunities {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .introHeading h2 {
-    font-size: 1.7rem;
-  }
-
-  .introDescription p {
-    font-size: 0.75rem;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   .imageWrapper {
-    height: 195px;
+    height: 185px;
   }
 
   .propertyContent {
-    min-height: 590px;
-
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 1rem;
   }
 
   .propertyContent h3 {
-    font-size: 1.38rem;
+    font-size: 1.32rem;
+  }
+
+  .priceArea strong {
+    font-size: 0.86rem;
   }
 
   .detailLabel {
-    font-size: 0.42rem;
+    font-size: 0.43rem;
   }
 
   .detailValue {
-    font-size: 0.56rem;
-  }
-
-  .description {
-    font-size: 0.73rem;
-  }
-
-  .arrow {
-    width: 33px;
-    height: 33px;
-  }
-
-  .arrowLeft {
-    left: -5px;
-  }
-
-  .arrowRight {
-    right: -5px;
-  }
-
-  .exploreButton {
-    font-size: 0.61rem;
-  }
-
-  .bottomCta {
-    padding: 16px;
+    font-size: 0.54rem;
   }
 }
 
-
 /* =========================================
-   TOUCH DEVICES
-   Prevent hover lift from feeling strange
+   HOVER DEVICES ONLY
 ========================================= */
 
 @media (hover: none) {
-
   .propertyCardLink:hover .propertyCard {
     transform: none;
-
-    box-shadow:
-      0 30px 80px rgba(15, 44, 89, 0.11);
+    box-shadow: 0 30px 80px rgba(15, 44, 89, 0.11);
   }
 
   .propertyCardLink:hover .exploreButton {
     background: #ffffff;
-
     border-color: rgba(15, 44, 89, 0.12);
-
     color: #0f2c59;
   }
 
   .propertyCardLink:hover .exploreIcon {
     background: #0f2c59;
-
     transform: none;
   }
 
-  .arrow:hover {
+  .arrow:hover:not(:disabled) {
     background: #ffffff;
-
     color: #0f2c59;
-
     transform: none;
   }
 
   .ctaButton:hover {
     background: #0f2c59;
-
     border-color: #0f2c59;
-
     transform: none;
   }
 }
-
 
 /* =========================================
    REDUCED MOTION
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
   .image {
     animation: none;
   }

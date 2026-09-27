@@ -20,7 +20,7 @@
 
 /* =========================================================
    CINEMATIC MODE
-   ========================================================= */
+========================================================= */
 
 .cinematic {
   transform: translateY(-100%);
@@ -30,7 +30,7 @@
 
 /* =========================================================
    LOGO
-   ========================================================= */
+========================================================= */
 
 .logoLink {
   position: relative;
@@ -57,7 +57,7 @@
 
 /* =========================================================
    LANGUAGE TOGGLE
-   ========================================================= */
+========================================================= */
 
 .languageToggle {
   flex-shrink: 0;
@@ -108,7 +108,7 @@
 
 /* =========================================================
    DESKTOP NAVIGATION
-   ========================================================= */
+========================================================= */
 
 .navLinks {
   display: flex;
@@ -131,6 +131,7 @@
   letter-spacing: 0.01em;
   color: #334155;
   padding: 10px 0;
+  white-space: nowrap;
   transition: color 0.25s ease;
 }
 
@@ -155,7 +156,7 @@
 
 /* =========================================================
    CTA
-   ========================================================= */
+========================================================= */
 
 .cta {
   flex-shrink: 0;
@@ -187,7 +188,7 @@
 
 /* =========================================================
    MOBILE BUTTON
-   ========================================================= */
+========================================================= */
 
 .mobileButton {
   display: none;
@@ -217,7 +218,7 @@
 
 /* =========================================================
    DESKTOP DROPDOWN
-   ========================================================= */
+========================================================= */
 
 .dropdownWrapper {
   position: absolute;
@@ -364,8 +365,332 @@
 }
 
 /* =========================================================
-   LARGE SCREENS
-   ========================================================= */
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1440px) {
+  .navbar {
+    height: 92px;
+    padding-left: clamp(4.5rem, 5vw, 6rem);
+    padding-right: clamp(4.5rem, 5vw, 6rem);
+  }
+
+  .logoLink {
+    width: 225px;
+    height: 66px;
+  }
+
+  .navLinks {
+    gap: clamp(2.25rem, 1.8vw, 3rem);
+    margin-right: clamp(2.75rem, 2.2vw, 3.5rem);
+  }
+
+  .navItem {
+    font-size: 0.92rem;
+  }
+
+  .cta {
+    min-height: 49px;
+    padding: 0 1.55rem;
+    font-size: 0.9rem;
+  }
+
+  .dropdownPanel {
+    top: 92px;
+    width: min(1250px, 86vw);
+    padding: 2.75rem;
+  }
+}
+
+/* =========================================================
+   2K / LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1920px) {
+  .navbar {
+    height: 104px;
+    padding-left: clamp(5rem, 5.5vw, 8rem);
+    padding-right: clamp(5rem, 5.5vw, 8rem);
+  }
+
+  .logoLink {
+    width: 255px;
+    height: 76px;
+  }
+
+  .languageToggle {
+    margin-left: 1.7rem;
+    margin-right: 2.8rem;
+    padding: 0.58rem 0.82rem;
+    font-size: 0.74rem;
+  }
+
+  .navLinks {
+    gap: clamp(2.5rem, 2vw, 3.6rem);
+    margin-right: clamp(3rem, 2.6vw, 4.5rem);
+  }
+
+  .navItem {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
+
+  .cta {
+    min-height: 54px;
+    padding: 0 1.85rem;
+    font-size: 0.96rem;
+  }
+
+  .dropdownPanel {
+    top: 104px;
+    width: min(1500px, 82vw);
+    padding: 3.2rem;
+    border-radius: 28px;
+  }
+
+  .dropdownHeader {
+    margin-bottom: 2.25rem;
+  }
+
+  .dropdownHeader h3 {
+    font-size: 2.3rem;
+  }
+
+  .dropdownHeader p {
+    max-width: 740px;
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+
+  .dropdownGrid {
+    gap: 1.25rem;
+  }
+
+  .dropdownCard {
+    gap: 1.15rem;
+    padding: 1.55rem;
+  }
+
+  .cardIcon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .cardInfo h4 {
+    font-size: 1.05rem;
+  }
+
+  .cardInfo p {
+    font-size: 0.95rem;
+  }
+
+  .cardAction {
+    font-size: 0.95rem;
+  }
+
+  .dropdownButton {
+    margin-top: 2.25rem;
+    padding: 1.1rem;
+    font-size: 1.05rem;
+  }
+}
+
+/* =========================================================
+   TALL LARGE DESKTOP
+   Important for viewports such as 2560 × 2593
+========================================================= */
+
+@media (min-width: 1920px) and (min-height: 1600px) {
+  .navbar {
+    height: 116px;
+    padding-left: clamp(6rem, 6vw, 9rem);
+    padding-right: clamp(6rem, 6vw, 9rem);
+  }
+
+  .logoLink {
+    width: 285px;
+    height: 84px;
+  }
+
+  .languageToggle {
+    margin-left: 2rem;
+    margin-right: 3.2rem;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.78rem;
+  }
+
+  .navLinks {
+    gap: clamp(3rem, 2.2vw, 4.2rem);
+    margin-right: clamp(3.5rem, 2.8vw, 5rem);
+  }
+
+  .navItem {
+    font-size: 1.08rem;
+    padding: 13px 0;
+  }
+
+  .cta {
+    min-height: 58px;
+    padding: 0 2.1rem;
+    font-size: 1rem;
+  }
+
+  .dropdownPanel {
+    top: 116px;
+    width: min(1650px, 78vw);
+    padding: 3.5rem;
+    border-radius: 30px;
+  }
+
+  .dropdownHeader {
+    margin-bottom: 2.5rem;
+  }
+
+  .dropdownHeader h3 {
+    font-size: 2.5rem;
+  }
+
+  .dropdownHeader p {
+    max-width: 800px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+
+  .dropdownGrid {
+    gap: 1.35rem;
+  }
+
+  .dropdownCard {
+    gap: 1.25rem;
+    padding: 1.7rem;
+    border-radius: 20px;
+  }
+
+  .cardIcon {
+    width: 56px;
+    height: 56px;
+    border-radius: 15px;
+  }
+
+  .cardInfo h4 {
+    font-size: 1.1rem;
+  }
+
+  .cardInfo p {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .cardAction {
+    font-size: 1rem;
+  }
+
+  .dropdownButton {
+    margin-top: 2.5rem;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* =========================================================
+   4K / ULTRA-WIDE DESKTOP
+========================================================= */
+
+@media (min-width: 3000px) {
+  .navbar {
+    height: 128px;
+    padding-left: clamp(7rem, 7vw, 11rem);
+    padding-right: clamp(7rem, 7vw, 11rem);
+  }
+
+  .logoLink {
+    width: 315px;
+    height: 94px;
+  }
+
+  .languageToggle {
+    margin-left: 2.2rem;
+    margin-right: 3.6rem;
+    padding: 0.72rem 1rem;
+    font-size: 0.82rem;
+  }
+
+  .navLinks {
+    gap: clamp(3.25rem, 2.1vw, 4.5rem);
+    margin-right: clamp(4rem, 2.8vw, 5.5rem);
+  }
+
+  .navItem {
+    font-size: 1.14rem;
+    padding: 14px 0;
+  }
+
+  .cta {
+    min-height: 62px;
+    padding: 0 2.35rem;
+    font-size: 1.05rem;
+  }
+
+  .dropdownPanel {
+    top: 128px;
+    width: min(1800px, 76vw);
+    padding: 3.8rem;
+    border-radius: 34px;
+  }
+
+  .dropdownHeader {
+    margin-bottom: 2.75rem;
+  }
+
+  .dropdownHeader h3 {
+    font-size: 2.7rem;
+  }
+
+  .dropdownHeader p {
+    max-width: 860px;
+    font-size: 1.15rem;
+    line-height: 1.7;
+  }
+
+  .dropdownGrid {
+    gap: 1.5rem;
+  }
+
+  .dropdownCard {
+    gap: 1.4rem;
+    padding: 1.9rem;
+    border-radius: 22px;
+  }
+
+  .cardIcon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+  }
+
+  .cardInfo h4 {
+    font-size: 1.15rem;
+  }
+
+  .cardInfo p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .cardAction {
+    font-size: 1.05rem;
+  }
+
+  .dropdownButton {
+    margin-top: 2.75rem;
+    padding: 1.3rem;
+    font-size: 1.15rem;
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 1250px) {
   .navbar {
@@ -396,8 +721,8 @@
 }
 
 /* =========================================================
-   TABLET
-   ========================================================= */
+   TABLET / COMPACT DESKTOP
+========================================================= */
 
 @media (max-width: 1050px) {
   .navbar {
@@ -430,7 +755,7 @@
 
 /* =========================================================
    MOBILE
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 900px) {
   .navbar {
@@ -466,7 +791,7 @@
 
 /* =========================================================
    SMALL MOBILE
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 480px) {
   .navbar {
@@ -487,7 +812,7 @@
 
 /* =========================================================
    VERY SMALL MOBILE
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 360px) {
   .logoLink {
@@ -502,7 +827,7 @@
 
 /* =========================================================
    ACCESSIBILITY
-   ========================================================= */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   .navbar,

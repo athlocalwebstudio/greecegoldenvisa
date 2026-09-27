@@ -4991,6 +4991,7 @@ whyClientsTrustUs: {
     bedrooms: "BEDROOMS",
     status: "STATUS",
     investmentRoute: "INVESTMENT ROUTE",
+    bathrooms : "BATHROOMS"
   },
 
   approach: {
@@ -10880,6 +10881,7 @@ whyClientsTrustUs: {
     bedrooms: "СПАЛЬНИ",
     status: "СТАТУС",
     investmentRoute: "ИНВЕСТИЦИОННОЕ НАПРАВЛЕНИЕ",
+    bathrooms : "Ванные комнаты"
   },
 
   approach: {

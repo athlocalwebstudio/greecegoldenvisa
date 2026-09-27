@@ -8,20 +8,14 @@ import {
   MapPin,
   BedDouble,
   Ruler,
+  Bath,
 } from "lucide-react";
-
-import styles from "./propertyOpportunities.module.css";
 
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
-
+import styles from "./propertyOpportunities.module.css";
 import { useLanguage } from "@/app/LanguageContext";
-
-/*
-|--------------------------------------------------------------------------
-| SANITY QUERY
-|--------------------------------------------------------------------------
-*/
+import LocalizedLink from "@/app/components/LocalizedLink";
 
 const PROPERTIES_QUERY = `
   *[
@@ -48,13 +42,7 @@ const PROPERTIES_QUERY = `
   }
 `;
 
-/*
-|--------------------------------------------------------------------------
-| HELPERS
-|--------------------------------------------------------------------------
-*/
-
-function formatPrice(price) {
+const formatPrice = (price) => {
   if (!price) return "Price on request";
 
   return new Intl.NumberFormat("en-US", {
@@ -62,77 +50,40 @@ function formatPrice(price) {
     currency: "EUR",
     maximumFractionDigits: 0,
   }).format(price);
-}
+};
 
-function formatSize(size) {
+const formatSize = (size) => {
   if (!size) return "—";
-
   return `${size} m²`;
-}
+};
 
-function formatBedrooms(bedrooms) {
-  if (
-    typeof bedrooms !== "number" ||
-    bedrooms < 1
-  ) {
-    return null;
-  }
+const getCategory = (type) => {
+  if (!type) return "residential";
 
-  return bedrooms;
-}
+  const normalized = type.toLowerCase();
 
-function getCategory(type, t) {
-  if (type === "Land") {
-    return t("propertyOpportunities.categories.land");
-  }
+  if (normalized.includes("land")) return "land";
+  if (normalized.includes("commercial")) return "commercial";
 
-  if (type === "Commercial") {
-    return t(
-      "propertyOpportunities.categories.commercial"
-    );
-  }
+  return "residential";
+};
 
-  return t(
-    "propertyOpportunities.categories.residential"
+const isExternalUrl = (url) => {
+  return (
+    typeof url === "string" &&
+    /^https?:\/\//i.test(url)
   );
-}
-
-function getRouteLabel(route, t) {
-  if (
-    !route ||
-    route === "Not Yet Verified"
-  ) {
-    return t(
-      "propertyOpportunities.route.notVerified"
-    );
-  }
-
-  return `${route} ${t(
-    "propertyOpportunities.route.investmentRoute"
-  )}`;
-}
-
-/*
-|--------------------------------------------------------------------------
-| COMPONENT
-|--------------------------------------------------------------------------
-*/
+};
 
 export default function PropertyOpportunities() {
-  const [properties, setProperties] = useState([]);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-
   const { t } = useLanguage();
 
-  /*
-  |--------------------------------------------------------------------------
-  | FETCH PUBLISHED SANITY PROPERTIES
-  |--------------------------------------------------------------------------
-  */
+  const [properties, setProperties] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let isMounted = true;
+    let mounted = true;
 
     async function fetchProperties() {
       try {
@@ -140,21 +91,113 @@ export default function PropertyOpportunities() {
           PROPERTIES_QUERY
         );
 
-        if (isMounted) {
-          setProperties(data || []);
-        }
-      } catch (error) {
-        console.error(
-          "Failed to load Sanity properties:",
-          error
+        if (!mounted) return;
+
+        const sorted = [...(data || [])].sort(
+          (a, b) => {
+            const aTitle =
+              `${a?.city || ""} ${
+                a?.title || ""
+              }`.toLowerCase();
+
+            const bTitle =
+              `${b?.city || ""} ${
+                b?.title || ""
+              }`.toLowerCase();
+
+            const aPriority =
+              aTitle.includes("anavyssos") ||
+              aTitle.includes("villa")
+                ? 0
+                : aTitle.includes("varkiza") ||
+                    aTitle.includes("maisonette")
+                  ? 1
+                  : 2;
+
+            const bPriority =
+              bTitle.includes("anavyssos") ||
+              bTitle.includes("villa")
+                ? 0
+                : bTitle.includes("varkiza") ||
+                    bTitle.includes("maisonette")
+                  ? 1
+                  : 2;
+
+            return aPriority - bPriority;
+          }
         );
 
-        if (isMounted) {
-          setProperties([]);
-        }
+        const mapped = sorted.map(
+          (property, index) => ({
+            id: property._id,
+
+            number: String(index + 1).padStart(
+              2,
+              "0"
+            ),
+
+            title:
+              property.title ||
+              "Property Opportunity",
+
+            location:
+              property.location ||
+              property.city ||
+              "Greece",
+
+            category: getCategory(
+              property.type
+            ),
+
+            price: formatPrice(
+              property.price
+            ),
+
+            type:
+              property.type ||
+              "Property",
+
+            size: formatSize(
+              property.size
+            ),
+
+            bedrooms:
+              property.bedrooms || "—",
+
+            bathrooms:
+              property.bathrooms || "—",
+
+            route: property.route || null,
+
+            image: property.mainImage
+              ? urlFor(property.mainImage)
+                  .width(1400)
+                  .height(900)
+                  .fit("crop")
+                  .quality(85)
+                  .url()
+              : "/greek_background.jpg",
+
+            href:
+              property.propertyUrl ||
+              `/properties/${property._id}`,
+
+            status: property.status,
+
+            featured: property.featured,
+          })
+        );
+
+        setProperties(mapped);
+        setActiveIndex(0);
+      } catch (error) {
+        console.error(
+          "Failed to fetch properties:",
+          error
+        );
       } finally {
-        if (isMounted) {
-          setIsLoading(false);
+        if (mounted) {
+          setLoading(false);
         }
       }
     }
@@ -162,238 +205,217 @@ export default function PropertyOpportunities() {
     fetchProperties();
 
     return () => {
-      isMounted = false;
+      mounted = false;
     };
   }, []);
 
-  /*
-  |--------------------------------------------------------------------------
-  | MAP SANITY DATA → CARD DATA
-  |--------------------------------------------------------------------------
-  */
+  const cardsPerView = 3;
 
-  const mappedProperties = useMemo(() => {
-    const sortedProperties = [
-      ...properties,
-    ].sort((a, b) => {
-      const aTitle =
-        a.title?.toLowerCase() || "";
+  const visibleProperties = useMemo(() => {
+    if (!properties.length) return [];
 
-      const bTitle =
-        b.title?.toLowerCase() || "";
-
-      /*
-      |----------------------------------------------------------------
-      | CAROUSEL ORDER
-      |
-      | 01 — Luxury 260 sqm Villa in Anavyssos
-      | 02 — Luxury 157 sqm Maisonette in Varkiza
-      | 03 — Coastal Development Land in Ermioni
-      |----------------------------------------------------------------
-      */
-
-      const aIsAnavyssos =
-        aTitle.includes("anavyssos") ||
-        aTitle.includes("villa");
-
-      const bIsAnavyssos =
-        bTitle.includes("anavyssos") ||
-        bTitle.includes("villa");
-
-      const aIsVarkiza =
-        aTitle.includes("varkiza") ||
-        aTitle.includes("maisonette");
-
-      const bIsVarkiza =
-        bTitle.includes("varkiza") ||
-        bTitle.includes("maisonette");
-
-      if (
-        aIsAnavyssos &&
-        !bIsAnavyssos
-      ) {
-        return -1;
-      }
-
-      if (
-        !aIsAnavyssos &&
-        bIsAnavyssos
-      ) {
-        return 1;
-      }
-
-      if (
-        aIsVarkiza &&
-        !bIsVarkiza
-      ) {
-        return -1;
-      }
-
-      if (
-        !aIsVarkiza &&
-        bIsVarkiza
-      ) {
-        return 1;
-      }
-
-      return 0;
-    });
-
-    return sortedProperties.map(
-      (property, index) => {
-        const bedrooms =
-          formatBedrooms(
-            property.bedrooms
-          );
-
-        return {
-          id:
-            property._id ||
-            `property-${index}`,
-
-          number: String(
-            index + 1
-          ).padStart(2, "0"),
-
-          title:
-            property.title ||
-            t(
-              "propertyOpportunities.fallbacks.title"
-            ),
-
-          location:
-            property.city &&
-            property.location
-              ? `${property.city}, ${property.location}`
-              : property.city ||
-                property.location ||
-                t(
-                  "propertyOpportunities.fallbacks.location"
-                ),
-
-          category:
-            getCategory(
-              property.type,
-              t
-            ),
-
-          price:
-            formatPrice(property.price),
-
-          type:
-            property.type ||
-            t(
-              "propertyOpportunities.fallbacks.type"
-            ),
-
-          size:
-            formatSize(property.size),
-
-          bedrooms,
-
-          bathrooms:
-            property.bathrooms || null,
-
-          route:
-            getRouteLabel(
-              property.route,
-              t
-            ),
-
-          description:
-            property.description ||
-            t(
-              "propertyOpportunities.fallbacks.description"
-            ),
-
-          image:
-            property.mainImage
-              ? urlFor(property.mainImage)
-                  .width(1400)
-                  .height(900)
-                  .fit("crop")
-                  .url()
-              : "/ready-to-move.jpg",
-
-          href:
-            property.propertyUrl ||
-            "/program/eligibility",
-
-          status:
-            property.status ||
-            t(
-              "propertyOpportunities.fallbacks.status"
-            ),
-
-          featured:
-            property.featured || false,
-        };
-      }
+    const count = Math.min(
+      cardsPerView,
+      properties.length
     );
-  }, [properties, t]);
 
-  /*
-  |--------------------------------------------------------------------------
-  | KEEP INDEX VALID
-  |--------------------------------------------------------------------------
-  */
+    return Array.from(
+      { length: count },
+      (_, offset) =>
+        properties[
+          (activeIndex + offset) %
+            properties.length
+        ]
+    );
+  }, [properties, activeIndex]);
 
-  useEffect(() => {
-    if (
-      activeIndex >=
-      mappedProperties.length
-    ) {
-      setActiveIndex(0);
-    }
-  }, [
-    activeIndex,
-    mappedProperties.length,
-  ]);
+  const canNavigate =
+    properties.length > cardsPerView;
 
-  /*
-  |--------------------------------------------------------------------------
-  | LOADING
-  |--------------------------------------------------------------------------
-  */
+  const goNext = () => {
+    if (!canNavigate) return;
 
-  if (
-    isLoading ||
-    !mappedProperties.length
-  ) {
-    return null;
-  }
-
-  const activeProperty =
-    mappedProperties[activeIndex];
-
-  /*
-  |--------------------------------------------------------------------------
-  | SLIDER CONTROLS
-  |--------------------------------------------------------------------------
-  */
-
-  const previousSlide = () => {
     setActiveIndex(
       (current) =>
-        current === 0
-          ? mappedProperties.length - 1
-          : current - 1
+        (current + 1) % properties.length
     );
   };
 
-  const nextSlide = () => {
+  const goPrevious = () => {
+    if (!canNavigate) return;
+
     setActiveIndex(
       (current) =>
-        current ===
-        mappedProperties.length - 1
-          ? 0
-          : current + 1
+        (current - 1 + properties.length) %
+        properties.length
     );
   };
 
-  const goToSlide = (index) => {
+  const goToProperty = (index) => {
+    if (!properties.length) return;
+
     setActiveIndex(index);
   };
+
+  if (loading) {
+    return (
+      <section
+        className={
+          styles.propertyOpportunities
+        }
+      >
+        <div className={styles.container}>
+          <div className={styles.intro}>
+            <div
+              className={
+                styles.introEyebrow
+              }
+            >
+              <span
+                className={
+                  styles.eyebrowLine
+                }
+              />
+
+              {t(
+                "propertyOpportunities.intro.eyebrow"
+              )}
+            </div>
+
+            <div
+              className={
+                styles.introHeading
+              }
+            >
+              <h2>
+                {t(
+                  "propertyOpportunities.intro.title"
+                )}
+
+                <br />
+
+                <span>
+                  {t(
+                    "propertyOpportunities.intro.highlight"
+                  )}
+                </span>
+              </h2>
+            </div>
+
+            <div
+              className={
+                styles.introDescription
+              }
+            >
+              <p>
+                {t(
+                  "propertyOpportunities.intro.description"
+                )}
+              </p>
+
+              <span
+                className={
+                  styles.introNote
+                }
+              >
+                {t(
+                  "propertyOpportunities.intro.note"
+                )}
+              </span>
+            </div>
+          </div>
+
+          <div
+            className={
+              styles.loadingState
+            }
+          >
+            Loading...
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (!properties.length) {
+    return (
+      <section
+        className={
+          styles.propertyOpportunities
+        }
+      >
+        <div className={styles.container}>
+          <div className={styles.intro}>
+            <div
+              className={
+                styles.introEyebrow
+              }
+            >
+              <span
+                className={
+                  styles.eyebrowLine
+                }
+              />
+
+              {t(
+                "propertyOpportunities.intro.eyebrow"
+              )}
+            </div>
+
+            <div
+              className={
+                styles.introHeading
+              }
+            >
+              <h2>
+                {t(
+                  "propertyOpportunities.intro.title"
+                )}
+
+                <br />
+
+                <span>
+                  {t(
+                    "propertyOpportunities.intro.highlight"
+                  )}
+                </span>
+              </h2>
+            </div>
+
+            <div
+              className={
+                styles.introDescription
+              }
+            >
+              <p>
+                {t(
+                  "propertyOpportunities.intro.description"
+                )}
+              </p>
+
+              <span
+                className={
+                  styles.introNote
+                }
+              >
+                {t(
+                  "propertyOpportunities.intro.note"
+                )}
+              </span>
+            </div>
+          </div>
+
+          <div
+            className={styles.emptyState}
+          >
+            {t(
+              "propertyOpportunities.fallbacks.description"
+            )}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section
@@ -401,16 +423,8 @@ export default function PropertyOpportunities() {
         styles.propertyOpportunities
       }
     >
-      <div
-        className={styles.container}
-      >
-
-        {/* =========================================
-            INTRO
-        ========================================= */}
-
+      <div className={styles.container}>
         <div className={styles.intro}>
-
           <div
             className={
               styles.introEyebrow
@@ -422,11 +436,9 @@ export default function PropertyOpportunities() {
               }
             />
 
-            <span>
-              {t(
-                "propertyOpportunities.intro.eyebrow"
-              )}
-            </span>
+            {t(
+              "propertyOpportunities.intro.eyebrow"
+            )}
           </div>
 
           <div
@@ -438,10 +450,14 @@ export default function PropertyOpportunities() {
               {t(
                 "propertyOpportunities.intro.title"
               )}
+
               <br />
-              {t(
-                "propertyOpportunities.intro.highlight"
-              )}
+
+              <span>
+                {t(
+                  "propertyOpportunities.intro.highlight"
+                )}
+              </span>
             </h2>
           </div>
 
@@ -466,547 +482,484 @@ export default function PropertyOpportunities() {
               )}
             </span>
           </div>
-
         </div>
 
-        {/* =========================================
-            CAROUSEL
-        ========================================= */}
-
-        <div
-          className={styles.carousel}
-        >
-
-          {/* LEFT ARROW */}
-
+        <div className={styles.carousel}>
           <button
             type="button"
             className={`${styles.arrow} ${styles.arrowLeft}`}
-            onClick={previousSlide}
+            onClick={goPrevious}
+            disabled={!canNavigate}
             aria-label={t(
               "propertyOpportunities.navigation.previous"
             )}
           >
             <ArrowLeft
-              size={19}
-              strokeWidth={1.8}
+              size={20}
+              strokeWidth={1.7}
             />
           </button>
 
-          {/* =========================================
-              PROPERTY CARD
-          ========================================= */}
-
-          <a
-            href={activeProperty.href}
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
             className={
-              styles.propertyCardLink
+              styles.cardsViewport
             }
-            aria-label={t(
-              "propertyOpportunities.navigation.explore",
-              {
-                title:
-                  activeProperty.title,
-              }
-            )}
           >
-
-            <article
+            <div
               className={
-                styles.propertyCard
+                styles.cardsTrack
               }
             >
-
-              {/* =========================================
-                  IMAGE
-              ========================================= */}
-
-              <div
-                className={
-                  styles.imageWrapper
-                }
-              >
-
-                <img
-                  key={
-                    activeProperty.image
-                  }
-                  src={
-                    activeProperty.image
-                  }
-                  alt={
-                    activeProperty.title
-                  }
-                  className={
-                    styles.image
-                  }
-                />
-
-                <div
-                  className={
-                    styles.imageOverlay
-                  }
-                />
-
-                <div
-                  className={
-                    styles.imageTop
-                  }
-                >
-
-                  <span
-                    className={
-                      styles.propertyNumber
-                    }
-                  >
-                    {
-                      activeProperty.number
-                    }{" "}
-                    /{" "}
-                    {String(
-                      mappedProperties.length
-                    ).padStart(2, "0")}
-                  </span>
-
-                  <span
-                    className={
-                      styles.propertyCategory
-                    }
-                  >
-                    {
-                      activeProperty.category
-                    }
-                  </span>
-
-                </div>
-
-                <div
-                  className={
-                    styles.imageBottom
-                  }
-
-                >
-
-                  <div
-                    className={
-                      styles.location
-                    }
-                  >
-
-                    <MapPin
-                      size={15}
-                      strokeWidth={1.8}
-                    />
-
-                    <span>
-                      {
-                        activeProperty.location
-                      }
-                    </span>
-
-                  </div>
-
-                  <span
-                    className={
-                      styles.illustrativeLabel
-                    }
-                  >
-                    {t(
-                      "propertyOpportunities.image.selectedProperty"
-                    )}
-                  </span>
-
-                </div>
-
-              </div>
-
-              {/* =========================================
-                  PROPERTY CONTENT
-              ========================================= */}
-
-              <div
-                className={
-                  styles.propertyContent
-                }
-              >
-
-                <div
-                  className={
-                    styles.contentTop
-                  }
-                >
-
-                  <div
-                    className={
-                      styles.titleArea
-                    }
-                  >
-
-                    <span
+              {visibleProperties.map(
+                (property) => {
+                  const cardContent = (
+                    <article
                       className={
-                        styles.contentEyebrow
+                        styles.propertyCard
                       }
                     >
-                      {t(
-                        "propertyOpportunities.card.selectedOpportunity"
-                      )}
-                    </span>
-
-                    <h3>
-                      {
-                        activeProperty.title
-                      }
-                    </h3>
-
-                  </div>
-
-                  <div
-                    className={
-                      styles.priceArea
-                    }
-                  >
-
-                    <span
-                      className={
-                        styles.priceLabel
-                      }
-                    >
-                      {t(
-                        "propertyOpportunities.card.indicativeValue"
-                      )}
-                    </span>
-
-                    <strong>
-                      {
-                        activeProperty.price
-                      }
-                    </strong>
-
-                  </div>
-
-                </div>
-
-                {/* =========================================
-                    PROPERTY DETAILS
-                ========================================= */}
-
-                <div
-                  className={
-                    styles.propertyDetails
-                  }
-                >
-
-                  <div
-                    className={
-                      styles.detailItem
-                    }
-                  >
-
-                    <span
-                      className={
-                        styles.detailLabel
-                      }
-                    >
-                      {t(
-                        "propertyOpportunities.details.type"
-                      )}
-                    </span>
-
-                    <span
-                      className={
-                        styles.detailValue
-                      }
-                    >
-                      {
-                        activeProperty.type
-                      }
-                    </span>
-
-                  </div>
-
-                  <div
-                    className={
-                      styles.detailItem
-                    }
-                  >
-
-                    <span
-                      className={
-                        styles.detailLabel
-                      }
-                    >
-                      {t(
-                        "propertyOpportunities.details.size"
-                      )}
-                    </span>
-
-                    <span
-                      className={
-                        styles.detailValue
-                      }
-                    >
-
-                      <Ruler
-                        size={14}
-                        strokeWidth={1.8}
-                      />
-
-                      {
-                        activeProperty.size
-                      }
-
-                    </span>
-
-                  </div>
-
-                  <div
-                    className={
-                      styles.detailItem
-                    }
-                  >
-
-                    <span
-                      className={
-                        styles.detailLabel
-                      }
-                    >
-                      {
-                        activeProperty.bedrooms
-                          ? t(
-                              "propertyOpportunities.details.bedrooms"
-                            )
-                          : t(
-                              "propertyOpportunities.details.status"
-                            )
-                      }
-                    </span>
-
-                    <span
-                      className={
-                        styles.detailValue
-                      }
-                    >
-
-                      {activeProperty.bedrooms ? (
-                        <>
-                          <BedDouble
-                            size={14}
-                            strokeWidth={1.8}
-                          />
-
-                          {
-                            activeProperty.bedrooms
+                      <div
+                        className={
+                          styles.imageWrapper
+                        }
+                      >
+                        <img
+                          src={
+                            property.image
                           }
-                        </>
-                      ) : (
-                        activeProperty.status
-                      )}
+                          alt={
+                            property.title
+                          }
+                          className={
+                            styles.image
+                          }
+                        />
 
-                    </span>
+                        <div
+                          className={
+                            styles.imageOverlay
+                          }
+                        />
 
-                  </div>
+                        <div
+                          className={
+                            styles.imageTop
+                          }
+                        >
+                          <span
+                            className={
+                              styles.propertyNumber
+                            }
+                          >
+                            {
+                              property.number
+                            }
+                          </span>
 
-                  <div
-                    className={
-                      styles.detailItem
-                    }
-                  >
+                          <span
+                            className={
+                              styles.propertyCategory
+                            }
+                          >
+                            {t(
+                              `propertyOpportunities.categories.${property.category}`
+                            )}
+                          </span>
+                        </div>
 
-                    <span
+                        <div
+                          className={
+                            styles.imageBottom
+                          }
+                        >
+                          <div
+                            className={
+                              styles.location
+                            }
+                          >
+                            <MapPin
+                              size={14}
+                              strokeWidth={
+                                1.7
+                              }
+                            />
+
+                            <span>
+                              {
+                                property.location
+                              }
+                            </span>
+                          </div>
+
+                          <span
+                            className={
+                              styles.illustrativeLabel
+                            }
+                          >
+                            {t(
+                              "propertyOpportunities.image.selectedProperty"
+                            )}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div
+                        className={
+                          styles.propertyContent
+                        }
+                      >
+                        <div
+                          className={
+                            styles.contentTop
+                          }
+                        >
+                          <div
+                            className={
+                              styles.titleArea
+                            }
+                          >
+                            <span
+                              className={
+                                styles.contentEyebrow
+                              }
+                            >
+                              {
+                                property.type
+                              }
+                            </span>
+
+                            <h3>
+                              {
+                                property.title
+                              }
+                            </h3>
+                          </div>
+
+                          <div
+                            className={
+                              styles.priceArea
+                            }
+                          >
+                            <span
+                              className={
+                                styles.priceLabel
+                              }
+                            >
+                              {t(
+                                "propertyOpportunities.card.indicativeValue"
+                              )}
+                            </span>
+
+                            <strong>
+                              {
+                                property.price
+                              }
+                            </strong>
+                          </div>
+                        </div>
+
+                        <div
+                          className={
+                            styles.propertyDetails
+                          }
+                        >
+                          <div
+                            className={
+                              styles.detailItem
+                            }
+                          >
+                            <span
+                              className={
+                                styles.detailLabel
+                              }
+                            >
+                              {t(
+                                "propertyOpportunities.details.type"
+                              )}
+                            </span>
+
+                            <span
+                              className={
+                                styles.detailValue
+                              }
+                            >
+                              {
+                                property.type
+                              }
+                            </span>
+                          </div>
+
+                          <div
+                            className={
+                              styles.detailItem
+                            }
+                          >
+                            <span
+                              className={
+                                styles.detailLabel
+                              }
+                            >
+                              {t(
+                                "propertyOpportunities.details.size"
+                              )}
+                            </span>
+
+                            <span
+                              className={
+                                styles.detailValue
+                              }
+                            >
+                              <Ruler
+                                size={14}
+                                strokeWidth={
+                                  1.7
+                                }
+                              />
+
+                              {
+                                property.size
+                              }
+                            </span>
+                          </div>
+
+                          <div
+                            className={
+                              styles.detailItem
+                            }
+                          >
+                            <span
+                              className={
+                                styles.detailLabel
+                              }
+                            >
+                              {t(
+                                "propertyOpportunities.details.bedrooms"
+                              )}
+                            </span>
+
+                            <span
+                              className={
+                                styles.detailValue
+                              }
+                            >
+                              <BedDouble
+                                size={14}
+                                strokeWidth={
+                                  1.7
+                                }
+                              />
+
+                              {
+                                property.bedrooms
+                              }
+                            </span>
+                          </div>
+
+                          <div
+                            className={
+                              styles.detailItem
+                            }
+                          >
+                            <span
+                              className={
+                                styles.detailLabel
+                              }
+                            >
+                              {t(
+                                "propertyOpportunities.details.bathrooms"
+                              )}
+                            </span>
+
+                            <span
+                              className={
+                                styles.detailValue
+                              }
+                            >
+                              <Bath
+                                size={14}
+                                strokeWidth={
+                                  1.7
+                                }
+                              />
+
+                              {
+                                property.bathrooms
+                              }
+                            </span>
+                          </div>
+                        </div>
+
+                        <div
+                          className={
+                            styles.bottomContent
+                          }
+                        >
+                          <div
+                            className={
+                              styles.selectionNote
+                            }
+                          >
+                            <span>
+                              {t(
+                                "propertyOpportunities.details.investmentRoute"
+                              )}
+                            </span>
+
+                            <p>
+                              {property.route ||
+                                t(
+                                  "propertyOpportunities.route.notVerified"
+                                )}
+                            </p>
+                          </div>
+
+                          <span
+                            className={
+                              styles.exploreButton
+                            }
+                          >
+                            {t(
+                              "propertyOpportunities.card.viewProperty"
+                            )}
+
+                            <span
+                              className={
+                                styles.exploreIcon
+                              }
+                            >
+                              <ArrowUpRight
+                                size={15}
+                                strokeWidth={
+                                  1.8
+                                }
+                              />
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </article>
+                  );
+
+                  /*
+                   * Sanity propertyUrl is an external URL
+                   * such as:
+                   * https://homesingreece.eu/property/3775
+                   *
+                   * External URLs must NOT go through
+                   * LocalizedLink because LocalizedLink
+                   * intentionally adds /en or /ru.
+                   */
+                  if (
+                    isExternalUrl(
+                      property.href
+                    )
+                  ) {
+                    return (
+                      <a
+                        href={property.href}
+                        key={property.id}
+                        className={
+                          styles.propertyCardLink
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {cardContent}
+                      </a>
+                    );
+                  }
+
+                  return (
+                    <LocalizedLink
+                      href={property.href}
+                      key={property.id}
                       className={
-                        styles.detailLabel
+                        styles.propertyCardLink
                       }
                     >
-                      {t(
-                        "propertyOpportunities.details.investmentRoute"
-                      )}
-                    </span>
-
-                    <span
-                      className={
-                        styles.detailValue
-                      }
-                    >
-                      {
-                        activeProperty.route
-                      }
-                    </span>
-
-                  </div>
-
-                </div>
-
-                {/* =========================================
-                    DESCRIPTION
-                ========================================= */}
-
-                <p
-                  className={
-                    styles.description
-                  }
-                >
-                  {
-                    activeProperty.description
-                  }
-                </p>
-
-                <div
-                  className={
-                    styles.propertyDivider
-                  }
-                />
-
-                {/* =========================================
-                    BOTTOM CONTENT
-                ========================================= */}
-
-                <div
-                  className={
-                    styles.bottomContent
-                  }
-                >
-
-                  <div
-                    className={
-                      styles.selectionNote
-                    }
-                  >
-
-                    <span>
-                      {t(
-                        "propertyOpportunities.approach.label"
-                      )}
-                    </span>
-
-                    <p>
-                      {t(
-                        "propertyOpportunities.approach.description"
-                      )}
-                    </p>
-
-                  </div>
-
-                  <span
-                    className={
-                      styles.exploreButton
-                    }
-                  >
-
-                    <span>
-                      {t(
-                        "propertyOpportunities.card.viewProperty"
-                      )}
-                    </span>
-
-                    <span
-                      className={
-                        styles.exploreIcon
-                      }
-                    >
-
-                      <ArrowUpRight
-                        size={17}
-                        strokeWidth={2}
-                      />
-
-                    </span>
-
-                  </span>
-
-                </div>
-
-              </div>
-
-            </article>
-
-          </a>
-
-          {/* RIGHT ARROW */}
+                      {cardContent}
+                    </LocalizedLink>
+                  );
+                }
+              )}
+            </div>
+          </div>
 
           <button
             type="button"
             className={`${styles.arrow} ${styles.arrowRight}`}
-            onClick={nextSlide}
+            onClick={goNext}
+            disabled={!canNavigate}
             aria-label={t(
               "propertyOpportunities.navigation.next"
             )}
           >
             <ArrowRight
-              size={19}
-              strokeWidth={1.8}
+              size={20}
+              strokeWidth={1.7}
             />
           </button>
-
         </div>
 
-        {/* =========================================
-            CONTROLS
-        ========================================= */}
-
-        <div
-          className={styles.controls}
-        >
-
+        {properties.length > 1 && (
           <div
-            className={styles.progress}
+            className={styles.controls}
           >
-
-            {mappedProperties.map(
-              (property, index) => (
-                <button
-                  type="button"
-                  key={property.id}
-                  onClick={() =>
-                    goToSlide(index)
-                  }
-                  className={`${styles.progressItem} ${
-                    index === activeIndex
-                      ? styles.progressActive
-                      : ""
-                  }`}
-                  aria-label={t(
-                    "propertyOpportunities.navigation.goTo",
-                    {
-                      title:
-                        property.title,
+            <div
+              className={styles.progress}
+            >
+              {properties.map(
+                (property, index) => (
+                  <button
+                    type="button"
+                    key={property.id}
+                    className={`${styles.progressItem} ${
+                      index === activeIndex
+                        ? styles.progressActive
+                        : ""
+                    }`}
+                    onClick={() =>
+                      goToProperty(index)
                     }
-                  )}
-                />
-              )
-            )}
+                    aria-label={t(
+                      "propertyOpportunities.navigation.goTo",
+                      {
+                        title:
+                          property.title,
+                      }
+                    )}
+                    aria-current={
+                      index === activeIndex
+                        ? "true"
+                        : undefined
+                    }
+                  />
+                )
+              )}
+            </div>
 
+            <span
+              className={
+                styles.progressText
+              }
+            >
+              {String(
+                activeIndex + 1
+              ).padStart(2, "0")}{" "}
+              /{" "}
+              {String(
+                properties.length
+              ).padStart(2, "0")}
+            </span>
           </div>
-
-          <span
-            className={
-              styles.progressText
-            }
-          >
-            {
-              activeProperty.number
-            }{" "}
-            /{" "}
-            {String(
-              mappedProperties.length
-            ).padStart(2, "0")}
-          </span>
-
-        </div>
-
-        {/* =========================================
-            BOTTOM CTA
-        ========================================= */}
+        )}
 
         <div
           className={styles.bottomCta}
         >
-
           <div
             className={styles.ctaCopy}
           >
-
             <span
               className={
                 styles.ctaEyebrow
@@ -1028,31 +981,24 @@ export default function PropertyOpportunities() {
                 "propertyOpportunities.cta.description"
               )}
             </p>
-
           </div>
 
-          <a
-            href="/program/eligibility"
+          <LocalizedLink
+            href="/team/contact"
             className={
               styles.ctaButton
             }
           >
-
-            <span>
-              {t(
-                "propertyOpportunities.cta.button"
-              )}
-            </span>
+            {t(
+              "propertyOpportunities.cta.button"
+            )}
 
             <ArrowRight
-              size={17}
-              strokeWidth={2}
+              size={15}
+              strokeWidth={1.8}
             />
-
-          </a>
-
+          </LocalizedLink>
         </div>
-
       </div>
     </section>
   );
