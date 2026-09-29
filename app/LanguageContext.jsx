@@ -1088,7 +1088,7 @@ whyClientsTrustUs: {
     button: "Start Your Free Assessment",
   },
 },
-    applicationChecklist: {
+applicationChecklist: {
   hero: {
     label: "APPLICATION CHECKLIST",
     heading: "Know what's ready.",
@@ -1127,127 +1127,160 @@ whyClientsTrustUs: {
   },
 
   sections: {
-    "identity.title": "Identity & Entry",
-    "identity.description":
-      "The documents that establish your identity and your lawful basis for submitting the application.",
+    identity: {
+      title: "Identity & Entry",
+      description:
+        "The documents that establish your identity and your lawful basis for submitting the application.",
 
-    "identity.items.passport.title":
-      "Valid passport or recognised travel document",
-    "identity.items.passport.description":
-      "Provide a valid travel document recognised by the Greek authorities.",
+      items: {
+        passport: {
+          title: "Valid passport or recognised travel document",
+          description:
+            "Provide a valid travel document recognised by the Greek authorities.",
+        },
 
-    "identity.items.entryStatus.title":
-      "Valid entry / residence status",
-    "identity.items.entryStatus.description":
-      "Depending on your circumstances, this may include the appropriate visa, visa exemption, or residence permit.",
+        entryStatus: {
+          title: "Valid entry / residence status",
+          description:
+            "Depending on your circumstances, this may include the appropriate visa, visa exemption, or residence permit.",
+        },
 
-    "identity.items.photo.title":
-      "Recent passport-style photograph",
-    "identity.items.photo.description":
-      "A recent colour photograph meeting the applicable Greek passport specifications, including the required digital format.",
+        photo: {
+          title: "Recent passport-style photograph",
+          description:
+            "A recent colour photograph meeting the applicable Greek passport specifications, including the required digital format.",
+        },
 
-    "identity.items.contact.title":
-      "Email address and mobile phone",
-    "identity.items.contact.description":
-      "Current contact details are required for the electronic application process.",
+        contact: {
+          title: "Email address and mobile phone",
+          description:
+            "Current contact details are required for the electronic application process.",
+        },
+      },
+    },
 
-    "investment.title":
-      "Investment Documentation",
-    "investment.description":
-      "Evidence showing that the qualifying investment has been completed and meets the applicable requirements.",
+    investment: {
+      title: "Investment Documentation",
+      description:
+        "Evidence showing that the qualifying investment has been completed and meets the applicable requirements.",
 
-    "investment.items.purchaseContract.title":
-      "Property purchase documentation",
-    "investment.items.purchaseContract.description":
-      "The relevant transfer deed or other transaction documentation for the qualifying investment.",
+      items: {
+        purchaseContract: {
+          title: "Property purchase documentation",
+          description:
+            "The relevant transfer deed or other transaction documentation for the qualifying investment.",
+        },
 
-    "investment.items.notarialCertificate.title":
-      "Notarial certificate",
-    "investment.items.notarialCertificate.description":
-      "A certificate from the notary confirming the contracting parties, property details, consideration and payment details required under the Golden Visa framework.",
+        notarialCertificate: {
+          title: "Notarial certificate",
+          description:
+            "A certificate from the notary confirming the contracting parties, property details, consideration and payment details required under the Golden Visa framework.",
+        },
 
-    "investment.items.paymentProof.title":
-      "Evidence of qualifying payment",
-    "investment.items.paymentProof.description":
-      "Documentation supporting the payment of the agreed consideration through an accepted payment method.",
+        paymentProof: {
+          title: "Evidence of qualifying payment",
+          description:
+            "Documentation supporting the payment of the agreed consideration through an accepted payment method.",
+        },
 
-    "investment.items.landRegistry.title":
-      "Land Registry / Cadastre registration evidence",
-    "investment.items.landRegistry.description":
-      "Proof of registration or the applicable registration filing / lawyer's certificate.",
+        landRegistry: {
+          title: "Land Registry / Cadastre registration evidence",
+          description:
+            "Proof of registration or the applicable registration filing / lawyer's certificate.",
+        },
 
-    "investment.items.e9.title":
-      "E9 real estate declaration",
-    "investment.items.e9.description":
-      "A copy of the investor's Greek real estate declaration where applicable.",
+        e9: {
+          title: "E9 real estate declaration",
+          description:
+            "A copy of the investor's Greek real estate declaration where applicable.",
+        },
+      },
+    },
 
-    "insurance.title":
-      "Insurance & Application",
-    "insurance.description":
-      "Documents required to support the residence permit application itself.",
+    insurance: {
+      title: "Insurance & Application",
+      description:
+        "Documents required to support the residence permit application itself.",
 
-    "insurance.items.insurance.title":
-      "Private health insurance",
-    "insurance.items.insurance.description":
-      "An insurance contract from a private insurance provider covering the applicable requirements.",
+      items: {
+        insurance: {
+          title: "Private health insurance",
+          description:
+            "An insurance contract from a private insurance provider covering the applicable requirements.",
+        },
 
-    "insurance.items.application.title":
-      "Residence permit application",
-    "insurance.items.application.description":
-      "The application submitted through the electronic services of the Ministry of Migration and Asylum.",
+        application: {
+          title: "Residence permit application",
+          description:
+            "The application submitted through the electronic services of the Ministry of Migration and Asylum.",
+        },
 
-    "insurance.items.fees.title":
-      "Residence permit fees",
-    "insurance.items.fees.description":
-      "Confirm the applicable administrative fees and electronic residence permit printing charge before submission.",
+        fees: {
+          title: "Residence permit fees",
+          description:
+            "Confirm the applicable administrative fees and electronic residence permit printing charge before submission.",
+        },
+      },
+    },
 
-    "route.title":
-      "Route-Specific Documents",
-    "route.description":
-      "Additional evidence may be required depending on the investment structure and property route.",
+    route: {
+      title: "Route-Specific Documents",
+      description:
+        "Additional evidence may be required depending on the investment structure and property route.",
 
-    "route.items.routeVerification.title":
-      "Investment route verified",
-    "route.items.routeVerification.description":
-      "Confirm which Golden Visa route applies to the property before relying on a standard checklist.",
+      items: {
+        routeVerification: {
+          title: "Investment route verified",
+          description:
+            "Confirm which Golden Visa route applies to the property before relying on a standard checklist.",
+        },
 
-    "route.items.specialProperty.title":
-      "Special property documentation",
-    "route.items.specialProperty.description":
-      "Additional technical, legal or administrative evidence may apply to specific routes such as qualifying change-of-use or listed-building investments.",
+        specialProperty: {
+          title: "Special property documentation",
+          description:
+            "Additional technical, legal or administrative evidence may apply to specific routes such as qualifying change-of-use or listed-building investments.",
+        },
 
-    "route.items.companyOwnership.title":
-      "Company ownership evidence",
-    "route.items.companyOwnership.description":
-      "If the property is acquired through an eligible legal entity, evidence of the investor's ownership interests may be required.",
+        companyOwnership: {
+          title: "Company ownership evidence",
+          description:
+            "If the property is acquired through an eligible legal entity, evidence of the investor's ownership interests may be required.",
+        },
+      },
+    },
 
-    "professional.title":
-      "Professional Review",
-    "professional.description":
-      "The final stage is not simply collecting files. Each document needs to support the application correctly.",
+    professional: {
+      title: "Professional Review",
+      description:
+        "The final stage is not simply collecting files. Each document needs to support the application correctly.",
 
-    "professional.items.legalReview.title":
-      "Legal documentation reviewed",
-    "professional.items.legalReview.description":
-      "Confirm that the transaction and supporting legal documents have been reviewed by the appropriate professional.",
+      items: {
+        legalReview: {
+          title: "Legal documentation reviewed",
+          description:
+            "Confirm that the transaction and supporting legal documents have been reviewed by the appropriate professional.",
+        },
 
-    "professional.items.technicalReview.title":
-      "Technical documentation reviewed",
-    "professional.items.technicalReview.description":
-      "Confirm that the property's technical status and any route-specific requirements have been checked by an engineer.",
+        technicalReview: {
+          title: "Technical documentation reviewed",
+          description:
+            "Confirm that the property's technical status and any route-specific requirements have been checked by an engineer.",
+        },
 
-    "professional.items.applicationReview.title":
-      "Application file reviewed before submission",
-    "professional.items.applicationReview.description":
-      "Complete a final consistency check before the application is submitted.",
+        applicationReview: {
+          title: "Application file reviewed before submission",
+          description:
+            "Complete a final consistency check before the application is submitted.",
+        },
+      },
+    },
   },
 
   item: {
     required: "REQUIRED",
     ready: "READY",
     toCheck: "TO CHECK",
-    markComplete:
-      "Mark {title} as complete",
+    markComplete: "Mark {title} as complete",
   },
 
   note: {
@@ -1305,8 +1338,7 @@ whyClientsTrustUs: {
   sources: {
     label: "Based on current official Greek sources",
     ministry: "Ministry of Migration & Asylum",
-    registry:
-      "National Registry of Administrative Procedures",
+    registry: "National Registry of Administrative Procedures",
   },
 },
     calculator: {
@@ -6538,7 +6570,7 @@ whyClientsTrustUs: {
     button: "Начать бесплатную консультацию",
   },
 },
-    applicationChecklist: {
+applicationChecklist: {
   hero: {
     label: "ЧЕК-ЛИСТ ДОКУМЕНТОВ",
     heading: "Знайте, что готово.",
@@ -6577,120 +6609,153 @@ whyClientsTrustUs: {
   },
 
   sections: {
-    "identity.title":
-      "Личность и въезд",
-    "identity.description":
-      "Документы, подтверждающие вашу личность и законные основания для подачи заявления.",
+    identity: {
+      title: "Личность и въезд",
+      description:
+        "Документы, подтверждающие вашу личность и законные основания для подачи заявления.",
 
-    "identity.items.passport.title":
-      "Действующий паспорт или признанный проездной документ",
-    "identity.items.passport.description":
-      "Предоставьте действующий проездной документ, признанный греческими органами власти.",
+      items: {
+        passport: {
+          title: "Действующий паспорт или признанный проездной документ",
+          description:
+            "Предоставьте действующий проездной документ, признанный греческими органами власти.",
+        },
 
-    "identity.items.entryStatus.title":
-      "Действующий статус въезда / проживания",
-    "identity.items.entryStatus.description":
-      "В зависимости от ваших обстоятельств это может быть соответствующая виза, освобождение от визы или вид на жительство.",
+        entryStatus: {
+          title: "Действующий статус въезда / проживания",
+          description:
+            "В зависимости от ваших обстоятельств это может быть соответствующая виза, освобождение от визы или вид на жительство.",
+        },
 
-    "identity.items.photo.title":
-      "Недавняя фотография паспортного формата",
-    "identity.items.photo.description":
-      "Недавняя цветная фотография, соответствующая применимым требованиям Греции к паспортным фотографиям, включая необходимый цифровой формат.",
+        photo: {
+          title: "Недавняя фотография паспортного формата",
+          description:
+            "Недавняя цветная фотография, соответствующая применимым требованиям Греции к паспортным фотографиям, включая необходимый цифровой формат.",
+        },
 
-    "identity.items.contact.title":
-      "Адрес электронной почты и мобильный телефон",
-    "identity.items.contact.description":
-      "Актуальные контактные данные необходимы для электронной процедуры подачи заявления.",
+        contact: {
+          title: "Адрес электронной почты и мобильный телефон",
+          description:
+            "Актуальные контактные данные необходимы для электронной процедуры подачи заявления.",
+        },
+      },
+    },
 
-    "investment.title":
-      "Документы об инвестиции",
-    "investment.description":
-      "Документы, подтверждающие завершение соответствующей инвестиции и соблюдение применимых требований.",
+    investment: {
+      title: "Документы об инвестиции",
+      description:
+        "Документы, подтверждающие завершение соответствующей инвестиции и соблюдение применимых требований.",
 
-    "investment.items.purchaseContract.title":
-      "Документы о приобретении недвижимости",
-    "investment.items.purchaseContract.description":
-      "Соответствующий договор / акт передачи или иные документы по сделке, подтверждающие квалифицирующую инвестицию.",
+      items: {
+        purchaseContract: {
+          title: "Документы о приобретении недвижимости",
+          description:
+            "Соответствующий договор / акт передачи или иные документы по сделке, подтверждающие квалифицирующую инвестицию.",
+        },
 
-    "investment.items.notarialCertificate.title":
-      "Нотариальное свидетельство",
-    "investment.items.notarialCertificate.description":
-      "Свидетельство нотариуса с подтверждением сторон договора, характеристик недвижимости, стоимости сделки и сведений об оплате, предусмотренных правилами Golden Visa.",
+        notarialCertificate: {
+          title: "Нотариальное свидетельство",
+          description:
+            "Свидетельство нотариуса с подтверждением сторон договора, характеристик недвижимости, стоимости сделки и сведений об оплате, предусмотренных правилами Golden Visa.",
+        },
 
-    "investment.items.paymentProof.title":
-      "Подтверждение соответствующей оплаты",
-    "investment.items.paymentProof.description":
-      "Документы, подтверждающие оплату согласованной суммы с использованием допустимого способа платежа.",
+        paymentProof: {
+          title: "Подтверждение соответствующей оплаты",
+          description:
+            "Документы, подтверждающие оплату согласованной суммы с использованием допустимого способа платежа.",
+        },
 
-    "investment.items.landRegistry.title":
-      "Подтверждение регистрации в Земельном реестре / Кадастре",
-    "investment.items.landRegistry.description":
-      "Подтверждение регистрации либо соответствующая регистрационная документация / свидетельство адвоката.",
+        landRegistry: {
+          title: "Подтверждение регистрации в Земельном реестре / Кадастре",
+          description:
+            "Подтверждение регистрации либо соответствующая регистрационная документация / свидетельство адвоката.",
+        },
 
-    "investment.items.e9.title":
-      "Декларация недвижимости E9",
-    "investment.items.e9.description":
-      "Копия греческой декларации инвестора о недвижимости, если применимо.",
+        e9: {
+          title: "Декларация недвижимости E9",
+          description:
+            "Копия греческой декларации инвестора о недвижимости, если применимо.",
+        },
+      },
+    },
 
-    "insurance.title":
-      "Страхование и заявление",
-    "insurance.description":
-      "Документы, необходимые для оформления вида на жительство.",
+    insurance: {
+      title: "Страхование и заявление",
+      description:
+        "Документы, необходимые для оформления вида на жительство.",
 
-    "insurance.items.insurance.title":
-      "Частное медицинское страхование",
-    "insurance.items.insurance.description":
-      "Страховой договор с частной страховой компанией, покрывающий применимые требования.",
+      items: {
+        insurance: {
+          title: "Частное медицинское страхование",
+          description:
+            "Страховой договор с частной страховой компанией, покрывающий применимые требования.",
+        },
 
-    "insurance.items.application.title":
-      "Заявление на вид на жительство",
-    "insurance.items.application.description":
-      "Заявление, подаваемое через электронные сервисы Министерства миграции и убежища.",
+        application: {
+          title: "Заявление на вид на жительство",
+          description:
+            "Заявление, подаваемое через электронные сервисы Министерства миграции и убежища.",
+        },
 
-    "insurance.items.fees.title":
-      "Сборы за оформление вида на жительство",
-    "insurance.items.fees.description":
-      "Перед подачей заявления необходимо подтвердить применимые административные сборы и сбор за изготовление электронной карты вида на жительство.",
+        fees: {
+          title: "Сборы за оформление вида на жительство",
+          description:
+            "Перед подачей заявления необходимо подтвердить применимые административные сборы и сбор за изготовление электронной карты вида на жительство.",
+        },
+      },
+    },
 
-    "route.title":
-      "Документы конкретного маршрута",
-    "route.description":
-      "Дополнительные документы могут потребоваться в зависимости от структуры инвестиции и типа недвижимости.",
+    route: {
+      title: "Документы конкретного маршрута",
+      description:
+        "Дополнительные документы могут потребоваться в зависимости от структуры инвестиции и типа недвижимости.",
 
-    "route.items.routeVerification.title":
-      "Инвестиционный маршрут подтверждён",
-    "route.items.routeVerification.description":
-      "Подтвердите, какой маршрут Golden Visa применяется к объекту, прежде чем использовать стандартный чек-лист.",
+      items: {
+        routeVerification: {
+          title: "Инвестиционный маршрут подтверждён",
+          description:
+            "Подтвердите, какой маршрут Golden Visa применяется к объекту, прежде чем использовать стандартный чек-лист.",
+        },
 
-    "route.items.specialProperty.title":
-      "Специальные документы на недвижимость",
-    "route.items.specialProperty.description":
-      "Для отдельных маршрутов, например инвестиций в объекты с допустимым изменением назначения или объекты, имеющие статус охраняемого здания, могут потребоваться дополнительные технические, юридические или административные документы.",
+        specialProperty: {
+          title: "Специальные документы на недвижимость",
+          description:
+            "Для отдельных маршрутов, например инвестиций в объекты с допустимым изменением назначения или объекты, имеющие статус охраняемого здания, могут потребоваться дополнительные технические, юридические или административные документы.",
+        },
 
-    "route.items.companyOwnership.title":
-      "Подтверждение владения через компанию",
-    "route.items.companyOwnership.description":
-      "Если недвижимость приобретается через допустимое юридическое лицо, может потребоваться подтверждение доли инвестора в таком юридическом лице.",
+        companyOwnership: {
+          title: "Подтверждение владения через компанию",
+          description:
+            "Если недвижимость приобретается через допустимое юридическое лицо, может потребоваться подтверждение доли инвестора в таком юридическом лице.",
+        },
+      },
+    },
 
-    "professional.title":
-      "Профессиональная проверка",
-    "professional.description":
-      "Финальный этап — это не просто сбор файлов. Каждый документ должен корректно подтверждать соответствующую часть заявления.",
+    professional: {
+      title: "Профессиональная проверка",
+      description:
+        "Финальный этап — это не просто сбор файлов. Каждый документ должен корректно подтверждать соответствующую часть заявления.",
 
-    "professional.items.legalReview.title":
-      "Юридические документы проверены",
-    "professional.items.legalReview.description":
-      "Убедитесь, что сделка и сопровождающие её юридические документы проверены соответствующим специалистом.",
+      items: {
+        legalReview: {
+          title: "Юридические документы проверены",
+          description:
+            "Убедитесь, что сделка и сопровождающие её юридические документы проверены соответствующим специалистом.",
+        },
 
-    "professional.items.technicalReview.title":
-      "Технические документы проверены",
-    "professional.items.technicalReview.description":
-      "Убедитесь, что техническое состояние недвижимости и требования конкретного маршрута проверены инженером.",
+        technicalReview: {
+          title: "Технические документы проверены",
+          description:
+            "Убедитесь, что техническое состояние недвижимости и требования конкретного маршрута проверены инженером.",
+        },
 
-    "professional.items.applicationReview.title":
-      "Пакет заявления проверен перед подачей",
-    "professional.items.applicationReview.description":
-      "Проведите финальную проверку согласованности и полноты документов перед подачей заявления.",
+        applicationReview: {
+          title: "Пакет заявления проверен перед подачей",
+          description:
+            "Проведите финальную проверку согласованности и полноты документов перед подачей заявления.",
+        },
+      },
+    },
   },
 
   item: {

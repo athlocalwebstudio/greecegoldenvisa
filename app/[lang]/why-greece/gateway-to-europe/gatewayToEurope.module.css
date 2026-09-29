@@ -383,10 +383,6 @@
 .factCard:focus-visible .factArrow {
   opacity: 1;
   transform: translateY(0);
-}
-
-.factCard:hover .factArrow,
-.factCard:focus-visible .factArrow {
   background: var(--navy);
   color: var(--white);
 }
@@ -1119,6 +1115,822 @@
 }
 
 /* =========================================================
+   LARGE DESKTOP — CONTROLLED SCALING
+========================================================= */
+
+@media (min-width: 1440px) {
+  .hero {
+    min-height: 820px;
+    padding: 8.5rem 6vw 7.5rem;
+  }
+
+  .heroContent {
+    width: min(100%, 1240px);
+  }
+
+  .hero h1 {
+    max-width: 1180px;
+    font-size: clamp(5.2rem, 7vw, 7.8rem);
+  }
+
+  .hero p {
+    max-width: 680px;
+    font-size: 1.08rem;
+  }
+
+  .heroFacts {
+    margin-top: 3rem;
+    font-size: 0.68rem;
+  }
+
+  .heroBottom {
+    right: 6vw;
+    left: 6vw;
+  }
+
+  .positionSection,
+  .documentSection,
+  .residenceSection,
+  .verificationSection {
+    padding-top: 11rem;
+    padding-bottom: 11rem;
+  }
+
+  .positionSection {
+    padding-right: 6vw;
+    padding-left: 6vw;
+  }
+
+  .sectionHeading h2 {
+    font-size: clamp(4.5rem, 6.3vw, 7rem);
+  }
+
+  .sectionHeading p {
+    max-width: 420px;
+  }
+
+  .positionStatement {
+    margin-top: 9.5rem;
+  }
+
+  .positionQuote h3 {
+    max-width: 760px;
+    font-size: clamp(2.5rem, 3.1vw, 3.5rem);
+  }
+
+  .positionBody {
+    max-width: 470px;
+  }
+
+  .factGrid {
+    margin-top: 9.5rem;
+  }
+
+  .factCard {
+    min-height: 310px;
+    padding-top: 2.75rem;
+  }
+
+  .factContent h3 {
+    font-size: 2.15rem;
+  }
+
+  .documentSection,
+  .residenceSection,
+  .verificationSection {
+    padding-right: 6vw;
+    padding-left: 6vw;
+  }
+
+  .documentHeader {
+    margin-bottom: 6.5rem;
+  }
+
+  .documentStage {
+    min-height: 680px;
+    padding: 5.5rem;
+  }
+
+  .documentCard {
+    width: min(100%, 780px);
+  }
+
+  .documentCopy {
+    max-width: 560px;
+  }
+
+  .documentCopy h2 {
+    font-size: clamp(3.8rem, 4.8vw, 5.8rem);
+  }
+
+  .documentLead {
+    font-size: 1.42rem;
+  }
+
+  .residenceHeading {
+    max-width: 1120px;
+  }
+
+  .residenceHeading h2 {
+    font-size: clamp(4.6rem, 6.4vw, 7.5rem);
+  }
+
+  .residenceFeature {
+    margin-top: 8.5rem;
+    padding: 2.25rem 2.5rem;
+  }
+
+  .residenceFeatureContent h3 {
+    font-size: clamp(2.2rem, 3vw, 3.5rem);
+  }
+
+  .residencePoint {
+    min-height: 320px;
+  }
+
+  .residencePoint p {
+    max-width: 390px;
+  }
+
+  .verificationTop h2 {
+    font-size: clamp(4.2rem, 5.5vw, 6.5rem);
+  }
+
+  .process {
+    margin-top: 9.5rem;
+    gap: 1.5rem;
+  }
+
+  .processNumber {
+    width: 29px;
+    height: 29px;
+    margin-bottom: 2.7rem;
+  }
+
+  .processStep h3 {
+    font-size: 0.68rem;
+  }
+
+  .processStep p {
+    max-width: 220px;
+    font-size: 0.82rem;
+  }
+
+  .finalSection {
+    min-height: 820px;
+    padding: 10rem 6vw;
+  }
+
+  .finalContent {
+    width: min(100%, 1240px);
+  }
+
+  .finalSection h2 {
+    font-size: clamp(5rem, 7vw, 7.8rem);
+  }
+
+  .finalSection p {
+    max-width: 680px;
+    font-size: 1rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-width: 245px;
+    padding: 1.25rem 1.55rem;
+  }
+}
+
+/* =========================================================
+   VERY LARGE DESKTOP / 4K
+========================================================= */
+
+@media (min-width: 1920px) {
+  .hero {
+    min-height: 900px;
+    padding-right: 6vw;
+    padding-left: 6vw;
+  }
+
+  .heroContent {
+    width: min(100%, 1450px);
+  }
+
+  .hero h1 {
+    max-width: 1320px;
+    font-size: clamp(5.8rem, 6.4vw, 8.8rem);
+  }
+
+  .hero p {
+    max-width: 720px;
+    font-size: 1.16rem;
+  }
+
+  .heroFacts {
+    font-size: 0.72rem;
+  }
+
+  .heroBottom {
+    right: 6vw;
+    left: 6vw;
+    bottom: 3rem;
+  }
+
+  .positionSection,
+  .documentSection,
+  .residenceSection,
+  .verificationSection {
+    padding-top: 13rem;
+    padding-bottom: 13rem;
+    padding-right: 6vw;
+    padding-left: 6vw;
+  }
+
+  .sectionIntro {
+    gap: 4rem;
+  }
+
+  .sectionHeading {
+    gap: 6rem;
+  }
+
+  .sectionHeading h2 {
+    font-size: clamp(5rem, 5.8vw, 7.6rem);
+  }
+
+  .sectionHeading p {
+    max-width: 450px;
+    font-size: 1rem;
+  }
+
+  .positionStatement {
+    gap: 4rem;
+    margin-top: 11rem;
+  }
+
+  .positionQuote h3 {
+    max-width: 850px;
+    font-size: clamp(2.8rem, 2.9vw, 3.8rem);
+  }
+
+  .positionBody {
+    max-width: 500px;
+  }
+
+  .positionBody p {
+    font-size: 0.98rem;
+  }
+
+  .factGrid {
+    margin-top: 11rem;
+  }
+
+  .factCard {
+    min-height: 350px;
+    padding-top: 3rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .factCard + .factCard {
+    padding-left: 2.5rem;
+  }
+
+  .factContent h3 {
+    font-size: 2.35rem;
+  }
+
+  .factReveal {
+    grid-template-columns: 24px 1fr;
+    gap: 1rem;
+  }
+
+  .factReveal p {
+    max-width: 420px;
+    font-size: 0.88rem;
+  }
+
+  .documentHeader {
+    margin-bottom: 7rem;
+  }
+
+  .documentHeader p {
+    max-width: 720px;
+    font-size: 1rem;
+  }
+
+  .documentLayout {
+    gap: 6vw;
+  }
+
+  .documentStage {
+    min-height: 740px;
+    padding: 6rem;
+  }
+
+  .documentCard {
+    width: min(100%, 850px);
+  }
+
+  .documentCaption {
+    right: 2rem;
+    bottom: 2rem;
+    left: 2rem;
+    padding: 1.1rem 1.3rem;
+    font-size: 0.62rem;
+  }
+
+  .documentCopy {
+    max-width: 600px;
+  }
+
+  .documentIndex {
+    font-size: 5.5rem;
+  }
+
+  .documentCopy h2 {
+    font-size: clamp(4rem, 4.6vw, 6.2rem);
+  }
+
+  .documentLead {
+    font-size: 1.5rem;
+  }
+
+  .documentCopy > p:not(.documentLead) {
+    font-size: 0.96rem;
+  }
+
+  .documentNote p {
+    font-size: 0.72rem;
+  }
+
+  .residenceHeading {
+    max-width: 1250px;
+  }
+
+  .residenceHeading h2 {
+    font-size: clamp(5rem, 6vw, 8rem);
+  }
+
+  .residenceHeading > p {
+    max-width: 700px;
+    font-size: 1rem;
+  }
+
+  .residenceFeature {
+    margin-top: 10rem;
+    padding: 2.5rem 2.75rem;
+  }
+
+  .residenceFeatureNumber span:first-child {
+    font-size: 3.7rem;
+  }
+
+  .residenceFeatureContent h3 {
+    font-size: clamp(2.4rem, 2.8vw, 4rem);
+  }
+
+  .residenceFeatureMark {
+    width: 56px;
+    height: 56px;
+  }
+
+  .residenceGrid {
+    margin-top: 5rem;
+  }
+
+  .residencePoint {
+    min-height: 350px;
+    padding-top: 2.75rem;
+  }
+
+  .residencePointTop {
+    margin-bottom: 6rem;
+  }
+
+  .residencePoint p {
+    max-width: 410px;
+    font-size: 0.9rem;
+  }
+
+  .residenceBottom {
+    margin-top: 8rem;
+  }
+
+  .residenceBottom p {
+    max-width: 780px;
+    font-size: 0.76rem;
+  }
+
+  .verificationTop {
+    gap: 5rem;
+  }
+
+  .verificationTop h2 {
+    font-size: clamp(4.5rem, 5.4vw, 7rem);
+  }
+
+  .verificationIntro {
+    max-width: 680px;
+    font-size: 0.98rem;
+  }
+
+  .process {
+    margin-top: 10.5rem;
+    gap: 2rem;
+  }
+
+  .processNumber {
+    width: 31px;
+    height: 31px;
+    margin-bottom: 3rem;
+    font-size: 0.58rem;
+  }
+
+  .processStep {
+    padding-right: 1.75rem;
+  }
+
+  .processStep h3 {
+    font-size: 0.7rem;
+  }
+
+  .processStep p {
+    max-width: 235px;
+    font-size: 0.82rem;
+  }
+
+  .finalSection {
+    min-height: 900px;
+    padding: 11rem 6vw;
+  }
+
+  .finalContent {
+    width: min(100%, 1450px);
+  }
+
+  .finalSection h2 {
+    font-size: clamp(5.5rem, 6.6vw, 8.6rem);
+  }
+
+  .finalSection p {
+    max-width: 720px;
+    font-size: 1rem;
+  }
+
+  .finalActions {
+    margin-top: 3.5rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-width: 260px;
+    padding: 1.35rem 1.65rem;
+    font-size: 0.74rem;
+  }
+}
+
+/* =========================================================
+   TALL LARGE DESKTOP
+   Adds breathing room without changing composition.
+========================================================= */
+
+@media (min-width: 1920px) and (min-height: 1600px) {
+  .hero {
+    min-height: 980px;
+  }
+
+  .positionSection,
+  .documentSection,
+  .residenceSection,
+  .verificationSection {
+    padding-top: 15rem;
+    padding-bottom: 15rem;
+  }
+
+  .positionStatement {
+    margin-top: 12rem;
+  }
+
+  .factGrid {
+    margin-top: 12rem;
+  }
+
+  .documentStage {
+    min-height: 800px;
+  }
+
+  .residenceFeature {
+    margin-top: 11rem;
+  }
+
+  .residencePoint {
+    min-height: 380px;
+  }
+
+  .residencePointTop {
+    margin-bottom: 6.5rem;
+  }
+
+  .process {
+    margin-top: 12rem;
+  }
+
+  .finalSection {
+    min-height: 980px;
+  }
+}
+
+/* =========================================================
+   ULTRA-WIDE / 4K+
+========================================================= */
+
+@media (min-width: 3000px) {
+  .hero {
+    min-height: 1080px;
+    padding-right: 7vw;
+    padding-left: 7vw;
+  }
+
+  .heroContent {
+    width: min(100%, 1650px);
+  }
+
+  .hero h1 {
+    max-width: 1500px;
+    font-size: clamp(6.2rem, 5.8vw, 9.6rem);
+  }
+
+  .hero p {
+    max-width: 780px;
+    font-size: 1.22rem;
+  }
+
+  .heroFacts {
+    margin-top: 3.25rem;
+    font-size: 0.76rem;
+  }
+
+  .heroBottom {
+    right: 7vw;
+    left: 7vw;
+    bottom: 3.5rem;
+    font-size: 0.62rem;
+  }
+
+  .positionSection,
+  .documentSection,
+  .residenceSection,
+  .verificationSection {
+    padding-right: 7vw;
+    padding-left: 7vw;
+    padding-top: 17rem;
+    padding-bottom: 17rem;
+  }
+
+  .sectionIntro {
+    gap: 5rem;
+  }
+
+  .sectionHeading {
+    gap: 8rem;
+  }
+
+  .sectionHeading h2 {
+    font-size: clamp(5.5rem, 5.2vw, 8rem);
+  }
+
+  .sectionHeading p {
+    max-width: 500px;
+    font-size: 1.06rem;
+  }
+
+  .positionStatement {
+    gap: 5rem;
+    margin-top: 14rem;
+  }
+
+  .positionQuote h3 {
+    max-width: 950px;
+    font-size: clamp(3rem, 2.7vw, 4.1rem);
+  }
+
+  .positionBody {
+    max-width: 540px;
+  }
+
+  .positionBody p {
+    font-size: 1.02rem;
+  }
+
+  .factGrid {
+    margin-top: 14rem;
+  }
+
+  .factCard {
+    min-height: 420px;
+    padding-top: 3.5rem;
+  }
+
+  .factCard + .factCard {
+    padding-left: 3rem;
+  }
+
+  .factNumber {
+    font-size: 0.7rem;
+  }
+
+  .factArrow {
+    width: 34px;
+    height: 34px;
+  }
+
+  .factContent h3 {
+    font-size: 2.65rem;
+  }
+
+  .factReveal p {
+    max-width: 470px;
+    font-size: 0.94rem;
+  }
+
+  .documentHeader {
+    margin-bottom: 8rem;
+  }
+
+  .documentHeader p {
+    max-width: 800px;
+    font-size: 1.05rem;
+  }
+
+  .documentLayout {
+    gap: 7vw;
+  }
+
+  .documentStage {
+    min-height: 900px;
+    padding: 7rem;
+  }
+
+  .documentCard {
+    width: min(100%, 1000px);
+  }
+
+  .documentCopy {
+    max-width: 680px;
+  }
+
+  .documentIndex {
+    font-size: 6rem;
+  }
+
+  .documentCopy h2 {
+    font-size: clamp(4.4rem, 4.1vw, 6.6rem);
+  }
+
+  .documentLead {
+    font-size: 1.6rem;
+  }
+
+  .documentCopy > p:not(.documentLead) {
+    font-size: 1rem;
+  }
+
+  .residenceHeading {
+    max-width: 1400px;
+  }
+
+  .residenceHeading h2 {
+    font-size: clamp(5.5rem, 5.6vw, 8.8rem);
+  }
+
+  .residenceHeading > p {
+    max-width: 760px;
+    font-size: 1.04rem;
+  }
+
+  .residenceFeature {
+    margin-top: 13rem;
+    padding: 3rem 3.25rem;
+  }
+
+  .residenceFeatureNumber span:first-child {
+    font-size: 4.1rem;
+  }
+
+  .residenceFeatureContent h3 {
+    font-size: clamp(2.7rem, 2.6vw, 4.4rem);
+  }
+
+  .residenceFeatureMark {
+    width: 62px;
+    height: 62px;
+    font-size: 1.2rem;
+  }
+
+  .residenceGrid {
+    margin-top: 6rem;
+  }
+
+  .residencePoint {
+    min-height: 430px;
+    padding-top: 3rem;
+  }
+
+  .residencePointTop {
+    margin-bottom: 7rem;
+  }
+
+  .residencePointTop > span:first-child {
+    font-size: 0.7rem;
+  }
+
+  .residencePoint h3 {
+    font-size: 0.72rem;
+  }
+
+  .residencePoint p {
+    max-width: 450px;
+    font-size: 0.94rem;
+  }
+
+  .residenceBottom {
+    margin-top: 10rem;
+    padding-top: 2rem;
+  }
+
+  .residenceBottom p {
+    max-width: 850px;
+    font-size: 0.8rem;
+  }
+
+  .verificationTop {
+    gap: 6rem;
+  }
+
+  .verificationTop h2 {
+    font-size: clamp(5rem, 5vw, 7.6rem);
+  }
+
+  .verificationIntro {
+    max-width: 760px;
+    font-size: 1.04rem;
+  }
+
+  .process {
+    margin-top: 14rem;
+    gap: 2.5rem;
+  }
+
+  .processNumber {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 3.25rem;
+  }
+
+  .processStep {
+    padding-right: 2rem;
+  }
+
+  .processStep h3 {
+    font-size: 0.74rem;
+  }
+
+  .processStep p {
+    max-width: 270px;
+    font-size: 0.86rem;
+  }
+
+  .finalSection {
+    min-height: 1080px;
+    padding: 13rem 7vw;
+  }
+
+  .finalContent {
+    width: min(100%, 1650px);
+  }
+
+  .finalSection h2 {
+    font-size: clamp(6rem, 5.8vw, 9.6rem);
+  }
+
+  .finalSection p {
+    max-width: 780px;
+    font-size: 1.05rem;
+  }
+
+  .finalActions {
+    margin-top: 4rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-width: 280px;
+    padding: 1.45rem 1.8rem;
+    font-size: 0.76rem;
+  }
+}
+
+/* =========================================================
    TABLET
 ========================================================= */
 
@@ -1235,9 +2047,9 @@
 
   .processLine {
     top: 0;
+    right: auto;
     bottom: 0;
     left: 13px;
-    right: auto;
     width: 1px;
     height: auto;
   }

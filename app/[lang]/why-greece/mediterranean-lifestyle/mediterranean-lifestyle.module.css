@@ -329,11 +329,6 @@
   border-bottom: 1px solid var(--line);
 }
 
-/*
-  The image wrapper is now slightly taller and uses a
-  controlled aspect ratio. This prevents the fixed-height
-  crop from aggressively cutting into the photography.
-*/
 .dayImageWrap {
   position: relative;
   height: 320px;
@@ -353,11 +348,6 @@
   transform: scale(1.035);
 }
 
-/*
-  Individual image positioning.
-  These give the more problematic photographs extra
-  breathing room around their focal areas.
-*/
 .dayMoment1 .dayImage {
   object-position: center center;
 }
@@ -861,16 +851,6 @@
   line-height: 1.7;
 }
 
-/*
-  Olive image fix:
-  Instead of forcing a potentially wide photograph into
-  a shallow fixed crop, give it a dedicated visual frame
-  with enough height to preserve the composition.
-*/
-
-
-
-
 /* =========================================================
    SEASONS
 ========================================================= */
@@ -1297,32 +1277,1665 @@
 }
 
 /* =========================================================
-   LARGE DESKTOP
+   LARGE DESKTOP — 1440+
+   
+   Only increases available space and image proportions.
+   Base design remains unchanged below this point.
 ========================================================= */
 
-@media (min-width: 1600px) {
+@media (min-width: 1440px) {
   .container {
-    width: min(1320px, 88%);
+    width: min(1380px, calc(100% - 120px));
   }
 
+  /* HERO */
+
   .hero {
-    min-height: 900px;
+    min-height: 850px;
+  }
+
+  .hero .container {
+    padding-bottom: 78px;
+  }
+
+  .heroContent {
+    max-width: 900px;
+  }
+
+  .hero h1 {
+    font-size: clamp(5rem, 6.3vw, 7.8rem);
+  }
+
+  .heroContent > p {
+    max-width: 700px;
+    font-size: 0.96rem;
+  }
+
+  .heroButton {
+    margin-top: 36px;
+    padding: 14px 21px;
+    font-size: 0.7rem;
+  }
+
+  .heroBottom {
+    margin-top: 78px;
+    font-size: 0.52rem;
+  }
+
+  /* INTRO */
+
+  .introSection {
+    padding: 150px 0 155px;
+  }
+
+  .introGrid {
+    gap: 120px;
+    margin-bottom: 82px;
+  }
+
+  .introGrid h2,
+  .dayHeader h2,
+  .locationsHeader h2,
+  .seasonsHeader h2,
+  .foodContent h2,
+  .outdoorContent h2 {
+    font-size: clamp(3.3rem, 4.4vw, 5.6rem);
+  }
+
+  .introText {
+    max-width: 500px;
+  }
+
+  .introText p {
+    font-size: 0.82rem;
+  }
+
+  .imageMosaic {
+    grid-template-rows: 330px 330px;
+    gap: 14px;
+  }
+
+  /* DAY */
+
+  .daySection {
+    padding: 155px 0;
+  }
+
+  .dayHeader {
+    gap: 110px;
+    margin-bottom: 90px;
+  }
+
+  .dayHeader > p {
+    max-width: 470px;
+    font-size: 0.82rem;
   }
 
   .dayMoment {
-    grid-template-columns: 110px minmax(430px, 0.95fr) 1fr;
+    grid-template-columns: 115px minmax(440px, 0.95fr) 1fr;
+    gap: 42px;
+    padding: 32px 0;
   }
 
   .dayImageWrap {
-    height: 340px;
+    height: 360px;
+  }
+
+  .dayTime > span {
+    font-size: 0.68rem;
+  }
+
+  .imageNumber {
+    top: 17px;
+    left: 17px;
+    padding: 8px 10px;
+    font-size: 0.51rem;
+  }
+
+  .dayContent {
+    max-width: 460px;
+  }
+
+  .dayContent > span {
+    font-size: 0.52rem;
+  }
+
+  .dayContent h3 {
+    font-size: 1.85rem;
+  }
+
+  .dayContent p {
+    font-size: 0.72rem;
+  }
+
+  /* LOCATIONS */
+
+  .locationsSection {
+    padding: 155px 0;
+  }
+
+  .locationsHeader {
+    gap: 110px;
+    margin-bottom: 80px;
+  }
+
+  .locationsHeader > p {
+    max-width: 480px;
+    font-size: 0.82rem;
   }
 
   .locationExperience {
-    min-height: 700px;
+    min-height: 720px;
   }
 
   .locationImagePanel {
-    min-height: 700px;
+    min-height: 720px;
+  }
+
+  .locationImageInfo {
+    left: 42px;
+    bottom: 42px;
+  }
+
+  .locationImageInfo span {
+    font-size: 0.55rem;
+  }
+
+  .locationImageInfo strong {
+    font-size: 3.6rem;
+  }
+
+  .locationDetails {
+    padding: 46px;
+  }
+
+  .locationCounter {
+    padding-bottom: 28px;
+  }
+
+  .locationCounter span {
+    font-size: 0.51rem;
+  }
+
+  .locationCounter strong {
+    font-size: 0.61rem;
+  }
+
+  .locationButton,
+  .locationButtonActive {
+    grid-template-columns: 32px 1fr;
+    gap: 12px;
+    padding: 17px 0;
+    font-size: 1.08rem;
+  }
+
+  .locationButton span,
+  .locationButtonActive span {
+    font-size: 0.51rem;
+  }
+
+  .locationDescription {
+    grid-template-columns: 40px 1fr;
+    gap: 15px;
+    padding-top: 30px;
+  }
+
+  .locationIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .locationDescription h3 {
+    font-size: 1.12rem;
+  }
+
+  .locationDescription p {
+    font-size: 0.65rem;
+  }
+
+  .locationTags {
+    gap: 7px;
+  }
+
+  .locationTags span {
+    padding: 7px 9px;
+    font-size: 0.48rem;
+  }
+
+  .locationGallery {
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .locationGallery > div {
+    height: 185px;
+  }
+
+  /* SEA */
+
+  .seaSection {
+    min-height: 850px;
+  }
+
+  .seaContent {
+    max-width: 720px;
+  }
+
+  .seaContent h2 {
+    font-size: clamp(3.8rem, 5vw, 6.2rem);
+  }
+
+  .seaContent > p {
+    max-width: 620px;
+    font-size: 0.81rem;
+  }
+
+  .seaStats {
+    gap: 55px;
+    margin-top: 52px;
+  }
+
+  .seaStats strong {
+    font-size: 2.2rem;
+  }
+
+  .seaStats span {
+    font-size: 0.48rem;
+  }
+
+  .seaFloatingImage {
+    width: 370px;
+    height: 480px;
+  }
+
+  /* FOOD */
+
+  .foodSection {
+    padding: 160px 0;
+  }
+
+  .foodGrid {
+    gap: 125px;
+  }
+
+  .foodVisual {
+    min-height: 760px;
+  }
+
+  .foodImageLarge {
+    height: 580px;
+  }
+
+  .foodImageSmall {
+    height: 340px;
+  }
+
+  .foodImageTiny {
+    height: 205px;
+  }
+
+  .foodContent {
+    max-width: 560px;
+  }
+
+  .foodContent > p {
+    font-size: 0.81rem;
+  }
+
+  .foodPoints {
+    margin-top: 42px;
+  }
+
+  .foodPoints > div {
+    grid-template-columns: 36px 1fr;
+    gap: 14px;
+    padding: 22px 0;
+  }
+
+  .foodPoints strong {
+    font-size: 0.77rem;
+  }
+
+  .foodPoints p {
+    font-size: 0.65rem;
+  }
+
+  /* SEASONS */
+
+  .seasonsSection {
+    padding: 155px 0;
+  }
+
+  .seasonsHeader {
+    gap: 110px;
+    margin-bottom: 80px;
+  }
+
+  .seasonsHeader > p {
+    max-width: 470px;
+    font-size: 0.81rem;
+  }
+
+  .seasonsGrid {
+    gap: 14px;
+  }
+
+  .seasonCard {
+    height: 570px;
+  }
+
+  .seasonInfo {
+    left: 28px;
+    right: 28px;
+    bottom: 30px;
+  }
+
+  .seasonInfo > span {
+    font-size: 0.53rem;
+  }
+
+  .seasonInfo h3 {
+    font-size: 2.2rem;
+  }
+
+  .seasonInfo p {
+    font-size: 0.63rem;
+  }
+
+  /* OUTDOOR */
+
+  .outdoorSection {
+    padding: 160px 0;
+  }
+
+  .outdoorGrid {
+    gap: 115px;
+  }
+
+  .outdoorContent > p {
+    max-width: 480px;
+    font-size: 0.81rem;
+  }
+
+  .outdoorFacts {
+    max-width: 420px;
+  }
+
+  .outdoorFacts div {
+    padding: 19px 0;
+  }
+
+  .outdoorFacts span {
+    font-size: 0.59rem;
+  }
+
+  .outdoorImages {
+    height: 740px;
+  }
+
+  .outdoorImageOne {
+    height: 480px;
+  }
+
+  .outdoorImageTwo {
+    height: 390px;
+  }
+
+  .outdoorImageThree {
+    height: 225px;
+  }
+
+  /* INVESTOR */
+
+  .investorSection {
+    padding-bottom: 155px;
+  }
+
+  .investorImage {
+    min-height: 760px;
+  }
+
+  .investorContent {
+    padding: 82px 76px;
+  }
+
+  .investorContent h2 {
+    font-size: clamp(3.1rem, 4vw, 4.8rem);
+  }
+
+  .investorContent > p {
+    max-width: 620px;
+    font-size: 0.77rem;
+  }
+
+  .investorPoints {
+    margin-top: 44px;
+  }
+
+  .investorPoints > div {
+    grid-template-columns: 34px 1fr;
+    padding: 21px 0;
+  }
+
+  .investorPoints span {
+    font-size: 0.52rem;
+  }
+
+  .investorPoints strong {
+    font-size: 0.76rem;
+  }
+
+  .investorPoints p {
+    font-size: 0.62rem;
+  }
+
+  .investorButton {
+    margin-top: 40px;
+    padding: 14px 20px;
+    font-size: 0.68rem;
+  }
+
+  /* CLOSING */
+
+  .closingSection {
+    min-height: 800px;
+  }
+
+  .closingContent {
+    max-width: 820px;
+  }
+
+  .closingContent h2 {
+    font-size: clamp(4rem, 5.7vw, 7rem);
+  }
+
+  .closingContent p {
+    max-width: 560px;
+    font-size: 0.82rem;
+  }
+
+  .closingButton {
+    margin-top: 34px;
+    padding: 15px 22px;
+    font-size: 0.7rem;
+  }
+
+  /* LEGAL */
+
+  .legalSection {
+    padding: 42px 0;
+  }
+
+  .legalInner {
+    max-width: 1050px;
+  }
+
+  .legalInner p {
+    font-size: 0.57rem;
+  }
+}
+
+/* =========================================================
+   LARGE DESKTOP — 1920+
+   
+   Wider containers, slightly larger photography and text.
+   No structural redesign.
+========================================================= */
+
+@media (min-width: 1920px) {
+  .container {
+    width: min(1800px, 88%);
+  }
+
+  /* HERO */
+
+  .hero {
+    min-height: 920px;
+  }
+
+  .hero .container {
+    padding-bottom: 88px;
+  }
+
+  .heroContent {
+    max-width: 1080px;
+  }
+
+  .hero h1 {
+    font-size: clamp(5.4rem, 6vw, 8rem);
+  }
+
+  .heroContent > p {
+    max-width: 780px;
+    font-size: 1rem;
+  }
+
+  .heroButton {
+    margin-top: 40px;
+    padding: 15px 23px;
+    font-size: 0.73rem;
+  }
+
+  .heroBottom {
+    margin-top: 86px;
+    font-size: 0.54rem;
+  }
+
+  /* INTRO */
+
+  .introSection {
+    padding: 170px 0 175px;
+  }
+
+  .introGrid {
+    gap: 145px;
+    margin-bottom: 95px;
+  }
+
+  .introGrid h2,
+  .dayHeader h2,
+  .locationsHeader h2,
+  .seasonsHeader h2,
+  .foodContent h2,
+  .outdoorContent h2 {
+    font-size: clamp(3.7rem, 4vw, 6rem);
+  }
+
+  .introText {
+    max-width: 540px;
+  }
+
+  .introText p {
+    font-size: 0.86rem;
+  }
+
+  .imageMosaic {
+    grid-template-rows: 370px 370px;
+    gap: 16px;
+  }
+
+  .mosaicItem span {
+    left: 24px;
+    bottom: 22px;
+    font-size: 0.53rem;
+  }
+
+  /* DAY */
+
+  .daySection {
+    padding: 175px 0;
+  }
+
+  .dayHeader {
+    gap: 135px;
+    margin-bottom: 100px;
+  }
+
+  .dayHeader > p {
+    max-width: 510px;
+    font-size: 0.86rem;
+  }
+
+  .dayMoment {
+    grid-template-columns: 130px minmax(500px, 0.95fr) 1fr;
+    gap: 50px;
+    padding: 36px 0;
+  }
+
+  .dayImageWrap {
+    height: 400px;
+  }
+
+  .dayTime > span {
+    font-size: 0.72rem;
+  }
+
+  .timelineLine {
+    min-height: 55px;
+  }
+
+  .imageNumber {
+    top: 20px;
+    left: 20px;
+    padding: 9px 11px;
+    font-size: 0.54rem;
+  }
+
+  .dayContent {
+    max-width: 500px;
+  }
+
+  .dayContent > span {
+    font-size: 0.55rem;
+  }
+
+  .dayContent h3 {
+    font-size: 2rem;
+  }
+
+  .dayContent p {
+    font-size: 0.75rem;
+  }
+
+  /* LOCATIONS */
+
+  .locationsSection {
+    padding: 175px 0;
+  }
+
+  .locationsHeader {
+    gap: 135px;
+    margin-bottom: 95px;
+  }
+
+  .locationsHeader > p {
+    max-width: 520px;
+    font-size: 0.86rem;
+  }
+
+  .locationExperience {
+    min-height: 800px;
+  }
+
+  .locationImagePanel {
+    min-height: 800px;
+  }
+
+  .locationImageInfo {
+    left: 48px;
+    bottom: 48px;
+  }
+
+  .locationImageInfo span {
+    font-size: 0.58rem;
+  }
+
+  .locationImageInfo strong {
+    font-size: 4rem;
+  }
+
+  .locationDetails {
+    padding: 52px;
+  }
+
+  .locationCounter {
+    padding-bottom: 32px;
+  }
+
+  .locationCounter span {
+    font-size: 0.54rem;
+  }
+
+  .locationCounter strong {
+    font-size: 0.65rem;
+  }
+
+  .locationButton,
+  .locationButtonActive {
+    grid-template-columns: 36px 1fr;
+    gap: 14px;
+    padding: 19px 0;
+    font-size: 1.15rem;
+  }
+
+  .locationButton span,
+  .locationButtonActive span {
+    font-size: 0.54rem;
+  }
+
+  .locationDescription {
+    grid-template-columns: 44px 1fr;
+    gap: 17px;
+    padding-top: 34px;
+  }
+
+  .locationIcon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .locationDescription h3 {
+    font-size: 1.18rem;
+  }
+
+  .locationDescription p {
+    font-size: 0.68rem;
+  }
+
+  .locationTags {
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .locationTags span {
+    padding: 8px 10px;
+    font-size: 0.5rem;
+  }
+
+  .locationGallery {
+    gap: 14px;
+    margin-top: 14px;
+  }
+
+  .locationGallery > div {
+    height: 205px;
+  }
+
+  /* SEA */
+
+  .seaSection {
+    min-height: 950px;
+  }
+
+  .seaContent {
+    max-width: 800px;
+  }
+
+  .seaContent h2 {
+    font-size: clamp(4.2rem, 5vw, 6.8rem);
+  }
+
+  .seaContent > p {
+    max-width: 680px;
+    font-size: 0.85rem;
+  }
+
+  .seaStats {
+    gap: 65px;
+    margin-top: 58px;
+  }
+
+  .seaStats strong {
+    font-size: 2.4rem;
+  }
+
+  .seaStats span {
+    font-size: 0.5rem;
+  }
+
+  .seaFloatingImage {
+    width: 410px;
+    height: 530px;
+    border-width: 8px;
+  }
+
+  /* FOOD */
+
+  .foodSection {
+    padding: 180px 0;
+  }
+
+  .foodGrid {
+    gap: 150px;
+  }
+
+  .foodVisual {
+    min-height: 830px;
+  }
+
+  .foodImageLarge {
+    height: 630px;
+  }
+
+  .foodImageSmall {
+    height: 370px;
+  }
+
+  .foodImageTiny {
+    height: 225px;
+  }
+
+  .foodContent {
+    max-width: 600px;
+  }
+
+  .foodContent > p {
+    font-size: 0.85rem;
+  }
+
+  .foodPoints {
+    margin-top: 46px;
+  }
+
+  .foodPoints > div {
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    padding: 24px 0;
+  }
+
+  .foodPoints strong {
+    font-size: 0.8rem;
+  }
+
+  .foodPoints p {
+    font-size: 0.68rem;
+  }
+
+  /* SEASONS */
+
+  .seasonsSection {
+    padding: 175px 0;
+  }
+
+  .seasonsHeader {
+    gap: 135px;
+    margin-bottom: 95px;
+  }
+
+  .seasonsHeader > p {
+    max-width: 500px;
+    font-size: 0.84rem;
+  }
+
+  .seasonsGrid {
+    gap: 16px;
+  }
+
+  .seasonCard {
+    height: 640px;
+  }
+
+  .seasonInfo {
+    left: 32px;
+    right: 32px;
+    bottom: 34px;
+  }
+
+  .seasonInfo > span {
+    font-size: 0.56rem;
+  }
+
+  .seasonInfo h3 {
+    font-size: 2.4rem;
+  }
+
+  .seasonInfo p {
+    font-size: 0.66rem;
+  }
+
+  /* OUTDOOR */
+
+  .outdoorSection {
+    padding: 180px 0;
+  }
+
+  .outdoorGrid {
+    gap: 140px;
+  }
+
+  .outdoorContent > p {
+    max-width: 500px;
+    font-size: 0.84rem;
+  }
+
+  .outdoorFacts {
+    max-width: 450px;
+    margin-top: 46px;
+  }
+
+  .outdoorFacts div {
+    padding: 20px 0;
+  }
+
+  .outdoorFacts span {
+    font-size: 0.62rem;
+  }
+
+  .outdoorImages {
+    height: 800px;
+  }
+
+  .outdoorImageOne {
+    height: 510px;
+  }
+
+  .outdoorImageTwo {
+    height: 420px;
+  }
+
+  .outdoorImageThree {
+    height: 245px;
+  }
+
+  /* INVESTOR */
+
+  .investorSection {
+    padding-bottom: 175px;
+  }
+
+  .investorImage {
+    min-height: 840px;
+  }
+
+  .investorContent {
+    padding: 92px 86px;
+  }
+
+  .investorContent h2 {
+    font-size: clamp(3.3rem, 3.7vw, 5.1rem);
+  }
+
+  .investorContent > p {
+    max-width: 660px;
+    font-size: 0.8rem;
+  }
+
+  .investorPoints {
+    margin-top: 48px;
+  }
+
+  .investorPoints > div {
+    grid-template-columns: 38px 1fr;
+    padding: 23px 0;
+  }
+
+  .investorPoints span {
+    font-size: 0.54rem;
+  }
+
+  .investorPoints strong {
+    font-size: 0.79rem;
+  }
+
+  .investorPoints p {
+    font-size: 0.65rem;
+  }
+
+  .investorButton {
+    margin-top: 43px;
+    padding: 15px 22px;
+    font-size: 0.71rem;
+  }
+
+  /* CLOSING */
+
+  .closingSection {
+    min-height: 880px;
+  }
+
+  .closingContent {
+    max-width: 900px;
+  }
+
+  .closingContent h2 {
+    font-size: clamp(4.5rem, 5.4vw, 7.6rem);
+  }
+
+  .closingContent p {
+    max-width: 600px;
+    font-size: 0.85rem;
+  }
+
+  .closingButton {
+    margin-top: 38px;
+    padding: 16px 24px;
+    font-size: 0.72rem;
+  }
+
+  /* LEGAL */
+
+  .legalSection {
+    padding: 46px 0;
+  }
+
+  .legalInner {
+    max-width: 1120px;
+  }
+
+  .legalInner p {
+    font-size: 0.59rem;
+  }
+}
+
+/* =========================================================
+   TALL LARGE DESKTOP
+   
+   Mainly prevents a tall 2560 / 4K display from feeling
+   vertically compressed. No structural changes.
+========================================================= */
+
+@media (min-width: 1920px) and (min-height: 1600px) {
+  .container {
+    width: min(2000px, 86%);
+  }
+
+  .hero {
+    min-height: 1020px;
+  }
+
+  .hero .container {
+    padding-bottom: 100px;
+  }
+
+  .heroContent {
+    max-width: 1180px;
+  }
+
+  .hero h1 {
+    font-size: clamp(5.8rem, 5.8vw, 8.3rem);
+  }
+
+  .heroContent > p {
+    max-width: 840px;
+    font-size: 1.05rem;
+  }
+
+  .heroBottom {
+    margin-top: 96px;
+    font-size: 0.56rem;
+  }
+
+  .introSection {
+    padding: 190px 0 195px;
+  }
+
+  .daySection {
+    padding: 195px 0;
+  }
+
+  .locationsSection {
+    padding: 195px 0;
+  }
+
+  .seaSection {
+    min-height: 1020px;
+  }
+
+  .foodSection {
+    padding: 200px 0;
+  }
+
+  .seasonsSection {
+    padding: 195px 0;
+  }
+
+  .outdoorSection {
+    padding: 200px 0;
+  }
+
+  .investorSection {
+    padding-bottom: 195px;
+  }
+
+  .closingSection {
+    min-height: 950px;
+  }
+
+  .legalSection {
+    padding: 50px 0;
+  }
+
+  /* Keep images dominant without making the content oversized. */
+
+  .imageMosaic {
+    grid-template-rows: 410px 410px;
+  }
+
+  .dayImageWrap {
+    height: 440px;
+  }
+
+  .locationExperience,
+  .locationImagePanel {
+    min-height: 880px;
+  }
+
+  .seasonCard {
+    height: 700px;
+  }
+
+  .outdoorImages {
+    height: 870px;
+  }
+
+  .outdoorImageOne {
+    height: 560px;
+  }
+
+  .outdoorImageTwo {
+    height: 460px;
+  }
+
+  .outdoorImageThree {
+    height: 270px;
+  }
+
+  .investorImage {
+    min-height: 920px;
+  }
+
+  .foodVisual {
+    min-height: 900px;
+  }
+
+  .foodImageLarge {
+    height: 680px;
+  }
+
+  .foodImageSmall {
+    height: 400px;
+  }
+
+  .foodImageTiny {
+    height: 245px;
+  }
+}
+
+/* =========================================================
+   4K / ULTRA LARGE — 3000+
+   
+   The important rule here is proportional growth, not
+   simply making every font enormous.
+========================================================= */
+
+@media (min-width: 3000px) {
+  .container {
+    width: min(2350px, 84%);
+  }
+
+  /* HERO */
+
+  .hero {
+    min-height: 1150px;
+  }
+
+  .hero .container {
+    padding-bottom: 115px;
+  }
+
+  .heroContent {
+    max-width: 1380px;
+  }
+
+  .hero h1 {
+    font-size: clamp(6.4rem, 5.6vw, 9.2rem);
+  }
+
+  .heroContent > p {
+    max-width: 980px;
+    font-size: 1.16rem;
+    line-height: 1.9;
+  }
+
+  .heroButton {
+    margin-top: 46px;
+    padding: 17px 27px;
+    font-size: 0.8rem;
+  }
+
+  .heroBottom {
+    margin-top: 108px;
+    padding-top: 22px;
+    font-size: 0.61rem;
+  }
+
+  /* SHARED HEADINGS */
+
+  .introGrid h2,
+  .dayHeader h2,
+  .locationsHeader h2,
+  .seasonsHeader h2,
+  .foodContent h2,
+  .outdoorContent h2 {
+    font-size: clamp(4.2rem, 4vw, 6.8rem);
+  }
+
+  /* INTRO */
+
+  .introSection {
+    padding: 215px 0 220px;
+  }
+
+  .introGrid {
+    gap: 180px;
+    margin-bottom: 110px;
+  }
+
+  .introText {
+    max-width: 600px;
+  }
+
+  .introText p {
+    font-size: 0.94rem;
+  }
+
+  .imageMosaic {
+    grid-template-rows: 470px 470px;
+    gap: 18px;
+  }
+
+  .mosaicItem span {
+    left: 28px;
+    bottom: 26px;
+    font-size: 0.59rem;
+  }
+
+  /* DAY */
+
+  .daySection {
+    padding: 220px 0;
+  }
+
+  .dayHeader {
+    gap: 170px;
+    margin-bottom: 115px;
+  }
+
+  .dayHeader > p {
+    max-width: 580px;
+    font-size: 0.94rem;
+  }
+
+  .dayMoment {
+    grid-template-columns: 150px minmax(620px, 0.95fr) 1fr;
+    gap: 65px;
+    padding: 42px 0;
+  }
+
+  .dayImageWrap {
+    height: 500px;
+  }
+
+  .dayTime > span {
+    font-size: 0.79rem;
+  }
+
+  .timelineLine {
+    min-height: 70px;
+  }
+
+  .imageNumber {
+    top: 24px;
+    left: 24px;
+    padding: 11px 13px;
+    font-size: 0.59rem;
+  }
+
+  .dayContent {
+    max-width: 590px;
+  }
+
+  .dayContent > span {
+    font-size: 0.6rem;
+  }
+
+  .dayContent h3 {
+    font-size: 2.3rem;
+  }
+
+  .dayContent p {
+    font-size: 0.82rem;
+  }
+
+  /* LOCATIONS */
+
+  .locationsSection {
+    padding: 220px 0;
+  }
+
+  .locationsHeader {
+    gap: 170px;
+    margin-bottom: 115px;
+  }
+
+  .locationsHeader > p {
+    max-width: 590px;
+    font-size: 0.94rem;
+  }
+
+  .locationExperience,
+  .locationImagePanel {
+    min-height: 1020px;
+  }
+
+  .locationImageInfo {
+    left: 60px;
+    bottom: 60px;
+  }
+
+  .locationImageInfo span {
+    font-size: 0.64rem;
+  }
+
+  .locationImageInfo strong {
+    font-size: 4.7rem;
+  }
+
+  .locationDetails {
+    padding: 64px;
+  }
+
+  .locationCounter {
+    padding-bottom: 38px;
+  }
+
+  .locationCounter span {
+    font-size: 0.6rem;
+  }
+
+  .locationCounter strong {
+    font-size: 0.73rem;
+  }
+
+  .locationButton,
+  .locationButtonActive {
+    grid-template-columns: 42px 1fr;
+    gap: 17px;
+    padding: 23px 0;
+    font-size: 1.3rem;
+  }
+
+  .locationButton span,
+  .locationButtonActive span {
+    font-size: 0.61rem;
+  }
+
+  .locationDescription {
+    grid-template-columns: 52px 1fr;
+    gap: 20px;
+    padding-top: 40px;
+  }
+
+  .locationIcon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .locationDescription h3 {
+    font-size: 1.3rem;
+  }
+
+  .locationDescription p {
+    font-size: 0.76rem;
+  }
+
+  .locationTags {
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .locationTags span {
+    padding: 9px 12px;
+    font-size: 0.56rem;
+  }
+
+  .locationGallery {
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .locationGallery > div {
+    height: 250px;
+  }
+
+  /* SEA */
+
+  .seaSection {
+    min-height: 1200px;
+  }
+
+  .seaContent {
+    max-width: 980px;
+  }
+
+  .seaContent h2 {
+    font-size: clamp(4.8rem, 5vw, 7.5rem);
+  }
+
+  .seaContent > p {
+    max-width: 800px;
+    font-size: 0.94rem;
+  }
+
+  .seaStats {
+    gap: 80px;
+    margin-top: 70px;
+    padding-top: 32px;
+  }
+
+  .seaStats strong {
+    font-size: 2.8rem;
+  }
+
+  .seaStats span {
+    font-size: 0.56rem;
+  }
+
+  .seaFloatingImage {
+    width: 500px;
+    height: 640px;
+    border-width: 10px;
+  }
+
+  /* FOOD */
+
+  .foodSection {
+    padding: 230px 0;
+  }
+
+  .foodGrid {
+    gap: 190px;
+  }
+
+  .foodVisual {
+    min-height: 1050px;
+  }
+
+  .foodImageLarge {
+    height: 800px;
+  }
+
+  .foodImageSmall {
+    height: 470px;
+    border-width: 12px;
+  }
+
+  .foodImageTiny {
+    height: 285px;
+    border-width: 10px;
+  }
+
+  .foodContent {
+    max-width: 700px;
+  }
+
+  .foodContent > p {
+    font-size: 0.94rem;
+  }
+
+  .foodPoints {
+    margin-top: 55px;
+  }
+
+  .foodPoints > div {
+    grid-template-columns: 48px 1fr;
+    gap: 20px;
+    padding: 28px 0;
+  }
+
+  .foodPoints strong {
+    font-size: 0.88rem;
+  }
+
+  .foodPoints p {
+    font-size: 0.76rem;
+  }
+
+  /* SEASONS */
+
+  .seasonsSection {
+    padding: 220px 0;
+  }
+
+  .seasonsHeader {
+    gap: 170px;
+    margin-bottom: 115px;
+  }
+
+  .seasonsHeader > p {
+    max-width: 580px;
+    font-size: 0.92rem;
+  }
+
+  .seasonsGrid {
+    gap: 18px;
+  }
+
+  .seasonCard {
+    height: 800px;
+  }
+
+  .seasonInfo {
+    left: 40px;
+    right: 40px;
+    bottom: 42px;
+  }
+
+  .seasonInfo > span {
+    font-size: 0.62rem;
+  }
+
+  .seasonInfo h3 {
+    font-size: 2.8rem;
+  }
+
+  .seasonInfo p {
+    font-size: 0.73rem;
+  }
+
+  /* OUTDOOR */
+
+  .outdoorSection {
+    padding: 230px 0;
+  }
+
+  .outdoorGrid {
+    gap: 175px;
+  }
+
+  .outdoorContent > p {
+    max-width: 590px;
+    font-size: 0.92rem;
+  }
+
+  .outdoorFacts {
+    max-width: 520px;
+    margin-top: 55px;
+  }
+
+  .outdoorFacts div {
+    padding: 24px 0;
+  }
+
+  .outdoorFacts span {
+    font-size: 0.68rem;
+  }
+
+  .outdoorImages {
+    height: 1000px;
+  }
+
+  .outdoorImageOne {
+    height: 640px;
+  }
+
+  .outdoorImageTwo {
+    height: 520px;
+    border-width: 11px;
+  }
+
+  .outdoorImageThree {
+    height: 310px;
+    border-width: 9px;
+  }
+
+  /* INVESTOR */
+
+  .investorSection {
+    padding-bottom: 220px;
+  }
+
+  .investorImage {
+    min-height: 1100px;
+  }
+
+  .investorContent {
+    padding: 115px 105px;
+  }
+
+  .investorContent h2 {
+    font-size: clamp(3.8rem, 3.6vw, 5.8rem);
+  }
+
+  .investorContent > p {
+    max-width: 780px;
+    font-size: 0.88rem;
+  }
+
+  .investorPoints {
+    margin-top: 58px;
+  }
+
+  .investorPoints > div {
+    grid-template-columns: 46px 1fr;
+    padding: 28px 0;
+  }
+
+  .investorPoints span {
+    font-size: 0.6rem;
+  }
+
+  .investorPoints strong {
+    font-size: 0.88rem;
+  }
+
+  .investorPoints p {
+    font-size: 0.72rem;
+  }
+
+  .investorButton {
+    margin-top: 50px;
+    padding: 17px 26px;
+    font-size: 0.79rem;
+  }
+
+  /* CLOSING */
+
+  .closingSection {
+    min-height: 1100px;
+  }
+
+  .closingContent {
+    max-width: 1080px;
+  }
+
+  .closingContent h2 {
+    font-size: clamp(5rem, 5.2vw, 8.5rem);
+  }
+
+  .closingContent p {
+    max-width: 700px;
+    font-size: 0.94rem;
+  }
+
+  .closingButton {
+    margin-top: 44px;
+    padding: 18px 28px;
+    font-size: 0.79rem;
+  }
+
+  /* LEGAL */
+
+  .legalSection {
+    padding: 58px 0;
+  }
+
+  .legalInner {
+    max-width: 1350px;
+  }
+
+  .legalInner p {
+    font-size: 0.66rem;
   }
 }
 
@@ -1474,10 +3087,6 @@
     padding-bottom: 35px;
   }
 
-  /*
-    Move the hero label upward without changing the
-    rest of the hero composition.
-  */
   .heroContent {
     position: relative;
   }
@@ -1536,10 +3145,6 @@
     font-size: 0.71rem;
   }
 
-  /* =========================================================
-     MOSAIC
-  ========================================================= */
-
   .imageMosaic {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 240px 180px 180px;
@@ -1552,20 +3157,10 @@
     font-size: 0.43rem;
   }
 
-  /* =========================================================
-     DAY
-  ========================================================= */
-
   .dayHeader {
     margin-bottom: 50px;
   }
 
-  /*
-    Slightly more line-height so:
-    "Imagine an ordinary"
-    "day here."
-    does not feel crushed together.
-  */
   .dayHeader h2 {
     line-height: 1.03;
   }
@@ -1593,11 +3188,6 @@
     margin: 0;
   }
 
-  /*
-    Increased from the old 235px.
-    This gives the photographs more room and reduces
-    aggressive cropping on mobile.
-  */
   .dayImageWrap {
     height: 255px;
   }
@@ -1618,18 +3208,10 @@
     font-size: 0.63rem;
   }
 
-  /* =========================================================
-     LOCATIONS
-  ========================================================= */
-
   .locationsHeader {
     margin-bottom: 45px;
   }
 
-  /*
-    Slightly more breathing room between the two headline
-    lines on mobile, without changing the typography.
-  */
   .locationsHeader h2 {
     line-height: 1.03;
   }
@@ -1673,10 +3255,6 @@
     height: 120px;
   }
 
-  /* =========================================================
-     SEA
-  ========================================================= */
-
   .seaSection {
     min-height: 700px;
   }
@@ -1702,10 +3280,6 @@
   .seaStats span {
     font-size: 0.4rem;
   }
-
-  /* =========================================================
-     FOOD
-  ========================================================= */
 
   .foodVisual {
     min-height: 470px;
@@ -1736,18 +3310,10 @@
     font-size: 0.57rem;
   }
 
-  /*
-    Give the olive photograph more vertical space so
-    its composition doesn't get sliced off.
-  */
   .foodBottomImage {
     height: 190px;
     object-position: center center;
   }
-
-  /* =========================================================
-     SEASONS
-  ========================================================= */
 
   .seasonsGrid {
     grid-template-columns: 1fr;
@@ -1757,10 +3323,6 @@
   .seasonCard {
     height: 430px;
   }
-
-  /* =========================================================
-     OUTDOOR
-  ========================================================= */
 
   .outdoorContent > p {
     font-size: 0.69rem;
@@ -1788,10 +3350,6 @@
     right: 4%;
     border-width: 5px;
   }
-
-  /* =========================================================
-     INVESTOR
-  ========================================================= */
 
   .investorSection {
     padding-bottom: 85px;
@@ -1826,10 +3384,6 @@
     justify-content: center;
   }
 
-  /* =========================================================
-     CLOSING
-  ========================================================= */
-
   .closingSection {
     min-height: 600px;
   }
@@ -1846,10 +3400,6 @@
     width: 100%;
     justify-content: center;
   }
-
-  /* =========================================================
-     LEGAL
-  ========================================================= */
 
   .legalInner {
     gap: 9px;
@@ -1873,10 +3423,6 @@
     min-height: 640px;
   }
 
-  /*
-    Keep the eyebrow high on smaller phones too,
-    but bring it slightly closer to the hero content.
-  */
   .hero .eyebrow {
     bottom: calc(100% + 145px);
   }
@@ -1907,10 +3453,6 @@
     grid-template-rows: 210px 155px 155px;
   }
 
-  /* =========================================================
-     DAY
-  ========================================================= */
-
   .dayHeader h2 {
     line-height: 1.05;
   }
@@ -1931,10 +3473,6 @@
     height: 100px;
   }
 
-  /* =========================================================
-     SEA
-  ========================================================= */
-
   .seaContent h2 {
     font-size: 2.8rem;
   }
@@ -1943,10 +3481,6 @@
     grid-template-columns: 1fr;
     gap: 18px;
   }
-
-  /* =========================================================
-     FOOD
-  ========================================================= */
 
   .foodVisual {
     min-height: 400px;
@@ -1968,17 +3502,9 @@
     height: 175px;
   }
 
-  /* =========================================================
-     SEASONS
-  ========================================================= */
-
   .seasonCard {
     height: 380px;
   }
-
-  /* =========================================================
-     OUTDOOR
-  ========================================================= */
 
   .outdoorImages {
     height: 400px;
@@ -1995,10 +3521,6 @@
   .outdoorImageThree {
     height: 140px;
   }
-
-  /* =========================================================
-     CLOSING
-  ========================================================= */
 
   .closingSection {
     min-height: 550px;

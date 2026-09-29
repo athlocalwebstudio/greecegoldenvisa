@@ -870,6 +870,890 @@
 }
 
 /* =========================================================
+   LARGE DESKTOP — 1440+
+========================================================= */
+
+@media (min-width: 1440px) {
+  .container {
+    width: min(1380px, 90%);
+  }
+
+  .hero {
+    min-height: clamp(820px, 88vh, 980px);
+  }
+
+  .hero .container {
+    min-height: clamp(820px, 88vh, 980px);
+    padding: 7.5rem 0 5.5rem;
+  }
+
+  .heroContent {
+    max-width: 1000px;
+  }
+
+  .heroContent h1 {
+    max-width: 1000px;
+    font-size: clamp(5.5rem, 5.5vw, 7rem);
+  }
+
+  .heroText {
+    max-width: 700px;
+    font-size: clamp(1.05rem, 1.15vw, 1.2rem);
+  }
+
+  .heroMeta {
+    margin-top: 5.5rem;
+    font-size: 0.7rem;
+  }
+
+  .intro,
+  .routesSection,
+  .eligibilitySection,
+  .propertySection,
+  .processSection,
+  .familySection,
+  .costSection,
+  .faqSection {
+    padding: 10rem 0;
+  }
+
+  .residenceSection,
+  .finalCta {
+    padding: 9rem 0;
+  }
+
+  .sectionHeader {
+    max-width: 820px;
+    margin-bottom: 5rem;
+  }
+
+  .sectionHeader h2 {
+    font-size: clamp(3.5rem, 4.3vw, 4.8rem);
+  }
+
+  .sectionHeader p {
+    max-width: 720px;
+    font-size: 1.08rem;
+  }
+
+  .essentialCard {
+    min-height: 330px;
+    padding: 2.35rem;
+  }
+
+  .cardNumber {
+    margin-bottom: 5.5rem;
+    font-size: 0.78rem;
+  }
+
+  .routeCard {
+    min-height: 510px;
+    padding: 2.35rem;
+  }
+
+  .routeAmount {
+    margin-top: 5.5rem;
+    font-size: clamp(3.5rem, 4.2vw, 5.2rem);
+  }
+
+  .routeCard h3 {
+    font-size: 1.35rem;
+  }
+
+  .routeCard p {
+    font-size: 0.96rem;
+  }
+
+  .splitSection {
+    gap: 9rem;
+  }
+
+  .splitIntro h2 {
+    font-size: clamp(3rem, 4vw, 4.4rem);
+  }
+
+  .checkItem {
+    grid-template-columns: 60px 1fr;
+    gap: 1.75rem;
+    padding: 2rem 0;
+  }
+
+  .checkItem p {
+    font-size: 0.94rem;
+  }
+
+  .residenceBox {
+    gap: 8rem;
+  }
+
+  .residenceBox h2 {
+    font-size: clamp(3.2rem, 4.5vw, 5.2rem);
+  }
+
+  .residenceText p {
+    font-size: 1.05rem;
+  }
+
+  .propertyStatement {
+    min-height: 500px;
+    padding: 3.5rem;
+  }
+
+  .propertyCheck {
+    min-height: 125px;
+    padding: 1.75rem;
+  }
+
+  .propertyCheck p {
+    font-size: 0.94rem;
+  }
+
+  .advisorCallout {
+    padding: 3rem;
+    gap: 5rem;
+  }
+
+  .timelineItem {
+    grid-template-columns: 100px 1fr;
+    gap: 2.5rem;
+    padding: 2.25rem 0;
+  }
+
+  .timelineContent {
+    gap: 4rem;
+  }
+
+  .timelineContent p {
+    max-width: 650px;
+    font-size: 0.95rem;
+  }
+
+  .familyGrid {
+    gap: 9rem;
+  }
+
+  .familyGrid h2 {
+    font-size: clamp(3.2rem, 4.4vw, 5rem);
+  }
+
+  .costItem {
+    min-height: 155px;
+    padding: 2rem;
+  }
+
+  .costItem p {
+    font-size: 0.95rem;
+  }
+
+  .costWarning {
+    padding: 2.25rem;
+  }
+
+  .faqItem summary {
+    padding: 1.8rem 0;
+  }
+
+  .faqItem summary strong {
+    font-size: 1.05rem;
+  }
+
+  .finalCta {
+    padding: 10rem 0;
+  }
+
+  .finalCtaInner {
+    max-width: 1000px;
+  }
+
+  .finalCta h2 {
+    font-size: clamp(4rem, 5.2vw, 6rem);
+  }
+
+  .finalCta p {
+    font-size: 1.05rem;
+  }
+}
+
+/* =========================================================
+   LARGE DESKTOP — 1920+
+========================================================= */
+
+@media (min-width: 1920px) {
+  .container {
+    width: min(1600px, 88%);
+  }
+
+  .hero {
+    min-height: clamp(900px, 88vh, 1120px);
+  }
+
+  .hero .container {
+    min-height: clamp(900px, 88vh, 1120px);
+    padding: 8rem 0 6rem;
+  }
+
+  .heroContent {
+    max-width: 1120px;
+  }
+
+  .heroContent h1 {
+    max-width: 1100px;
+    font-size: clamp(6rem, 5.2vw, 8.5rem);
+  }
+
+  .heroText {
+    max-width: 760px;
+    font-size: 1.22rem;
+  }
+
+  .heroActions {
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-height: 58px;
+    padding: 1rem 2rem;
+    font-size: 0.96rem;
+  }
+
+  .heroMeta {
+    margin-top: 6rem;
+    padding-top: 1.5rem;
+    font-size: 0.72rem;
+  }
+
+  .intro,
+  .routesSection,
+  .eligibilitySection,
+  .propertySection,
+  .processSection,
+  .familySection,
+  .costSection,
+  .faqSection {
+    padding: 11rem 0;
+  }
+
+  .residenceSection,
+  .finalCta {
+    padding: 10rem 0;
+  }
+
+  .sectionHeader {
+    max-width: 900px;
+    margin-bottom: 5.75rem;
+  }
+
+  .sectionHeader h2 {
+    font-size: clamp(4rem, 4.5vw, 5.4rem);
+  }
+
+  .sectionHeader p {
+    max-width: 760px;
+    font-size: 1.12rem;
+  }
+
+  .eyebrow {
+    font-size: 0.76rem;
+  }
+
+  .essentialCard {
+    min-height: 360px;
+    padding: 2.75rem;
+  }
+
+  .cardNumber {
+    margin-bottom: 6.5rem;
+    font-size: 0.8rem;
+  }
+
+  .essentialCard h3 {
+    font-size: 1.25rem;
+  }
+
+  .essentialCard p {
+    font-size: 0.96rem;
+  }
+
+  .routesGrid {
+    gap: 1.25rem;
+  }
+
+  .routeCard {
+    min-height: 560px;
+    padding: 2.75rem;
+  }
+
+  .routeTop {
+    font-size: 0.72rem;
+  }
+
+  .routeAmount {
+    margin-top: 6rem;
+    font-size: clamp(4rem, 4.5vw, 5.8rem);
+  }
+
+  .routeCard h3 {
+    margin-top: 2rem;
+    font-size: 1.45rem;
+  }
+
+  .routeCard p {
+    font-size: 1rem;
+  }
+
+  .routeNote {
+    padding-top: 1.75rem;
+    font-size: 0.82rem;
+  }
+
+  .legalNote {
+    padding: 1.5rem 1.75rem;
+    font-size: 0.88rem;
+  }
+
+  .splitSection {
+    gap: 10rem;
+  }
+
+  .splitIntro h2 {
+    font-size: clamp(3.5rem, 4vw, 4.8rem);
+  }
+
+  .splitIntro p {
+    max-width: 540px;
+    font-size: 1.02rem;
+  }
+
+  .checkItem {
+    grid-template-columns: 65px 1fr;
+    gap: 2rem;
+    padding: 2.25rem 0;
+  }
+
+  .checkItem h3 {
+    font-size: 1.08rem;
+  }
+
+  .checkItem p {
+    font-size: 0.98rem;
+  }
+
+  .residenceBox {
+    gap: 10rem;
+  }
+
+  .residenceBox h2 {
+    font-size: clamp(3.5rem, 4.5vw, 5.6rem);
+  }
+
+  .residenceText p {
+    max-width: 650px;
+    font-size: 1.08rem;
+  }
+
+  .propertyStatement {
+    min-height: 560px;
+    padding: 4rem;
+  }
+
+  .propertyStatement strong {
+    font-size: clamp(2.2rem, 2.8vw, 3.3rem);
+  }
+
+  .propertyCheck {
+    min-height: 140px;
+    padding: 2rem;
+  }
+
+  .propertyCheck p {
+    font-size: 0.98rem;
+  }
+
+  .advisorCallout {
+    margin-top: 2.5rem;
+    padding: 3.25rem;
+    gap: 6rem;
+  }
+
+  .advisorCallout p {
+    font-size: 1rem;
+  }
+
+  .timelineItem {
+    grid-template-columns: 110px 1fr;
+    gap: 3rem;
+    padding: 2.5rem 0;
+  }
+
+  .timelineContent {
+    gap: 5rem;
+  }
+
+  .timelineContent h3 {
+    font-size: 1.3rem;
+  }
+
+  .timelineContent p {
+    max-width: 700px;
+    font-size: 0.98rem;
+  }
+
+  .familyGrid {
+    gap: 10rem;
+  }
+
+  .familyGrid h2 {
+    font-size: clamp(3.5rem, 4.4vw, 5.4rem);
+  }
+
+  .familyGrid p {
+    font-size: 1.02rem;
+  }
+
+  .costItem {
+    min-height: 175px;
+    padding: 2.25rem;
+  }
+
+  .costItem p {
+    font-size: 0.98rem;
+  }
+
+  .costWarning {
+    gap: 4rem;
+    padding: 2.5rem;
+  }
+
+  .costWarning p {
+    font-size: 0.98rem;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 80px 1fr 35px;
+    padding: 2rem 0;
+  }
+
+  .faqItem summary strong {
+    font-size: 1.1rem;
+  }
+
+  .faqAnswer {
+    padding: 0 5rem 2rem 80px;
+  }
+
+  .faqAnswer p {
+    max-width: 850px;
+    font-size: 0.98rem;
+  }
+
+  .finalCta {
+    padding: 11rem 0;
+  }
+
+  .finalCtaInner {
+    max-width: 1150px;
+  }
+
+  .finalCta h2 {
+    font-size: clamp(4.5rem, 5vw, 7rem);
+  }
+
+  .finalCta p {
+    max-width: 720px;
+    font-size: 1.08rem;
+  }
+
+  .disclaimer {
+    padding: 2.5rem 0;
+  }
+
+  .disclaimer p {
+    max-width: 1000px;
+    font-size: 0.78rem;
+  }
+}
+
+/* =========================================================
+   TALL LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1920px) and (min-height: 1600px) {
+  .hero {
+    min-height: 1050px;
+  }
+
+  .hero .container {
+    min-height: 1050px;
+    padding-top: 9rem;
+    padding-bottom: 7rem;
+  }
+
+  .heroContent h1 {
+    font-size: clamp(6.5rem, 5vw, 9rem);
+  }
+
+  .heroText {
+    max-width: 780px;
+    line-height: 1.85;
+  }
+
+  .heroMeta {
+    margin-top: 7rem;
+  }
+
+  .intro,
+  .routesSection,
+  .eligibilitySection,
+  .propertySection,
+  .processSection,
+  .familySection,
+  .costSection,
+  .faqSection {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
+
+  .residenceSection,
+  .finalCta {
+    padding-top: 11rem;
+    padding-bottom: 11rem;
+  }
+
+  .essentialCard {
+    min-height: 390px;
+  }
+
+  .routeCard {
+    min-height: 600px;
+  }
+
+  .propertyStatement {
+    min-height: 600px;
+  }
+
+  .costItem {
+    min-height: 190px;
+  }
+
+  .finalCta {
+    min-height: 850px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* =========================================================
+   3000+ / 4K
+========================================================= */
+
+@media (min-width: 3000px) {
+  .container {
+    width: min(1850px, 84%);
+  }
+
+  .hero {
+    min-height: 1120px;
+  }
+
+  .hero .container {
+    min-height: 1120px;
+    padding: 10rem 0 8rem;
+  }
+
+  .heroContent {
+    max-width: 1250px;
+  }
+
+  .heroContent h1 {
+    max-width: 1220px;
+    font-size: clamp(7rem, 4.7vw, 9.5rem);
+  }
+
+  .heroText {
+    max-width: 820px;
+    font-size: 1.28rem;
+  }
+
+  .heroMeta {
+    margin-top: 7.5rem;
+    font-size: 0.76rem;
+  }
+
+  .intro,
+  .routesSection,
+  .eligibilitySection,
+  .propertySection,
+  .processSection,
+  .familySection,
+  .costSection,
+  .faqSection {
+    padding-top: 13rem;
+    padding-bottom: 13rem;
+  }
+
+  .residenceSection,
+  .finalCta {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
+
+  .sectionHeader {
+    max-width: 1000px;
+    margin-bottom: 6.5rem;
+  }
+
+  .sectionHeader h2 {
+    font-size: clamp(4.5rem, 4vw, 6rem);
+  }
+
+  .sectionHeader p {
+    max-width: 820px;
+    font-size: 1.18rem;
+  }
+
+  .eyebrow {
+    font-size: 0.8rem;
+  }
+
+  .essentialCard {
+    min-height: 410px;
+    padding: 3.25rem;
+  }
+
+  .cardNumber {
+    margin-bottom: 7.5rem;
+    font-size: 0.84rem;
+  }
+
+  .essentialCard h3 {
+    font-size: 1.35rem;
+  }
+
+  .essentialCard p {
+    font-size: 1rem;
+  }
+
+  .routesGrid {
+    gap: 1.5rem;
+  }
+
+  .routeCard {
+    min-height: 640px;
+    padding: 3.25rem;
+  }
+
+  .routeTop {
+    font-size: 0.76rem;
+  }
+
+  .routeAmount {
+    margin-top: 7rem;
+    font-size: clamp(4.5rem, 4vw, 6.4rem);
+  }
+
+  .routeCard h3 {
+    font-size: 1.55rem;
+  }
+
+  .routeCard p {
+    font-size: 1.02rem;
+  }
+
+  .routeNote {
+    font-size: 0.86rem;
+  }
+
+  .legalNote {
+    margin-top: 2rem;
+    padding: 1.75rem 2rem;
+    font-size: 0.92rem;
+  }
+
+  .splitSection {
+    gap: 12rem;
+  }
+
+  .splitIntro h2 {
+    font-size: clamp(4rem, 3.8vw, 5.2rem);
+  }
+
+  .splitIntro p {
+    max-width: 600px;
+    font-size: 1.06rem;
+  }
+
+  .checkItem {
+    grid-template-columns: 75px 1fr;
+    gap: 2.5rem;
+    padding: 2.75rem 0;
+  }
+
+  .checkItem > span {
+    font-size: 0.78rem;
+  }
+
+  .checkItem h3 {
+    font-size: 1.15rem;
+  }
+
+  .checkItem p {
+    font-size: 1rem;
+  }
+
+  .residenceBox {
+    gap: 12rem;
+  }
+
+  .residenceBox h2 {
+    font-size: clamp(4rem, 4vw, 6rem);
+  }
+
+  .residenceText p {
+    max-width: 700px;
+    font-size: 1.12rem;
+  }
+
+  .propertyStatement {
+    min-height: 660px;
+    padding: 4.5rem;
+  }
+
+  .propertyStatement strong {
+    font-size: clamp(2.5rem, 2.6vw, 3.6rem);
+  }
+
+  .propertyCheck {
+    min-height: 155px;
+    padding: 2.25rem;
+  }
+
+  .propertyCheck p {
+    font-size: 1.02rem;
+  }
+
+  .advisorCallout {
+    margin-top: 3rem;
+    padding: 3.75rem;
+    gap: 7rem;
+  }
+
+  .advisorCallout h3 {
+    font-size: clamp(2rem, 2.5vw, 3.2rem);
+  }
+
+  .advisorCallout p {
+    font-size: 1.04rem;
+  }
+
+  .timelineItem {
+    grid-template-columns: 120px 1fr;
+    gap: 3.5rem;
+    padding: 3rem 0;
+  }
+
+  .timelineContent {
+    gap: 6rem;
+  }
+
+  .timelineContent h3 {
+    font-size: 1.4rem;
+  }
+
+  .timelineContent p {
+    max-width: 760px;
+    font-size: 1.02rem;
+  }
+
+  .familyGrid {
+    gap: 12rem;
+  }
+
+  .familyGrid h2 {
+    font-size: clamp(4rem, 4.1vw, 5.8rem);
+  }
+
+  .familyGrid p {
+    font-size: 1.06rem;
+  }
+
+  .costItem {
+    min-height: 205px;
+    padding: 2.5rem;
+  }
+
+  .costItem p {
+    font-size: 1.02rem;
+  }
+
+  .costWarning {
+    gap: 5rem;
+    padding: 2.75rem;
+  }
+
+  .costWarning p {
+    font-size: 1.02rem;
+  }
+
+  .faqItem summary {
+    grid-template-columns: 90px 1fr 40px;
+    padding: 2.25rem 0;
+  }
+
+  .faqItem summary > span {
+    font-size: 0.76rem;
+  }
+
+  .faqItem summary strong {
+    font-size: 1.16rem;
+  }
+
+  .faqItem summary i {
+    font-size: 1.7rem;
+  }
+
+  .faqAnswer {
+    padding: 0 6rem 2.25rem 90px;
+  }
+
+  .faqAnswer p {
+    max-width: 950px;
+    font-size: 1rem;
+  }
+
+  .finalCta {
+    min-height: 900px;
+  }
+
+  .finalCtaInner {
+    max-width: 1250px;
+  }
+
+  .finalCta h2 {
+    font-size: clamp(5rem, 4.8vw, 7.5rem);
+  }
+
+  .finalCta p {
+    max-width: 800px;
+    font-size: 1.12rem;
+  }
+
+  .disclaimer {
+    padding: 3rem 0;
+  }
+
+  .disclaimer p {
+    max-width: 1150px;
+    font-size: 0.82rem;
+  }
+
+  .disclaimer span {
+    font-size: 0.7rem;
+  }
+}
+
+/* =========================================================
    TABLET
 ========================================================= */
 

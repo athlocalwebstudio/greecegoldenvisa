@@ -522,104 +522,604 @@
 }
 
 /* =========================================
-   LARGE DESKTOP
+   LARGE DESKTOP — 1440+
 ========================================= */
 
-@media (min-width: 1600px) {
+@media (min-width: 1440px) {
   .faq {
-    padding-top: 175px;
-    padding-bottom: 165px;
+    padding-top: 165px;
+    padding-bottom: 155px;
   }
 
   .container {
-    width: min(1280px, 88%);
+    width: min(1320px, 90%);
   }
 
   .intro {
-    gap: 100px;
-    margin-bottom: 95px;
-  }
-
-  .faqLayout {
-    gap: 90px;
+    gap: 95px;
+    margin-bottom: 90px;
   }
 
   .introLeft h2 {
-    font-size: 4.7rem;
+    font-size: clamp(4.35rem, 4.2vw, 4.8rem);
+  }
+
+  .introRight {
+    max-width: 510px;
+  }
+
+  .introRight > p {
+    font-size: 0.98rem;
+  }
+
+  .faqLayout {
+    gap: 82px;
+  }
+
+  .sidePanel {
+    top: 125px;
+    padding-top: 32px;
+    padding-bottom: 34px;
+  }
+
+  .sidePanelLabel {
+    font-size: 0.58rem;
+  }
+
+  .sidePanelMark {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sidePanelMark svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sidePanelCopy h3 {
+    font-size: 1.45rem;
+  }
+
+  .sidePanelCopy p {
+    font-size: 0.7rem;
+  }
+
+  .faqQuestion {
+    grid-template-columns: 54px 1fr 46px;
+    gap: 23px;
+    padding: 29px 0;
+  }
+
+  .questionNumber {
+    font-size: 0.65rem;
+  }
+
+  .questionCategory {
+    font-size: 0.55rem;
   }
 
   .questionText {
+    max-width: 780px;
     font-size: 1.05rem;
   }
 
+  .iconWrapper {
+    width: 41px;
+    height: 41px;
+  }
+
+  .plusIcon {
+    width: 18px;
+    height: 18px;
+  }
+
   .answerContent {
-    max-width: 720px;
+    max-width: 760px;
+    margin-left: 77px;
+    padding-right: 70px;
+    padding-bottom: 34px;
+  }
+
+  .answerContent p {
+    font-size: 0.8rem;
+  }
+
+  .relatedLink {
+    font-size: 0.61rem;
   }
 
   .faqCta {
-    width: min(100%, 1160px);
+    width: min(100%, 1200px);
+    margin-top: 105px;
+    padding: 48px 52px;
+    gap: 55px;
+  }
+
+  .ctaEyebrow {
+    font-size: 0.58rem;
+  }
+
+  .ctaContent h3 {
+    font-size: clamp(2.4rem, 3vw, 2.8rem);
+  }
+
+  .ctaContent p {
+    max-width: 560px;
+    font-size: 0.74rem;
+  }
+
+  .ctaButton {
+    min-width: 245px;
+    padding: 17px 23px;
+    font-size: 0.64rem;
   }
 }
 
 /* =========================================
-   4K / ULTRA WIDE
+   LARGE DESKTOP — 1920+
 ========================================= */
 
-@media (min-width: 2200px) {
+@media (min-width: 1920px) {
   .faq {
-    padding-top: 200px;
-    padding-bottom: 190px;
+    padding-top: 185px;
+    padding-bottom: 175px;
   }
 
   .container {
-    width: min(1450px, 82%);
+    width: min(1500px, 88%);
   }
 
   .intro {
-    gap: 120px;
-    margin-bottom: 110px;
+    grid-template-columns: 1.12fr 0.88fr;
+    gap: 115px;
+    margin-bottom: 105px;
+  }
+
+  .eyebrow {
+    gap: 14px;
+    margin-bottom: 29px;
+    font-size: 0.76rem;
+  }
+
+  .eyebrowLine {
+    width: 40px;
   }
 
   .introLeft h2 {
-    font-size: 5rem;
+    font-size: clamp(4.7rem, 5vw, 6rem);
   }
 
   .introRight {
-    max-width: 530px;
+    max-width: 560px;
   }
 
   .introRight > p {
-    font-size: 1.02rem;
+    font-size: 1.04rem;
+    line-height: 1.78;
+  }
+
+  .introMeta {
+    gap: 16px;
+    margin-top: 30px;
+    padding-top: 21px;
+  }
+
+  .metaNumber {
+    font-size: 1.55rem;
+  }
+
+  .introMeta strong {
+    font-size: 0.68rem;
+  }
+
+  .introMeta span:not(.metaNumber) {
+    font-size: 0.63rem;
   }
 
   .faqLayout {
     grid-template-columns: 0.3fr 0.7fr;
-    gap: 110px;
+    gap: 105px;
+  }
+
+  .sidePanel {
+    top: 135px;
+    padding: 34px 0 38px;
+  }
+
+  .sidePanelTop {
+    margin-bottom: 38px;
+  }
+
+  .sidePanelLabel {
+    font-size: 0.62rem;
+  }
+
+  .sidePanelMark {
+    width: 44px;
+    height: 44px;
+  }
+
+  .sidePanelMark svg {
+    width: 27px;
+    height: 27px;
   }
 
   .sidePanelCopy h3 {
-    font-size: 1.55rem;
+    font-size: 1.65rem;
+    line-height: 1.2;
   }
 
   .sidePanelCopy p {
-    font-size: 0.72rem;
+    margin-top: 22px;
+    font-size: 0.75rem;
+    line-height: 1.75;
+  }
+
+  .sidePanelFooter {
+    gap: 14px;
+    margin-top: 42px;
+  }
+
+  .footerLine {
+    height: 36px;
+  }
+
+  .sidePanelFooter strong {
+    font-size: 0.65rem;
+  }
+
+  .sidePanelFooter span:not(.footerLine) {
+    font-size: 0.61rem;
+  }
+
+  .faqQuestion {
+    grid-template-columns: 62px 1fr 50px;
+    gap: 27px;
+    padding: 34px 0;
+  }
+
+  .questionNumber {
+    padding-top: 6px;
+    font-size: 0.7rem;
+  }
+
+  .questionMain {
+    gap: 11px;
+  }
+
+  .questionCategory {
+    font-size: 0.59rem;
   }
 
   .questionText {
-    font-size: 1.12rem;
+    max-width: 920px;
+    font-size: 1.14rem;
+    line-height: 1.42;
+  }
+
+  .iconWrapper {
+    width: 46px;
+    height: 46px;
+  }
+
+  .plusIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .answerContent {
+    max-width: 880px;
+    margin-left: 89px;
+    padding: 0 85px 40px 0;
   }
 
   .answerContent p {
-    font-size: 0.82rem;
+    font-size: 0.86rem;
+    line-height: 1.8;
+  }
+
+  .relatedLink {
+    gap: 9px;
+    margin-top: 23px;
+    font-size: 0.64rem;
+  }
+
+  .relatedArrow {
+    width: 17px;
+    height: 17px;
   }
 
   .faqCta {
-    width: min(100%, 1280px);
-    padding: 50px 55px;
+    width: min(100%, 1360px);
+    margin-top: 125px;
+    padding: 58px 64px;
+    gap: 70px;
+    border-radius: 28px;
+  }
+
+  .ctaEyebrow {
+    margin-bottom: 16px;
+    font-size: 0.62rem;
   }
 
   .ctaContent h3 {
-    font-size: 2.7rem;
+    font-size: clamp(2.7rem, 3vw, 3.3rem);
+  }
+
+  .ctaContent p {
+    max-width: 650px;
+    margin-top: 18px;
+    font-size: 0.78rem;
+  }
+
+  .ctaButton {
+    min-width: 275px;
+    padding: 19px 27px;
+    font-size: 0.68rem;
+  }
+
+  .ctaButton svg {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+/* =========================================
+   TALL LARGE DESKTOP
+   Optimizes 1920+ high-resolution displays
+========================================= */
+
+@media (min-width: 1920px) and (min-height: 1600px) {
+  .faq {
+    padding-top: 205px;
+    padding-bottom: 195px;
+  }
+
+  .container {
+    width: min(1600px, 86%);
+  }
+
+  .intro {
+    gap: 135px;
+    margin-bottom: 120px;
+  }
+
+  .introLeft h2 {
+    font-size: clamp(5rem, 4.7vw, 6.4rem);
+  }
+
+  .introRight {
+    max-width: 600px;
+  }
+
+  .faqLayout {
+    gap: 120px;
+  }
+
+  .sidePanel {
+    top: 145px;
+  }
+
+  .faqQuestion {
+    padding-top: 38px;
+    padding-bottom: 38px;
+  }
+
+  .answerContent {
+    padding-bottom: 45px;
+  }
+
+  .faqCta {
+    margin-top: 145px;
+    padding: 65px 72px;
+  }
+}
+
+/* =========================================
+   4K / ULTRA WIDE — 3000+
+========================================= */
+
+@media (min-width: 3000px) {
+  .faq {
+    padding-top: 230px;
+    padding-bottom: 220px;
+  }
+
+  .container {
+    width: min(1780px, 84%);
+  }
+
+  .intro {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 155px;
+    margin-bottom: 140px;
+  }
+
+  .eyebrow {
+    gap: 16px;
+    margin-bottom: 34px;
+    font-size: 0.8rem;
+  }
+
+  .eyebrowLine {
+    width: 46px;
+  }
+
+  .introLeft h2 {
+    font-size: clamp(5.5rem, 4.5vw, 7rem);
+  }
+
+  .introRight {
+    max-width: 680px;
+  }
+
+  .introRight > p {
+    font-size: 1.12rem;
+    line-height: 1.82;
+  }
+
+  .introMeta {
+    gap: 18px;
+    margin-top: 34px;
+    padding-top: 24px;
+  }
+
+  .metaNumber {
+    font-size: 1.75rem;
+  }
+
+  .introMeta strong {
+    font-size: 0.73rem;
+  }
+
+  .introMeta span:not(.metaNumber) {
+    font-size: 0.67rem;
+  }
+
+  .faqLayout {
+    grid-template-columns: 0.29fr 0.71fr;
+    gap: 140px;
+  }
+
+  .sidePanel {
+    top: 155px;
+    padding-top: 40px;
+    padding-bottom: 44px;
+  }
+
+  .sidePanelTop {
+    margin-bottom: 44px;
+  }
+
+  .sidePanelLabel {
+    font-size: 0.67rem;
+  }
+
+  .sidePanelMark {
+    width: 50px;
+    height: 50px;
+  }
+
+  .sidePanelMark svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .sidePanelCopy h3 {
+    font-size: 1.85rem;
+  }
+
+  .sidePanelCopy p {
+    margin-top: 25px;
+    font-size: 0.82rem;
+  }
+
+  .sidePanelFooter {
+    margin-top: 48px;
+    gap: 16px;
+  }
+
+  .footerLine {
+    height: 41px;
+  }
+
+  .sidePanelFooter strong {
+    font-size: 0.7rem;
+  }
+
+  .sidePanelFooter span:not(.footerLine) {
+    font-size: 0.66rem;
+  }
+
+  .faqQuestion {
+    grid-template-columns: 70px 1fr 56px;
+    gap: 32px;
+    padding: 40px 0;
+  }
+
+  .questionNumber {
+    padding-top: 7px;
+    font-size: 0.76rem;
+  }
+
+  .questionMain {
+    gap: 13px;
+  }
+
+  .questionCategory {
+    font-size: 0.64rem;
+  }
+
+  .questionText {
+    max-width: 1100px;
+    font-size: 1.28rem;
+    line-height: 1.45;
+  }
+
+  .iconWrapper {
+    width: 52px;
+    height: 52px;
+  }
+
+  .plusIcon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .answerContent {
+    max-width: 1050px;
+    margin-left: 102px;
+    padding-right: 100px;
+    padding-bottom: 50px;
+  }
+
+  .answerContent p {
+    font-size: 0.94rem;
+    line-height: 1.82;
+  }
+
+  .relatedLink {
+    margin-top: 27px;
+    font-size: 0.69rem;
+  }
+
+  .relatedArrow {
+    width: 19px;
+    height: 19px;
+  }
+
+  .faqCta {
+    width: min(100%, 1550px);
+    margin-top: 165px;
+    padding: 72px 82px;
+    gap: 90px;
+    border-radius: 32px;
+  }
+
+  .ctaEyebrow {
+    margin-bottom: 19px;
+    font-size: 0.67rem;
+  }
+
+  .ctaContent h3 {
+    font-size: clamp(3.1rem, 2.8vw, 3.8rem);
+  }
+
+  .ctaContent p {
+    max-width: 760px;
+    margin-top: 21px;
+    font-size: 0.84rem;
+  }
+
+  .ctaButton {
+    min-width: 315px;
+    padding: 21px 31px;
+    font-size: 0.73rem;
+  }
+
+  .ctaButton svg {
+    width: 21px;
+    height: 21px;
   }
 }
 
