@@ -5,7 +5,6 @@ import InvestmentRoutes from "../components/LandingPage/Investment-Routes/Invest
 import WhatWeDo from "../components/LandingPage/WhatWeDo/WhatWeDo";
 import PropertyOpportunities from "../components/LandingPage/PropertyOpportunities/PropertyOpportunities";
 import FinalCTA from "../components/LandingPage/Final-CTA/FinalCTA";
-import Footer from "../components/LandingPage/Footer/Footer";
 
 import { client } from "@/sanity/lib/client";
 
@@ -111,7 +110,7 @@ export default async function Home() {
         renderSection(section, homepage)
       )}
 
-      <Footer />
+      
     </>
   );
 }

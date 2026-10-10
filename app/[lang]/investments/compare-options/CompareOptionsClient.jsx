@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import LocalizedLink from "@/app/components/LocalizedLink";
+import ConsultationButton from "@/app/components/consultation/ConsultationButton";
 import { useLanguage } from "@/app/LanguageContext";
 import {
   ArrowRight,
@@ -176,13 +177,9 @@ export default function CompareOptionsClient() {
             </p>
 
             <div className={styles.heroActions}>
-              <a
-                href="#compass"
-                className={styles.primaryButton}
-              >
-                {t("compareOptions.hero.primaryButton")}
-                <ArrowRight size={16} />
-              </a>
+             <ConsultationButton className={styles.primaryButton}>
+                 {t("programEligibility.hero.primaryButton")}
+               </ConsultationButton>
 
               <LocalizedLink
                 href="/team/contact"

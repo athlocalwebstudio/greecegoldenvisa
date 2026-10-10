@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import LocalizedLink from "@/app/components/LocalizedLink";
+import ConsultationButton from "@/app/components/consultation/ConsultationButton";
 import { useLanguage } from "@/app/LanguageContext";
 import {
   ArrowDown,
@@ -170,10 +171,9 @@ export default function MediterraneanLifestyleClient() {
 
             <p>{t("mediterraneanLifestyle.hero.description")}</p>
 
-            <a href="#lifestyle" className={styles.heroButton}>
-              {t("mediterraneanLifestyle.hero.button")}
-              <ArrowDown size={16} />
-            </a>
+           <ConsultationButton className={styles.heroButton}>
+  {t("programEligibility.hero.primaryButton")}
+</ConsultationButton>
           </div>
 
           <div className={styles.heroBottom}>

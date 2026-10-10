@@ -2,6 +2,7 @@
 
 import LocalizedLink from "@/app/components/LocalizedLink";
 import { useLanguage } from "@/app/LanguageContext";
+import ConsultationButton from "@/app/components/consultation/ConsultationButton";
 import styles from "./page.module.css";
 
 export default function InvestorHandbookPage() {
@@ -159,9 +160,9 @@ export default function InvestorHandbookPage() {
             </p>
 
             <div className={styles.heroActions}>
-              <a href="#handbook" className={styles.primaryButton}>
-                {t("investorHandbook.hero.primaryButton")}
-              </a>
+              <ConsultationButton className={styles.primaryButton}>
+  {t("programEligibility.hero.primaryButton")}
+</ConsultationButton>
 
               <LocalizedLink
                 href="/program/eligibility"

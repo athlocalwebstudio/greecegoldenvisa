@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import LocalizedLink from "@/app/components/LocalizedLink";
+import ConsultationButton from "@/app/components/consultation/ConsultationButton";
 import { useLanguage } from "@/app/LanguageContext";
 import styles from "./familyAndFuture.module.css";
 
@@ -38,13 +39,9 @@ export default function FamilyAndFuturePage() {
           <p>{t("familyAndFuture.hero.description")}</p>
 
           <div className={styles.heroActions}>
-            <LocalizedLink
-              href="/team/contact"
-              className={styles.primaryButton}
-            >
-              {t("familyAndFuture.hero.primaryButton")}
-              <span>↗</span>
-            </LocalizedLink>
+           <ConsultationButton className={styles.primaryButton}>
+  {t("programEligibility.hero.primaryButton")}
+</ConsultationButton>
 
             <LocalizedLink
               href="/program/eligibility"

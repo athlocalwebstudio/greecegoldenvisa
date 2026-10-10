@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import LocalizedLink from "@/app/components/LocalizedLink";
+import ConsultationButton from "@/app/components/consultation/ConsultationButton";
 import { useLanguage } from "@/app/LanguageContext";
 import styles from "./page.module.css";
 
@@ -281,15 +282,9 @@ export default function ApplicationChecklistPage() {
             </p>
 
             <div className={styles.heroActions}>
-              <a
-                href="#checklist"
-                className={styles.primaryButton}
-              >
-                {t(
-                  "applicationChecklist.hero.primary"
-                )}
-                <ArrowIcon />
-              </a>
+             <ConsultationButton className={styles.primaryButton}>
+  {t("programEligibility.hero.primaryButton")}
+</ConsultationButton>
 
               <LocalizedLink
                 href="/investor-guide/investor-handbook"

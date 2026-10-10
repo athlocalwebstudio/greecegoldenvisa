@@ -1,6 +1,7 @@
 "use client";
 
 import LocalizedLink from "@/app/components/LocalizedLink";
+import ConsultationButton from "@/app/components/consultation/ConsultationButton";
 import { useLanguage } from "@/app/LanguageContext";
 import {
   ArrowDown,
@@ -143,10 +144,9 @@ export default function JourneyContent() {
             <p>{t("programJourney.hero.description")}</p>
 
             <div className={styles.heroActions}>
-              <a href="#journey" className={styles.primaryButton}>
-                {t("programJourney.hero.primaryButton")}
-                <ArrowDown size={16} />
-              </a>
+             <ConsultationButton className={styles.primaryButton}>
+                 {t("programEligibility.hero.primaryButton")}
+               </ConsultationButton>
 
               <LocalizedLink
                 href="/program/eligibility"

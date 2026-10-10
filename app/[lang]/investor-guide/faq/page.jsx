@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import LocalizedLink from "@/app/components/LocalizedLink";
+import ConsultationButton from "@/app/components/consultation/ConsultationButton";
 import { useLanguage } from "@/app/LanguageContext";
 import styles from "./page.module.css";
 
@@ -319,32 +320,9 @@ export default function FAQ() {
             <p>{t("faq.cta.description")}</p>
           </div>
 
-          <LocalizedLink
-            href="/team/contact"
-            className={styles.ctaButton}
-          >
-            <span>{t("faq.cta.button")}</span>
-
-            <svg
-              viewBox="0 0 20 20"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M4 10H16"
-                stroke="currentColor"
-                strokeWidth="1.4"
-                strokeLinecap="round"
-              />
-              <path
-                d="M11 5L16 10L11 15"
-                stroke="currentColor"
-                strokeWidth="1.4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </LocalizedLink>
+          <ConsultationButton className={styles.ctaButton}>
+            {t("programEligibility.hero.primaryButton")}
+          </ConsultationButton>
         </div>
       </div>
     </section>

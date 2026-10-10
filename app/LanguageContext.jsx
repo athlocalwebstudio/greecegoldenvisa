@@ -3279,7 +3279,7 @@ applicationChecklist: {
     titleLineTwo: "Then verify the investment.",
     description:
       "Explore completed property opportunities selected for investors considering the Greek Golden Visa through real estate. Every opportunity should be assessed against the applicable route before you commit.",
-    primaryButton: "Explore Properties",
+    primaryButton: "Free Consultation",
     secondaryButton: "Request a Property Review",
     meta: {
       investment: "INVESTMENT",
@@ -3464,7 +3464,7 @@ applicationChecklist: {
     titleLineTwo: "to your residence permit.",
     description:
       "The application is only one part of the journey. Understand what happens before, during and after your investment — and where the right decisions matter most.",
-    primaryButton: "Explore the Journey",
+    primaryButton: "Free Consultation",
     secondaryButton: "Check Your Eligibility",
     meta: {
       program: "PROGRAM",
@@ -3742,7 +3742,7 @@ applicationChecklist: {
     titleLineTwo: "right for you?",
     description:
       "Eligibility depends on more than the amount you invest. Understand the key conditions before choosing a property or starting your application.",
-    primaryButton: "Check the Requirements",
+    primaryButton: "Free Consultation",
     secondaryButton: "View Investment Requirements",
     meta: {
       program: "PROGRAM",
@@ -8787,7 +8787,7 @@ applicationChecklist: {
     titleLineTwo: "Затем проверьте инвестицию.",
     description:
       "Изучите готовые объекты недвижимости, подходящие инвесторам, рассматривающим Золотую визу Греции через инвестиции в недвижимость. Каждый объект необходимо проверить с учётом применимого инвестиционного маршрута до принятия обязательств.",
-    primaryButton: "Изучить недвижимость",
+    primaryButton: "Бесплатная консультация",
     secondaryButton: "Запросить проверку объекта",
     meta: {
       investment: "ИНВЕСТИЦИЯ",
@@ -8972,7 +8972,7 @@ applicationChecklist: {
     titleLineTwo: "до вида на жительство.",
     description:
       "Подача заявления — лишь одна часть пути. Узнайте, что происходит до, во время и после инвестиции и на каких этапах особенно важны правильные решения.",
-    primaryButton: "Изучить процесс",
+    primaryButton: "Бесплатная консультация",
     secondaryButton: "Проверить соответствие",
     meta: {
       program: "ПРОГРАММА",
@@ -9250,7 +9250,7 @@ applicationChecklist: {
     titleLineTwo: "Золотая виза?",
     description:
       "Соответствие требованиям зависит не только от суммы инвестиций. Узнайте ключевые условия до выбора недвижимости или начала подачи заявления.",
-    primaryButton: "Проверить требования",
+    primaryButton: "Бесплатная консультация",
     secondaryButton: "Требования к инвестициям",
     meta: {
       program: "ПРОГРАММА",
