@@ -1279,6 +1279,7 @@
 
 /* =========================================================
    MOBILE
+   Transforms tabs into a compact horizontal scrollable pill bar
 ========================================================= */
 
 @media (max-width: 600px) {
@@ -1310,17 +1311,17 @@
   /* APPROACH */
 
   .approachSection {
-    padding: 30px 20px;
+    padding: 24px 16px;
     border-radius: 22px;
   }
 
   .approachHeader {
     align-items: flex-start;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   .approachHeader h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   .approachCounter {
@@ -1328,65 +1329,93 @@
     font-size: 0.68rem;
   }
 
-  /* TABS */
+  /* HORIZONTAL SCROLLABLE PEEK TABS FOR MOBILE */
 
   .approachTabs {
-    grid-template-columns: 1fr;
-    border-bottom: none;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 8px;
+    border: none;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hide scrollbar for clean look */
   }
 
-  .approachTab,
-  .approachTab:nth-child(2),
-  .approachTab:nth-child(3),
-  .approachTab:nth-child(4) {
+  .approachTabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .approachTab {
+    flex: 0 0 auto;
+    width: 140px;
     min-height: auto;
-    padding: 19px 15px;
-    border-right: none;
-    border-bottom: 1px solid rgba(15, 44, 89, 0.1);
+    padding: 12px 14px;
+    border: 1px solid rgba(15, 44, 89, 0.12);
+    border-radius: 12px;
+    background: #ffffff;
+    scroll-snap-align: start;
+    box-shadow: none;
+    transition: all 0.2s ease;
   }
 
-  .approachTab:last-child {
-    border-bottom: none;
+  .approachTabActive {
+    background: #0f2c59;
+    border-color: #0f2c59;
+    box-shadow: none;
   }
 
   .tabNumber {
-    margin-bottom: 12px;
+    margin-bottom: 6px;
+    font-size: 0.6rem;
+    color: #3ba9ef;
+  }
+
+  .approachTabActive .tabNumber {
+    color: #72c7f5;
+  }
+
+  .tabContent {
+    gap: 2px;
   }
 
   .tabTitle {
     font-size: 0.72rem;
-    padding-right: 35px;
+    line-height: 1.25;
+    padding-right: 0;
+    color: #0f2c59;
   }
 
-  .tabDescription {
-    font-size: 0.75rem;
+  .approachTabActive .tabTitle {
+    color: #ffffff;
   }
 
+  /* Hide description and arrow on mobile pill tabs to save space */
+  .tabDescription,
   .tabArrow {
-    top: 19px;
-    right: 15px;
+    display: none;
   }
 
   /* DETAIL */
 
   .approachDetail {
     grid-template-columns: 1fr;
-    gap: 18px;
-    padding-top: 35px;
+    gap: 14px;
+    padding-top: 24px;
   }
 
   .detailNumber {
-    font-size: 3.5rem;
+    display: none; /* Hide large watermark number on mobile to save vertical space */
   }
 
   .detailContent h4 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   .detailContent p {
-    margin-top: 13px;
-    font-size: 0.9rem;
-    line-height: 1.7;
+    margin-top: 10px;
+    font-size: 0.88rem;
+    line-height: 1.65;
   }
 
   /* COORDINATED */
@@ -1470,11 +1499,11 @@
   }
 
   .approachSection {
-    padding: 27px 16px;
+    padding: 20px 14px;
   }
 
   .approachHeader h3 {
-    font-size: 1.75rem;
+    font-size: 1.65rem;
   }
 
   .coordinated {
@@ -1513,5 +1542,36 @@
   .buttonIcon,
   .tabArrow {
     transition: none;
+  }
+}
+/* Hidden on desktop, visible on mobile */
+.swipeHint {
+  display: none;
+}
+
+.mobileActiveTitle {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .swipeHint {
+    display: block;
+    margin-bottom: 10px;
+    color: #3ba9ef;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .mobileActiveTitle {
+    display: block;
+    margin-bottom: 6px;
+    color: #0f2c59;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 }

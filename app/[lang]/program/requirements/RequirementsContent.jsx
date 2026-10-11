@@ -23,6 +23,7 @@ const investmentRoutes = [
     key: "special",
     icon: Landmark,
     featured: false,
+    href: "/investments/routes",
   },
   {
     number: "02",
@@ -30,6 +31,7 @@ const investmentRoutes = [
     key: "standard",
     icon: Home,
     featured: false,
+    href: "/investments/routes",
   },
   {
     number: "03",
@@ -37,6 +39,7 @@ const investmentRoutes = [
     key: "highDemand",
     icon: Building2,
     featured: true,
+    href: "/investments/routes",
   },
 ];
 
@@ -169,13 +172,8 @@ export default function RequirementsContent() {
             {investmentRoutes.map((route) => {
               const Icon = route.icon;
 
-              return (
-                <article
-                  className={`${styles.routeCard} ${
-                    route.featured ? styles.routeCardFeatured : ""
-                  }`}
-                  key={route.number}
-                >
+              const cardContent = (
+                <>
                   <div className={styles.routeTop}>
                     <span>{route.number}</span>
 
@@ -203,6 +201,28 @@ export default function RequirementsContent() {
 
                     <ArrowRight size={16} />
                   </div>
+                </>
+              );
+
+              return route.href ? (
+                <LocalizedLink
+                  href={route.href}
+                  className={`${styles.routeCard} ${
+                    route.featured ? styles.routeCardFeatured : ""
+                  }`}
+                  key={route.number}
+                  style={{ textDecoration: "none" }}
+                >
+                  {cardContent}
+                </LocalizedLink>
+              ) : (
+                <article
+                  className={`${styles.routeCard} ${
+                    route.featured ? styles.routeCardFeatured : ""
+                  }`}
+                  key={route.number}
+                >
+                  {cardContent}
                 </article>
               );
             })}

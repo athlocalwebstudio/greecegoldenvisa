@@ -131,49 +131,52 @@ export default function BenefitsContent() {
               const Icon = benefit.icon;
 
               return (
-                <article
-                  className={styles.benefitCard}
+                <LocalizedLink
+                  href="/program/eligibility"
+                  className={styles.benefitCardLink}
                   key={benefit.number}
                 >
+                  <article className={styles.benefitCard}>
 
-                  <div className={styles.cardTop}>
+                    <div className={styles.cardTop}>
 
-                    <span className={styles.cardNumber}>
-                      {benefit.number}
-                    </span>
+                      <span className={styles.cardNumber}>
+                        {benefit.number}
+                      </span>
 
-                    <div className={styles.cardIcon}>
-                      <Icon
-                        size={21}
-                        strokeWidth={1.7}
-                      />
+                      <div className={styles.cardIcon}>
+                        <Icon
+                          size={21}
+                          strokeWidth={1.7}
+                        />
+                      </div>
+
                     </div>
 
-                  </div>
+
+                    <div className={styles.cardBody}>
+
+                      <h3>
+                        {t(
+                          `programBenefits.benefits.cards.${benefit.key}.title`
+                        )}
+                      </h3>
+
+                      <p>
+                        {t(
+                          `programBenefits.benefits.cards.${benefit.key}.text`
+                        )}
+                      </p>
+
+                    </div>
 
 
-                  <div className={styles.cardBody}>
+                    <div className={styles.cardArrow}>
+                      <ArrowRight size={17} />
+                    </div>
 
-                    <h3>
-                      {t(
-                        `programBenefits.benefits.cards.${benefit.key}.title`
-                      )}
-                    </h3>
-
-                    <p>
-                      {t(
-                        `programBenefits.benefits.cards.${benefit.key}.text`
-                      )}
-                    </p>
-
-                  </div>
-
-
-                  <div className={styles.cardArrow}>
-                    <ArrowRight size={17} />
-                  </div>
-
-                </article>
+                  </article>
+                </LocalizedLink>
               );
             })}
 

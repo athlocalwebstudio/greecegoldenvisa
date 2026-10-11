@@ -2876,7 +2876,7 @@ applicationChecklist: {
     },
   },
 
-  routes: {
+routes: {
     label: "INVESTMENT ROUTES",
     titleLineOne: "Different structures.",
     titleLineTwo: "Different requirements.",
@@ -2957,6 +2957,7 @@ applicationChecklist: {
     qualifyingRoute: "QUALIFYING ROUTE",
     discuss: "Discuss",
   },
+
 
   amount: {
     label: "SAME AMOUNT. DIFFERENT INVESTMENT.",
@@ -3108,170 +3109,82 @@ applicationChecklist: {
       "The investment categories and thresholds presented on this page are provided for general informational purposes and do not constitute legal, tax, immigration, financial or investment advice. Eligibility depends on the specific investment structure, applicant circumstances, required documentation and legislation in force at the relevant time. Financial investments may involve market, liquidity, issuer and other investment risks.",
   },
 },
-    strategicOpportunities: {
-  hero: {
-    eyebrow: "STRATEGIC PROPERTY OPPORTUNITIES",
-    titleLineOne: "The right property",
-    titleLineTwo: "is not always",
-    titleLineThree: "the obvious one.",
-    description:
-      "Some opportunities require more than comparing photographs, asking prices and locations. We look at the asset, the intended strategy and the applicable Golden Visa route together before an investment is treated as viable.",
-    primaryButton: "Explore Opportunities",
-    secondaryButton: "Discuss an Opportunity",
-    aside: {
-      strategy: "STRATEGY",
-      property: "PROPERTY",
-      execution: "EXECUTION",
-    },
-  },
-
-  positioning: {
-    label: "NOT JUST A CHEAPER PROPERTY",
-    titleLineOne: "Strategic value is",
-    titleLineTwo: "usually hidden in the details.",
-    paragraphOne:
-      "A strategic property may need a different way of looking at it. The opportunity can come from a conversion, restoration, repositioning or a location that makes sense for a particular investment route.",
-    paragraphTwo:
-      "That also means the risks need to be understood before the opportunity is treated as an investment.",
-    cards: {
-      opportunity: {
-        label: "OPPORTUNITY",
-        title: "See beyond the listing.",
-        text:
-          "We look at what the asset could become, not only how it is presented today.",
+routes: {
+      hero: {
+        eyebrow: "Official Legislative Tiers",
+        titleLineOne: "Greek Golden Visa",
+        titleLineTwo: "Investment Routes",
+        description:
+          "Navigate the Greek Golden Visa investment thresholds with confidence. Whether you want to start from €250k through conversion projects or invest in prime €800k locations, we align your capital with Greek real estate legislation.",
+        primaryButton: "Free Consultation",
+        secondaryButton: "Explore Tiers",
       },
-      feasibility: {
-        label: "FEASIBILITY",
-        title: "Can the strategy actually work?",
-        text:
-          "Proposed conversions, restoration or repositioning need to be technically and legally examined.",
+      routes: {
+        label: "Investment Thresholds",
+        titleLineOne: "Choose Your Entry Route:",
+        titleLineTwo: "€250k, €400k & €800k Tiers",
+        description:
+          "Greek law structures real estate investment options based on location, property type, and strategic conversion status. Review each tier below to find the ideal match for your portfolio.",
       },
-      documentation: {
-        label: "DOCUMENTATION",
-        title: "The paperwork matters.",
-        text:
-          "Ownership, planning and property documentation form part of the investment assessment.",
+      cards: {
+        button: "Discuss This Route",
+        route250: {
+          title: "Special Conversion & Restoration Route",
+          text: "Designed for strategic investors seeking residency through compliant commercial-to-residential conversions or listed building restorations.",
+        },
+        route400: {
+          title: "Regional Development Tier",
+          text: "Ideal for investors seeking residential or commercial properties in standard Greek municipalities outside high-demand zones.",
+        },
+        route800: {
+          title: "Prime Real Estate Tier",
+          text: "Applies to prime high-demand areas including Greater Athens, Thessaloniki, Mykonos, Santorini, and islands with 3,100+ inhabitants.",
+        },
       },
-      route: {
-        label: "ROUTE",
-        title: "Match the asset to the route.",
-        text:
-          "The intended Golden Visa route must be identified before the property is treated as qualifying.",
+      faq: {
+        label: "Common Questions",
+        titleLineOne: "Frequently Asked",
+        titleLineTwo: "Questions",
+        description:
+          "Have specific questions about the property size requirements, conversion rules, or family eligibility? Speak directly with our advisory team.",
+        button: "Book Free Consultation",
+        items: {
+          howToStart250k: {
+            question: "How does the €250,000 commercial-to-residential conversion route work?",
+            answer:
+              "Under the updated framework, properties whose main spaces are converted from commercial to residential use qualify at the €250,000 threshold across all regions of Greece, provided the conversion is fully completed prior to submitting the Golden Visa application.",
+          },
+          propertySize120sqm: {
+            question: "Is there a minimum square meter requirement for Golden Visa properties?",
+            answer:
+              "Yes. For standard €400,000 and €800,000 residential property routes, the qualifying property must generally have a minimum main-use area of at least 120 square meters.",
+          },
+          familyInclusion: {
+            question: "Can my family members be included in the Golden Visa application?",
+            answer:
+              "Yes. The primary applicant can include their legal spouse, unmarried children under the age of 21, and the dependent parents of both the main investor and spouse.",
+          },
+          holdingPeriod: {
+            question: "How long must I retain the property to maintain residency?",
+            answer:
+              "The Golden Visa residence permit is valid for 5 years and can be renewed indefinitely every 5 years as long as you maintain full ownership of the qualifying real estate asset.",
+          },
+        },
       },
-    },
-  },
-
-  categories: {
-    label: "WHAT WE LOOK FOR",
-    titleLineOne: "Different assets.",
-    titleLineTwo: "Different strategies.",
-    description:
-      "Strategic opportunities are assessed according to what makes the property interesting and what needs to happen before that potential can become a real investment.",
-    cards: {
-      conversion: {
-        label: "01 / CONVERSION",
-        titleLineOne: "Non-residential",
-        titleLineTwo: "into residential.",
-        text:
-          "Assets where a change of use may form part of the investment strategy, subject to the applicable planning and legal requirements.",
-        footer: "€250K ROUTE MAY APPLY",
+      cta: {
+        label: "Get Started Today",
+        titleLineOne: "Ready to Explore Your",
+        titleLineTwo: "Investment Route?",
+        description:
+          "Schedule your free consultation with our senior advisors. We evaluate your goals, verify property eligibility, and guide you seamlessly through the application process.",
+        button: "Free Consultation — Contact Us",
       },
-      restoration: {
-        label: "02 / RESTORATION",
-        titleLineOne: "Character assets",
-        titleLineTwo: "worth restoring.",
+      legal: {
+        title: "Legal & Regulatory Notice:",
         text:
-          "Listed or protected buildings where restoration or reconstruction forms part of the investment thesis.",
-        footer: "€250K ROUTE MAY APPLY",
-      },
-      location: {
-        label: "03 / LOCATION",
-        titleLineOne: "Location-led",
-        titleLineTwo: "opportunities.",
-        text:
-          "Properties where the location, market positioning and applicable investment threshold need to be considered together.",
-        footer: "ROUTE DEPENDENT",
+          "Golden Visa regulations are subject to statutory updates by the Hellenic Republic. All investments require legal due diligence and verification prior to contract signing and residency submission.",
       },
     },
-  },
-
-  assessment: {
-    label: "THE INVESTMENT QUESTION",
-    titleLineOne: "Interesting is not",
-    titleLineTwo: "the same as",
-    titleHighlight: "viable.",
-    description:
-      "A strategic opportunity only becomes useful when the proposed investment can survive technical, legal and route-specific scrutiny.",
-    items: {
-      asset: {
-        title: "Asset & location",
-        text:
-          "What exactly is being acquired, where is it located and why does the location matter to the intended route?",
-      },
-      condition: {
-        title: "Existing condition",
-        text:
-          "What is physically there today, and what works would be required to achieve the proposed investment strategy?",
-      },
-      documentation: {
-        title: "Permitted use & documentation",
-        text:
-          "The intended use, planning position, ownership structure and supporting documentation need to align with the transaction.",
-      },
-      route: {
-        title: "Golden Visa route",
-        text:
-          "Only after the property and its circumstances are understood should the applicable investment route be assessed.",
-      },
-    },
-  },
-
-  faq: {
-    label: "COMMON QUESTIONS",
-    titleLineOne: "Strategic",
-    titleLineTwo: "doesn't mean speculative.",
-    description:
-      "The important questions to ask before treating a property with potential as an investment opportunity.",
-    items: {
-      strategicOpportunity: {
-        question: "What makes a property a strategic opportunity?",
-        answer:
-          "A strategic opportunity is not selected simply because it is attractive or available. The property may have a particular location, asset type, conversion possibility, restoration angle or repositioning potential that makes the investment case worth examining in more detail.",
-      },
-      route250: {
-        question: "Does a €250K opportunity automatically qualify for the Golden Visa?",
-        answer:
-          "No. The €250K threshold applies to specific categories under the current framework, including qualifying change-of-use cases and qualifying listed-building restoration or reconstruction cases. The property, transaction and required conditions must be verified individually before acquisition.",
-      },
-      technicalChecks: {
-        question:
-          "Why are technical checks especially important for strategic properties?",
-        answer:
-          "Because the investment case can depend on matters that are not visible in a listing: permitted use, planning status, building condition, floor area, documentation, existing works and whether the proposed strategy can actually be executed.",
-      },
-      ownProperty: {
-        question: "Can I submit my own property for strategic review?",
-        answer:
-          "Yes. If you have found an asset independently, you can send it to us for review. The objective is to understand whether the property makes sense within your intended Golden Visa strategy before you commit.",
-      },
-    },
-  },
-
-  cta: {
-    label: "HAVE SOMETHING INTERESTING?",
-    titleLineOne: "Bring us the",
-    titleLineTwo: "property.",
-    description:
-      "If you have found an unusual property, conversion opportunity or restoration asset yourself, send it to us. We can help establish what needs to be checked before you commit.",
-    button: "Request a Strategic Review",
-  },
-
-  legal: {
-    title: "Legal information.",
-    text:
-      "The information presented on this page is for general informational purposes and does not constitute legal, tax, immigration or investment advice. Indicative investment routes and amounts are subject to the specific property, transaction structure, applicant circumstances and legislation in force at the relevant time. Independent legal and technical verification is required before acquisition.",
-  },
-},
     readyProperties: {
   hero: {
     eyebrow: "READY-TO-MOVE PROPERTIES",
@@ -4496,9 +4409,9 @@ applicationChecklist: {
               "Browse completed homes that already qualify for the program.",
           },
           strategic: {
-            title: "Strategic Property Opportunities",
+            title: "Investment Routes & Tiers",
             description:
-              "Explore renovation and redevelopment investment opportunities.",
+              "Explore €250k, €400k, and €800k legislative thresholds, conversion requirements, and property options.",
           },
           alternative: {
             title: "Alternative Investments",
@@ -4879,80 +4792,45 @@ applicationChecklist: {
       },
     },
 
-    investmentRoutes: {
+   investmentRoutes: {
       intro: {
-        eyebrow: "INVESTMENT ROUTES",
-        title: "Choose the route",
-        highlight:
-          "that fits your goals.",
-        description:
-          "Every investor has different priorities. Explore the available investment approaches and discover which strategy may be right for you.",
+        eyebrow: "INVESTMENT PATHWAYS",
+        title: "Choose the path that",
+        highlight: "fits your capital.",
+        description: "Explore the official Greek Golden Visa investment options designed to align with your financial goals and portfolio strategy.",
       },
-
-      card: {
-        routeLabel:
-          "INVESTMENT ROUTE",
-        bestFor: "BEST FOR",
-        explore:
-          "Explore this route",
-      },
-
       navigation: {
-        previous:
-          "Previous investment route",
-        next:
-          "Next investment route",
-        explore:
-          "Explore this investment route",
-        goTo:
-          "Go to investment route",
+        previous: "Previous route",
+        next: "Next route",
+        explore: "Explore",
+        goTo: "Go to route",
       },
-
-      routes: {
-        "ready-properties": {
-          title:
-            "Ready-to-Move Properties",
-          description:
-            "Explore completed properties ready for purchase, designed for investors seeking a straightforward path to their Greek Golden Visa.",
-          bestFor:
-            "Investors looking for a simple, ready-to-use property investment.",
+      card: {
+        routeLabel: "OFFICIAL INVESTMENT ROUTE",
+        bestFor: "BEST FOR",
+        explore: "Explore Route",
+      },
+     routes: {
+        "route-250k": {
+          title: "€250,000 Special Conversion Route",
+          description: "Qualify through commercial-to-residential building conversions or historical building restorations across any Greek region.",
+          bestFor: "Investors seeking capital efficiency via specialized restoration projects.",
         },
-
-        "strategic-properties": {
-          title:
-            "Strategic Property Opportunities",
-          description:
-            "Discover properties with renovation or redevelopment potential, offering a more strategic approach to your investment in Greece.",
-          bestFor:
-            "Investors looking for flexibility and carefully selected opportunities.",
+        "route-400k": {
+          title: "€400,000 Regional Development Tier",
+          description: "Target residential or commercial properties meeting size requirements in standard Greek municipalities and regional units.",
+          bestFor: "Suburban investments and emerging regional portfolio growth.",
         },
-
-        "commercial-hospitality": {
-          title:
-            "Commercial & Hospitality",
-          description:
-            "Explore commercial and hospitality properties for investors seeking a more specialized investment opportunity in Greece.",
-          bestFor:
-            "Investors considering larger or more specialized property opportunities.",
-        },
-
-        alternative: {
-          title:
-            "Alternative Routes",
-          description:
-            "Explore alternative investment approaches beyond traditional property ownership, depending on your individual circumstances.",
-          bestFor:
-            "Investors looking beyond the conventional property investment route.",
+        "route-800k": {
+          title: "€800,000 Prime Real Estate Tier",
+          description: "Acquire prime high-demand assets in Greater Athens, Thessaloniki, Mykonos, Santorini, and large islands.",
+          bestFor: "Maximum rental yield and capital appreciation in prime locations.",
         },
       },
-
       assessment: {
-        label:
-          "NOT SURE WHERE TO START?",
-        description:
-          "Find the investment route that matches your goals.",
-        button:
-          "Find Your Route",
+        label: "NOT SURE WHICH ROUTE FITS?",
+        description: "Check your eligibility and find the optimal investment threshold for your situation.",
+        button: "Check Eligibility",
       },
     },
     finalCta: {
@@ -8380,7 +8258,7 @@ applicationChecklist: {
     },
   },
 
-  routes: {
+routes: {
     label: "ИНВЕСТИЦИОННЫЕ МАРШРУТЫ",
     titleLineOne: "Разные структуры.",
     titleLineTwo: "Разные требования.",
@@ -8461,6 +8339,7 @@ applicationChecklist: {
     qualifyingRoute: "СООТВЕТСТВУЮЩИЙ МАРШРУТ",
     discuss: "Обсудить",
   },
+
 
   amount: {
     label: "ОДНА СУММА. РАЗНЫЕ ИНВЕСТИЦИИ.",
@@ -8614,172 +8493,82 @@ applicationChecklist: {
       "Инвестиционные категории и пороги, представленные на этой странице, предоставляются исключительно в общих информационных целях и не являются юридической, налоговой, иммиграционной, финансовой или инвестиционной консультацией. Соответствие требованиям зависит от конкретной инвестиционной структуры, обстоятельств заявителя, необходимой документации и законодательства, действующего на соответствующий момент. Финансовые инвестиции могут быть связаны с рыночными рисками, рисками ликвидности, рисками эмитента и другими инвестиционными рисками.",
   },
 },
-    strategicOpportunities: {
-  hero: {
-    eyebrow: "СТРАТЕГИЧЕСКИЕ ВОЗМОЖНОСТИ В НЕДВИЖИМОСТИ",
-    titleLineOne: "Подходящий объект",
-    titleLineTwo: "не всегда",
-    titleLineThree: "самый очевидный.",
-    description:
-      "Некоторые возможности требуют большего, чем сравнение фотографий, цен и местоположения. Мы рассматриваем сам объект, предполагаемую стратегию и применимый маршрут Золотой визы в совокупности, прежде чем рассматривать инвестицию как потенциально реализуемую.",
-    primaryButton: "Изучить возможности",
-    secondaryButton: "Обсудить возможность",
-    aside: {
-      strategy: "СТРАТЕГИЯ",
-      property: "НЕДВИЖИМОСТЬ",
-      execution: "РЕАЛИЗАЦИЯ",
-    },
-  },
-
-  positioning: {
-    label: "НЕ ПРОСТО БОЛЕЕ ДЕШЁВАЯ НЕДВИЖИМОСТЬ",
-    titleLineOne: "Стратегическая ценность",
-    titleLineTwo: "обычно скрыта в деталях.",
-    paragraphOne:
-      "Стратегический объект требует особого подхода к оценке. Возможность может быть связана с изменением назначения, восстановлением, перепозиционированием или местоположением, которое имеет смысл для определённого инвестиционного маршрута.",
-    paragraphTwo:
-      "Это также означает, что риски необходимо понять до того, как рассматривать такую возможность как инвестицию.",
-    cards: {
-      opportunity: {
-        label: "ВОЗМОЖНОСТЬ",
-        title: "Смотрите дальше объявления.",
-        text:
-          "Мы оцениваем не только то, как объект представлен сегодня, но и то, каким он может стать.",
+routes: {
+      hero: {
+        eyebrow: "Официальные законодательные пороги",
+        titleLineOne: "Золотая виза Греции",
+        titleLineTwo: "Инвестиционные маршруты",
+        description:
+          "Ориентируйтесь в инвестиционных порогах Золотой визы Греции с уверенностью. Начните от €250k через проекты реконструкции или инвестируйте в элитные локации за €800k — мы согласуем ваш капитал с законодательством Греции.",
+        primaryButton: "Бесплатная консультация",
+        secondaryButton: "Изучить пороги",
       },
-      feasibility: {
-        label: "РЕАЛИЗУЕМОСТЬ",
-        title: "Действительно ли стратегия осуществима?",
-        text:
-          "Предлагаемые изменения назначения, восстановление или перепозиционирование требуют технической и юридической проверки.",
+      routes: {
+        label: "Инвестиционные пороги",
+        titleLineOne: "Выберите ваш входной маршрут:",
+        titleLineTwo: "Пороги €250k, €400k и €800k",
+        description:
+          "Законодательство Греции классифицирует варианты инвестиций в недвижимость на основе местоположения, типа объекта и статуса реконструкции. Ознакомьтесь с каждым порогом ниже.",
       },
-      documentation: {
-        label: "ДОКУМЕНТАЦИЯ",
-        title: "Документы имеют значение.",
-        text:
-          "Право собственности, градостроительный статус и документация объекта являются частью инвестиционной оценки.",
+      cards: {
+        button: "Обсудить этот маршрут",
+        route250: {
+          title: "Специальный маршрут реконструкции и конверсии",
+          text: "Создан для инвесторов, ищущих ВНЖ через реконструкцию коммерческих объектов в жилые или восстановление охраняемых зданий.",
+        },
+        route400: {
+          title: "Региональный инвестиционный порог",
+          text: "Идеально подходит для инвесторов, рассматривающих жилую или коммерческую недвижимость в стандартных муниципалитетах Греции.",
+        },
+        route800: {
+          title: "Премиальный порог недвижимости",
+          text: "Применяется к престижным регионам: Большие Афины, Салоники, Миконос, Санторини и острова с населением более 3 100 человек.",
+        },
       },
-      route: {
-        label: "МАРШРУТ",
-        title: "Соотнесите объект с маршрутом.",
-        text:
-          "Применимый маршрут Золотой визы необходимо определить до того, как объект можно будет рассматривать как соответствующий требованиям.",
+      faq: {
+        label: "Частые вопросы",
+        titleLineOne: "Часто задаваемые",
+        titleLineTwo: "Вопросы",
+        description:
+          "Есть вопросы по требованиям к площади, правилам конверсии или включению семьи? Поговорите напрямую с нашей командой консультантов.",
+        button: "Записаться на консультацию",
+        items: {
+          howToStart250k: {
+            question: "Как работает маршрут конверсии коммерческой недвижимости в жилую за €250 000?",
+            answer:
+              "В рамках обновленного законодательства объекты, переводимые из коммерческого назначения в жилое, соответствуют порогу €250 000 по всей Греции при условии полного завершения конверсии до подачи заявления на ВНЖ.",
+          },
+          propertySize120sqm: {
+            question: "Существует ли минимальное требование к площади недвижимости?",
+            answer:
+              "Да. Для стандартных маршрутов жилой недвижимости за €400 000 и €800 000 объект должен иметь минимальную жилую площадь не менее 120 кв. метров.",
+          },
+          familyInclusion: {
+            question: "Могут ли члены моей семьи быть включены в заявление?",
+            answer:
+              "Да. Главный заявитель может включить официального супруга/супругу, детей до 21 года и родителей с обеих сторон.",
+          },
+          holdingPeriod: {
+            question: "Как долго необходимо сохранять недвижимость в собственности?",
+            answer:
+              "Вид на жительство выдается на 5 лет и продлевается каждые 5 лет при условии сохранения права собственности на квалифицирующий объект.",
+          },
+        },
       },
-    },
-  },
-
-  categories: {
-    label: "ЧТО МЫ ИЩЕМ",
-    titleLineOne: "Разные объекты.",
-    titleLineTwo: "Разные стратегии.",
-    description:
-      "Стратегические возможности оцениваются с учётом того, что делает объект интересным и какие действия необходимы для превращения его потенциала в реальную инвестицию.",
-    cards: {
-      conversion: {
-        label: "01 / ИЗМЕНЕНИЕ НАЗНАЧЕНИЯ",
-        titleLineOne: "Из нежилого",
-        titleLineTwo: "в жилой объект.",
-        text:
-          "Объекты, где изменение назначения может быть частью инвестиционной стратегии при соблюдении применимых градостроительных и юридических требований.",
-        footer: "МОЖЕТ ПРИМЕНЯТЬСЯ МАРШРУТ €250K",
+      cta: {
+        label: "Начните сегодня",
+        titleLineOne: "Готовы изучить ваш",
+        titleLineTwo: "инвестиционный маршрут?",
+        description:
+          "Запишитесь на бесплатную консультацию с нашими ведущими экспертами. Мы оценим ваши цели, проверим соответствие объекта и сопроводим вас на каждом этапе.",
+        button: "Бесплатная консультация — Связаться",
       },
-      restoration: {
-        label: "02 / ВОССТАНОВЛЕНИЕ",
-        titleLineOne: "Характерные объекты,",
-        titleLineTwo: "которые стоит восстановить.",
+      legal: {
+        title: "Юридическое уведомление:",
         text:
-          "Исторические или охраняемые здания, где восстановление или реконструкция являются частью инвестиционной концепции.",
-        footer: "МОЖЕТ ПРИМЕНЯТЬСЯ МАРШРУТ €250K",
-      },
-      location: {
-        label: "03 / МЕСТОПОЛОЖЕНИЕ",
-        titleLineOne: "Возможности,",
-        titleLineTwo: "основанные на локации.",
-        text:
-          "Объекты, для которых местоположение, рыночное позиционирование и применимый инвестиционный порог необходимо рассматривать вместе.",
-        footer: "ЗАВИСИТ ОТ МАРШРУТА",
+          "Правила программы Золотая виза подлежат законодательным обновлениям Греческой Республики. Все инвестиции требуют юридической и технической проверки до подписания договора.",
       },
     },
-  },
-
-  assessment: {
-    label: "ИНВЕСТИЦИОННЫЙ ВОПРОС",
-    titleLineOne: "Интересный объект",
-    titleLineTwo: "не означает",
-    titleHighlight: "реализуемый.",
-    description:
-      "Стратегическая возможность становится полезной только тогда, когда предполагаемая инвестиция выдерживает техническую, юридическую и связанную с конкретным маршрутом проверку.",
-    items: {
-      asset: {
-        title: "Объект и местоположение",
-        text:
-          "Что именно приобретается, где расположен объект и почему местоположение имеет значение для предполагаемого маршрута?",
-      },
-      condition: {
-        title: "Текущее состояние",
-        text:
-          "Что физически существует сегодня и какие работы потребуются для реализации предполагаемой инвестиционной стратегии?",
-      },
-      documentation: {
-        title: "Разрешённое использование и документация",
-        text:
-          "Назначение объекта, градостроительный статус, структура права собственности и подтверждающая документация должны соответствовать предполагаемой сделке.",
-      },
-      route: {
-        title: "Маршрут Золотой визы",
-        text:
-          "Только после понимания объекта и его конкретных обстоятельств следует оценивать применимый инвестиционный маршрут.",
-      },
-    },
-  },
-
-  faq: {
-    label: "ЧАСТЫЕ ВОПРОСЫ",
-    titleLineOne: "Стратегический",
-    titleLineTwo: "не значит спекулятивный.",
-    description:
-      "Важные вопросы, которые стоит задать до того, как рассматривать потенциально интересный объект как инвестиционную возможность.",
-    items: {
-      strategicOpportunity: {
-        question: "Что делает объект стратегической возможностью?",
-        answer:
-          "Стратегическая возможность выбирается не только потому, что объект привлекателен или доступен. Интерес может представлять конкретное местоположение, тип актива, возможность изменения назначения, восстановления или перепозиционирования, которые требуют более детального изучения инвестиционного сценария.",
-      },
-      route250: {
-        question:
-          "Подходит ли объект стоимостью €250K автоматически для Золотой визы?",
-        answer:
-          "Нет. Порог €250K применяется к определённым категориям в рамках действующей системы, включая соответствующие случаи изменения назначения и восстановления или реконструкции определённых исторических зданий. Конкретный объект, сделка и необходимые условия должны быть индивидуально проверены до приобретения.",
-      },
-      technicalChecks: {
-        question:
-          "Почему техническая проверка особенно важна для стратегических объектов?",
-        answer:
-          "Потому что инвестиционный сценарий может зависеть от обстоятельств, которые не видны в объявлении: разрешённого использования, градостроительного статуса, состояния здания, площади, документации, уже выполненных работ и возможности фактической реализации предлагаемой стратегии.",
-      },
-      ownProperty: {
-        question:
-          "Могу ли я передать на стратегическую проверку найденный мной объект?",
-        answer:
-          "Да. Если вы самостоятельно нашли объект, вы можете отправить его нам на рассмотрение. Цель — понять, насколько объект соответствует предполагаемой стратегии Золотой визы, до принятия обязательств.",
-      },
-    },
-  },
-
-  cta: {
-    label: "НАШЛИ ЧТО-ТО ИНТЕРЕСНОЕ?",
-    titleLineOne: "Принесите нам",
-    titleLineTwo: "этот объект.",
-    description:
-      "Если вы самостоятельно нашли необычный объект, возможность изменения назначения или объект, требующий восстановления, отправьте информацию нам. Мы поможем определить, что необходимо проверить до принятия обязательств.",
-    button: "Запросить стратегическую проверку",
-  },
-
-  legal: {
-    title: "Юридическая информация.",
-    text:
-      "Информация на этой странице предоставляется исключительно в общих информационных целях и не является юридической, налоговой, иммиграционной или инвестиционной консультацией. Указанные инвестиционные маршруты и суммы εξαρτώνται από конкретный объект, структуру сделки, обстоятельства заявителя и законодательство, действующее на соответствующий момент. До приобретения необходима независимая юридическая и техническая проверка.",
-  },
-},
     readyProperties: {
   hero: {
     eyebrow: "ГОТОВАЯ К ЗАСЕЛЕНИЮ НЕДВИЖИМОСТЬ",
@@ -10358,9 +10147,9 @@ applicationChecklist: {
           },
           strategic: {
             title:
-              "Стратегические объекты",
+              "Инвестиционные маршруты",
             description:
-              "Изучите возможности инвестирования в реконструкцию и развитие недвижимости.",
+              "Изучите законодательные пороги €250k, €400k и €800k, требования к конверсии и варианты недвижимости.",
           },
           alternative: {
             title:
@@ -10820,83 +10609,45 @@ applicationChecklist: {
       },
     },
 
-    investmentRoutes: {
+  investmentRoutes: {
       intro: {
-        eyebrow:
-          "ИНВЕСТИЦИОННЫЕ НАПРАВЛЕНИЯ",
-        title:
-          "Выберите направление",
-        highlight:
-          "которое соответствует вашим целям.",
-        description:
-          "У каждого инвестора свои приоритеты. Изучите доступные инвестиционные возможности и определите стратегию, которая подходит именно вам.",
+        eyebrow: "ИНВЕСТИЦИОННЫЕ НАПРАВЛЕНИЯ",
+        title: "Выберите путь, который",
+        highlight: "подходит вашему капиталу.",
+        description: "Изучите официальные варианты инвестиций по программе «Золотая виза Греции», разработанные с учетом ваших финансовых целей.",
       },
-
-      card: {
-        routeLabel:
-          "ИНВЕСТИЦИОННОЕ НАПРАВЛЕНИЕ",
-        bestFor:
-          "ПОДХОДИТ ДЛЯ",
-        explore:
-          "Изучить направление",
-      },
-
       navigation: {
-        previous:
-          "Предыдущее инвестиционное направление",
-        next:
-          "Следующее инвестиционное направление",
-        explore:
-          "Изучить это инвестиционное направление",
-        goTo:
-          "Перейти к инвестиционному направлению",
+        previous: "Предыдущий маршрут",
+        next: "Следующий маршрут",
+        explore: "Изучить",
+        goTo: "Перейти к маршруту",
       },
-
-      routes: {
-        "ready-properties": {
-          title:
-            "Готовая недвижимость",
-          description:
-            "Изучите готовые объекты, доступные для покупки, — подходящий вариант для инвесторов, которые ищут понятный путь к получению греческой Golden Visa.",
-          bestFor:
-            "Инвесторов, которые ищут простой и готовый к использованию объект недвижимости.",
+      card: {
+        routeLabel: "ОФИЦИАЛЬНЫЙ ИНВЕСТИЦИОННЫЙ МАРШРУТ",
+        bestFor: "ИДЕАЛЬНО ДЛЯ",
+        explore: "Изучить маршрут",
+      },
+     routes: {
+        "route-250k": {
+          title: "Специальный маршрут конверсии €250,000",
+          description: "Инвестиции в перепрофилирование коммерческой недвижимости в жилую или реставрацию исторических зданий по всей Греции.",
+          bestFor: "Инвесторов, ищущих эффективный вход через проекты реконструкции.",
         },
-
-        "strategic-properties": {
-          title:
-            "Стратегические возможности",
-          description:
-            "Изучите объекты с потенциалом реконструкции или развития — более стратегический подход к инвестициям в Греции.",
-          bestFor:
-            "Инвесторов, которые ценят гибкость и тщательно отобранные возможности.",
+        "route-400k": {
+          title: "Региональный порог €400,000",
+          description: "Приобретение объектов недвижимости в стандартных муниципалитетах и региональных единицах Греции.",
+          bestFor: "Инвестиций в пригороды и развивающиеся региональные рынки.",
         },
-
-        "commercial-hospitality": {
-          title:
-            "Коммерческая и гостиничная недвижимость",
-          description:
-            "Изучите коммерческие и гостиничные объекты для инвесторов, рассматривающих более специализированные инвестиционные возможности в Греции.",
-          bestFor:
-            "Инвесторов, рассматривающих более крупные или специализированные объекты.",
-        },
-
-        alternative: {
-          title:
-            "Альтернативные направления",
-          description:
-            "Изучите альтернативные инвестиционные возможности за пределами традиционного владения недвижимостью в зависимости от ваших индивидуальных обстоятельств.",
-          bestFor:
-            "Инвесторов, которые рассматривают альтернативы традиционному инвестиционному пути.",
+        "route-800k": {
+          title: "Премиальный порог €800,000",
+          description: "Приобретение элитных объектов в Больших Афинах, Салониках, Миконосе, Санторини и крупных островах.",
+          bestFor: "Максимального арендного дохода и прироста капитала в престижных локациях.",
         },
       },
-
       assessment: {
-        label:
-          "НЕ ЗНАЕТЕ, С ЧЕГО НАЧАТЬ?",
-        description:
-          "Найдите инвестиционное направление, соответствующее вашим целям.",
-        button:
-          "Выбрать направление",
+        label: "НЕ УВЕРЕНЫ, КАКОЙ МАРШРУТ ВАМ ПОДХОДИТ?",
+        description: "Проверьте свое соответствие требованиям и найдите оптимальный порог инвестиций.",
+        button: "Проверить право на участие",
       },
     },
     propertyOpportunities: {

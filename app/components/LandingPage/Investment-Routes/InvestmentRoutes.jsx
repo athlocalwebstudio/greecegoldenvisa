@@ -14,31 +14,22 @@ import styles from "./investmentRoutes.module.css";
 
 const investmentRoutes = [
   {
-    id: "ready-properties",
+    id: "route-250k",
     number: "01",
-    image: "/ready-to-move.jpg",
-    href: "/investments/ready-properties",
+    image: "/250k_route.jpg",
+    href: "/investments/routes",
   },
-
   {
-    id: "strategic-properties",
+    id: "route-400k",
     number: "02",
-    image: "/strategic-option.jpg",
-    href: "/investments/strategic-opportunities",
+    image: "/400k_route.jpg",
+    href: "/investments/routes",
   },
-
   {
-    id: "commercial-hospitality",
+    id: "route-800k",
     number: "03",
-    image: "/commercial-image.jpg",
-    href: "/investments/compare-options",
-  },
-
-  {
-    id: "alternative",
-    number: "04",
-    image: "/alternative-investments.jpg",
-    href: "/investments/alternative-investments",
+    image: "/800k_route.jpg",
+    href: "/investments/routes",
   },
 ];
 
@@ -141,7 +132,7 @@ export default function InvestmentRoutes() {
               <div className={styles.imageOverlay} />
 
               <span className={styles.routeNumber}>
-                {activeRoute.number} / 04
+                {activeRoute.number} / 03
               </span>
             </div>
 
@@ -262,7 +253,7 @@ export default function InvestmentRoutes() {
           </div>
 
           <span className={styles.progressText}>
-            {activeRoute.number} / 04
+            {activeRoute.number} / 03
           </span>
         </div>
 

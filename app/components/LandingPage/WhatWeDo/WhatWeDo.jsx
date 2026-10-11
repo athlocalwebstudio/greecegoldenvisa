@@ -87,8 +87,12 @@ export default function WhatWeDo() {
           </div>
 
           {/* =================================================
-              TABS
+              TABS + MOBILE SWIPE HINT
           ================================================= */}
+
+          <div className={styles.swipeHint}>
+            <span>← Swipe to explore phases →</span>
+          </div>
 
           <div className={styles.approachTabs}>
             {approaches.map((approach, index) => (
@@ -143,6 +147,12 @@ export default function WhatWeDo() {
               <span className={styles.detailLabel}>
                 {activeApproach.number} / 04
               </span>
+
+              <div className={styles.mobileActiveTitle}>
+                {t(
+                  `whatWeDo.approaches.${activeApproach.key}.title`
+                )}
+              </div>
 
               <h4>
                 {t(
