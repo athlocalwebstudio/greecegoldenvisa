@@ -1,22 +1,28 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
 import { useConsultation } from "./ConsultationProvider";
 
 export default function ConsultationButton({
   children = "Request a Consultation",
   className = "",
+  onClick,
 }) {
   const { openConsultation } = useConsultation();
+
+  function handleClick(e) {
+    if (onClick) {
+      onClick(e);
+    }
+    openConsultation();
+  }
 
   return (
     <button
       type="button"
-      onClick={openConsultation}
+      onClick={handleClick}
       className={className}
     >
       {children}
-      <ArrowRight size={16} />
     </button>
   );
 }

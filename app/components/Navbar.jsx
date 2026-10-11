@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, Menu } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 import styles from "@/app/styles/navbar.module.css";
 import DropdownPanel from "./DropdownPanel";
@@ -27,118 +27,163 @@ export default function Navbar() {
   }`;
 
   return (
-    <nav
-      className={navClass}
-      onMouseLeave={() => setActiveMenu(null)}
-    >
-      {/* BRAND / HOMEPAGE */}
-      <Link
-        href={`/${language}`}
-        className={styles.logoLink}
-        aria-label={t("nav.common.home")}
+    <>
+      {/* DESKTOP NAVBAR */}
+      <nav
+        className={navClass}
+        onMouseLeave={() => setActiveMenu(null)}
       >
-        <Image
-          src="/logo.jpg"
-          alt="Greece Golden Visa"
-          fill
-          priority
-          sizes="220px"
-          className={styles.logoImage}
-        />
-      </Link>
+        <Link
+          href={`/${language}`}
+          className={styles.logoLink}
+          aria-label={t("nav.common.home")}
+        >
+          <Image
+            src="/logo.jpg"
+            alt="Greece Golden Visa"
+            fill
+            priority
+            sizes="220px"
+            className={styles.logoImage}
+          />
+        </Link>
 
-      {/* LANGUAGE TOGGLE */}
-      <button
-        type="button"
-        className={styles.languageToggle}
-        onClick={toggleLanguage}
-        aria-label={
-          language === "en"
-            ? t("nav.common.switchToRussian")
-            : t("nav.common.switchToEnglish")
-        }
-        title={
-          language === "en"
-            ? t("nav.common.switchToRussian")
-            : t("nav.common.switchToEnglish")
-        }
-      >
-        <span
-          className={
+        <button
+          type="button"
+          className={styles.languageToggle}
+          onClick={toggleLanguage}
+          aria-label={
             language === "en"
-              ? styles.languageActive
-              : styles.languageOption
+              ? t("nav.common.switchToRussian")
+              : t("nav.common.switchToEnglish")
           }
         >
-          EN
-        </span>
-
-        <span className={styles.languageDivider}>
-          /
-        </span>
-
-        <span
-          className={
-            language === "ru"
-              ? styles.languageActive
-              : styles.languageOption
-          }
-        >
-          RU
-        </span>
-      </button>
-
-      {/* DESKTOP NAVIGATION */}
-      <div className={styles.navLinks}>
-        {navigation.map((item) => (
-          <button
-            key={item.id}
-            className={styles.navItem}
-            onMouseEnter={() =>
-              item.hasDropdown
-                ? setActiveMenu(item.id)
-                : setActiveMenu(null)
+          <span
+            className={
+              language === "en"
+                ? styles.languageActive
+                : styles.languageOption
             }
           >
-            {t(item.titleKey)}
+            EN
+          </span>
 
-            {item.hasDropdown && (
-              <ChevronDown
-                size={14}
-                strokeWidth={1.8}
-              />
-            )}
+          <span className={styles.languageDivider}>/</span>
+
+          <span
+            className={
+              language === "ru"
+                ? styles.languageActive
+                : styles.languageOption
+            }
+          >
+            RU
+          </span>
+        </button>
+
+        <div className={styles.navLinks}>
+          {navigation.map((item) => (
+            <button
+              key={item.id}
+              className={styles.navItem}
+              onMouseEnter={() =>
+                item.hasDropdown
+                  ? setActiveMenu(item.id)
+                  : setActiveMenu(null)
+              }
+            >
+              {t(item.titleKey)}
+
+              {item.hasDropdown && (
+                <ChevronDown
+                  size={14}
+                  strokeWidth={1.8}
+                />
+              )}
+            </button>
+          ))}
+        </div>
+
+        <ConsultationButton className={styles.cta}>
+          {t("nav.common.freeConsultation")}
+        </ConsultationButton>
+
+        <DropdownPanel activeMenu={activeMenu} />
+      </nav>
+
+      {/* MOBILE & TABLET HEADER */}
+      <header className={styles.mobileHeader}>
+        <div className={styles.headerInner}>
+          <div className={styles.leftControls}>
+            <Link
+              href={`/${language}`}
+              className={styles.homeButton}
+              aria-label={t("nav.common.home")}
+            >
+              <div className={styles.mobileLogoWrapper}>
+                <Image
+                  src="/logo.jpg"
+                  alt="Greece Golden Visa"
+                  fill
+                  sizes="120px"
+                  className={styles.mobileLogoImage}
+                />
+              </div>
+            </Link>
+
+            <div className={styles.languageSwitcher}>
+              <button
+                type="button"
+                onClick={toggleLanguage}
+                className={`${styles.language} ${
+                  language === "en" ? styles.languageActive : ""
+                }`}
+              >
+                EN
+              </button>
+              <span className={styles.languageDivider}>/</span>
+              <button
+                type="button"
+                onClick={toggleLanguage}
+                className={`${styles.language} ${
+                  language === "ru" ? styles.languageActive : ""
+                }`}
+              >
+                RU
+              </button>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            className={`${styles.menuButton} ${
+              mobileOpen ? styles.menuButtonOpen : ""
+            }`}
+            onClick={() => setMobileOpen((prev) => !prev)}
+            aria-label={
+              mobileOpen
+                ? t("nav.common.closeNavigation")
+                : t("nav.common.openNavigation")
+            }
+            aria-expanded={mobileOpen}
+          >
+            <span>{mobileOpen ? "CLOSE" : "MENU"}</span>
+            <span
+              className={`${styles.menuIcon} ${
+                mobileOpen ? styles.menuIconOpen : ""
+              }`}
+            >
+              <span />
+              <span />
+            </span>
           </button>
-        ))}
-      </div>
+        </div>
+      </header>
 
-      {/* DESKTOP CTA */}
-      <ConsultationButton className={styles.cta}>
-        {t("nav.common.freeConsultation")}
-      </ConsultationButton>
-
-      {/* MOBILE MENU BUTTON */}
-      <button
-        type="button"
-        className={styles.mobileButton}
-        onClick={() => setMobileOpen(true)}
-        aria-label={t("nav.common.openNavigation")}
-        aria-expanded={mobileOpen}
-      >
-        <Menu
-          size={27}
-          strokeWidth={1.8}
-        />
-      </button>
-
-      {/* DESKTOP DROPDOWN */}
-      <DropdownPanel activeMenu={activeMenu} />
-
-      {/* MOBILE MENU */}
       <MobileMenu
         open={mobileOpen}
         onClose={() => setMobileOpen(false)}
       />
-    </nav>
+    </>
   );
 }

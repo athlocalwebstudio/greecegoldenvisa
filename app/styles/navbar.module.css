@@ -187,7 +187,7 @@
 }
 
 /* =========================================================
-   MOBILE BUTTON
+   MOBILE BUTTON (Legacy Fallback)
 ========================================================= */
 
 .mobileButton {
@@ -237,24 +237,18 @@
   border-radius: 24px;
   padding: 2.5rem;
   border: 1px solid rgba(15, 44, 89, 0.08);
-  box-shadow:
-    0 30px 80px rgba(15, 44, 89, 0.18);
+  box-shadow: 0 30px 80px rgba(15, 44, 89, 0.18);
   animation: dropdown 0.25s ease forwards;
 }
 
 @keyframes dropdown {
   from {
     opacity: 0;
-    transform:
-      translateX(-50%)
-      translateY(-15px);
+    transform: translateX(-50%) translateY(-15px);
   }
-
   to {
     opacity: 1;
-    transform:
-      translateX(-50%)
-      translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
 }
 
@@ -295,8 +289,7 @@
   background: #ffffff;
   border-color: #3ba9ef;
   transform: translateY(-5px);
-  box-shadow:
-    0 15px 40px rgba(59, 169, 239, 0.18);
+  box-shadow: 0 15px 40px rgba(59, 169, 239, 0.18);
 }
 
 .cardIcon {
@@ -365,7 +358,153 @@
 }
 
 /* =========================================================
-   LARGE DESKTOP
+   HISTOGENESIS-STYLE MOBILE & TABLET HEADER (< 1100px)
+========================================================= */
+
+.mobileHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  width: 100%;
+  padding: 16px;
+  pointer-events: none;
+  display: none;
+}
+
+.headerInner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.leftControls {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 44, 89, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 8px 28px rgba(15, 44, 89, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  pointer-events: auto;
+}
+
+.homeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 48px;
+  padding-left: 10px;
+  color: #0f2c59;
+  text-decoration: none;
+}
+
+.mobileLogoWrapper {
+  position: relative;
+  width: 38px;
+  height: 38px;
+}
+
+.mobileLogoImage {
+  object-fit: contain;
+  object-position: left center;
+}
+
+.languageSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  padding: 0 14px 0 10px;
+  border-left: 1px solid rgba(15, 44, 89, 0.1);
+}
+
+.language {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  padding: 0;
+}
+
+.language:hover,
+.languageActive {
+  color: #0f2c59;
+}
+
+.menuButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  min-width: 91px;
+  height: 48px;
+  padding: 0 18px;
+  border: 1px solid rgba(15, 44, 89, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 8px 28px rgba(15, 44, 89, 0.07);
+  color: #0f2c59;
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  cursor: pointer;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  pointer-events: auto;
+  transition:
+    background 300ms ease,
+    color 300ms ease,
+    border-color 300ms ease;
+}
+
+.menuButtonOpen {
+  border-color: #0f2c59;
+  background: #0f2c59;
+  color: #ffffff;
+}
+
+.menuIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 14px;
+  height: 14px;
+}
+
+.menuIcon span {
+  display: block;
+  width: 14px;
+  height: 1px;
+  background: currentColor;
+  transition:
+    transform 300ms ease,
+    opacity 300ms ease;
+}
+
+.menuIconOpen span:first-child {
+  transform: translateY(2.5px) rotate(45deg);
+}
+
+.menuIconOpen span:last-child {
+  transform: translateY(-2.5px) rotate(-45deg);
+}
+
+/* =========================================================
+   LARGE DESKTOP MEDIA QUERIES
 ========================================================= */
 
 @media (min-width: 1440px) {
@@ -401,10 +540,6 @@
     padding: 2.75rem;
   }
 }
-
-/* =========================================================
-   2K / LARGE DESKTOP
-========================================================= */
 
 @media (min-width: 1920px) {
   .navbar {
@@ -447,154 +582,7 @@
     padding: 3.2rem;
     border-radius: 28px;
   }
-
-  .dropdownHeader {
-    margin-bottom: 2.25rem;
-  }
-
-  .dropdownHeader h3 {
-    font-size: 2.3rem;
-  }
-
-  .dropdownHeader p {
-    max-width: 740px;
-    font-size: 1.05rem;
-    line-height: 1.65;
-  }
-
-  .dropdownGrid {
-    gap: 1.25rem;
-  }
-
-  .dropdownCard {
-    gap: 1.15rem;
-    padding: 1.55rem;
-  }
-
-  .cardIcon {
-    width: 52px;
-    height: 52px;
-  }
-
-  .cardInfo h4 {
-    font-size: 1.05rem;
-  }
-
-  .cardInfo p {
-    font-size: 0.95rem;
-  }
-
-  .cardAction {
-    font-size: 0.95rem;
-  }
-
-  .dropdownButton {
-    margin-top: 2.25rem;
-    padding: 1.1rem;
-    font-size: 1.05rem;
-  }
 }
-
-/* =========================================================
-   TALL LARGE DESKTOP
-   Important for viewports such as 2560 × 2593
-========================================================= */
-
-@media (min-width: 1920px) and (min-height: 1600px) {
-  .navbar {
-    height: 116px;
-    padding-left: clamp(6rem, 6vw, 9rem);
-    padding-right: clamp(6rem, 6vw, 9rem);
-  }
-
-  .logoLink {
-    width: 285px;
-    height: 84px;
-  }
-
-  .languageToggle {
-    margin-left: 2rem;
-    margin-right: 3.2rem;
-    padding: 0.65rem 0.9rem;
-    font-size: 0.78rem;
-  }
-
-  .navLinks {
-    gap: clamp(3rem, 2.2vw, 4.2rem);
-    margin-right: clamp(3.5rem, 2.8vw, 5rem);
-  }
-
-  .navItem {
-    font-size: 1.08rem;
-    padding: 13px 0;
-  }
-
-  .cta {
-    min-height: 58px;
-    padding: 0 2.1rem;
-    font-size: 1rem;
-  }
-
-  .dropdownPanel {
-    top: 116px;
-    width: min(1650px, 78vw);
-    padding: 3.5rem;
-    border-radius: 30px;
-  }
-
-  .dropdownHeader {
-    margin-bottom: 2.5rem;
-  }
-
-  .dropdownHeader h3 {
-    font-size: 2.5rem;
-  }
-
-  .dropdownHeader p {
-    max-width: 800px;
-    font-size: 1.1rem;
-    line-height: 1.7;
-  }
-
-  .dropdownGrid {
-    gap: 1.35rem;
-  }
-
-  .dropdownCard {
-    gap: 1.25rem;
-    padding: 1.7rem;
-    border-radius: 20px;
-  }
-
-  .cardIcon {
-    width: 56px;
-    height: 56px;
-    border-radius: 15px;
-  }
-
-  .cardInfo h4 {
-    font-size: 1.1rem;
-  }
-
-  .cardInfo p {
-    font-size: 1rem;
-    line-height: 1.55;
-  }
-
-  .cardAction {
-    font-size: 1rem;
-  }
-
-  .dropdownButton {
-    margin-top: 2.5rem;
-    padding: 1.2rem;
-    font-size: 1.1rem;
-  }
-}
-
-/* =========================================================
-   4K / ULTRA-WIDE DESKTOP
-========================================================= */
 
 @media (min-width: 3000px) {
   .navbar {
@@ -637,196 +625,23 @@
     padding: 3.8rem;
     border-radius: 34px;
   }
-
-  .dropdownHeader {
-    margin-bottom: 2.75rem;
-  }
-
-  .dropdownHeader h3 {
-    font-size: 2.7rem;
-  }
-
-  .dropdownHeader p {
-    max-width: 860px;
-    font-size: 1.15rem;
-    line-height: 1.7;
-  }
-
-  .dropdownGrid {
-    gap: 1.5rem;
-  }
-
-  .dropdownCard {
-    gap: 1.4rem;
-    padding: 1.9rem;
-    border-radius: 22px;
-  }
-
-  .cardIcon {
-    width: 60px;
-    height: 60px;
-    border-radius: 16px;
-  }
-
-  .cardInfo h4 {
-    font-size: 1.15rem;
-  }
-
-  .cardInfo p {
-    font-size: 1.05rem;
-    line-height: 1.6;
-  }
-
-  .cardAction {
-    font-size: 1.05rem;
-  }
-
-  .dropdownButton {
-    margin-top: 2.75rem;
-    padding: 1.3rem;
-    font-size: 1.15rem;
-  }
 }
 
 /* =========================================================
-   TABLET
+   RESPONSIVE TOGGLE: SWITCH BETWEEN DESKTOP & MOBILE HEADERS
 ========================================================= */
 
-@media (max-width: 1250px) {
+@media (max-width: 1099px) {
   .navbar {
-    padding: 0 2.5rem;
-  }
-
-  .logoLink {
-    width: 195px;
-  }
-
-  .languageToggle {
-    margin-left: 1rem;
-    margin-right: 1.5rem;
-  }
-
-  .navLinks {
-    gap: 1.5rem;
-    margin-right: 2rem;
-  }
-
-  .navItem {
-    font-size: 0.84rem;
-  }
-
-  .cta {
-    padding: 0 1.25rem;
-  }
-}
-
-/* =========================================================
-   TABLET / COMPACT DESKTOP
-========================================================= */
-
-@media (max-width: 1050px) {
-  .navbar {
-    padding: 0 2rem;
-  }
-
-  .logoLink {
-    width: 180px;
-  }
-
-  .languageToggle {
-    margin-left: 0.75rem;
-    margin-right: 1rem;
-  }
-
-  .navLinks {
-    gap: 1.15rem;
-    margin-right: 1.5rem;
-  }
-
-  .navItem {
-    font-size: 0.8rem;
-  }
-
-  .cta {
-    font-size: 0.82rem;
-    padding: 0 1.15rem;
-  }
-}
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 900px) {
-  .navbar {
-    height: 76px;
-    padding: 0 1.25rem;
-  }
-
-  .logoLink {
-    width: 190px;
-    height: 58px;
-  }
-
-  .languageToggle {
     display: none;
   }
-
-  .navLinks {
-    display: none;
-  }
-
-  .cta {
-    display: none;
-  }
-
-  .mobileButton {
-    display: flex;
-  }
-
-  .dropdownPanel {
-    display: none;
+  .mobileHeader {
+    display: block;
   }
 }
 
 /* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 480px) {
-  .navbar {
-    padding: 0 1rem;
-  }
-
-  .logoLink {
-    width: 170px;
-    height: 54px;
-  }
-
-  .mobileButton {
-    width: 43px;
-    height: 43px;
-    border-radius: 13px;
-  }
-}
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media (max-width: 360px) {
-  .logoLink {
-    width: 150px;
-  }
-
-  .mobileButton {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-/* =========================================================
-   ACCESSIBILITY
+   ACCESSIBILITY & REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -840,7 +655,8 @@
   .dropdownCard,
   .cardIcon,
   .cardAction,
-  .languageToggle {
+  .languageToggle,
+  .menuButton {
     transition: none;
     animation: none;
   }
