@@ -4731,3 +4731,66 @@
     padding-right: 14px;
   }
 }
+/* =========================================================
+   WHATSAPP BUTTON STYLING
+========================================================= */
+
+.whatsappButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 45px;
+  max-width: 100%;
+  padding: 12px 19px;
+  border-radius: 999px;
+  border: 1px solid var(--blue);
+  background: var(--navy);
+  color: #ffffff;
+  font-size: 0.63rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.whatsappButton:hover {
+  transform: translateY(-2px);
+  background: var(--blue);
+  border-color: var(--navy);
+  color: #ffffff;
+}
+
+@media (min-width: 1440px) {
+  .whatsappButton {
+    min-height: 50px;
+    padding: 14px 23px;
+    font-size: 0.69rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .whatsappButton {
+    min-height: 54px;
+    padding: 15px 27px;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .whatsappButton {
+    width: 100%;
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 520px) {
+  .whatsappButton {
+    font-size: 0.59rem;
+  }
+}

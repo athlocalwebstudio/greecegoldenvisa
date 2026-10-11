@@ -10,21 +10,25 @@ const consultationTopics = [
     number: "01",
     titleKey: "goldenVisa",
     textKey: "goldenVisaText",
+    href: "/program/requirements",
   },
   {
     number: "02",
     titleKey: "propertySearch",
     textKey: "propertySearchText",
+    href: "/investments/routes",
   },
   {
     number: "03",
     titleKey: "propertyReview",
     textKey: "propertyReviewText",
+    href: "/investments/ready-properties",
   },
   {
     number: "04",
     titleKey: "investmentStrategy",
     textKey: "investmentStrategyText",
+    href: "/program/eligibility",
   },
 ];
 
@@ -124,10 +128,12 @@ export default function ContactPage() {
 
             <div className={styles.heroActions}>
               <a
-                href="tel:+306993229390"
-                className={styles.primaryButton}
+                href="https://wa.me/306993229390"
+                className={styles.whatsappButton}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {t("contact.hero.callButton")}
+                {t("contact.hero.whatsappButton") || "Send WhatsApp Message"}
                 <span>↗</span>
               </a>
 
@@ -208,8 +214,8 @@ export default function ContactPage() {
               <p>{t("contact.advisor.description")}</p>
 
               <div className={styles.advisorContacts}>
-                <a href="https://wa.me/306993229390">
-                  <small>{t("contact.advisor.phoneLabel")}</small>
+                <a href="https://wa.me/306993229390" target="_blank" rel="noopener noreferrer">
+                  <small>{t("contact.advisor.whatsappLabel") || "WHATSAPP MESSAGE"}</small>
                   <strong>+306993229390</strong>
                 </a>
 
@@ -247,9 +253,11 @@ export default function ContactPage() {
 
           <div className={styles.topicGrid}>
             {consultationTopics.map((topic) => (
-              <article
+              <LocalizedLink
                 key={topic.number}
+                href={topic.href}
                 className={styles.topicCard}
+                style={{ textDecoration: "none", color: "inherit", display: "flex" }}
               >
                 <div className={styles.topicTop}>
                   <span>{topic.number}</span>
@@ -260,7 +268,7 @@ export default function ContactPage() {
                   <h3>{t(`contact.topics.items.${topic.titleKey}.title`)}</h3>
                   <p>{t(`contact.topics.items.${topic.titleKey}.text`)}</p>
                 </div>
-              </article>
+              </LocalizedLink>
             ))}
           </div>
         </div>
@@ -519,8 +527,8 @@ export default function ContactPage() {
                   <p>{t("contact.success.description")}</p>
 
                   <div className={styles.successActions}>
-                    <a href="tel:+306993229390">
-                      {t("contact.success.call")}
+                    <a href="https://wa.me/306993229390" target="_blank" rel="noopener noreferrer">
+                      {t("contact.success.whatsapp") || "Send WhatsApp Message"}
                       <span>↗</span>
                     </a>
 
@@ -645,10 +653,12 @@ export default function ContactPage() {
 
             <div className={styles.ctaActions}>
               <a
-                href="tel:+306993229390"
+                href="https://wa.me/306993229390"
                 className={styles.ctaButton}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {t("contact.cta.call")}
+                {t("contact.cta.whatsapp") || "Send WhatsApp Message"}
                 <span>↗</span>
               </a>
 

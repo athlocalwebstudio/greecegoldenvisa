@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import LocalizedLink from "@/app/components/LocalizedLink";
 import styles from "./trustCompass.module.css";
 import { useLanguage } from "@/app/LanguageContext";
 
@@ -48,111 +49,113 @@ export default function TrustCompass() {
               SVETLANA PROFILE
           ========================================= */}
 
-          <article className={styles.profileCard}>
+          <LocalizedLink href="/team/contact" style={{ textDecoration: "none", color: "inherit", display: "block" }}>
+            <article className={styles.profileCard}>
 
-            <div className={styles.profileImageWrap}>
+              <div className={styles.profileImageWrap}>
 
-              <Image
-                src="/portait_image_for_website.jpg"
-                alt={t("trustCompass.profile.imageAlt")}
-                fill
-                sizes="(max-width: 900px) 100vw, 460px"
-                className={styles.profileImage}
-              />
+                <Image
+                  src="/portait_image_for_website.jpg"
+                  alt={t("trustCompass.profile.imageAlt")}
+                  fill
+                  sizes="(max-width: 900px) 100vw, 460px"
+                  className={styles.profileImage}
+                />
 
-              <div className={styles.imageOverlay} />
+                <div className={styles.imageOverlay} />
 
-              <div className={styles.profileBadge}>
-                <span className={styles.badgeDot} />
-                {t("trustCompass.profile.badge")}
-              </div>
-
-            </div>
-
-
-            <div className={styles.profileContent}>
-
-              <span className={styles.profileEyebrow}>
-                {t("trustCompass.profile.eyebrow")}
-              </span>
-
-              <h3>
-                Svetlana
-                <br />
-                Novikova
-              </h3>
-
-              <p className={styles.profileRole}>
-                {t("trustCompass.profile.role.engineer")}
-                <span>·</span>
-                {t("trustCompass.profile.role.advisor")}
-              </p>
-
-              <p className={styles.profileDescription}>
-                {t("trustCompass.profile.description")}
-              </p>
-
-
-              {/* CREDENTIALS */}
-
-              <div className={styles.credentials}>
-
-                <div className={styles.credential}>
-                  <strong>15+</strong>
-                  <span>
-                    {t("trustCompass.profile.credentials.experience")}
-                  </span>
-                </div>
-
-                <div className={styles.credential}>
-                  <strong>1,000+</strong>
-                  <span>
-                    {t("trustCompass.profile.credentials.properties")}
-                  </span>
+                <div className={styles.profileBadge}>
+                  <span className={styles.badgeDot} />
+                  {t("trustCompass.profile.badge")}
                 </div>
 
               </div>
 
 
-              {/* LANGUAGES */}
+              <div className={styles.profileContent}>
 
-              <div className={styles.languages}>
+                <span className={styles.profileEyebrow}>
+                  {t("trustCompass.profile.eyebrow")}
+                </span>
 
-                <div className={styles.languageList}>
+                <h3>
+                  Svetlana
+                  <br />
+                  Novikova
+                </h3>
 
-                  <span
-                    className={
-                      language === "en"
-                        ? styles.languageActive
-                        : ""
-                    }
-                  >
-                    EN
-                  </span>
-
-                  <span>GR</span>
-
-                  <span
-                    className={
-                      language === "ru"
-                        ? styles.languageActive
-                        : ""
-                    }
-                  >
-                    RU
-                  </span>
-
-                </div>
-
-                <p>
-                  {t("trustCompass.profile.languages")}
+                <p className={styles.profileRole}>
+                  {t("trustCompass.profile.role.engineer")}
+                  <span>·</span>
+                  {t("trustCompass.profile.role.advisor")}
                 </p>
 
+                <p className={styles.profileDescription}>
+                  {t("trustCompass.profile.description")}
+                </p>
+
+
+                {/* CREDENTIALS */}
+
+                <div className={styles.credentials}>
+
+                  <div className={styles.credential}>
+                    <strong>15+</strong>
+                    <span>
+                      {t("trustCompass.profile.credentials.experience")}
+                    </span>
+                  </div>
+
+                  <div className={styles.credential}>
+                    <strong>1,000+</strong>
+                    <span>
+                      {t("trustCompass.profile.credentials.properties")}
+                    </span>
+                  </div>
+
+                </div>
+
+
+                {/* LANGUAGES */}
+
+                <div className={styles.languages}>
+
+                  <div className={styles.languageList}>
+
+                    <span
+                      className={
+                        language === "en"
+                          ? styles.languageActive
+                          : ""
+                      }
+                    >
+                      EN
+                    </span>
+
+                    <span>GR</span>
+
+                    <span
+                      className={
+                        language === "ru"
+                          ? styles.languageActive
+                          : ""
+                      }
+                    >
+                      RU
+                    </span>
+
+                  </div>
+
+                  <p>
+                    {t("trustCompass.profile.languages")}
+                  </p>
+
+                </div>
+
               </div>
 
-            </div>
-
-          </article>
+            </article>
+          </LocalizedLink>
 
 
           {/* =========================================
@@ -186,116 +189,124 @@ export default function TrustCompass() {
 
             {/* POINT 01 */}
 
-            <div className={styles.approachItem}>
+            <LocalizedLink href="/team/why-clients-trust-us" style={{ textDecoration: "none", color: "inherit", display: "block" }}>
+              <div className={styles.approachItem}>
 
-              <div className={styles.approachNumber}>
-                01
+                <div className={styles.approachNumber}>
+                  01
+                </div>
+
+                <div className={styles.approachContent}>
+
+                  <h4>
+                    {t("trustCompass.approach.items.engineer.title")}
+                  </h4>
+
+                  <p>
+                    {t("trustCompass.approach.items.engineer.description")}
+                  </p>
+
+                </div>
+
+                <span className={styles.approachArrow}>
+                  ↗
+                </span>
+
               </div>
-
-              <div className={styles.approachContent}>
-
-                <h4>
-                  {t("trustCompass.approach.items.engineer.title")}
-                </h4>
-
-                <p>
-                  {t("trustCompass.approach.items.engineer.description")}
-                </p>
-
-              </div>
-
-              <span className={styles.approachArrow}>
-                ↗
-              </span>
-
-            </div>
+            </LocalizedLink>
 
 
             {/* POINT 02 */}
 
-            <div className={styles.approachItem}>
+            <LocalizedLink href="/team/why-clients-trust-us" style={{ textDecoration: "none", color: "inherit", display: "block" }}>
+              <div className={styles.approachItem}>
 
-              <div className={styles.approachNumber}>
-                02
+                <div className={styles.approachNumber}>
+                  02
+                </div>
+
+                <div className={styles.approachContent}>
+
+                  <h4>
+                    {t("trustCompass.approach.items.independent.title")}
+                  </h4>
+
+                  <p>
+                    {t(
+                      "trustCompass.approach.items.independent.description"
+                    )}
+                  </p>
+
+                </div>
+
+                <span className={styles.approachArrow}>
+                  ↗
+                </span>
+
               </div>
-
-              <div className={styles.approachContent}>
-
-                <h4>
-                  {t("trustCompass.approach.items.independent.title")}
-                </h4>
-
-                <p>
-                  {t(
-                    "trustCompass.approach.items.independent.description"
-                  )}
-                </p>
-
-              </div>
-
-              <span className={styles.approachArrow}>
-                ↗
-              </span>
-
-            </div>
+            </LocalizedLink>
 
 
             {/* POINT 03 */}
 
-            <div className={styles.approachItem}>
+            <LocalizedLink href="/team/why-clients-trust-us" style={{ textDecoration: "none", color: "inherit", display: "block" }}>
+              <div className={styles.approachItem}>
 
-              <div className={styles.approachNumber}>
-                03
+                <div className={styles.approachNumber}>
+                  03
+                </div>
+
+                <div className={styles.approachContent}>
+
+                  <h4>
+                    {t("trustCompass.approach.items.coordinated.title")}
+                  </h4>
+
+                  <p>
+                    {t(
+                      "trustCompass.approach.items.coordinated.description"
+                    )}
+                  </p>
+
+                </div>
+
+                <span className={styles.approachArrow}>
+                  ↗
+                </span>
+
               </div>
-
-              <div className={styles.approachContent}>
-
-                <h4>
-                  {t("trustCompass.approach.items.coordinated.title")}
-                </h4>
-
-                <p>
-                  {t(
-                    "trustCompass.approach.items.coordinated.description"
-                  )}
-                </p>
-
-              </div>
-
-              <span className={styles.approachArrow}>
-                ↗
-              </span>
-
-            </div>
+            </LocalizedLink>
 
 
             {/* POINT 04 */}
 
-            <div className={styles.approachItem}>
+            <LocalizedLink href="/team/why-clients-trust-us" style={{ textDecoration: "none", color: "inherit", display: "block" }}>
+              <div className={styles.approachItem}>
 
-              <div className={styles.approachNumber}>
-                04
+                <div className={styles.approachNumber}>
+                  04
+                </div>
+
+                <div className={styles.approachContent}>
+
+                  <h4>
+                    {t("trustCompass.approach.items.international.title")}
+                  </h4>
+
+                  <p>
+                    {t(
+                      "trustCompass.approach.items.international.description"
+                    )}
+                  </p>
+
+                </div>
+
+                <span className={styles.approachArrow}>
+                  ↗
+                </span>
+
               </div>
-
-              <div className={styles.approachContent}>
-
-                <h4>
-                  {t("trustCompass.approach.items.international.title")}
-                </h4>
-
-                <p>
-                  {t(
-                    "trustCompass.approach.items.international.description"
-                  )}
-                </p>
-
-              </div>
-
-              <span className={styles.approachArrow}>
-                ↗
-              </span>
-
-            </div>
+            </LocalizedLink>
 
           </div>
 

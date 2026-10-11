@@ -14,7 +14,7 @@ import {
 
 const translations = {
   en: {
-    contact: {
+ contact: {
   hero: {
     eyebrow: "CONTACT OUR ADVISORS",
     titleLine1: "Your questions",
@@ -22,7 +22,7 @@ const translations = {
     titleEmphasis: "specialist.",
     description:
       "Speak directly with someone who understands Greek property, technical due diligence and the Golden Visa investment process. Tell us where you are in your journey and we will help clarify what comes next.",
-    callButton: "Call +306993229390",
+    whatsappButton: "Send WhatsApp Message",
     emailButton: "Send an Email",
     meta: {
       direct: "DIRECT CONTACT",
@@ -54,7 +54,7 @@ const translations = {
     },
     description:
       "With a background in civil engineering and Greek property, Svetlana brings a technical perspective to the investment conversation. Her role is to help investors understand the property, the practical considerations and the professionals required around the wider process.",
-    phoneLabel: "PHONE / WHATSAPP",
+    whatsappLabel: "WHATSAPP MESSAGE",
     emailLabel: "EMAIL",
   },
 
@@ -146,7 +146,7 @@ const translations = {
     titleLine2: "Let's talk Greece.",
     description:
       "Your enquiry has been received. You can also contact Svetlana directly by phone or email if you would prefer to continue the conversation that way.",
-    call: "Call directly",
+    whatsapp: "Send WhatsApp Message",
     email: "Email directly",
   },
 
@@ -216,7 +216,7 @@ const translations = {
     titleLine2: "Not a commitment.",
     description:
       "Contact Homes in Greece directly and begin a conversation about your plans for Greece.",
-    call: "Call Svetlana",
+    whatsapp: "Send WhatsApp Message",
     email: "Send an Email",
   },
 
@@ -5363,7 +5363,7 @@ cookies: {
   },
 
   ru: {
-    contact: {
+ contact: {
   hero: {
     eyebrow: "СВЯЖИТЕСЬ С НАШИМИ КОНСУЛЬТАНТАМИ",
     titleLine1: "Ваши вопросы",
@@ -5371,7 +5371,7 @@ cookies: {
     titleEmphasis: "специалиста.",
     description:
       "Поговорите напрямую со специалистом, который разбирается в недвижимости Греции, технической проверке объектов и процессе инвестирования через Golden Visa. Расскажите, на каком этапе вы находитесь, и мы поможем определить дальнейшие шаги.",
-    callButton: "Позвонить +306993229390",
+    whatsappButton: "Написать в WhatsApp",
     emailButton: "Отправить Email",
     meta: {
       direct: "ПРЯМОЙ КОНТАКТ",
@@ -5403,7 +5403,7 @@ cookies: {
     },
     description:
       "Имея профессиональный опыт в области строительства и недвижимости Греции, Светлана привносит технический взгляд в инвестиционный процесс. Её задача — помочь инвесторам разобраться в объекте, практических аспектах сделки и специалистах, которые необходимы на разных этапах.",
-    phoneLabel: "ТЕЛЕФОН / WHATSAPP",
+    whatsappLabel: "ЧАТ WHATSAPP",
     emailLabel: "EMAIL",
   },
 
@@ -5499,7 +5499,7 @@ cookies: {
     titleLine2: "Давайте поговорим о Греции.",
     description:
       "Ваш запрос получен. Вы также можете связаться со Светланой напрямую по телефону или электронной почте, если хотите продолжить разговор таким способом.",
-    call: "Позвонить напрямую",
+    whatsapp: "Написать в WhatsApp",
     email: "Написать напрямую",
   },
 
@@ -5550,7 +5550,7 @@ cookies: {
         question:
           "Могу ли я обратиться по поводу уже найденной недвижимости?",
         answer:
-          "Да. Если вы уже рассматриваете объект в Греции, вы можете обсудить его, его соответствие вашим планам и технические аспекты, которые следует проверить до дальнейших действий.",
+          "Да. Вы уже рассматриваете объект в Греции, вы можете обсудить его, его соответствие вашим планам и технические аспекты, которые следует проверить до дальнейших действий.",
       },
       "03": {
         question: "На каких языках можно общаться?",
@@ -5572,7 +5572,7 @@ cookies: {
     titleLine2: "Не с обязательства.",
     description:
       "Свяжитесь напрямую с Homes in Greece и начните разговор о ваших планах в Греции.",
-    call: "Позвонить Светлане",
+    whatsapp: "Написать в WhatsApp",
     email: "Отправить Email",
   },
 
