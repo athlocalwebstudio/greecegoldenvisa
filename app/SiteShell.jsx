@@ -19,7 +19,6 @@ return children;
 
 return ( <ConsultationProvider> <ClientLayout> <NavbarProvider> <Navbar />
 
-```
       {children}
 
       <Footer />
