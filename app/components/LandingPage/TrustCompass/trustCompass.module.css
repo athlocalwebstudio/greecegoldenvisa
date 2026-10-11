@@ -17,7 +17,6 @@
   box-sizing: border-box;
 }
 
-
 /* =========================================
    CONTAINER
 ========================================= */
@@ -26,7 +25,6 @@
   width: min(1200px, 90%);
   margin: 0 auto;
 }
-
 
 /* =========================================
    INTRO
@@ -78,7 +76,6 @@
   line-height: 1.75;
 }
 
-
 /* =========================================
    MAIN GRID
 ========================================= */
@@ -89,7 +86,6 @@
   gap: 70px;
   align-items: start;
 }
-
 
 /* =========================================
    PROFILE CARD
@@ -110,11 +106,6 @@
   transform: translateY(-7px);
   box-shadow: 0 35px 90px rgba(15, 44, 89, 0.14);
 }
-
-
-/* =========================================
-   PROFILE IMAGE
-========================================= */
 
 .profileImageWrap {
   position: relative;
@@ -171,11 +162,6 @@
   background: #3ba9ef;
 }
 
-
-/* =========================================
-   PROFILE CONTENT
-========================================= */
-
 .profileContent {
   padding: 31px 32px 30px;
 }
@@ -218,11 +204,6 @@
   line-height: 1.7;
 }
 
-
-/* =========================================
-   CREDENTIALS
-========================================= */
-
 .credentials {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -263,11 +244,6 @@
   font-weight: 800;
   letter-spacing: 0.1em;
 }
-
-
-/* =========================================
-   LANGUAGES
-========================================= */
 
 .languages {
   display: flex;
@@ -311,7 +287,6 @@
   line-height: 1.45;
 }
 
-
 /* =========================================
    APPROACH
 ========================================= */
@@ -345,11 +320,6 @@
   font-weight: 800;
   letter-spacing: 0.12em;
 }
-
-
-/* =========================================
-   APPROACH ITEMS
-========================================= */
 
 .approachItem {
   display: grid;
@@ -427,7 +397,6 @@
   transform: translate(3px, -3px);
 }
 
-
 /* =========================================
    DUE DILIGENCE
 ========================================= */
@@ -455,18 +424,12 @@
   font-weight: 800;
 }
 
-/* Increased font size for due diligence main lead-in description */
 .dueIntro p {
   margin: 20px 0 0;
   color: #64748b;
   font-size: 0.95rem; 
   line-height: 1.75;
 }
-
-
-/* =========================================
-   CHECKLIST
-========================================= */
 
 .checkList {
   display: grid;
@@ -499,6 +462,11 @@
   font-size: 0.55rem;
   font-weight: 800;
   letter-spacing: 0.08em;
+  padding-top: 2px;
+}
+
+.checkItemContent {
+  flex: 1;
 }
 
 .checkItem strong {
@@ -508,14 +476,12 @@
   font-weight: 800;
 }
 
-/* Increased font size for items 01 - 05 descriptions */
 .checkItem p {
   margin: 5px 0 0;
   color: #94a3b8;
   font-size: 0.88rem; 
   line-height: 1.55;
 }
-
 
 /* =========================================
    BOTTOM STATEMENT
@@ -572,821 +538,6 @@
   font-size: 0.5rem;
   font-weight: 700;
 }
-
-
-/* =========================================
-   LARGE DESKTOP — 1440+
-========================================= */
-
-@media (min-width: 1440px) {
-
-  .trustCompass {
-    padding-top: 140px;
-    padding-bottom: 135px;
-  }
-
-  .container {
-    width: min(1400px, 88%);
-  }
-
-  .intro {
-    max-width: 850px;
-    margin-bottom: 82px;
-  }
-
-  .intro h2 {
-    font-size: clamp(3.4rem, 4vw, 5.2rem);
-  }
-
-  .introText {
-    max-width: 720px;
-    font-size: 1.18rem;
-  }
-
-  .mainGrid {
-    grid-template-columns:
-      minmax(500px, 0.88fr)
-      minmax(0, 1.12fr);
-    gap: 82px;
-  }
-
-  .profileImageWrap {
-    height: 480px;
-  }
-
-  .profileContent {
-    padding: 35px 36px 34px;
-  }
-
-  .profileContent h3 {
-    font-size: 2.55rem;
-  }
-
-  .profileDescription {
-    max-width: 560px;
-    font-size: 0.94rem;
-  }
-
-  .credential {
-    padding: 17px 18px;
-  }
-
-  .credential strong {
-    font-size: 1.45rem;
-  }
-
-  .credential span {
-    font-size: 0.51rem;
-  }
-
-  .languages {
-    margin-top: 24px;
-    padding-top: 21px;
-  }
-
-  .languageList span {
-    width: 32px;
-    height: 28px;
-  }
-
-  .languages p {
-    font-size: 0.6rem;
-  }
-
-  .approachHeader {
-    margin-bottom: 22px;
-  }
-
-  .approachHeader h3 {
-    font-size: clamp(2.25rem, 3vw, 3.25rem);
-  }
-
-  .approachItem {
-    grid-template-columns: 46px 1fr 30px;
-    gap: 22px;
-    padding: 28px 0;
-  }
-
-  .approachNumber {
-    width: 38px;
-    height: 38px;
-    font-size: 0.58rem;
-  }
-
-  .approachContent h4 {
-    font-size: 1rem;
-  }
-
-  .approachContent p {
-    max-width: 610px;
-    font-size: 0.88rem;
-  }
-
-  .dueDiligence {
-    gap: 105px;
-    margin-top: 125px;
-    padding: 75px 0;
-  }
-
-  .dueIntro {
-    max-width: 540px;
-  }
-
-  .dueIntro h3 {
-    font-size: clamp(2.3rem, 3vw, 3.4rem);
-  }
-
-  .dueIntro p {
-    font-size: 0.98rem; /* Increased for large desktop */
-  }
-
-  .checkList {
-    column-gap: 48px;
-  }
-
-  .checkItem {
-    gap: 17px;
-    padding: 21px 0;
-  }
-
-  .checkItem > span {
-    font-size: 0.58rem;
-  }
-
-  .checkItem strong {
-    font-size: 0.76rem;
-  }
-
-  .checkItem p {
-    font-size: 0.94rem; /* Increased for large desktop */
-    line-height: 1.6;
-  }
-
-  .bottomStatement {
-    grid-template-columns: 90px 1fr auto;
-    gap: 40px;
-    padding-top: 72px;
-  }
-
-  .statementLine {
-    width: 62px;
-  }
-
-  .statementContent p {
-    max-width: 800px;
-    font-size: 1.1rem;
-  }
-
-  .statementSignature span {
-    font-size: 0.72rem;
-  }
-
-  .statementSignature small {
-    font-size: 0.53rem;
-  }
-}
-
-
-/* =========================================
-   LARGE DESKTOP — 1920+
-========================================= */
-
-@media (min-width: 1920px) {
-
-  .trustCompass {
-    padding-top: 165px;
-    padding-bottom: 155px;
-  }
-
-  .container {
-    width: min(1800px, 88%);
-  }
-
-  .intro {
-    max-width: 1000px;
-    margin-bottom: 100px;
-  }
-
-  .eyebrow,
-  .sectionLabel {
-    gap: 12px;
-    font-size: 0.72rem;
-  }
-
-  .eyebrow::before,
-  .sectionLabel::before {
-    width: 34px;
-  }
-
-  .intro h2 {
-    margin-top: 27px;
-    font-size: clamp(4rem, 4.1vw, 5.8rem);
-  }
-
-  .introText {
-    max-width: 820px;
-    margin-top: 30px;
-    font-size: 1.25rem;
-    line-height: 1.8;
-  }
-
-  .mainGrid {
-    grid-template-columns:
-      minmax(620px, 0.9fr)
-      minmax(0, 1.1fr);
-    gap: 105px;
-  }
-
-  .profileCard {
-    border-radius: 26px;
-  }
-
-  .profileImageWrap {
-    height: 560px;
-  }
-
-  .profileBadge {
-    left: 28px;
-    bottom: 26px;
-    gap: 10px;
-    padding: 11px 16px;
-    font-size: 0.62rem;
-  }
-
-  .badgeDot {
-    width: 7px;
-    height: 7px;
-  }
-
-  .profileContent {
-    padding: 42px 44px 40px;
-  }
-
-  .profileEyebrow {
-    font-size: 0.61rem;
-  }
-
-  .profileContent h3 {
-    margin-top: 15px;
-    font-size: 3rem;
-  }
-
-  .profileRole {
-    gap: 10px;
-    margin-top: 16px;
-    font-size: 0.8rem;
-  }
-
-  .profileDescription {
-    max-width: 650px;
-    margin-top: 23px;
-    font-size: 1rem;
-    line-height: 1.75;
-  }
-
-  .credentials {
-    gap: 15px;
-    margin-top: 31px;
-  }
-
-  .credential {
-    padding: 19px 20px;
-    border-radius: 14px;
-  }
-
-  .credential strong {
-    font-size: 1.65rem;
-  }
-
-  .credential span {
-    margin-top: 8px;
-    font-size: 0.55rem;
-  }
-
-  .languages {
-    gap: 17px;
-    margin-top: 27px;
-    padding-top: 23px;
-  }
-
-  .languageList {
-    gap: 7px;
-  }
-
-  .languageList span {
-    width: 35px;
-    height: 30px;
-    border-radius: 7px;
-    font-size: 0.52rem;
-  }
-
-  .languages p {
-    font-size: 0.64rem;
-  }
-
-  .approach {
-    padding-top: 7px;
-  }
-
-  .approachHeader {
-    gap: 40px;
-    margin-bottom: 25px;
-  }
-
-  .approachHeader h3 {
-    margin-top: 21px;
-    font-size: clamp(2.6rem, 3vw, 3.6rem);
-  }
-
-  .approachIndex {
-    padding-bottom: 5px;
-    font-size: 0.61rem;
-  }
-
-  .approachItem {
-    grid-template-columns: 52px 1fr 34px;
-    gap: 25px;
-    padding: 32px 0;
-  }
-
-  .approachNumber {
-    width: 42px;
-    height: 42px;
-    font-size: 0.61rem;
-  }
-
-  .approachContent h4 {
-    font-size: 1.08rem;
-  }
-
-  .approachContent p {
-    max-width: 720px;
-    margin-top: 9px;
-    font-size: 0.94rem;
-    line-height: 1.7;
-  }
-
-  .approachArrow {
-    font-size: 1.1rem;
-  }
-
-  .dueDiligence {
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 135px;
-    margin-top: 145px;
-    padding: 88px 0;
-  }
-
-  .dueIntro {
-    max-width: 620px;
-  }
-
-  .dueIntro h3 {
-    margin-top: 23px;
-    font-size: clamp(2.7rem, 3vw, 3.8rem);
-  }
-
-  .dueIntro p {
-    margin-top: 25px;
-    font-size: 1.05rem; /* Increased */
-    line-height: 1.8;
-  }
-
-  .checkList {
-    column-gap: 60px;
-  }
-
-  .checkItem {
-    gap: 20px;
-    padding: 23px 0;
-  }
-
-  .checkItem > span {
-    font-size: 0.61rem;
-  }
-
-  .checkItem strong {
-    font-size: 0.8rem;
-  }
-
-  .checkItem p {
-    margin-top: 7px;
-    font-size: 0.98rem; /* Increased */
-    line-height: 1.65;
-  }
-
-  .bottomStatement {
-    grid-template-columns: 105px 1fr auto;
-    gap: 50px;
-    padding-top: 82px;
-  }
-
-  .statementLine {
-    width: 70px;
-  }
-
-  .statementContent > span {
-    margin-bottom: 10px;
-    font-size: 0.58rem;
-  }
-
-  .statementContent p {
-    max-width: 920px;
-    font-size: 1.18rem;
-    line-height: 1.75;
-  }
-
-  .statementSignature {
-    gap: 5px;
-  }
-
-  .statementSignature span {
-    font-size: 0.77rem;
-  }
-
-  .statementSignature small {
-    font-size: 0.56rem;
-  }
-}
-
-
-/* =========================================
-   TALL LARGE DESKTOP — 1920+ / 1600+ HEIGHT
-========================================= */
-
-@media (min-width: 1920px) and (min-height: 1600px) {
-
-  .trustCompass {
-    padding-top: 185px;
-    padding-bottom: 175px;
-  }
-
-  .container {
-    width: min(2000px, 86%);
-  }
-
-  .intro {
-    max-width: 1080px;
-    margin-bottom: 112px;
-  }
-
-  .intro h2 {
-    font-size: clamp(4.4rem, 4vw, 6.3rem);
-  }
-
-  .introText {
-    max-width: 880px;
-    font-size: 1.3rem;
-  }
-
-  .mainGrid {
-    grid-template-columns:
-      minmax(680px, 0.9fr)
-      minmax(0, 1.1fr);
-    gap: 120px;
-  }
-
-  .profileCard {
-    border-radius: 28px;
-  }
-
-  .profileImageWrap {
-    height: min(650px, 38vw);
-  }
-
-  .profileContent {
-    padding: 48px 50px 46px;
-  }
-
-  .profileContent h3 {
-    font-size: 3.2rem;
-  }
-
-  .profileDescription {
-    max-width: 700px;
-    font-size: 1.04rem;
-  }
-
-  .credentials {
-    gap: 17px;
-    margin-top: 34px;
-  }
-
-  .credential {
-    padding: 21px 22px;
-  }
-
-  .credential strong {
-    font-size: 1.8rem;
-  }
-
-  .credential span {
-    font-size: 0.57rem;
-  }
-
-  .languages {
-    margin-top: 30px;
-    padding-top: 25px;
-  }
-
-  .languageList span {
-    width: 37px;
-    height: 32px;
-  }
-
-  .languages p {
-    font-size: 0.67rem;
-  }
-
-  .approachHeader {
-    margin-bottom: 29px;
-  }
-
-  .approachHeader h3 {
-    font-size: clamp(2.8rem, 3vw, 3.9rem);
-  }
-
-  .approachItem {
-    grid-template-columns: 56px 1fr 36px;
-    gap: 27px;
-    padding: 35px 0;
-  }
-
-  .approachNumber {
-    width: 44px;
-    height: 44px;
-  }
-
-  .approachContent h4 {
-    font-size: 1.13rem;
-  }
-
-  .approachContent p {
-    max-width: 760px;
-    font-size: 0.98rem;
-  }
-
-  .dueDiligence {
-    gap: 150px;
-    margin-top: 165px;
-    padding: 98px 0;
-  }
-
-  .dueIntro {
-    max-width: 670px;
-  }
-
-  .dueIntro h3 {
-    font-size: clamp(2.9rem, 3vw, 4rem);
-  }
-
-  .dueIntro p {
-    font-size: 1.08rem; /* Increased */
-  }
-
-  .checkList {
-    column-gap: 70px;
-  }
-
-  .checkItem {
-    gap: 22px;
-    padding: 25px 0;
-  }
-
-  .checkItem strong {
-    font-size: 0.83rem;
-  }
-
-  .checkItem p {
-    font-size: 1.0rem; /* Increased */
-  }
-
-  .bottomStatement {
-    grid-template-columns: 115px 1fr auto;
-    gap: 55px;
-    padding-top: 92px;
-  }
-
-  .statementLine {
-    width: 76px;
-  }
-
-  .statementContent p {
-    max-width: 1000px;
-    font-size: 1.22rem;
-  }
-}
-
-
-/* =========================================
-   VERY LARGE 4K+
-========================================= */
-
-@media (min-width: 3000px) {
-
-  .trustCompass {
-    padding-top: 210px;
-    padding-bottom: 195px;
-  }
-
-  .container {
-    width: min(2300px, 82%);
-  }
-
-  .intro {
-    max-width: 1200px;
-    margin-bottom: 125px;
-  }
-
-  .eyebrow,
-  .sectionLabel {
-    font-size: 0.78rem;
-  }
-
-  .intro h2 {
-    font-size: clamp(4.8rem, 3.8vw, 7rem);
-  }
-
-  .introText {
-    max-width: 980px;
-    font-size: 1.38rem;
-  }
-
-  .mainGrid {
-    grid-template-columns:
-      minmax(780px, 0.9fr)
-      minmax(0, 1.1fr);
-    gap: 145px;
-  }
-
-  .profileImageWrap {
-    height: min(760px, 38vw);
-  }
-
-  .profileContent {
-    padding: 55px 58px 52px;
-  }
-
-  .profileContent h3 {
-    font-size: 3.55rem;
-  }
-
-  .profileDescription {
-    max-width: 780px;
-    font-size: 1.1rem;
-  }
-
-  .credential {
-    padding: 23px 24px;
-  }
-
-  .credential strong {
-    font-size: 1.95rem;
-  }
-
-  .credential span {
-    font-size: 0.6rem;
-  }
-
-  .approachHeader h3 {
-    font-size: clamp(3rem, 2.8vw, 4.25rem);
-  }
-
-  .approachItem {
-    grid-template-columns: 60px 1fr 40px;
-    gap: 30px;
-    padding: 39px 0;
-  }
-
-  .approachNumber {
-    width: 47px;
-    height: 47px;
-    font-size: 0.65rem;
-  }
-
-  .approachContent h4 {
-    font-size: 1.2rem;
-  }
-
-  .approachContent p {
-    max-width: 850px;
-    font-size: 1.02rem;
-  }
-
-  .dueDiligence {
-    gap: 175px;
-    margin-top: 190px;
-    padding: 110px 0;
-  }
-
-  .dueIntro {
-    max-width: 760px;
-  }
-
-  .dueIntro h3 {
-    font-size: clamp(3.1rem, 2.8vw, 4.4rem);
-  }
-
-  .dueIntro p {
-    font-size: 1.15rem; /* Increased */
-  }
-
-  .checkList {
-    column-gap: 85px;
-  }
-
-  .checkItem {
-    gap: 24px;
-    padding: 28px 0;
-  }
-
-  .checkItem strong {
-    font-size: 0.88rem;
-  }
-
-  .checkItem p {
-    font-size: 1.05rem; /* Increased */
-  }
-
-  .bottomStatement {
-    grid-template-columns: 130px 1fr auto;
-    gap: 65px;
-    padding-top: 105px;
-  }
-
-  .statementLine {
-    width: 85px;
-  }
-
-  .statementContent p {
-    max-width: 1150px;
-    font-size: 1.3rem;
-  }
-
-  .statementSignature span {
-    font-size: 0.82rem;
-  }
-
-  .statementSignature small {
-    font-size: 0.6rem;
-  }
-}
-
-
-/* =========================================
-   LAPTOP
-========================================= */
-
-@media (max-width: 1200px) {
-
-  .container {
-    width: min(100%, 1040px);
-  }
-
-  .mainGrid {
-    gap: 50px;
-  }
-
-  .dueDiligence {
-    gap: 55px;
-  }
-}
-
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 950px) {
-
-  .trustCompass {
-    padding: 100px 24px;
-  }
-
-  .mainGrid {
-    grid-template-columns: 1fr;
-    gap: 65px;
-  }
-
-  .profileCard {
-    max-width: 560px;
-  }
-
-  .profileImageWrap {
-    height: 440px;
-  }
-
-  .approach {
-    max-width: 760px;
-  }
-
-  .dueDiligence {
-    grid-template-columns: 1fr;
-    gap: 45px;
-    margin-top: 80px;
-  }
-}
-
 
 /* =========================================
    MOBILE
@@ -1584,15 +735,12 @@
   }
 
   .approachContent h4 {
-    font-size: 0.8rem;
-    line-height: 1.3;
+    font-size: 1.05rem;
+    line-height: 1.35;
   }
 
-  .approachContent p {
-    margin-top: 5px;
-    max-width: none;
-    font-size: 0.74rem;
-    line-height: 1.5;
+  .approachDesc {
+    display: none !important;
   }
 
   .approachArrow {
@@ -1617,7 +765,6 @@
     line-height: 1.04;
   }
 
-  /* Increased mobile font size for due diligence main lead-in description */
   .dueIntro p {
     margin-top: 14px;
     font-size: 0.86rem; 
@@ -1650,15 +797,12 @@
   }
 
   .checkItem strong {
-    font-size: 0.67rem;
-    line-height: 1.35;
+    font-size: 0.95rem;
+    line-height: 1.4;
   }
 
-  /* Increased mobile font size for items 01 - 05 descriptions */
-  .checkItem p {
-    margin-top: 3px;
-    font-size: 0.82rem; 
-    line-height: 1.45;
+  .checkDesc {
+    display: none !important;
   }
 
   .bottomStatement {
@@ -1694,191 +838,5 @@
 
   .statementSignature small {
     font-size: 0.45rem;
-  }
-}
-
-
-/* =========================================
-   SMALL MOBILE
-========================================= */
-
-@media (max-width: 480px) {
-
-  .trustCompass {
-    padding: 62px 15px 65px;
-  }
-
-  .intro {
-    margin-bottom: 34px;
-  }
-
-  .intro h2 {
-    font-size: 2.15rem;
-  }
-
-  .introText {
-    font-size: 0.88rem;
-  }
-
-  .profileImageWrap {
-    height: 255px;
-  }
-
-  .profileContent {
-    padding: 21px 18px 19px;
-  }
-
-  .profileContent h3 {
-    font-size: 1.85rem;
-  }
-
-  .profileRole {
-    font-size: 0.58rem;
-  }
-
-  .profileDescription {
-    font-size: 0.76rem;
-  }
-
-  .credential {
-    padding: 10px 9px;
-  }
-
-  .credential strong {
-    font-size: 1rem;
-  }
-
-  .credential span {
-    font-size: 0.36rem;
-  }
-
-  .languages {
-    gap: 7px;
-  }
-
-  .languageList span {
-    width: 25px;
-    height: 22px;
-    font-size: 0.4rem;
-  }
-
-  .languages p {
-    font-size: 0.46rem;
-  }
-
-  .approachHeader h3 {
-    font-size: 1.85rem;
-  }
-
-  .approachItem {
-    grid-template-columns: 29px 1fr 14px;
-    gap: 9px;
-    padding: 15px 0;
-  }
-
-  .approachNumber {
-    width: 28px;
-    height: 28px;
-    font-size: 0.43rem;
-  }
-
-  .approachContent h4 {
-    font-size: 0.76rem;
-  }
-
-  .approachContent p {
-    font-size: 0.7rem;
-  }
-
-  .dueDiligence {
-    margin-top: 45px;
-    padding: 34px 0;
-  }
-
-  .dueIntro h3 {
-    font-size: 1.85rem;
-  }
-
-  .dueIntro p {
-    font-size: 0.82rem; /* Increased */
-  }
-
-  .checkItem {
-    padding: 12px 0;
-  }
-
-  .checkItem strong {
-    font-size: 0.64rem;
-  }
-
-  .checkItem p {
-    font-size: 0.78rem; /* Increased */
-  }
-
-  .bottomStatement {
-    padding-top: 36px;
-  }
-
-  .statementContent p {
-    font-size: 0.82rem;
-  }
-}
-
-
-/* =========================================
-   VERY SMALL DEVICES
-========================================= */
-
-@media (max-width: 360px) {
-
-  .trustCompass {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .intro h2 {
-    font-size: 2rem;
-  }
-
-  .profileImageWrap {
-    height: 235px;
-  }
-
-  .credentials {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .profileContent h3 {
-    font-size: 1.75rem;
-  }
-
-  .approachHeader h3 {
-    font-size: 1.75rem;
-  }
-
-  .approachContent h4 {
-    font-size: 0.72rem;
-  }
-
-  .approachContent p {
-    font-size: 0.65rem;
-  }
-}
-
-
-/* =========================================
-   REDUCED MOTION
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .profileCard,
-  .profileImage,
-  .credential,
-  .approachItem,
-  .approachNumber,
-  .approachArrow,
-  .checkItem {
-    transition: none;
   }
 }

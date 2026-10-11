@@ -37,8 +37,6 @@
   text-align: center;
 }
 
-/* SMALL LABEL */
-
 .eyebrow {
   display: block;
   margin-bottom: 18px;
@@ -49,8 +47,6 @@
   line-height: 1.2;
 }
 
-/* MAIN HEADLINE */
-
 .intro h2 {
   margin: 0;
   color: #0f2c59;
@@ -59,8 +55,6 @@
   line-height: 1.03;
   letter-spacing: -0.055em;
 }
-
-/* SUPPORTING COPY */
 
 .introDescription {
   width: min(680px, 100%);
@@ -82,10 +76,6 @@
   border-radius: 30px;
   background: #f8fafc;
 }
-
-/* =========================================================
-   APPROACH HEADER
-========================================================= */
 
 .approachHeader {
   display: flex;
@@ -132,8 +122,6 @@
   border-bottom: 1px solid rgba(15, 44, 89, 0.12);
 }
 
-/* TAB */
-
 .approachTab {
   position: relative;
   min-width: 0;
@@ -162,16 +150,10 @@
   background: rgba(255, 255, 255, 0.65);
 }
 
-/* ACTIVE TAB */
-
 .approachTabActive {
   background: #ffffff;
   box-shadow: inset 0 -3px 0 #3ba9ef;
 }
-
-/* =========================================================
-   TAB NUMBER
-========================================================= */
 
 .tabNumber {
   display: block;
@@ -186,10 +168,6 @@
 .approachTabActive .tabNumber {
   color: #3ba9ef;
 }
-
-/* =========================================================
-   TAB CONTENT
-========================================================= */
 
 .tabContent {
   min-width: 0;
@@ -211,10 +189,6 @@
   font-size: 0.78rem;
   line-height: 1.45;
 }
-
-/* =========================================================
-   TAB ARROW
-========================================================= */
 
 .tabArrow {
   position: absolute;
@@ -249,6 +223,7 @@
   grid-template-columns: 110px 1fr;
   gap: 40px;
   padding-top: 48px;
+  width: 100%;
 }
 
 .detailNumber {
@@ -261,6 +236,8 @@
 
 .detailContent {
   max-width: 680px;
+  width: 100%;
+  min-width: 0;
 }
 
 .detailLabel {
@@ -290,7 +267,7 @@
 }
 
 /* =========================================================
-   COORDINATED APPROACH
+   COORDINATED APPROACH & CTA
 ========================================================= */
 
 .coordinated {
@@ -305,10 +282,6 @@
   background: #f2f7fb;
   border: 1px solid rgba(15, 44, 89, 0.08);
 }
-
-/* =========================================================
-   COORDINATED CONTENT
-========================================================= */
 
 .coordinatedEyebrow {
   display: block;
@@ -335,10 +308,6 @@
   line-height: 1.6;
 }
 
-/* =========================================================
-   STATS
-========================================================= */
-
 .stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(80px, 1fr));
@@ -364,10 +333,6 @@
   font-size: 0.7rem;
   line-height: 1.4;
 }
-
-/* =========================================================
-   COORDINATED BUTTON
-========================================================= */
 
 .coordinatedButton {
   display: inline-flex;
@@ -417,10 +382,6 @@
   transform: translate(2px, -2px);
 }
 
-/* =========================================================
-   FINAL CTA
-========================================================= */
-
 .finalCta {
   display: flex;
   align-items: center;
@@ -449,10 +410,6 @@
   letter-spacing: -0.04em;
 }
 
-/* =========================================================
-   FINAL CTA BUTTON
-========================================================= */
-
 .finalCtaButton {
   display: inline-flex;
   align-items: center;
@@ -480,1071 +437,6 @@
   transform: translateY(-2px);
 }
 
-/* =========================================================
-   LARGE DESKTOP — 1440+
-========================================================= */
-
-@media (min-width: 1440px) {
-  .whatWeDo {
-    padding-top: 145px;
-    padding-bottom: 155px;
-  }
-
-  .container {
-    width: min(1380px, 90%);
-  }
-
-  .intro {
-    max-width: 1050px;
-    margin-bottom: 95px;
-  }
-
-  .eyebrow {
-    margin-bottom: 21px;
-    font-size: 0.76rem;
-  }
-
-  .intro h2 {
-    font-size: clamp(4rem, 4.7vw, 5.1rem);
-  }
-
-  .introDescription {
-    width: min(760px, 100%);
-    margin-top: 28px;
-    font-size: 1.12rem;
-    line-height: 1.8;
-  }
-
-  .approachSection {
-    padding: 72px;
-    border-radius: 32px;
-  }
-
-  .approachHeader {
-    margin-bottom: 52px;
-  }
-
-  .sectionEyebrow {
-    margin-bottom: 16px;
-    font-size: 0.74rem;
-  }
-
-  .approachHeader h3 {
-    font-size: clamp(2.8rem, 3.2vw, 3.65rem);
-  }
-
-  .approachCounter {
-    font-size: 0.82rem;
-  }
-
-  .approachTab {
-    min-height: 175px;
-    padding: 29px 28px 27px;
-  }
-
-  .tabNumber {
-    margin-bottom: 30px;
-    font-size: 0.78rem;
-  }
-
-  .tabTitle {
-    font-size: 0.84rem;
-  }
-
-  .tabDescription {
-    font-size: 0.86rem;
-    line-height: 1.5;
-  }
-
-  .tabArrow {
-    top: 27px;
-    right: 25px;
-    width: 30px;
-    height: 30px;
-  }
-
-  .approachDetail {
-    grid-template-columns: 135px 1fr;
-    gap: 48px;
-    padding-top: 58px;
-  }
-
-  .detailNumber {
-    font-size: 5.8rem;
-  }
-
-  .detailContent {
-    max-width: 780px;
-  }
-
-  .detailLabel {
-    margin-bottom: 12px;
-    font-size: 0.72rem;
-  }
-
-  .detailContent h4 {
-    font-size: clamp(2rem, 2.6vw, 2.75rem);
-  }
-
-  .detailContent p {
-    max-width: 750px;
-    margin-top: 19px;
-    font-size: 1.05rem;
-    line-height: 1.78;
-  }
-
-  .coordinated {
-    gap: 65px;
-    margin-top: 85px;
-    padding: 62px 68px;
-    border-radius: 30px;
-  }
-
-  .coordinatedEyebrow {
-    margin-bottom: 16px;
-    font-size: 0.72rem;
-  }
-
-  .coordinatedContent h3 {
-    font-size: clamp(2.2rem, 2.6vw, 3rem);
-  }
-
-  .coordinatedContent p {
-    margin-top: 15px;
-    font-size: 1rem;
-  }
-
-  .stats {
-    gap: 34px;
-  }
-
-  .stat strong {
-    font-size: 2.35rem;
-  }
-
-  .stat span {
-    font-size: 0.76rem;
-  }
-
-  .coordinatedButton {
-    padding: 10px 10px 10px 21px;
-    font-size: 0.86rem;
-  }
-
-  .buttonIcon {
-    width: 35px;
-    height: 35px;
-  }
-
-  .finalCta {
-    gap: 40px;
-    margin-top: 85px;
-    padding: 52px 60px;
-    border-radius: 28px;
-  }
-
-  .finalCtaEyebrow {
-    margin-bottom: 12px;
-    font-size: 0.72rem;
-  }
-
-  .finalCta h3 {
-    font-size: clamp(2.2rem, 2.6vw, 3rem);
-  }
-
-  .finalCtaButton {
-    min-height: 56px;
-    padding: 0 27px;
-    font-size: 0.9rem;
-  }
-}
-
-/* =========================================================
-   LARGE DESKTOP — 1920+
-========================================================= */
-
-@media (min-width: 1920px) {
-  .whatWeDo {
-    padding-top: 165px;
-    padding-bottom: 175px;
-  }
-
-  .container {
-    width: min(1850px, 88%);
-  }
-
-  .intro {
-    max-width: 1200px;
-    margin-bottom: 110px;
-  }
-
-  .eyebrow {
-    margin-bottom: 24px;
-    font-size: 0.82rem;
-  }
-
-  .intro h2 {
-    font-size: clamp(4.6rem, 5vw, 6.1rem);
-  }
-
-  .introDescription {
-    width: min(850px, 100%);
-    margin-top: 32px;
-    font-size: 1.25rem;
-    line-height: 1.85;
-  }
-
-  .approachSection {
-    padding: 88px;
-    border-radius: 36px;
-  }
-
-  .approachHeader {
-    margin-bottom: 62px;
-  }
-
-  .sectionEyebrow {
-    margin-bottom: 19px;
-    font-size: 0.8rem;
-  }
-
-  .approachHeader h3 {
-    font-size: clamp(3.1rem, 3.3vw, 4.15rem);
-  }
-
-  .approachCounter {
-    font-size: 0.88rem;
-  }
-
-  .approachTab {
-    min-height: 205px;
-    padding: 34px 34px 32px;
-  }
-
-  .tabNumber {
-    margin-bottom: 36px;
-    font-size: 0.84rem;
-  }
-
-  .tabContent {
-    gap: 10px;
-  }
-
-  .tabTitle {
-    font-size: 0.92rem;
-    line-height: 1.4;
-  }
-
-  .tabDescription {
-    max-width: 300px;
-    font-size: 0.94rem;
-    line-height: 1.55;
-  }
-
-  .tabArrow {
-    top: 31px;
-    right: 30px;
-    width: 34px;
-    height: 34px;
-  }
-
-  .approachDetail {
-    grid-template-columns: 165px 1fr;
-    gap: 58px;
-    padding-top: 70px;
-  }
-
-  .detailNumber {
-    font-size: 7rem;
-  }
-
-  .detailContent {
-    max-width: 900px;
-  }
-
-  .detailLabel {
-    margin-bottom: 15px;
-    font-size: 0.78rem;
-  }
-
-  .detailContent h4 {
-    font-size: clamp(2.3rem, 2.7vw, 3.2rem);
-  }
-
-  .detailContent p {
-    max-width: 850px;
-    margin-top: 22px;
-    font-size: 1.15rem;
-    line-height: 1.82;
-  }
-
-  .coordinated {
-    grid-template-columns: 1.2fr 1fr auto;
-    gap: 80px;
-    margin-top: 105px;
-    padding: 72px 82px;
-    border-radius: 34px;
-  }
-
-  .coordinatedEyebrow {
-    margin-bottom: 18px;
-    font-size: 0.78rem;
-  }
-
-  .coordinatedContent h3 {
-    font-size: clamp(2.5rem, 2.8vw, 3.45rem);
-  }
-
-  .coordinatedContent p {
-    max-width: 650px;
-    margin-top: 18px;
-    font-size: 1.08rem;
-    line-height: 1.7;
-  }
-
-  .stats {
-    gap: 42px;
-  }
-
-  .stat {
-    gap: 7px;
-  }
-
-  .stat strong {
-    font-size: 2.7rem;
-  }
-
-  .stat span {
-    font-size: 0.82rem;
-  }
-
-  .coordinatedButton {
-    gap: 12px;
-    padding: 11px 11px 11px 24px;
-    font-size: 0.92rem;
-  }
-
-  .buttonIcon {
-    width: 39px;
-    height: 39px;
-  }
-
-  .finalCta {
-    gap: 50px;
-    margin-top: 105px;
-    padding: 62px 74px;
-    border-radius: 32px;
-  }
-
-  .finalCtaEyebrow {
-    margin-bottom: 14px;
-    font-size: 0.78rem;
-  }
-
-  .finalCta h3 {
-    font-size: clamp(2.5rem, 2.8vw, 3.45rem);
-  }
-
-  .finalCtaButton {
-    min-height: 62px;
-    padding: 0 31px;
-    gap: 14px;
-    font-size: 0.96rem;
-  }
-}
-
-/* =========================================================
-   TALL LARGE DESKTOP
-   Optimised for large DevTools / 2560x2593 style viewports
-========================================================= */
-
-@media (min-width: 1920px) and (min-height: 1600px) {
-  .whatWeDo {
-    padding-top: 185px;
-    padding-bottom: 195px;
-  }
-
-  .container {
-    width: min(2050px, 86%);
-  }
-
-  .intro {
-    max-width: 1320px;
-    margin-bottom: 125px;
-  }
-
-  .eyebrow {
-    margin-bottom: 27px;
-    font-size: 0.86rem;
-  }
-
-  .intro h2 {
-    font-size: clamp(5rem, 5.1vw, 6.6rem);
-    line-height: 1.02;
-  }
-
-  .introDescription {
-    width: min(900px, 100%);
-    margin-top: 36px;
-    font-size: 1.32rem;
-    line-height: 1.85;
-  }
-
-  .approachSection {
-    padding: 96px;
-    border-radius: 40px;
-  }
-
-  .approachHeader {
-    margin-bottom: 68px;
-  }
-
-  .sectionEyebrow {
-    margin-bottom: 21px;
-    font-size: 0.84rem;
-  }
-
-  .approachHeader h3 {
-    font-size: clamp(3.4rem, 3.25vw, 4.45rem);
-    line-height: 1.03;
-  }
-
-  .approachCounter {
-    font-size: 0.92rem;
-  }
-
-  .approachTabs {
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-  }
-
-  .approachTab {
-    min-height: 225px;
-    padding: 38px 40px 36px;
-  }
-
-  .tabNumber {
-    margin-bottom: 40px;
-    font-size: 0.88rem;
-  }
-
-  .tabContent {
-    gap: 12px;
-  }
-
-  .tabTitle {
-    font-size: 1rem;
-    line-height: 1.42;
-  }
-
-  .tabDescription {
-    max-width: 340px;
-    font-size: 1rem;
-    line-height: 1.58;
-  }
-
-  .tabArrow {
-    top: 35px;
-    right: 36px;
-    width: 38px;
-    height: 38px;
-  }
-
-  .approachDetail {
-    grid-template-columns: 190px 1fr;
-    gap: 68px;
-    padding-top: 78px;
-  }
-
-  .detailNumber {
-    font-size: 8rem;
-  }
-
-  .detailContent {
-    max-width: 980px;
-  }
-
-  .detailLabel {
-    margin-bottom: 17px;
-    font-size: 0.82rem;
-  }
-
-  .detailContent h4 {
-    font-size: clamp(2.6rem, 2.75vw, 3.45rem);
-    line-height: 1.08;
-  }
-
-  .detailContent p {
-    max-width: 920px;
-    margin-top: 24px;
-    font-size: 1.2rem;
-    line-height: 1.84;
-  }
-
-  .coordinated {
-    gap: 90px;
-    margin-top: 120px;
-    padding: 82px 92px;
-    border-radius: 38px;
-  }
-
-  .coordinatedEyebrow {
-    margin-bottom: 20px;
-    font-size: 0.82rem;
-  }
-
-  .coordinatedContent h3 {
-    font-size: clamp(2.8rem, 2.85vw, 3.7rem);
-    line-height: 1.08;
-  }
-
-  .coordinatedContent p {
-    max-width: 700px;
-    margin-top: 20px;
-    font-size: 1.14rem;
-    line-height: 1.72;
-  }
-
-  .stats {
-    gap: 50px;
-  }
-
-  .stat {
-    gap: 8px;
-  }
-
-  .stat strong {
-    font-size: 3rem;
-  }
-
-  .stat span {
-    max-width: 130px;
-    font-size: 0.86rem;
-    line-height: 1.45;
-  }
-
-  .coordinatedButton {
-    gap: 14px;
-    padding: 12px 12px 12px 26px;
-    font-size: 0.98rem;
-  }
-
-  .buttonIcon {
-    width: 42px;
-    height: 42px;
-  }
-
-  .finalCta {
-    gap: 60px;
-    margin-top: 120px;
-    padding: 70px 84px;
-    border-radius: 36px;
-  }
-
-  .finalCtaEyebrow {
-    margin-bottom: 16px;
-    font-size: 0.82rem;
-  }
-
-  .finalCta h3 {
-    font-size: clamp(2.8rem, 2.85vw, 3.7rem);
-    line-height: 1.08;
-  }
-
-  .finalCtaButton {
-    min-height: 66px;
-    padding: 0 34px;
-    gap: 15px;
-    font-size: 1rem;
-  }
-}
-
-/* =========================================================
-   ULTRA LARGE DESKTOP — 3000+
-========================================================= */
-
-@media (min-width: 3000px) {
-  .whatWeDo {
-    padding-top: 210px;
-    padding-bottom: 220px;
-  }
-
-  .container {
-    width: min(2250px, 84%);
-  }
-
-  .intro {
-    max-width: 1450px;
-    margin-bottom: 145px;
-  }
-
-  .intro h2 {
-    font-size: clamp(5.5rem, 4.8vw, 7.2rem);
-  }
-
-  .introDescription {
-    width: min(980px, 100%);
-    font-size: 1.42rem;
-  }
-
-  .approachSection {
-    padding: 110px;
-    border-radius: 44px;
-  }
-
-  .approachHeader {
-    margin-bottom: 78px;
-  }
-
-  .approachHeader h3 {
-    font-size: clamp(3.8rem, 3vw, 4.8rem);
-  }
-
-  .approachTab {
-    min-height: 250px;
-    padding: 43px 46px 40px;
-  }
-
-  .tabNumber {
-    margin-bottom: 45px;
-    font-size: 0.94rem;
-  }
-
-  .tabTitle {
-    font-size: 1.08rem;
-  }
-
-  .tabDescription {
-    max-width: 380px;
-    font-size: 1.06rem;
-  }
-
-  .approachDetail {
-    grid-template-columns: 215px 1fr;
-    gap: 78px;
-    padding-top: 90px;
-  }
-
-  .detailNumber {
-    font-size: 9rem;
-  }
-
-  .detailContent {
-    max-width: 1100px;
-  }
-
-  .detailContent h4 {
-    font-size: clamp(2.9rem, 2.5vw, 3.8rem);
-  }
-
-  .detailContent p {
-    max-width: 1000px;
-    font-size: 1.28rem;
-  }
-
-  .coordinated {
-    gap: 105px;
-    margin-top: 140px;
-    padding: 95px 105px;
-    border-radius: 42px;
-  }
-
-  .coordinatedContent h3 {
-    font-size: clamp(3rem, 2.6vw, 4.1rem);
-  }
-
-  .coordinatedContent p {
-    max-width: 780px;
-    font-size: 1.22rem;
-  }
-
-  .stats {
-    gap: 60px;
-  }
-
-  .stat strong {
-    font-size: 3.3rem;
-  }
-
-  .stat span {
-    font-size: 0.92rem;
-  }
-
-  .buttonIcon {
-    width: 46px;
-    height: 46px;
-  }
-
-  .coordinatedButton {
-    padding: 13px 13px 13px 29px;
-    font-size: 1.04rem;
-  }
-
-  .finalCta {
-    margin-top: 140px;
-    padding: 80px 96px;
-    border-radius: 40px;
-  }
-
-  .finalCta h3 {
-    font-size: clamp(3rem, 2.6vw, 4.1rem);
-  }
-
-  .finalCtaButton {
-    min-height: 70px;
-    padding: 0 38px;
-    font-size: 1.04rem;
-  }
-}
-
-/* =========================================================
-   LARGE TABLET
-========================================================= */
-
-@media (max-width: 1050px) {
-  .approachSection {
-    padding: 45px;
-  }
-
-  .coordinated {
-    grid-template-columns: 1fr 1fr;
-    gap: 35px;
-  }
-
-  .coordinatedButton {
-    width: fit-content;
-  }
-}
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 850px) {
-  .whatWeDo {
-    padding: 100px 22px 110px;
-  }
-
-  .intro {
-    margin-bottom: 60px;
-  }
-
-  .introDescription {
-    font-size: 1rem;
-  }
-
-  .approachSection {
-    padding: 38px 30px;
-  }
-
-  .approachTabs {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .approachTab {
-    border-bottom: 1px solid rgba(15, 44, 89, 0.1);
-  }
-
-  .approachTab:nth-child(2) {
-    border-right: none;
-  }
-
-  .approachTab:nth-child(3),
-  .approachTab:nth-child(4) {
-    border-bottom: none;
-  }
-
-  .approachDetail {
-    grid-template-columns: 80px 1fr;
-    gap: 25px;
-  }
-
-  .detailNumber {
-    font-size: 4rem;
-  }
-
-  .coordinated {
-    grid-template-columns: 1fr;
-    padding: 42px;
-  }
-
-  .stats {
-    max-width: 500px;
-  }
-
-  .finalCta {
-    padding: 38px;
-  }
-}
-
-/* =========================================================
-   MOBILE
-   Transforms tabs into a compact horizontal scrollable pill bar
-========================================================= */
-
-@media (max-width: 600px) {
-  .whatWeDo {
-    padding: 80px 18px 90px;
-  }
-
-  .intro {
-    margin-bottom: 45px;
-  }
-
-  .eyebrow {
-    margin-bottom: 15px;
-    font-size: 0.65rem;
-  }
-
-  .intro h2 {
-    font-size: clamp(2.05rem, 9vw, 2.8rem);
-    line-height: 1.05;
-    letter-spacing: -0.045em;
-  }
-
-  .introDescription {
-    margin-top: 20px;
-    font-size: 0.92rem;
-    line-height: 1.7;
-  }
-
-  /* APPROACH */
-
-  .approachSection {
-    padding: 24px 16px;
-    border-radius: 22px;
-  }
-
-  .approachHeader {
-    align-items: flex-start;
-    margin-bottom: 20px;
-  }
-
-  .approachHeader h3 {
-    font-size: 1.8rem;
-  }
-
-  .approachCounter {
-    margin-top: 4px;
-    font-size: 0.68rem;
-  }
-
-  /* HORIZONTAL SCROLLABLE PEEK TABS FOR MOBILE */
-
-  .approachTabs {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 8px;
-    border: none;
-    padding-bottom: 8px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Hide scrollbar for clean look */
-  }
-
-  .approachTabs::-webkit-scrollbar {
-    display: none;
-  }
-
-  .approachTab {
-    flex: 0 0 auto;
-    width: 140px;
-    min-height: auto;
-    padding: 12px 14px;
-    border: 1px solid rgba(15, 44, 89, 0.12);
-    border-radius: 12px;
-    background: #ffffff;
-    scroll-snap-align: start;
-    box-shadow: none;
-    transition: all 0.2s ease;
-  }
-
-  .approachTabActive {
-    background: #0f2c59;
-    border-color: #0f2c59;
-    box-shadow: none;
-  }
-
-  .tabNumber {
-    margin-bottom: 6px;
-    font-size: 0.6rem;
-    color: #3ba9ef;
-  }
-
-  .approachTabActive .tabNumber {
-    color: #72c7f5;
-  }
-
-  .tabContent {
-    gap: 2px;
-  }
-
-  .tabTitle {
-    font-size: 0.72rem;
-    line-height: 1.25;
-    padding-right: 0;
-    color: #0f2c59;
-  }
-
-  .approachTabActive .tabTitle {
-    color: #ffffff;
-  }
-
-  /* Hide description and arrow on mobile pill tabs to save space */
-  .tabDescription,
-  .tabArrow {
-    display: none;
-  }
-
-  /* DETAIL */
-
-  .approachDetail {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    padding-top: 24px;
-  }
-
-  .detailNumber {
-    display: none; /* Hide large watermark number on mobile to save vertical space */
-  }
-
-  .detailContent h4 {
-    font-size: 1.5rem;
-  }
-
-  .detailContent p {
-    margin-top: 10px;
-    font-size: 0.88rem;
-    line-height: 1.65;
-  }
-
-  /* COORDINATED */
-
-  .coordinated {
-    gap: 30px;
-    margin-top: 45px;
-    padding: 32px 24px;
-    border-radius: 22px;
-  }
-
-  .coordinatedContent h3 {
-    font-size: 1.8rem;
-    line-height: 1.12;
-  }
-
-  .desktopBreak {
-    display: none;
-  }
-
-  .coordinatedContent p {
-    font-size: 0.88rem;
-  }
-
-  .stats {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-  }
-
-  .stat strong {
-    font-size: 1.65rem;
-  }
-
-  .stat span {
-    font-size: 0.65rem;
-  }
-
-  .coordinatedButton {
-    width: 100%;
-    justify-content: space-between;
-    padding-left: 18px;
-  }
-
-  /* FINAL CTA */
-
-  .finalCta {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 25px;
-    margin-top: 45px;
-    padding: 30px 24px;
-    border-radius: 22px;
-  }
-
-  .finalCta h3 {
-    font-size: 1.9rem;
-  }
-
-  .finalCtaButton {
-    width: 100%;
-    min-height: 54px;
-  }
-}
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 380px) {
-  .whatWeDo {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-
-  .intro h2 {
-    font-size: 1.95rem;
-  }
-
-  .introDescription {
-    font-size: 0.88rem;
-  }
-
-  .approachSection {
-    padding: 20px 14px;
-  }
-
-  .approachHeader h3 {
-    font-size: 1.65rem;
-  }
-
-  .coordinated {
-    padding: 28px 20px;
-  }
-
-  .coordinatedContent h3 {
-    font-size: 1.65rem;
-  }
-
-  .stats {
-    gap: 10px;
-  }
-
-  .stat strong {
-    font-size: 1.45rem;
-  }
-
-  .stat span {
-    font-size: 0.6rem;
-  }
-
-  .finalCta {
-    padding: 27px 20px;
-  }
-}
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  .approachTab,
-  .coordinatedButton,
-  .finalCtaButton,
-  .buttonIcon,
-  .tabArrow {
-    transition: none;
-  }
-}
-/* Hidden on desktop, visible on mobile */
 .swipeHint {
   display: none;
 }
@@ -1552,6 +444,10 @@
 .mobileActiveTitle {
   display: none;
 }
+
+/* =========================================================
+   MOBILE RESPONSIVE FIXES (High Specificity to Prevent Text Hiding)
+========================================================= */
 
 @media (max-width: 600px) {
   .swipeHint {
@@ -1573,5 +469,138 @@
     font-weight: 800;
     letter-spacing: 0.04em;
     text-transform: uppercase;
+  }
+
+  .whatWeDo {
+    padding: 80px 18px 90px;
+  }
+
+  .approachSection {
+    padding: 24px 16px;
+    border-radius: 22px;
+  }
+
+  .approachTabs {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 8px;
+    border: none;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .approachTabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .approachTab {
+    flex: 0 0 auto;
+    width: 140px;
+    min-height: auto;
+    padding: 12px 14px;
+    border: 1px solid rgba(15, 44, 89, 0.12);
+    border-radius: 12px;
+    background: #ffffff;
+    scroll-snap-align: start;
+    box-shadow: none;
+  }
+
+  /* Explicit active styles with guaranteed text visibility */
+  .approachTab.approachTabActive {
+    background-color: #0f2c59 !important;
+    border-color: #0f2c59 !important;
+  }
+
+  .tabNumber {
+    margin-bottom: 6px;
+    font-size: 0.6rem;
+    color: #3ba9ef;
+  }
+
+  .approachTab.approachTabActive .tabNumber {
+    color: #72c7f5 !important;
+  }
+
+  .tabContent {
+    gap: 2px;
+    width: 100%;
+  }
+
+  .tabTitle {
+    font-size: 0.72rem;
+    line-height: 1.25;
+    color: #0f2c59;
+  }
+
+  /* Guaranteed white text color on active tab so it never disappears */
+  .approachTab.approachTabActive .tabTitle {
+    color: #ffffff !important;
+  }
+
+  .tabDescription,
+  .tabArrow {
+    display: none !important;
+  }
+
+  .approachDetail {
+    display: block;
+    padding-top: 24px;
+  }
+
+  .detailNumber {
+    display: none;
+  }
+
+  .detailContent {
+    width: 100%;
+  }
+
+  .detailContent h4 {
+    font-size: 1.5rem;
+  }
+
+  .detailContent p {
+    margin-top: 10px;
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  .coordinated {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 45px;
+    padding: 32px 24px;
+    border-radius: 22px;
+  }
+
+  .desktopBreak {
+    display: none;
+  }
+
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+
+  .coordinatedButton {
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 18px;
+  }
+
+  .finalCta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 25px;
+    margin-top: 45px;
+    padding: 30px 24px;
+    border-radius: 22px;
+  }
+
+  .finalCtaButton {
+    width: 100%;
+    min-height: 54px;
   }
 }

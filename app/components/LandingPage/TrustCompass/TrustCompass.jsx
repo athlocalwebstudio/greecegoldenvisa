@@ -202,7 +202,7 @@ export default function TrustCompass() {
                     {t("trustCompass.approach.items.engineer.title")}
                   </h4>
 
-                  <p>
+                  <p className={styles.approachDesc}>
                     {t("trustCompass.approach.items.engineer.description")}
                   </p>
 
@@ -231,7 +231,7 @@ export default function TrustCompass() {
                     {t("trustCompass.approach.items.independent.title")}
                   </h4>
 
-                  <p>
+                  <p className={styles.approachDesc}>
                     {t(
                       "trustCompass.approach.items.independent.description"
                     )}
@@ -262,7 +262,7 @@ export default function TrustCompass() {
                     {t("trustCompass.approach.items.coordinated.title")}
                   </h4>
 
-                  <p>
+                  <p className={styles.approachDesc}>
                     {t(
                       "trustCompass.approach.items.coordinated.description"
                     )}
@@ -293,7 +293,7 @@ export default function TrustCompass() {
                     {t("trustCompass.approach.items.international.title")}
                   </h4>
 
-                  <p>
+                  <p className={styles.approachDesc}>
                     {t(
                       "trustCompass.approach.items.international.description"
                     )}
@@ -340,109 +340,124 @@ export default function TrustCompass() {
 
           <div className={styles.checkList}>
 
-            <div className={styles.checkItem}>
+            {/* CHECK ITEM 01 */}
+            <LocalizedLink href="/team/why-clients-trust-us" style={{ textDecoration: "none", color: "inherit", display: "block" }}>
+              <div className={styles.checkItem}>
 
-              <span>01</span>
+                <span>01</span>
 
-              <div>
-                <strong>
-                  {t(
-                    "trustCompass.dueDiligence.items.planning.title"
-                  )}
-                </strong>
+                <div className={styles.checkItemContent}>
+                  <strong>
+                    {t(
+                      "trustCompass.dueDiligence.items.planning.title"
+                    )}
+                  </strong>
 
-                <p>
-                  {t(
-                    "trustCompass.dueDiligence.items.planning.description"
-                  )}
-                </p>
+                  <p className={styles.checkDesc}>
+                    {t(
+                      "trustCompass.dueDiligence.items.planning.description"
+                    )}
+                  </p>
+                </div>
+
               </div>
+            </LocalizedLink>
 
-            </div>
 
+            {/* CHECK ITEM 02 */}
+            <LocalizedLink href="/team/why-clients-trust-us" style={{ textDecoration: "none", color: "inherit", display: "block" }}>
+              <div className={styles.checkItem}>
 
-            <div className={styles.checkItem}>
+                <span>02</span>
 
-              <span>02</span>
+                <div className={styles.checkItemContent}>
+                  <strong>
+                    {t(
+                      "trustCompass.dueDiligence.items.unauthorised.title"
+                    )}
+                  </strong>
 
-              <div>
-                <strong>
-                  {t(
-                    "trustCompass.dueDiligence.items.unauthorised.title"
-                  )}
-                </strong>
+                  <p className={styles.checkDesc}>
+                    {t(
+                      "trustCompass.dueDiligence.items.unauthorised.description"
+                    )}
+                  </p>
+                </div>
 
-                <p>
-                  {t(
-                    "trustCompass.dueDiligence.items.unauthorised.description"
-                  )}
-                </p>
               </div>
+            </LocalizedLink>
 
-            </div>
 
+            {/* CHECK ITEM 03 */}
+            <LocalizedLink href="/team/why-clients-trust-us" style={{ textDecoration: "none", color: "inherit", display: "block" }}>
+              <div className={styles.checkItem}>
 
-            <div className={styles.checkItem}>
+                <span>03</span>
 
-              <span>03</span>
+                <div className={styles.checkItemContent}>
+                  <strong>
+                    {t(
+                      "trustCompass.dueDiligence.items.documentation.title"
+                    )}
+                  </strong>
 
-              <div>
-                <strong>
-                  {t(
-                    "trustCompass.dueDiligence.items.documentation.title"
-                  )}
-                </strong>
+                  <p className={styles.checkDesc}>
+                    {t(
+                      "trustCompass.dueDiligence.items.documentation.description"
+                    )}
+                  </p>
+                </div>
 
-                <p>
-                  {t(
-                    "trustCompass.dueDiligence.items.documentation.description"
-                  )}
-                </p>
               </div>
+            </LocalizedLink>
 
-            </div>
 
+            {/* CHECK ITEM 04 */}
+            <LocalizedLink href="/team/why-clients-trust-us" style={{ textDecoration: "none", color: "inherit", display: "block" }}>
+              <div className={styles.checkItem}>
 
-            <div className={styles.checkItem}>
+                <span>04</span>
 
-              <span>04</span>
+                <div className={styles.checkItemContent}>
+                  <strong>
+                    {t(
+                      "trustCompass.dueDiligence.items.buildingIdentity.title"
+                    )}
+                  </strong>
 
-              <div>
-                <strong>
-                  {t(
-                    "trustCompass.dueDiligence.items.buildingIdentity.title"
-                  )}
-                </strong>
+                  <p className={styles.checkDesc}>
+                    {t(
+                      "trustCompass.dueDiligence.items.buildingIdentity.description"
+                    )}
+                  </p>
+                </div>
 
-                <p>
-                  {t(
-                    "trustCompass.dueDiligence.items.buildingIdentity.description"
-                  )}
-                </p>
               </div>
+            </LocalizedLink>
 
-            </div>
 
+            {/* CHECK ITEM 05 */}
+            <LocalizedLink href="/team/why-clients-trust-us" style={{ textDecoration: "none", color: "inherit", display: "block" }}>
+              <div className={styles.checkItem}>
 
-            <div className={styles.checkItem}>
+                <span>05</span>
 
-              <span>05</span>
+                <div className={styles.checkItemContent}>
+                  <strong>
+                    {t(
+                      "trustCompass.dueDiligence.items.goldenVisa.title"
+                    )}
+                  </strong>
 
-              <div>
-                <strong>
-                  {t(
-                    "trustCompass.dueDiligence.items.goldenVisa.title"
-                  )}
-                </strong>
+                  <p className={styles.checkDesc}>
+                    {t(
+                      "trustCompass.dueDiligence.items.goldenVisa.description"
+                    )}
+                  </p>
+                </div>
 
-                <p>
-                  {t(
-                    "trustCompass.dueDiligence.items.goldenVisa.description"
-                  )}
-                </p>
               </div>
-
-            </div>
+            </LocalizedLink>
 
           </div>
 
